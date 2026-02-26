@@ -39,3 +39,20 @@ export async function remove(id: string): Promise<void> {
   const db = await getDB();
   await db.delete('projects', id);
 }
+
+export async function duplicate(id: string, userId: string): Promise<Project | undefined> {
+  const db = await getDB();
+  const existing = await db.get('projects', id);
+  if (!existing) return undefined;
+  
+  const now = nowISO();
+  const newProject: Project = {
+    ...existing,
+    id: generateId(),
+    userId,
+    createdAt: now,
+    updatedAt: now,
+  };
+  await db.put('projects', newProject);
+  return newProject;
+}

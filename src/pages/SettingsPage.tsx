@@ -27,6 +27,76 @@ const DATE_FORMAT_OPTIONS = [
   { value: 'YYYY-MM-DD', label: 'YYYY-MM-DD (e.g. 2026-02-25)' },
 ];
 
+function AccountSettings() {
+  const { session } = useAuth();
+  const [name, setName] = useState('');
+  const [saved, setSaved] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSaving, setIsSaving] = useState(false);
+
+  useEffect(() => {
+    if (session?.id) {
+      usersRepo.getById(session.id).then((user) => {
+        setName(user?.name ?? '');
+        setIsLoading(false);
+      });
+    }
+  }, [session?.id]);
+
+  const handleSave = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!session?.id) return;
+    setIsSaving(true);
+    try {
+      await usersRepo.update(session.id, { name: name.trim() });
+      setSaved(true);
+      setTimeout(() => setSaved(false), 2000);
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <Card>
+        <h3 className="mb-3">Account</h3>
+        <div className="h-20 bg-secondary rounded animate-pulse" />
+      </Card>
+    );
+  }
+
+  return (
+    <Card>
+      <h3 className="mb-3">Account</h3>
+      <form onSubmit={handleSave} className="space-y-4">
+        <div className="space-y-2 text-sm">
+          <div className="flex items-center justify-between">
+            <span className="text-muted-foreground">Email</span>
+            <span>{session?.email}</span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-muted-foreground">Role</span>
+            <span className="capitalize">{session?.role}</span>
+          </div>
+        </div>
+        <Input
+          label="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Enter your name"
+        />
+        <div className="flex items-center gap-3">
+          <Button type="submit" disabled={isSaving}>
+            <Save size={14} />
+            Save
+          </Button>
+          {saved && <span className="text-sm text-emerald-500">Saved!</span>}
+        </div>
+      </form>
+    </Card>
+  );
+}
+
 function DateFormatSettings() {
   const [format, setFormat] = useState('DD/MM/YYYY');
   const [saved, setSaved] = useState(false);
@@ -226,19 +296,7 @@ export function SettingsPage() {
     <div className="space-y-6">
       <h1>Settings</h1>
 
-      <Card>
-        <h3 className="mb-3">Account</h3>
-        <div className="space-y-2 text-sm">
-          <div className="flex justify-between">
-            <span className="text-muted-foreground">Email</span>
-            <span>{session?.email}</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="text-muted-foreground">Role</span>
-            <span className="capitalize">{session?.role}</span>
-          </div>
-        </div>
-      </Card>
+      <AccountSettings />
 
       <DateFormatSettings />
 

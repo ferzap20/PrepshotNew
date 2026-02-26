@@ -27,13 +27,19 @@ export function ProjectCard({ project, equipmentCount }: ProjectCardProps) {
         </div>
 
         <div className="flex items-center gap-2 flex-wrap">
-          {project.crewType && (
-            <Badge variant="info">{project.crewType}</Badge>
+          {project.role && (
+            <Badge variant="default">{project.role}</Badge>
           )}
-          {(project.productionCompany || project.role) && (
-            <Badge variant="default">{project.productionCompany || project.role}</Badge>
+          {project.productionCompany && (
+            <Badge variant="info">{project.productionCompany}</Badge>
           )}
         </div>
+
+        {project.notes && (
+          <div className="text-xs text-muted-foreground">
+            <span className="font-medium">Notes:</span> {project.notes}
+          </div>
+        )}
 
         <div className="flex items-center gap-4 text-xs text-muted-foreground mt-auto">
           <span className="flex items-center gap-1">

@@ -5,6 +5,7 @@ export interface User {
   email: string;
   passwordHash: string;
   role: UserRole;
+  name?: string;
   createdAt: string;
   updatedAt: string;
 }

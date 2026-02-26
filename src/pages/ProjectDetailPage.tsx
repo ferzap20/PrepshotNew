@@ -1,24 +1,28 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router';
-import { ArrowLeft, Pencil, Trash2, Package, CalendarDays, Calendar } from 'lucide-react';
+import { ArrowLeft, Pencil, Copy, Trash2, Package, CalendarDays, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
 import { EditProjectModal } from '@/components/projects/EditProjectModal';
+import { DuplicateProjectModal } from '@/components/projects/DuplicateProjectModal';
 import { DeleteProjectDialog } from '@/components/projects/DeleteProjectDialog';
 import { projectsRepo, projectGeneralListsRepo, shootingDaysRepo } from '@/lib/db/repositories';
 import { formatDateCustom } from '@/lib/utils/date';
 import { useAppSetting } from '@/hooks/useAppSetting';
+import { useAuth } from '@/hooks/useAuth';
 import type { Project } from '@/types/models';
 
 export function ProjectDetailPage() {
   const { projectId } = useParams<{ projectId: string }>();
   const navigate = useNavigate();
+  const { session } = useAuth();
   const [project, setProject] = useState<Project | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [equipmentCount, setEquipmentCount] = useState(0);
   const [daysCount, setDaysCount] = useState(0);
   const [isEditOpen, setIsEditOpen] = useState(false);
+  const [isDuplicateOpen, setIsDuplicateOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
 
   useEffect(() => {
@@ -68,6 +72,10 @@ export function ProjectDetailPage() {
             <Pencil size={14} />
             Edit
           </Button>
+          <Button variant="secondary" onClick={() => setIsDuplicateOpen(true)}>
+            <Copy size={14} />
+            Duplicate
+          </Button>
           <Button variant="danger" onClick={() => setIsDeleteOpen(true)}>
             <Trash2 size={14} />
             Delete
@@ -78,19 +86,17 @@ export function ProjectDetailPage() {
       {/* Project header */}
       <div className="space-y-3">
         <div className="flex flex-col gap-1">
-          <div className="flex items-baseline gap-3 flex-wrap">
-            <h1>{project.name}</h1>
-            {project.productionCompany && (
-              <span className="text-sm text-muted-foreground">Production Company: {project.productionCompany}</span>
-            )}
-          </div>
+          <h1>{project.name}</h1>
+          {project.productionCompany && (
+            <span className="text-sm text-muted-foreground">{project.productionCompany}</span>
+          )}
         </div>
         <div className="flex flex-col gap-1.5 text-sm text-muted-foreground">
           {(project.crewType || project.role) && (
             <div className="flex items-center gap-2">
               <span className="w-24 text-xs uppercase tracking-wide">Role</span>
-              {project.crewType && <Badge variant="default">{project.crewType}</Badge>}
-              <span>{project.role}</span>
+              {project.crewType && <span>{project.crewType}</span>}
+              {project.role && <Badge variant="default">{project.role}</Badge>}
               {project.firstAC && <span className="text-muted-foreground/60">· 1st AC: {project.firstAC}</span>}
             </div>
           )}
@@ -114,9 +120,14 @@ export function ProjectDetailPage() {
               </span>
             </div>
           )}
+          {!project.trialStartDate && !project.startDate && (
+            <div className="text-sm italic text-muted-foreground">No dates added to this project</div>
+          )}
         </div>
-        {project.notes && (
+        {project.notes ? (
           <p className="text-sm text-muted-foreground whitespace-pre-wrap">{project.notes}</p>
+        ) : (
+          <p className="text-sm italic text-muted-foreground">No notes added</p>
         )}
       </div>
 
@@ -179,6 +190,15 @@ export function ProjectDetailPage() {
         project={project}
         onUpdated={(updated) => { setProject(updated); setIsEditOpen(false); }}
       />
+
+      {session && (
+        <DuplicateProjectModal
+          isOpen={isDuplicateOpen}
+          onClose={() => setIsDuplicateOpen(false)}
+          project={project}
+          userId={session.userId}
+        />
+      )}
 
       <DeleteProjectDialog
         isOpen={isDeleteOpen}

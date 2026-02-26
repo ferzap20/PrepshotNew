@@ -56,7 +56,6 @@ export function ProjectForm({ initial, onSubmit, onCancel, submitLabel }: Projec
   const [endDate, setEndDate] = useState(initial?.endDate ?? '');
   const [trialStartDate, setTrialStartDate] = useState(initial?.trialStartDate ?? '');
   const [trialEndDate, setTrialEndDate] = useState(initial?.trialEndDate ?? '');
-  const [notes, setNotes] = useState(initial?.notes ?? '');
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -85,7 +84,7 @@ export function ProjectForm({ initial, onSubmit, onCancel, submitLabel }: Projec
         endDate: endDate || null,
         trialStartDate: trialStartDate || null,
         trialEndDate: trialEndDate || null,
-        notes,
+        notes: '',
       });
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong');
@@ -155,12 +154,6 @@ export function ProjectForm({ initial, onSubmit, onCancel, submitLabel }: Projec
         <Input label="Shoot Start" type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
         <Input label="Shoot End" type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
       </div>
-      <Textarea
-        label="Notes"
-        value={notes}
-        onChange={(e) => setNotes(e.target.value)}
-        placeholder="Production notes, contacts, location..."
-      />
       {error && <p className="text-sm text-destructive">{error}</p>}
       <div className="flex gap-3 justify-end pt-2">
         <Button type="button" variant="secondary" onClick={onCancel}>

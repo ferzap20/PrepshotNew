@@ -39,9 +39,9 @@ function ProjectRowCard({
       <Link to={`/projects/${project.id}`} className="flex-1 min-w-0">
         <div className="flex items-center gap-3 flex-wrap">
           <span className="font-medium truncate">{project.name}</span>
-          {project.crewType && <Badge variant="info">{project.crewType}</Badge>}
-          {(project.productionCompany || project.role) && (
-            <Badge variant="default">{project.productionCompany || project.role}</Badge>
+          {project.role && <Badge variant="default">{project.role}</Badge>}
+          {project.productionCompany && (
+            <Badge variant="info">{project.productionCompany}</Badge>
           )}
         </div>
         <p className="text-xs text-muted-foreground mt-0.5">
