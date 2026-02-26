@@ -1,0 +1,54 @@
+[
+  {
+    "id": "grip_matthews_c_stand",
+    "name": "Matthews C-Stand 40\"",
+    "brand": "Matthews",
+    "category": "Grip",
+    "subcategory": "Stand",
+    "description": "Industry-standard steel C-stand with turtle base.",
+    "specs": {
+      "height_max_cm": 300
+    },
+    "weight_kg": 5.9,
+    "source": "Matthews"
+  },
+  {
+    "id": "grip_avenger_super_clamp",
+    "name": "Avenger Super Clamp",
+    "brand": "Avenger",
+    "category": "Grip",
+    "subcategory": "Clamp",
+    "description": "Universal clamp for mounting accessories on set.",
+    "specs": {
+      "jaw_range_mm": "13-55"
+    },
+    "weight_kg": 0.4,
+    "source": "Avenger"
+  },
+  {
+    "id": "grip_ronford_baker_tripod",
+    "name": "Ronford-Baker Heavy Duty Tripod",
+    "brand": "Ronford-Baker",
+    "category": "Grip",
+    "subcategory": "Tripod",
+    "description": "High-end tripod used for cinema cameras.",
+    "specs": {
+      "material": "Aluminum"
+    },
+    "weight_kg": 6.5,
+    "source": "ARRI Rental"
+  }
+]
+{"id":"grip_flag_solid_24x36","name":"24x36 Solid Flag","brand":"Matthews","category":"Grip","subcategory":"Flag","description":"Standard 24x36 inch solid flag for cutting light.","specs":{"size_in":"24x36"},"weight_kg":1.2,"source":"Matthews"},
+{"id":"grip_flag_silk_24x36","name":"24x36 Silk Diffusion","brand":"Matthews","category":"Grip","subcategory":"Flag","description":"24x36 silk diffusion for softening light.","specs":{"size_in":"24x36"},"weight_kg":0.9,"source":"Matthews"},
+{"id":"grip_flag_openscrim_24x36","name":"24x36 Open Scrim","brand":"Matthews","category":"Grip","subcategory":"Scrim","description":"Open scrim for reducing light intensity.","specs":{"size_in":"24x36"},"weight_kg":0.8,"source":"Matthews"},
+
+{"id":"grip_frame_4x4_solid","name":"4x4 Solid Frame","brand":"Matthews","category":"Grip","subcategory":"Frame","description":"4x4 solid for blocking large areas of light.","specs":{"size_ft":"4x4"},"weight_kg":3.5,"source":"Matthews"},
+{"id":"grip_frame_4x4_silk","name":"4x4 Silk Frame","brand":"Matthews","category":"Grip","subcategory":"Frame","description":"4x4 silk diffusion for soft, even lighting.","specs":{"size_ft":"4x4"},"weight_kg":2.8,"source":"Matthews"},
+{"id":"grip_frame_6x6_ultrabounce","name":"6x6 Ultrabounce","brand":"Matthews","category":"Grip","subcategory":"Frame","description":"6x6 ultrabounce for soft reflected light.","specs":{"size_ft":"6x6"},"weight_kg":4.0,"source":"Matthews"},
+
+{"id":"grip_magic_arm","name":"Magic Arm","brand":"Manfrotto","category":"Grip","subcategory":"Arm","description":"Adjustable articulating arm for mounting accessories.","specs":{"length_cm":53},"weight_kg":1.1,"source":"Manfrotto"},
+{"id":"grip_grip_head_2_5","name":"2.5\" Grip Head","brand":"Matthews","category":"Grip","subcategory":"Head","description":"Standard grip head for mounting flags and arms.","specs":{"diameter_in":2.5},"weight_kg":0.6,"source":"Matthews"},
+{"id":"grip_baby_pin_5","name":"5\" Baby Pin","brand":"Avenger","category":"Grip","subcategory":"Adapter","description":"Standard 5-inch baby pin for mounting lights.","specs":{"length_in":5},"weight_kg":0.3,"source":"Avenger"},
+{"id":"grip_cheeseboro_clamp","name":"Cheeseboro Clamp","brand":"Modern","category":"Grip","subcategory":"Clamp","description":"Heavy-duty clamp for rigging pipes and truss.","specs":{"type":"fixed"},"weight_kg":1.4,"source":"Modern"},
+{"id":"grip_cardellini_endjaw","name":"Cardellini End Jaw Clamp","brand":"Cardellini","category":"Grip","subcategory":"Clamp","description":"End jaw clamp for gripping irregular surfaces.","specs":{"jaw_type":"end"},"weight_kg":0.9,"source":"Cardellini"}

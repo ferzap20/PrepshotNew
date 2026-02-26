@@ -1,0 +1,47 @@
+[
+  {
+    "id": "light_aputure_600d",
+    "name": "Aputure LS 600d Pro",
+    "brand": "Aputure",
+    "category": "Lighting",
+    "subcategory": "LED Spotlight",
+    "description": "High-output daylight LED fixture widely used in film production.",
+    "specs": {
+      "power_w": 600,
+      "color_temp_k": 5600,
+      "dimming": "0-100%"
+    },
+    "weight_kg": 4.3,
+    "connectors": ["Neutrik PowerCON"],
+    "source": "B&H"
+  },
+  {
+    "id": "light_astera_titan_tube",
+    "name": "Astera Titan Tube",
+    "brand": "Astera",
+    "category": "Lighting",
+    "subcategory": "LED Tube",
+    "description": "RGBWW LED tube with wireless control, popular for creative lighting.",
+    "specs": {
+      "length_cm": 103,
+      "battery_life_h": 20,
+      "color_temp_range_k": "1750-20000"
+    },
+    "weight_kg": 1.3,
+    "source": "ARRI Rental"
+  },
+  {
+    "id": "light_kinoflo_diva_lite_21",
+    "name": "Kino Flo Diva-Lite 21",
+    "brand": "Kino Flo",
+    "category": "Lighting",
+    "subcategory": "Soft LED Panel",
+    "description": "Soft LED panel with adjustable color temperature.",
+    "specs": {
+      "power_w": 150,
+      "color_temp_range_k": "2700-6500"
+    },
+    "weight_kg": 3.2,
+    "source": "Keslow Camera"
+  }
+]

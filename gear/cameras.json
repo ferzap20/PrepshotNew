@@ -1,0 +1,465 @@
+[
+  {
+    "id": "camera_arri_alexa35",
+    "name": "ARRI ALEXA 35",
+    "brand": "ARRI",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "Super 35 4.6K cinema camera with ARRI REVEAL color science.",
+    "mount": "PL",
+    "specs": {
+      "sensor": "Super 35",
+      "resolution": "4.6K",
+      "dynamic_range_stops": 17
+    },
+    "weight_kg": 2.9,
+    "connectors": ["SDI", "Lemo"],
+    "compatibility": ["pl_lenses"],
+    "source": "ARRI Rental"
+  },
+  {
+    "id": "camera_arri_alexa_mini_lf",
+    "name": "ARRI ALEXA Mini LF",
+    "brand": "ARRI",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "Large-format cinema camera widely used for feature films.",
+    "mount": "LPL",
+    "specs": {
+      "sensor": "Large Format",
+      "resolution": "4.5K"
+    },
+    "weight_kg": 2.6,
+    "connectors": ["SDI"],
+    "compatibility": ["lpl_lenses"],
+    "source": "ARRI Rental"
+  },
+  {
+    "id": "camera_arri_alexa_mini",
+    "name": "ARRI ALEXA Mini",
+    "brand": "ARRI",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "Compact Super 35 cinema camera used extensively for handheld and gimbal work.",
+    "mount": "PL",
+    "specs": {
+      "sensor": "Super 35",
+      "resolution": "3.4K"
+    },
+    "weight_kg": 2.3,
+    "connectors": ["SDI"],
+    "compatibility": ["pl_lenses"],
+    "source": "ARRI Rental"
+  },
+  {
+    "id": "camera_arri_amira",
+    "name": "ARRI AMIRA",
+    "brand": "ARRI",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "Documentary‑oriented Super 35 cinema camera with ergonomic shoulder design.",
+    "mount": "PL",
+    "specs": {
+      "sensor": "Super 35",
+      "resolution": "3.2K"
+    },
+    "weight_kg": 4.1,
+    "connectors": ["SDI"],
+    "compatibility": ["pl_lenses"],
+    "source": "ARRI Rental"
+  },
+
+  {
+    "id": "camera_red_vraptor_8k",
+    "name": "RED V-RAPTOR 8K VV",
+    "brand": "RED",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "8K full-frame cinema camera with high frame rate capabilities.",
+    "mount": "RF",
+    "specs": {
+      "sensor": "Full Frame",
+      "resolution": "8K"
+    },
+    "weight_kg": 1.8,
+    "connectors": ["SDI", "USB-C"],
+    "compatibility": ["rf_lenses", "pl_lenses_with_adapter"],
+    "source": "RED"
+  },
+  {
+    "id": "camera_red_vraptor_x",
+    "name": "RED V-RAPTOR X",
+    "brand": "RED",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "Next‑generation RED body with global shutter and 8K VV sensor.",
+    "mount": "RF",
+    "specs": {
+      "sensor": "Full Frame Global Shutter",
+      "resolution": "8K"
+    },
+    "weight_kg": 1.9,
+    "connectors": ["SDI"],
+    "compatibility": ["rf_lenses", "pl_lenses_with_adapter"],
+    "source": "RED"
+  },
+  {
+    "id": "camera_red_komodo_x",
+    "name": "RED KOMODO-X",
+    "brand": "RED",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "Compact 6K cinema camera ideal for gimbals, drones, and crash cams.",
+    "mount": "RF",
+    "specs": {
+      "sensor": "Super 35",
+      "resolution": "6K"
+    },
+    "weight_kg": 1.6,
+    "connectors": ["SDI"],
+    "compatibility": ["rf_lenses", "pl_lenses_with_adapter"],
+    "source": "RED"
+  },
+
+  {
+    "id": "camera_sony_venice2",
+    "name": "Sony VENICE 2",
+    "brand": "Sony",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "Full-frame cinema camera with interchangeable sensors (8.6K or 6K).",
+    "mount": "PL",
+    "specs": {
+      "sensor": "Full Frame",
+      "resolution": "8.6K"
+    },
+    "weight_kg": 4.2,
+    "connectors": ["SDI", "Ethernet"],
+    "compatibility": ["pl_lenses"],
+    "source": "Sony"
+  },
+  {
+    "id": "camera_sony_fx9",
+    "name": "Sony FX9",
+    "brand": "Sony",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "Full-frame 6K sensor camera popular for documentary and broadcast.",
+    "mount": "E",
+    "specs": {
+      "sensor": "Full Frame",
+      "resolution": "6K oversampled to 4K"
+    },
+    "weight_kg": 2.0,
+    "connectors": ["SDI", "HDMI"],
+    "compatibility": ["e_mount_lenses"],
+    "source": "Sony"
+  },
+  {
+    "id": "camera_sony_fx6",
+    "name": "Sony FX6",
+    "brand": "Sony",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "Compact full-frame cinema camera ideal for handheld and gimbal work.",
+    "mount": "E",
+    "specs": {
+      "sensor": "Full Frame",
+      "resolution": "4K"
+    },
+    "weight_kg": 0.89,
+    "connectors": ["SDI", "HDMI"],
+    "compatibility": ["e_mount_lenses"],
+    "source": "Sony"
+  }
+]
+[
+  {
+    "id": "camera_canon_c500mkii",
+    "name": "Canon EOS C500 Mark II",
+    "brand": "Canon",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "Full-frame 5.9K cinema camera with modular design and internal RAW.",
+    "mount": "EF",
+    "specs": {
+      "sensor": "Full Frame",
+      "resolution": "5.9K",
+      "recording": ["Cinema RAW Light", "XF-AVC"]
+    },
+    "weight_kg": 1.7,
+    "connectors": ["SDI", "HDMI"],
+    "compatibility": ["ef_lenses"],
+    "source": "Canon"
+  },
+  {
+    "id": "camera_canon_c300mkiii",
+    "name": "Canon EOS C300 Mark III",
+    "brand": "Canon",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "Super 35 cinema camera with Dual Gain Output sensor.",
+    "mount": "EF",
+    "specs": {
+      "sensor": "Super 35",
+      "resolution": "4K",
+      "dynamic_range_stops": 16
+    },
+    "weight_kg": 1.8,
+    "connectors": ["SDI", "HDMI"],
+    "compatibility": ["ef_lenses"],
+    "source": "Canon"
+  },
+  {
+    "id": "camera_canon_r5c",
+    "name": "Canon EOS R5 C",
+    "brand": "Canon",
+    "category": "Camera",
+    "subcategory": "Hybrid Cinema Camera",
+    "description": "Compact 8K hybrid camera with active cooling and RAW recording.",
+    "mount": "RF",
+    "specs": {
+      "sensor": "Full Frame",
+      "resolution": "8K"
+    },
+    "weight_kg": 0.68,
+    "connectors": ["HDMI"],
+    "compatibility": ["rf_lenses"],
+    "source": "Canon"
+  },
+
+  {
+    "id": "camera_blackmagic_ursa12k",
+    "name": "Blackmagic URSA Mini Pro 12K",
+    "brand": "Blackmagic",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "12K Super 35 cinema camera with Blackmagic RAW.",
+    "mount": "PL",
+    "specs": {
+      "sensor": "Super 35",
+      "resolution": "12K"
+    },
+    "weight_kg": 2.3,
+    "connectors": ["SDI"],
+    "compatibility": ["pl_lenses"],
+    "source": "Blackmagic"
+  },
+  {
+    "id": "camera_blackmagic_pocket6kpro",
+    "name": "Blackmagic Pocket Cinema Camera 6K Pro",
+    "brand": "Blackmagic",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "Affordable Super 35 cinema camera with internal ND filters.",
+    "mount": "EF",
+    "specs": {
+      "sensor": "Super 35",
+      "resolution": "6K"
+    },
+    "weight_kg": 1.2,
+    "connectors": ["HDMI"],
+    "compatibility": ["ef_lenses"],
+    "source": "Blackmagic"
+  },
+
+  {
+    "id": "camera_panasonic_varicamlt",
+    "name": "Panasonic Varicam LT",
+    "brand": "Panasonic",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "Dual-native ISO cinema camera used for Netflix productions.",
+    "mount": "EF",
+    "specs": {
+      "sensor": "Super 35",
+      "resolution": "4K",
+      "dual_iso": [800, 5000]
+    },
+    "weight_kg": 2.7,
+    "connectors": ["SDI"],
+    "compatibility": ["ef_lenses"],
+    "source": "Panasonic"
+  },
+  {
+    "id": "camera_panasonic_eva1",
+    "name": "Panasonic EVA1",
+    "brand": "Panasonic",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "Compact 5.7K cinema camera popular for documentary work.",
+    "mount": "EF",
+    "specs": {
+      "sensor": "Super 35",
+      "resolution": "5.7K"
+    },
+    "weight_kg": 1.2,
+    "connectors": ["SDI", "HDMI"],
+    "compatibility": ["ef_lenses"],
+    "source": "Panasonic"
+  },
+
+  {
+    "id": "camera_zcam_e2_f6",
+    "name": "Z CAM E2-F6",
+    "brand": "Z CAM",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "Compact full-frame 6K cinema camera.",
+    "mount": "EF",
+    "specs": {
+      "sensor": "Full Frame",
+      "resolution": "6K"
+    },
+    "weight_kg": 0.9,
+    "connectors": ["HDMI"],
+    "compatibility": ["ef_lenses"],
+    "source": "Z CAM"
+  },
+
+  {
+    "id": "camera_kinefinity_mavo_lf",
+    "name": "Kinefinity MAVO LF",
+    "brand": "Kinefinity",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "Full-frame cinema camera with 6K RAW recording.",
+    "mount": "PL",
+    "specs": {
+      "sensor": "Full Frame",
+      "resolution": "6K"
+    },
+    "weight_kg": 1.4,
+    "connectors": ["SDI"],
+    "compatibility": ["pl_lenses"],
+    "source": "Kinefinity"
+  }
+]
+[
+  {
+    "id": "camera_panavision_dxl2",
+    "name": "Panavision Millennium DXL2",
+    "brand": "Panavision",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "Large-format 8K cinema camera built with RED sensor and Panavision color science.",
+    "mount": "PV",
+    "specs": {
+      "sensor": "Large Format",
+      "resolution": "8K"
+    },
+    "weight_kg": 5.0,
+    "connectors": ["SDI"],
+    "compatibility": ["pv_lenses"],
+    "source": "Panavision"
+  },
+  {
+    "id": "camera_panavision_genesis",
+    "name": "Panavision Genesis",
+    "brand": "Panavision",
+    "category": "Camera",
+    "subcategory": "Digital Cinema Camera",
+    "description": "Early digital cinema camera used on major Hollywood productions.",
+    "mount": "PV",
+    "specs": {
+      "sensor": "Super 35",
+      "resolution": "1080p"
+    },
+    "weight_kg": 5.5,
+    "connectors": ["HD-SDI"],
+    "compatibility": ["pv_lenses"],
+    "source": "Panavision"
+  },
+
+  {
+    "id": "camera_arri_416",
+    "name": "ARRI 416",
+    "brand": "ARRI",
+    "category": "Camera",
+    "subcategory": "Film Camera",
+    "description": "Super 16 film camera widely used for commercials and stylized features.",
+    "mount": "PL",
+    "specs": {
+      "film_format": "Super 16",
+      "frame_rates": "1–75 fps"
+    },
+    "weight_kg": 2.7,
+    "connectors": [],
+    "compatibility": ["pl_lenses"],
+    "source": "ARRI Rental"
+  },
+  {
+    "id": "camera_arri_435",
+    "name": "ARRI 435",
+    "brand": "ARRI",
+    "category": "Camera",
+    "subcategory": "Film Camera",
+    "description": "35mm MOS film camera known for high-speed capabilities.",
+    "mount": "PL",
+    "specs": {
+      "film_format": "35mm",
+      "frame_rates": "1–150 fps"
+    },
+    "weight_kg": 4.5,
+    "connectors": [],
+    "compatibility": ["pl_lenses"],
+    "source": "ARRI Rental"
+  },
+  {
+    "id": "camera_arri_235",
+    "name": "ARRI 235",
+    "brand": "ARRI",
+    "category": "Camera",
+    "subcategory": "Film Camera",
+    "description": "Lightweight 35mm film camera ideal for handheld and Steadicam.",
+    "mount": "PL",
+    "specs": {
+      "film_format": "35mm",
+      "frame_rates": "1–60 fps"
+    },
+    "weight_kg": 3.5,
+    "connectors": [],
+    "compatibility": ["pl_lenses"],
+    "source": "ARRI Rental"
+  },
+
+  {
+    "id": "camera_phantom_flex4k",
+    "name": "Phantom Flex4K",
+    "brand": "Vision Research",
+    "category": "Camera",
+    "subcategory": "High-Speed Camera",
+    "description": "High-speed 4K camera capable of up to 1000 fps.",
+    "mount": "PL",
+    "specs": {
+      "sensor": "Super 35",
+      "resolution": "4K",
+      "max_fps": 1000
+    },
+    "weight_kg": 5.4,
+    "connectors": ["SDI"],
+    "compatibility": ["pl_lenses"],
+    "source": "Vision Research"
+  }
+]
+{"id":"camera_phantom_t1340","name":"Phantom T1340","brand":"Vision Research","category":"Camera","subcategory":"High-Speed Camera","description":"High-speed camera capable of extreme frame rates for scientific and cinematic applications.","mount":"PL","specs":{"sensor":"Super 35","resolution":"4K","max_fps":13000},"weight_kg":6.5,"connectors":["SDI"],"compatibility":["pl_lenses"],"source":"Vision Research"},
+{"id":"camera_phantom_veo4k","name":"Phantom VEO 4K","brand":"Vision Research","category":"Camera","subcategory":"High-Speed Camera","description":"Compact high-speed 4K camera used for action sequences and VFX.","mount":"PL","specs":{"sensor":"Super 35","resolution":"4K","max_fps":1000},"weight_kg":2.5,"connectors":["SDI"],"compatibility":["pl_lenses"],"source":"Vision Research"},
+{"id":"camera_gopro_hero12","name":"GoPro HERO12 Black","brand":"GoPro","category":"Camera","subcategory":"Action Camera","description":"Compact action camera widely used as a crash cam or POV camera in cinema.","mount":"Fixed","specs":{"sensor":"1/1.9\"","resolution":"5.3K"},"weight_kg":0.15,"connectors":["USB-C"],"compatibility":[],"source":"GoPro"},
+{"id":"camera_dji_osmo_action4","name":"DJI Osmo Action 4","brand":"DJI","category":"Camera","subcategory":"Action Camera","description":"Action camera with excellent low-light performance used for stunt and crash shots.","mount":"Fixed","specs":{"sensor":"1/1.3\"","resolution":"4K"},"weight_kg":0.145,"connectors":["USB-C"],"compatibility":[],"source":"DJI"},
+{"id":"camera_dji_x7","name":"DJI Zenmuse X7","brand":"DJI","category":"Camera","subcategory":"Drone Camera","description":"Super 35 cinema camera designed for DJI Inspire 2 drones.","mount":"DL","specs":{"sensor":"Super 35","resolution":"6K"},"weight_kg":0.45,"connectors":[],"compatibility":["dl_lenses"],"source":"DJI"},
+{"id":"camera_dji_x9","name":"DJI Zenmuse X9","brand":"DJI","category":"Camera","subcategory":"Drone Camera","description":"Full-frame 8K cinema camera for DJI Ronin 4D and aerial platforms.","mount":"DL","specs":{"sensor":"Full Frame","resolution":"8K"},"weight_kg":0.63,"connectors":[],"compatibility":["dl_lenses"],"source":"DJI"},
+{"id":"camera_insta360_pro2","name":"Insta360 Pro 2","brand":"Insta360","category":"Camera","subcategory":"VR Camera","description":"Professional 8K 360° VR camera used for immersive productions.","mount":"Fixed","specs":{"sensor":"6× Micro 4/3","resolution":"8K 360"},"weight_kg":1.55,"connectors":["USB-C","Ethernet"],"compatibility":[],"source":"Insta360"},
+{"id":"camera_kanDao_obisidian","name":"Kandao Obsidian Pro","brand":"Kandao","category":"Camera","subcategory":"VR Camera","description":"High-end 12K 360° VR camera used for cinematic VR experiences.","mount":"Fixed","specs":{"sensor":"8× APS-C","resolution":"12K 360"},"weight_kg":3.6,"connectors":["USB-C","Ethernet"],"compatibility":[],"source":"Kandao"},
+{"id":"camera_sony_pxw_fx9_studio","name":"Sony PXW-FX9 Studio Kit","brand":"Sony","category":"Camera","subcategory":"Studio Camera","description":"Studio configuration of the FX9 for multi-cam broadcast and live production.","mount":"E","specs":{"sensor":"Full Frame","resolution":"6K oversampled to 4K"},"weight_kg":6.0,"connectors":["SDI","HDMI","Ethernet"],"compatibility":["e_mount_lenses"],"source":"Sony"},
+{"id":"camera_blackmagic_studio_4k_pro","name":"Blackmagic Studio Camera 4K Pro","brand":"Blackmagic","category":"Camera","subcategory":"Studio Camera","description":"4K studio camera used for broadcast and live events.","mount":"MFT","specs":{"sensor":"Micro Four Thirds","resolution":"4K"},"weight_kg":1.4,"connectors":["SDI","HDMI","Ethernet"],"compatibility":["mft_lenses"],"source":"Blackmagic"},
+{"id":"camera_panasonic_gh6","name":"Panasonic GH6","brand":"Panasonic","category":"Camera","subcategory":"Hybrid Camera","description":"Micro Four Thirds hybrid camera used for gimbal and crash cam work.","mount":"MFT","specs":{"sensor":"Micro Four Thirds","resolution":"5.7K"},"weight_kg":0.82,"connectors":["HDMI"],"compatibility":["mft_lenses"],"source":"Panasonic"},
+{"id":"camera_sony_rx0ii","name":"Sony RX0 II","brand":"Sony","category":"Camera","subcategory":"Crash Camera","description":"Ultra-compact crash cam with high dynamic range and robust build.","mount":"Fixed","specs":{"sensor":"1-inch","resolution":"4K"},"weight_kg":0.132,"connectors":["HDMI"],"compatibility":[],"source":"Sony"}
+{"id":"camera_zcam_e2_s6g","name":"Z CAM E2-S6G","brand":"Z CAM","category":"Camera","subcategory":"Box Cinema Camera","description":"Compact Super 35 box-style cinema camera used for rigs, POV, and multi-cam setups.","mount":"EF","specs":{"sensor":"Super 35","resolution":"6K"},"weight_kg":0.9,"connectors":["HDMI","SDI"],"compatibility":["ef_lenses"],"source":"Z CAM"},
+{"id":"camera_zcam_e2_f8","name":"Z CAM E2-F8","brand":"Z CAM","category":"Camera","subcategory":"Box Cinema Camera","description":"Full-frame 8K box camera ideal for multi-camera arrays and VFX plates.","mount":"EF","specs":{"sensor":"Full Frame","resolution":"8K"},"weight_kg":1.0,"connectors":["HDMI","SDI"],"compatibility":["ef_lenses"],"source":"Z CAM"},
+{"id":"camera_blackmagic_micro_cinema","name":"Blackmagic Micro Cinema Camera","brand":"Blackmagic","category":"Camera","subcategory":"Miniature Cinema Camera","description":"Super 16 mini cinema camera used for drones, crash rigs, and tight spaces.","mount":"MFT","specs":{"sensor":"Super 16","resolution":"1080p"},"weight_kg":0.3,"connectors":["HDMI"],"compatibility":["mft_lenses"],"source":"Blackmagic"},
+{"id":"camera_blackmagic_micro_studio_4k","name":"Blackmagic Micro Studio Camera 4K","brand":"Blackmagic","category":"Camera","subcategory":"Miniature Studio Camera","description":"Compact 4K studio camera used for multi-cam broadcast and robotics.","mount":"MFT","specs":{"sensor":"Micro Four Thirds","resolution":"4K"},"weight_kg":0.3,"connectors":["SDI"],"compatibility":["mft_lenses"],"source":"Blackmagic"},
+{"id":"camera_sony_frv100","name":"Sony FRV-100 POV Camera","brand":"Sony","category":"Camera","subcategory":"POV Camera","description":"Compact POV camera used for vehicle rigs and stunt work.","mount":"Fixed","specs":{"sensor":"1-inch","resolution":"4K"},"weight_kg":0.2,"connectors":["SDI"],"compatibility":[],"source":"Sony"},
+{"id":"camera_industrial_flir_blackfly","name":"FLIR Blackfly S","brand":"FLIR","category":"Camera","subcategory":"Industrial Camera","description":"Machine-vision camera used in VFX, motion control, and scientific imaging.","mount":"C","specs":{"sensor":"1-inch","resolution":"4K"},"weight_kg":0.1,"connectors":["USB3"],"compatibility":["c_mount_lenses"],"source":"FLIR"},
+{"id":"camera_industrial_basler_ace","name":"Basler Ace 2 Pro","brand":"Basler","category":"Camera","subcategory":"Industrial Camera","description":"High-speed industrial camera used for VFX plates and motion analysis.","mount":"C","specs":{"sensor":"1-inch","resolution":"4K","max_fps":300},"weight_kg":0.12,"connectors":["USB3"],"compatibility":["c_mount_lenses"],"source":"Basler"},
+{"id":"camera_360_rylo","name":"Rylo 360","brand":"Rylo","category":"Camera","subcategory":"360 Camera","description":"Compact 360° camera used for immersive POV shots.","mount":"Fixed","specs":{"sensor":"Dual 1/2.3\"","resolution":"5.8K 360"},"weight_kg":0.11,"connectors":["USB-C"],"compatibility":[],"source":"Rylo"},
+{"id":"camera_360_gopro_max","name":"GoPro MAX","brand":"GoPro","category":"Camera","subcategory":"360 Camera","description":"360° action camera used for VFX, plates, and immersive POV.","mount":"Fixed","specs":{"sensor":"Dual","resolution":"5.6K 360"},"weight_kg":0.16,"connectors":["USB-C"],"compatibility":[],"source":"GoPro"}

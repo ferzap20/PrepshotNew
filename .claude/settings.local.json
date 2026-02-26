@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create vite@latest . -- --template react-ts)",
+      "Bash(npm install)",
+      "Bash(npm install react-router idb lucide-react bcryptjs uuid)",
+      "Bash(npm install -D tailwindcss @tailwindcss/vite vite-plugin-pwa @types/bcryptjs @types/uuid)",
+      "Bash(node -e \"const bcrypt = require\\(''bcryptjs''\\); bcrypt.hash\\(''admin'', 10, \\(err, hash\\) => console.log\\(hash\\)\\);\")",
+      "Bash(npx tsc --noEmit)",
+      "Bash(npm run dev)",
+      "Bash(npm run build)",
+      "Bash(npm install leaflet react-leaflet @types/leaflet)"
+    ]
+  }
+}
