@@ -13,6 +13,7 @@
     },
 
     /* Bundler mode */
+    "resolveJsonModule": true,
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,

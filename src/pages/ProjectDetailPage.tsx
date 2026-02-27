@@ -124,11 +124,14 @@ export function ProjectDetailPage() {
             <div className="text-sm italic text-muted-foreground">No dates added to this project</div>
           )}
         </div>
-        {project.notes ? (
-          <p className="text-sm text-muted-foreground whitespace-pre-wrap">{project.notes}</p>
-        ) : (
-          <p className="text-sm italic text-muted-foreground">No notes added</p>
-        )}
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">Notes</p>
+          {project.notes ? (
+            <p className="text-sm text-muted-foreground whitespace-pre-wrap">{project.notes}</p>
+          ) : (
+            <p className="text-sm italic text-muted-foreground">No notes added</p>
+          )}
+        </div>
       </div>
 
       {/* Quick stats */}

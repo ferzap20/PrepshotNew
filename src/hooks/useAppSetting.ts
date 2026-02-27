@@ -1,14 +1,9 @@
-import { useState, useEffect } from 'react';
-import { appSettingsRepo } from '@/lib/db/repositories';
+import { useContext } from 'react';
+import { AppSettingsContext } from '@/contexts/AppSettingsContext';
 
+/** Returns the value of a single app setting, falling back to `defaultValue`. */
 export function useAppSetting(key: string, defaultValue: string): string {
-  const [value, setValue] = useState(defaultValue);
-
-  useEffect(() => {
-    appSettingsRepo.get(key).then((setting) => {
-      if (setting) setValue(setting.value);
-    });
-  }, [key]);
-
-  return value;
+  const ctx = useContext(AppSettingsContext);
+  if (!ctx) return defaultValue;
+  return ctx.settings[key] ?? defaultValue;
 }

@@ -40,9 +40,6 @@ function ProjectRowCard({
         <div className="flex items-center gap-3 flex-wrap">
           <span className="font-medium truncate">{project.name}</span>
           {project.role && <Badge variant="default">{project.role}</Badge>}
-          {project.productionCompany && (
-            <Badge variant="info">{project.productionCompany}</Badge>
-          )}
         </div>
         <p className="text-xs text-muted-foreground mt-0.5">
           {dateRange} · {equipmentCount} item{equipmentCount !== 1 ? 's' : ''}

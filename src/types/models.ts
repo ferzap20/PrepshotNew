@@ -65,6 +65,12 @@ export interface CatalogItem {
   aliases: string[];
   compatibilityNotes: string;
   imageUrl: string | null;
+  subcategory?: string;
+  mount?: string;
+  specs?: Record<string, unknown>;
+  weightKg?: number;
+  connectors?: string[];
+  source?: string;
   createdAt: string;
   updatedAt: string;
 }

@@ -1,0 +1,405 @@
+[
+  {
+    "id": "cable_sdi_3g_3m",
+    "name": "3G-SDI Cable 3m",
+    "brand": "Generic",
+    "category": "Cable",
+    "subcategory": "SDI",
+    "description": "Standard 3G-SDI cable for HD video transmission.",
+    "specs": {
+      "length_m": 3,
+      "type": "3G-SDI"
+    },
+    "source": "B&H"
+  },
+  {
+    "id": "cable_hdmi_highspeed_2m",
+    "name": "HDMI High Speed 2m",
+    "brand": "Generic",
+    "category": "Cable",
+    "subcategory": "HDMI",
+    "description": "High-speed HDMI cable for monitors and cameras.",
+    "specs": {
+      "length_m": 2,
+      "version": "2.0"
+    },
+    "source": "B&H"
+  },
+  {
+    "id": "cable_xlr_5m",
+    "name": "XLR Audio Cable 5m",
+    "brand": "Generic",
+    "category": "Cable",
+    "subcategory": "XLR",
+    "description": "Balanced XLR cable for microphones and audio devices.",
+    "specs": {
+      "length_m": 5,
+      "type": "3-pin"
+    },
+    "source": "B&H"
+  },
+  {
+    "id": "cable_timecode_bnc_30cm",
+    "name": "Timecode BNC Cable 30cm",
+    "brand": "Generic",
+    "category": "Cable",
+    "subcategory": "Timecode",
+    "description": "Short BNC-to-BNC cable for timecode sync between cameras and audio recorders.",
+    "specs": {
+      "length_m": 0.3,
+      "connector": "BNC"
+    },
+    "source": "B&H"
+  },
+  {
+    "id": "cable_timecode_lemo5_bnc",
+    "name": "LEMO 5-pin to BNC Timecode Cable",
+    "brand": "Ambient",
+    "category": "Cable",
+    "subcategory": "Timecode",
+    "description": "LEMO 5-pin to BNC cable for timecode input/output on ARRI and Sound Devices gear.",
+    "specs": {
+      "length_m": 0.5,
+      "connector": "LEMO5-BNC"
+    },
+    "source": "Ambient"
+  },
+  {
+    "id": "cable_timecode_tentacle",
+    "name": "Tentacle Sync Timecode Cable",
+    "brand": "Tentacle",
+    "category": "Cable",
+    "subcategory": "Timecode",
+    "description": "Timecode cable for Tentacle Sync devices to cameras and audio recorders.",
+    "specs": {
+      "length_m": 0.3,
+      "connector": "3.5mm-BNC"
+    },
+    "source": "Tentacle"
+  },
+  {
+    "id": "cable_power_dtap_lemo2",
+    "name": "D-Tap to LEMO 2-pin Power Cable",
+    "brand": "Anton Bauer",
+    "category": "Cable",
+    "subcategory": "Power",
+    "description": "Powers cameras and accessories from V-mount or Gold-mount batteries.",
+    "specs": {
+      "length_m": 0.6,
+      "connector": "D-Tap-LEMO2"
+    },
+    "source": "Anton Bauer"
+  },
+  {
+    "id": "cable_power_dtap_lemo1b",
+    "name": "D-Tap to LEMO 1B 2-pin Power Cable",
+    "brand": "Core SWX",
+    "category": "Cable",
+    "subcategory": "Power",
+    "description": "Common power cable for monitors, wireless video, and accessories.",
+    "specs": {
+      "length_m": 0.6,
+      "connector": "D-Tap-LEMO1B"
+    },
+    "source": "Core SWX"
+  },
+  {
+    "id": "cable_power_dtap_hirose4",
+    "name": "D-Tap to Hirose 4-pin Power Cable",
+    "brand": "Hedbox",
+    "category": "Cable",
+    "subcategory": "Power",
+    "description": "Powers broadcast monitors and accessories using Hirose 4-pin connectors.",
+    "specs": {
+      "length_m": 1.0,
+      "connector": "D-Tap-Hirose4"
+    },
+    "source": "Hedbox"
+  },
+  {
+    "id": "cable_power_dtap_fischer2",
+    "name": "D-Tap to Fischer 2-pin Power Cable",
+    "brand": "Wooden Camera",
+    "category": "Cable",
+    "subcategory": "Power",
+    "description": "Used for powering ARRI accessories requiring Fischer 2-pin connectors.",
+    "specs": {
+      "length_m": 0.6,
+      "connector": "D-Tap-Fischer2"
+    },
+    "source": "Wooden Camera"
+  },
+  {
+    "id": "cable_power_arri_alexa35",
+    "name": "ARRI ALEXA 35 Power Cable",
+    "brand": "ARRI",
+    "category": "Cable",
+    "subcategory": "Camera Power",
+    "description": "Dedicated power cable for ARRI ALEXA 35 using LEMO 8-pin.",
+    "specs": {
+      "length_m": 1.0,
+      "connector": "LEMO8"
+    },
+    "source": "ARRI"
+  },
+  {
+    "id": "cable_power_red_vraptor",
+    "name": "RED V-RAPTOR Power Cable",
+    "brand": "RED",
+    "category": "Cable",
+    "subcategory": "Camera Power",
+    "description": "Power cable for RED V-RAPTOR using 6-pin DC-IN.",
+    "specs": {
+      "length_m": 1.0,
+      "connector": "6-pin DC"
+    },
+    "source": "RED"
+  },
+  {
+    "id": "cable_power_sony_venice",
+    "name": "Sony VENICE Power Cable",
+    "brand": "Sony",
+    "category": "Cable",
+    "subcategory": "Camera Power",
+    "description": "Power cable for Sony VENICE and VENICE 2 cameras.",
+    "specs": {
+      "length_m": 1.2,
+      "connector": "4-pin XLR"
+    },
+    "source": "Sony"
+  },
+  {
+    "id": "cable_sdi_12g_1m",
+    "name": "12G-SDI Cable 1m",
+    "brand": "Canare",
+    "category": "Cable",
+    "subcategory": "SDI",
+    "description": "High-bandwidth SDI cable for 4K/60p video transmission.",
+    "specs": {
+      "length_m": 1.0,
+      "type": "12G-SDI"
+    },
+    "source": "Canare"
+  },
+  {
+    "id": "cable_sdi_12g_5m",
+    "name": "12G-SDI Cable 5m",
+    "brand": "Belden",
+    "category": "Cable",
+    "subcategory": "SDI",
+    "description": "Long-run 12G-SDI cable for 4K workflows.",
+    "specs": {
+      "length_m": 5.0,
+      "type": "12G-SDI"
+    },
+    "source": "Belden"
+  },
+  {
+    "id": "cable_sdi_fiber_50m",
+    "name": "SDI Fiber Optic Cable 50m",
+    "brand": "Blackmagic",
+    "category": "Cable",
+    "subcategory": "SDI Fiber",
+    "description": "Fiber SDI cable for long-distance 4K video transmission.",
+    "specs": {
+      "length_m": 50.0,
+      "type": "Fiber SDI"
+    },
+    "source": "Blackmagic"
+  },
+  {
+    "id": "cable_hdmi_micro_to_full",
+    "name": "Micro HDMI to Full HDMI Cable",
+    "brand": "Generic",
+    "category": "Cable",
+    "subcategory": "HDMI",
+    "description": "Micro HDMI to full-size HDMI cable for mirrorless cameras.",
+    "specs": {
+      "length_m": 1.0,
+      "version": "2.0"
+    },
+    "source": "B&H"
+  },
+  {
+    "id": "cable_hdmi_mini_to_full",
+    "name": "Mini HDMI to Full HDMI Cable",
+    "brand": "Generic",
+    "category": "Cable",
+    "subcategory": "HDMI",
+    "description": "Mini HDMI to HDMI cable for DSLR and cinema cameras.",
+    "specs": {
+      "length_m": 1.0,
+      "version": "2.0"
+    },
+    "source": "B&H"
+  },
+  {
+    "id": "cable_hdmi_fiber_20m",
+    "name": "Fiber HDMI Cable 20m",
+    "brand": "FIBBR",
+    "category": "Cable",
+    "subcategory": "HDMI Fiber",
+    "description": "Active fiber HDMI cable for long-distance 4K transmission.",
+    "specs": {
+      "length_m": 20.0,
+      "version": "2.1"
+    },
+    "source": "FIBBR"
+  },
+  {
+    "id": "cable_audio_ta3_1m",
+    "name": "TA3 to TA3 Audio Cable 1m",
+    "brand": "Sound Devices",
+    "category": "Cable",
+    "subcategory": "Audio",
+    "description": "Balanced TA3 cable for audio mixers and recorders.",
+    "specs": {
+      "length_m": 1.0,
+      "connector": "TA3"
+    },
+    "source": "Sound Devices"
+  },
+  {
+    "id": "cable_audio_ta5_lav",
+    "name": "TA5 Lavalier Cable",
+    "brand": "Lectrosonics",
+    "category": "Cable",
+    "subcategory": "Audio",
+    "description": "TA5 lavalier microphone cable for wireless transmitters.",
+    "specs": {
+      "length_m": 1.2,
+      "connector": "TA5"
+    },
+    "source": "Lectrosonics"
+  },
+  {
+    "id": "cable_audio_aes_ebu",
+    "name": "AES/EBU Digital Audio Cable",
+    "brand": "Mogami",
+    "category": "Cable",
+    "subcategory": "Audio",
+    "description": "110-ohm AES/EBU digital audio cable.",
+    "specs": {
+      "length_m": 2.0,
+      "connector": "XLR"
+    },
+    "source": "Mogami"
+  },
+  {
+    "id": "cable_network_ethernet_cat6_5m",
+    "name": "Ethernet CAT6 Cable 5m",
+    "brand": "Generic",
+    "category": "Cable",
+    "subcategory": "Network",
+    "description": "CAT6 cable for camera control, lighting networks, and video devices.",
+    "specs": {
+      "length_m": 5.0,
+      "type": "CAT6"
+    },
+    "source": "B&H"
+  },
+  {
+    "id": "cable_network_smpte_fiber_100m",
+    "name": "SMPTE Fiber Cable 100m",
+    "brand": "Neutrik",
+    "category": "Cable",
+    "subcategory": "Fiber",
+    "description": "SMPTE hybrid fiber cable for broadcast cameras.",
+    "specs": {
+      "length_m": 100.0,
+      "type": "SMPTE Fiber"
+    },
+    "source": "Neutrik"
+  },
+  {
+    "id": "cable_control_runstop_lemo",
+    "name": "LEMO Run/Stop Cable",
+    "brand": "ARRI",
+    "category": "Cable",
+    "subcategory": "Control",
+    "description": "Run/Stop trigger cable for ARRI cameras.",
+    "specs": {
+      "length_m": 0.5,
+      "connector": "LEMO"
+    },
+    "source": "ARRI"
+  },
+  {
+    "id": "cable_control_red_rsync",
+    "name": "RED R/S Trigger Cable",
+    "brand": "RED",
+    "category": "Cable",
+    "subcategory": "Control",
+    "description": "Run/Stop cable for RED DSMC2 and V-RAPTOR cameras.",
+    "specs": {
+      "length_m": 0.5,
+      "connector": "3-pin"
+    },
+    "source": "RED"
+  },
+  {
+    "id": "cable_control_sony_multi",
+    "name": "Sony Multi Terminal Control Cable",
+    "brand": "Sony",
+    "category": "Cable",
+    "subcategory": "Control",
+    "description": "Control cable for Sony mirrorless cameras.",
+    "specs": {
+      "length_m": 1.0,
+      "connector": "Sony Multi"
+    },
+    "source": "Sony"
+  },
+  {
+    "id": "cable_sync_genlock_bnc",
+    "name": "Genlock BNC Cable",
+    "brand": "Canare",
+    "category": "Cable",
+    "subcategory": "Sync",
+    "description": "Genlock sync cable for multi-camera setups.",
+    "specs": {
+      "length_m": 1.0,
+      "connector": "BNC"
+    },
+    "source": "Canare"
+  },
+  {
+    "id": "cable_sync_tri_level",
+    "name": "Tri-Level Sync Cable",
+    "brand": "Blackmagic",
+    "category": "Cable",
+    "subcategory": "Sync",
+    "description": "Tri-level sync cable for broadcast and cinema cameras.",
+    "specs": {
+      "length_m": 1.5,
+      "connector": "BNC"
+    },
+    "source": "Blackmagic"
+  },
+  {
+    "id": "cable_special_trigger_phantom",
+    "name": "Phantom Trigger Cable",
+    "brand": "Vision Research",
+    "category": "Cable",
+    "subcategory": "Specialty",
+    "description": "Trigger cable for Phantom high-speed cameras.",
+    "specs": {
+      "length_m": 0.5,
+      "connector": "Fischer"
+    },
+    "source": "Vision Research"
+  },
+  {
+    "id": "cable_special_ronin_control",
+    "name": "DJI Ronin Control Cable",
+    "brand": "DJI",
+    "category": "Cable",
+    "subcategory": "Specialty",
+    "description": "Control cable for DJI Ronin gimbals and camera integration.",
+    "specs": {
+      "length_m": 0.6,
+      "connector": "USB-C"
+    },
+    "source": "DJI"
+  }
+]

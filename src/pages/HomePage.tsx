@@ -6,7 +6,7 @@ import { ProjectCard } from '@/components/dashboard/ProjectCard';
 import { CreateProjectModal } from '@/components/projects/CreateProjectModal';
 import { useProjects } from '@/hooks/useProjects';
 import { useAuth } from '@/hooks/useAuth';
-import { projectGeneralListsRepo } from '@/lib/db/repositories';
+import { projectGeneralListsRepo, usersRepo } from '@/lib/db/repositories';
 import type { Project } from '@/types/models';
 
 export function HomePage() {
@@ -14,6 +14,15 @@ export function HomePage() {
   const { projects, isLoading, refresh } = useProjects();
   const [equipmentCounts, setEquipmentCounts] = useState<Record<string, number>>({});
   const [isCreateOpen, setIsCreateOpen] = useState(false);
+  const [displayName, setDisplayName] = useState('');
+
+  useEffect(() => {
+    if (!session?.userId) return;
+    usersRepo.getById(session.userId).then((user) => {
+      const name = user?.name?.trim() || session.email.split('@')[0];
+      setDisplayName(name);
+    });
+  }, [session?.userId, session?.email]);
 
   useEffect(() => {
     if (projects.length === 0) return;
@@ -33,13 +42,11 @@ export function HomePage() {
     refresh();
   };
 
-  const firstName = session?.email.split('@')[0] ?? 'back';
-
   return (
     <div className="space-y-6">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h1>Welcome back, {firstName}</h1>
+          <h1>Welcome back, {displayName}</h1>
           <p className="text-sm text-muted-foreground mt-1">
             {projects.length > 0
               ? `You have ${projects.length} project${projects.length !== 1 ? 's' : ''}.`

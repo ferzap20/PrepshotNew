@@ -241,6 +241,7 @@ export function ShootingDayPage() {
     <div className="flex flex-col gap-2 overflow-y-auto h-full pr-0.5">
       {/* Notes */}
       <div className="flex-shrink-0 mb-2">
+        <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">Notes</p>
         <textarea
           value={notes}
           onChange={(e) => setNotes(e.target.value)}

@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
 import { EmptyState } from '@/components/ui/EmptyState';
+import { CategoryFilterPills } from '@/components/ui/CategoryFilterPills';
 import { GearListEditModal } from '@/components/project-list/GearListEditModal';
 import {
   projectsRepo,
@@ -294,23 +295,11 @@ export function ProjectListPage() {
 
       {addTab === 'catalog' && (
         <>
-          <div className="flex gap-1.5 flex-wrap flex-shrink-0">
-            <button
-              onClick={() => setCategoryFilter('')}
-              className={cn('px-2.5 py-1 rounded-full text-xs transition-colors', !categoryFilter ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground')}
-            >
-              All
-            </button>
-            {CATEGORY_ORDER.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setCategoryFilter(cat === categoryFilter ? '' : cat)}
-                className={cn('px-2.5 py-1 rounded-full text-xs transition-colors', categoryFilter === cat ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground')}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+          <CategoryFilterPills
+            categories={CATEGORY_ORDER}
+            active={categoryFilter}
+            onSelect={setCategoryFilter}
+          />
 
           <div className="flex flex-col gap-1.5 overflow-y-auto flex-1 min-h-0">
             {filteredCatalog.length === 0 ? (

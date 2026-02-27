@@ -2,9 +2,8 @@ import { useState, type FormEvent } from 'react';
 import { Camera, Lightbulb, Cog } from 'lucide-react';
 import { Input } from '@/components/ui/Input';
 import { Select } from '@/components/ui/Select';
-import { Textarea } from '@/components/ui/Textarea';
 import { Button } from '@/components/ui/Button';
-import { CrewType, ProjectRole } from '@/types/enums';
+import { CrewType, ProjectRole, CREW_ROLES_BY_TYPE } from '@/types/enums';
 import { cn } from '@/lib/utils/cn';
 import type { Project } from '@/types/models';
 
@@ -13,31 +12,6 @@ const CREW_OPTIONS = [
   { value: CrewType.Lights, label: 'Lights', icon: Lightbulb },
   { value: CrewType.Machinerie, label: 'Machinerie', icon: Cog },
 ] as const;
-
-const CREW_ROLES: Record<string, Array<{ value: string; label: string }>> = {
-  [CrewType.Camera]: [
-    { value: ProjectRole.FirstAC, label: '1st AC' },
-    { value: ProjectRole.SecondAC, label: '2nd AC' },
-    { value: ProjectRole.Loader, label: 'Loader' },
-    { value: ProjectRole.DP, label: 'Director of Photography' },
-    { value: 'DIT', label: 'DIT' },
-    { value: 'Camera Operator', label: 'Camera Operator' },
-    { value: 'Other', label: 'Other' },
-  ],
-  [CrewType.Lights]: [
-    { value: 'Gaffer', label: 'Gaffer' },
-    { value: 'Best Boy', label: 'Best Boy' },
-    { value: 'Electrician', label: 'Electrician' },
-    { value: 'Other', label: 'Other' },
-  ],
-  [CrewType.Machinerie]: [
-    { value: 'Key Grip', label: 'Key Grip' },
-    { value: 'Best Boy Grip', label: 'Best Boy Grip' },
-    { value: 'Dolly Grip', label: 'Dolly Grip' },
-    { value: 'Grip', label: 'Grip' },
-    { value: 'Other', label: 'Other' },
-  ],
-};
 
 interface ProjectFormProps {
   initial?: Partial<Project>;
@@ -60,11 +34,11 @@ export function ProjectForm({ initial, onSubmit, onCancel, submitLabel }: Projec
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const isDP = crewType === CrewType.Camera && role === ProjectRole.DP;
-  const roleOptions = CREW_ROLES[crewType] ?? CREW_ROLES[CrewType.Camera];
+  const roleOptions = CREW_ROLES_BY_TYPE[crewType] ?? CREW_ROLES_BY_TYPE[CrewType.Camera];
 
   const handleCrewChange = (newCrew: string) => {
     setCrewType(newCrew);
-    const roles = CREW_ROLES[newCrew];
+    const roles = CREW_ROLES_BY_TYPE[newCrew];
     if (roles?.length) setRole(roles[0].value);
   };
 

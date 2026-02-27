@@ -6,6 +6,7 @@ import { Select } from '@/components/ui/Select';
 import { Button } from '@/components/ui/Button';
 import { Modal } from '@/components/ui/Modal';
 import { useAuth } from '@/hooks/useAuth';
+import { useAppSettings } from '@/hooks/useAppSettings';
 import {
   appSettingsRepo,
   usersRepo,
@@ -35,20 +36,20 @@ function AccountSettings() {
   const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
-    if (session?.id) {
-      usersRepo.getById(session.id).then((user) => {
+    if (session?.userId) {
+      usersRepo.getById(session.userId).then((user) => {
         setName(user?.name ?? '');
         setIsLoading(false);
       });
     }
-  }, [session?.id]);
+  }, [session?.userId]);
 
   const handleSave = async (e: FormEvent) => {
     e.preventDefault();
-    if (!session?.id) return;
+    if (!session?.userId) return;
     setIsSaving(true);
     try {
-      await usersRepo.update(session.id, { name: name.trim() });
+      await usersRepo.update(session.userId, { name: name.trim() });
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
     } finally {
@@ -98,18 +99,13 @@ function AccountSettings() {
 }
 
 function DateFormatSettings() {
-  const [format, setFormat] = useState('DD/MM/YYYY');
+  const { settings, setSetting } = useAppSettings();
+  const [format, setFormat] = useState(settings['date_format'] ?? 'DD/MM/YYYY');
   const [saved, setSaved] = useState(false);
-
-  useEffect(() => {
-    appSettingsRepo.get('date_format').then((s) => {
-      if (s) setFormat(s.value);
-    });
-  }, []);
 
   const handleSave = async (e: FormEvent) => {
     e.preventDefault();
-    await appSettingsRepo.set('date_format', format);
+    await setSetting('date_format', format);
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
   };
@@ -135,27 +131,18 @@ function DateFormatSettings() {
 }
 
 function AdminSettings() {
-  const [label, setLabel] = useState('');
+  const { settings, setSetting } = useAppSettings();
+  const [label, setLabel] = useState(settings['personal_item_label'] ?? 'personal item');
   const [saved, setSaved] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    appSettingsRepo.get('personal_item_label').then((s) => {
-      setLabel(s?.value ?? 'personal item');
-      setIsLoading(false);
-    });
-  }, []);
 
   const handleSave = async (e: FormEvent) => {
     e.preventDefault();
     const trimmed = label.trim();
     if (!trimmed) return;
-    await appSettingsRepo.set('personal_item_label', trimmed);
+    await setSetting('personal_item_label', trimmed);
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
   };
-
-  if (isLoading) return null;
 
   return (
     <Card>

@@ -29,12 +29,48 @@ export const ProjectRole = {
   FirstAC: '1st AC',
   SecondAC: '2nd AC',
   Loader: 'Loader',
+  DIT: 'DIT',
+  CameraOperator: 'Camera Operator',
+  Gaffer: 'Gaffer',
+  BestBoy: 'Best Boy',
+  Electrician: 'Electrician',
+  KeyGrip: 'Key Grip',
+  BestBoyGrip: 'Best Boy Grip',
+  DollyGrip: 'Dolly Grip',
+  Grip: 'Grip',
+  Other: 'Other',
 } as const;
 export type ProjectRole = (typeof ProjectRole)[keyof typeof ProjectRole];
+
+export const CREW_ROLES_BY_TYPE: Record<string, Array<{ value: string; label: string }>> = {
+  [CrewType.Camera]: [
+    { value: ProjectRole.FirstAC, label: '1st AC' },
+    { value: ProjectRole.SecondAC, label: '2nd AC' },
+    { value: ProjectRole.Loader, label: 'Loader' },
+    { value: ProjectRole.DP, label: 'Director of Photography' },
+    { value: ProjectRole.DIT, label: 'DIT' },
+    { value: ProjectRole.CameraOperator, label: 'Camera Operator' },
+    { value: ProjectRole.Other, label: 'Other' },
+  ],
+  [CrewType.Lights]: [
+    { value: ProjectRole.Gaffer, label: 'Gaffer' },
+    { value: ProjectRole.BestBoy, label: 'Best Boy' },
+    { value: ProjectRole.Electrician, label: 'Electrician' },
+    { value: ProjectRole.Other, label: 'Other' },
+  ],
+  [CrewType.Machinerie]: [
+    { value: ProjectRole.KeyGrip, label: 'Key Grip' },
+    { value: ProjectRole.BestBoyGrip, label: 'Best Boy Grip' },
+    { value: ProjectRole.DollyGrip, label: 'Dolly Grip' },
+    { value: ProjectRole.Grip, label: 'Grip' },
+    { value: ProjectRole.Other, label: 'Other' },
+  ],
+};
 
 export const CatalogCategory = {
   Camera: 'Camera',
   Lens: 'Lens',
+  Cable: 'Cable',
   Accessory: 'Accessory',
   Grip: 'Grip',
   Lighting: 'Lighting',
