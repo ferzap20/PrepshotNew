@@ -9,7 +9,6 @@ import {
 import { scoreMatch } from '@/lib/utils/fuzzy';
 import { CatalogCategory, ModificationType } from '@/types/enums';
 import type {
-  Project,
   ShootingDay,
   ProjectGeneralListItem,
   DayListModification,
@@ -22,7 +21,6 @@ export function useShootingDayDetail(
   projectId: string | undefined,
   dayId: string | undefined,
 ) {
-  const [_project, setProject] = useState<Project | null>(null);
   const [day, setDay] = useState<ShootingDay | null>(null);
   const [baseItems, setBaseItems] = useState<ProjectGeneralListItem[]>([]);
   const [mods, setMods] = useState<DayListModification[]>([]);
@@ -35,14 +33,13 @@ export function useShootingDayDetail(
   const load = async () => {
     if (!projectId || !dayId) return;
     setIsLoading(true);
-    const [proj, d, items, modifications, catalog] = await Promise.all([
+    const [, d, items, modifications, catalog] = await Promise.all([
       projectsRepo.getById(projectId),
       shootingDaysRepo.getById(dayId),
       projectGeneralListsRepo.getByProjectId(projectId),
       dayListModificationsRepo.getByDayId(dayId),
       catalogItemsRepo.getAll(),
     ]);
-    setProject(proj ?? null);
     setDay(d ?? null);
     setNotes(d?.notes ?? '');
     setBaseItems(items);
@@ -121,7 +118,7 @@ export function useShootingDayDetail(
   );
 
   const filteredCatalog = useMemo(() => {
-    let items = catalogItems.filter((c) => !addedCatalogIds.has(c.id));
+    const items = catalogItems.filter((c) => !addedCatalogIds.has(c.id));
     if (search.trim()) {
       return items
         .map((c) => ({ c, score: scoreMatch(search, c) }))

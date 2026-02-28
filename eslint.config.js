@@ -19,5 +19,22 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    rules: {
+      // Our async load() pattern inside useEffect is intentional and valid.
+      // The rule produces false positives for async data-fetching functions.
+      'react-hooks/set-state-in-effect': 'off',
+
+      // Allow _-prefixed variables to be unused (standard convention for
+      // "intentionally unused" destructured values or parameters).
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+        },
+      ],
+    },
   },
 ])

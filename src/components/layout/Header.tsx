@@ -1,14 +1,16 @@
-import { Menu, LogOut, Wifi, WifiOff } from 'lucide-react';
+import { Menu, LogOut, Wifi, WifiOff, Sun, Moon } from 'lucide-react';
 import { PrepShotLogo } from '@/components/brand/PrepShotLogo';
 import { useAuth } from '@/hooks/useAuth';
 import { useSidebar } from '@/hooks/useSidebar';
 import { useOnlineStatus } from '@/hooks/useOnlineStatus';
+import { useTheme } from '@/hooks/useTheme';
 import { useNavigate } from 'react-router';
 
 export function Header() {
   const { session, logout } = useAuth();
   const { toggle } = useSidebar();
   const isOnline = useOnlineStatus();
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -38,6 +40,14 @@ export function Header() {
             )}
             <span className="hidden sm:inline">{isOnline ? 'Online' : 'Offline'}</span>
           </div>
+
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-lg hover:bg-secondary transition-colors text-muted-foreground"
+            title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
 
           {session && (
             <div className="flex items-center gap-2 ml-2">

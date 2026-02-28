@@ -9,11 +9,13 @@ import { Modal } from '@/components/ui/Modal';
 import { projectsRepo } from '@/lib/db/repositories';
 import { useAuth } from '@/hooks/useAuth';
 import { useTemplateManager } from '@/hooks/useTemplateManager';
+import { useToast } from '@/hooks/useToast';
 import { cn } from '@/lib/utils/cn';
 import type { PackageTemplate, Project } from '@/types/models';
 
 export function TemplatesPage() {
   const { session } = useAuth();
+  const { addToast } = useToast();
 
   const {
     templates,
@@ -74,6 +76,9 @@ export function TemplatesPage() {
     const count = await applyToProject(applyingTemplate.id, selectedProjectId);
     setAppliedCount(count);
     setIsApplying(false);
+    if (count > 0) {
+      addToast(`${count} item${count !== 1 ? 's' : ''} added from template`, 'success');
+    }
   };
 
   if (isLoading) {

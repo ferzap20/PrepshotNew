@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/Button';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { ProjectCard } from '@/components/dashboard/ProjectCard';
 import { CreateProjectModal } from '@/components/projects/CreateProjectModal';
+import { OnboardingModal } from '@/components/ui/OnboardingModal';
 import { useProjects } from '@/hooks/useProjects';
 import { useAuth } from '@/hooks/useAuth';
 import { projectGeneralListsRepo, usersRepo } from '@/lib/db/repositories';
@@ -43,6 +44,8 @@ export function HomePage() {
   };
 
   return (
+    <>
+    <OnboardingModal />
     <div className="space-y-6">
       <div className="flex items-start justify-between gap-4">
         <div>
@@ -95,5 +98,6 @@ export function HomePage() {
         onCreated={handleCreated}
       />
     </div>
+    </>
   );
 }

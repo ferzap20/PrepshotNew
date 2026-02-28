@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useState, useEffect, useCallback, type ReactNode } from 'react';
 import { appSettingsRepo } from '@/lib/db/repositories';
 

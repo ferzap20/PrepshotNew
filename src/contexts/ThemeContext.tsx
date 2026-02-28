@@ -1,4 +1,5 @@
-import { createContext, useState, useCallback, type ReactNode } from 'react';
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useState, useCallback, useEffect, type ReactNode } from 'react';
 
 type Theme = 'dark' | 'light';
 
@@ -9,12 +10,21 @@ interface ThemeContextValue {
 
 export const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme] = useState<Theme>('dark');
+const STORAGE_KEY = 'prepshot-theme';
 
-  // Theme toggle is a stub for MVP (dark-only). Light mode in a future iteration.
+export function ThemeProvider({ children }: { children: ReactNode }) {
+  const [theme, setTheme] = useState<Theme>(() => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    return saved === 'light' ? 'light' : 'dark';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem(STORAGE_KEY, theme);
+  }, [theme]);
+
   const toggleTheme = useCallback(() => {
-    // No-op for now
+    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
   }, []);
 
   return (

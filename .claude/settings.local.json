@@ -20,7 +20,8 @@
       "Bash(grep -r \"throw\\\\|Error\" /Users/ferzap/Documents/Projects/Prepshot/src/pages/*.tsx)",
       "Bash(npm install --save-dev fake-indexeddb)",
       "Bash(npm test)",
-      "Bash(npx tsc -b --noEmit)"
+      "Bash(npx tsc -b --noEmit)",
+      "Bash(npm test -- --run)"
     ]
   }
 }

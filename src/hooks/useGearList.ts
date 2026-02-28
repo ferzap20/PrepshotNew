@@ -6,6 +6,7 @@ import {
   userGearRepo,
 } from '@/lib/db/repositories';
 import { useAuth } from '@/hooks/useAuth';
+import { useToast } from '@/hooks/useToast';
 import { scoreMatch } from '@/lib/utils/fuzzy';
 import { CatalogCategory } from '@/types/enums';
 import type { CatalogItem, ProjectGeneralListItem, UserGearItem, Project } from '@/types/models';
@@ -14,6 +15,7 @@ const CATEGORY_ORDER = Object.values(CatalogCategory);
 
 export function useGearList(projectId: string | undefined) {
   const { session } = useAuth();
+  const { addToast } = useToast();
 
   const [project, setProject] = useState<Project | null>(null);
   const [listItems, setListItems] = useState<ProjectGeneralListItem[]>([]);
@@ -95,6 +97,7 @@ export function useGearList(projectId: string | undefined) {
       listItems.map((item) => projectGeneralListsRepo.update(item.id, { published: newVal })),
     );
     await load();
+    addToast(newVal ? 'Gear list published' : 'Gear list unpublished', 'success');
   };
 
   const addFromCatalog = async (catalogItem: CatalogItem) => {
