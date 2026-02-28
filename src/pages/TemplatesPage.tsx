@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, type FormEvent } from 'react';
+import { useState, type FormEvent } from 'react';
 import { Plus, BookOpen, ChevronDown, ChevronRight, Trash2, Search, FolderOpen, Check } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -6,25 +6,31 @@ import { Input } from '@/components/ui/Input';
 import { Textarea } from '@/components/ui/Textarea';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { Modal } from '@/components/ui/Modal';
-import {
-  packageTemplatesRepo,
-  templateItemsRepo,
-  catalogItemsRepo,
-  projectsRepo,
-  projectGeneralListsRepo,
-} from '@/lib/db/repositories';
+import { projectsRepo } from '@/lib/db/repositories';
 import { useAuth } from '@/hooks/useAuth';
+import { useTemplateManager } from '@/hooks/useTemplateManager';
 import { cn } from '@/lib/utils/cn';
-import type { PackageTemplate, TemplateItem, CatalogItem, Project } from '@/types/models';
+import type { PackageTemplate, Project } from '@/types/models';
 
 export function TemplatesPage() {
   const { session } = useAuth();
 
-  const [templates, setTemplates] = useState<PackageTemplate[]>([]);
-  const [catalogItems, setCatalogItems] = useState<CatalogItem[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [expandedId, setExpandedId] = useState<string | null>(null);
-  const [templateItemsMap, setTemplateItemsMap] = useState<Map<string, TemplateItem[]>>(new Map());
+  const {
+    templates,
+    catalogMap,
+    isLoading,
+    expandedId,
+    templateItemsMap,
+    addSearch,
+    setAddSearch,
+    filteredCatalog,
+    expand,
+    createTemplate,
+    deleteTemplate,
+    addItem,
+    removeItem,
+    applyToProject,
+  } = useTemplateManager();
 
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [newName, setNewName] = useState('');
@@ -37,88 +43,19 @@ export function TemplatesPage() {
   const [appliedCount, setAppliedCount] = useState<number | null>(null);
 
   const [deletingId, setDeletingId] = useState<string | null>(null);
-  const [addSearch, setAddSearch] = useState('');
-
-  const load = async () => {
-    if (!session) return;
-    setIsLoading(true);
-    const [tmpl, catalog, allItems] = await Promise.all([
-      packageTemplatesRepo.getByUserId(session.userId),
-      catalogItemsRepo.getAll(),
-      templateItemsRepo.getAll(),
-    ]);
-    tmpl.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
-    catalog.sort((a, b) => a.name.localeCompare(b.name));
-    setTemplates(tmpl);
-    setCatalogItems(catalog);
-    const map = new Map<string, TemplateItem[]>();
-    for (const item of allItems) {
-      const existing = map.get(item.templateId) ?? [];
-      map.set(item.templateId, [...existing, item]);
-    }
-    setTemplateItemsMap(map);
-    setIsLoading(false);
-  };
-
-  useEffect(() => { load(); }, [session?.userId]);
-
-  const catalogMap = useMemo(() => new Map(catalogItems.map((c) => [c.id, c])), [catalogItems]);
-
-  const reloadTemplateItems = async (templateId: string) => {
-    const items = await templateItemsRepo.getByTemplateId(templateId);
-    setTemplateItemsMap((prev) => new Map(prev).set(templateId, items));
-  };
-
-  const handleExpand = (id: string) => {
-    if (expandedId === id) {
-      setExpandedId(null);
-      setAddSearch('');
-    } else {
-      setExpandedId(id);
-      setAddSearch('');
-    }
-  };
 
   const handleCreate = async (e: FormEvent) => {
     e.preventDefault();
-    if (!session || !newName.trim()) return;
-    await packageTemplatesRepo.create({
-      userId: session.userId,
-      name: newName.trim(),
-      description: newDesc.trim(),
-    });
+    if (!newName.trim()) return;
+    await createTemplate(newName, newDesc);
     setNewName('');
     setNewDesc('');
     setIsCreateOpen(false);
-    await load();
   };
 
   const handleDelete = async (templateId: string) => {
-    const items = templateItemsMap.get(templateId) ?? [];
-    await Promise.all(items.map((item) => templateItemsRepo.remove(item.id)));
-    await packageTemplatesRepo.remove(templateId);
+    await deleteTemplate(templateId);
     setDeletingId(null);
-    if (expandedId === templateId) setExpandedId(null);
-    setTemplates((prev) => prev.filter((t) => t.id !== templateId));
-  };
-
-  const handleAddItem = async (catalogItem: CatalogItem) => {
-    if (!expandedId) return;
-    await templateItemsRepo.create({
-      templateId: expandedId,
-      catalogItemId: catalogItem.id,
-      quantity: 1,
-      notes: '',
-      isRequired: false,
-    });
-    await reloadTemplateItems(expandedId);
-    setAddSearch('');
-  };
-
-  const handleRemoveItem = async (itemId: string) => {
-    if (!expandedId) return;
-    await templateItemsRepo.remove(itemId);
-    await reloadTemplateItems(expandedId);
   };
 
   const openApply = async (template: PackageTemplate) => {
@@ -132,47 +69,12 @@ export function TemplatesPage() {
   };
 
   const handleApply = async () => {
-    if (!applyingTemplate || !selectedProjectId || !session) return;
+    if (!applyingTemplate || !selectedProjectId) return;
     setIsApplying(true);
-    const items = templateItemsMap.get(applyingTemplate.id) ?? [];
-    const existing = await projectGeneralListsRepo.getByProjectId(selectedProjectId);
-    const existingIds = new Set(existing.map((e) => e.catalogItemId));
-    const toAdd = items.filter((item) => !existingIds.has(item.catalogItemId));
-    await Promise.all(
-      toAdd.map((item) =>
-        projectGeneralListsRepo.create({
-          projectId: selectedProjectId,
-          userId: session.userId,
-          catalogItemId: item.catalogItemId,
-          quantity: item.quantity,
-          notes: item.notes,
-          isRequired: item.isRequired,
-          published: false,
-          source: null,
-          userGearId: null,
-        }),
-      ),
-    );
-    setAppliedCount(toAdd.length);
+    const count = await applyToProject(applyingTemplate.id, selectedProjectId);
+    setAppliedCount(count);
     setIsApplying(false);
   };
-
-  const filteredCatalog = useMemo(() => {
-    if (!expandedId) return [];
-    const q = addSearch.toLowerCase().trim();
-    const existingIds = new Set((templateItemsMap.get(expandedId) ?? []).map((i) => i.catalogItemId));
-    return catalogItems
-      .filter((c) => {
-        if (existingIds.has(c.id)) return false;
-        if (!q) return true;
-        return (
-          c.name.toLowerCase().includes(q) ||
-          c.brand.toLowerCase().includes(q) ||
-          c.aliases.some((a) => a.toLowerCase().includes(q))
-        );
-      })
-      .slice(0, 8);
-  }, [expandedId, addSearch, catalogItems, templateItemsMap]);
 
   if (isLoading) {
     return (
@@ -219,7 +121,7 @@ export function TemplatesPage() {
               <Card key={template.id} className="overflow-hidden">
                 <div className="flex items-center gap-3">
                   <button
-                    onClick={() => handleExpand(template.id)}
+                    onClick={() => expand(template.id)}
                     className="flex items-center gap-3 flex-1 min-w-0 text-left"
                   >
                     {isExpanded ? (
@@ -230,7 +132,9 @@ export function TemplatesPage() {
                     <div className="flex-1 min-w-0">
                       <p className="font-medium">{template.name}</p>
                       {template.description && (
-                        <p className="text-xs text-muted-foreground truncate">{template.description}</p>
+                        <p className="text-xs text-muted-foreground truncate">
+                          {template.description}
+                        </p>
                       )}
                     </div>
                     <span className="text-xs text-muted-foreground flex-shrink-0 mr-2">
@@ -267,12 +171,14 @@ export function TemplatesPage() {
                               <div className="flex-1 min-w-0">
                                 <span className="text-sm">{cat?.name ?? 'Unknown item'}</span>
                                 {cat?.brand && (
-                                  <span className="text-xs text-muted-foreground ml-2">{cat.brand}</span>
+                                  <span className="text-xs text-muted-foreground ml-2">
+                                    {cat.brand}
+                                  </span>
                                 )}
                               </div>
                               <span className="text-xs text-muted-foreground">×{item.quantity}</span>
                               <button
-                                onClick={() => handleRemoveItem(item.id)}
+                                onClick={() => removeItem(item.id)}
                                 className="p-1 rounded text-muted-foreground hover:text-destructive transition-colors"
                               >
                                 <Trash2 size={12} />
@@ -290,7 +196,10 @@ export function TemplatesPage() {
                         Add from Catalog
                       </p>
                       <div className="relative">
-                        <Search size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                        <Search
+                          size={13}
+                          className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
+                        />
                         <input
                           type="text"
                           value={addSearch}
@@ -302,12 +211,14 @@ export function TemplatesPage() {
                       {addSearch && (
                         <div className="space-y-0.5">
                           {filteredCatalog.length === 0 ? (
-                            <p className="text-xs text-muted-foreground py-2 text-center">No results</p>
+                            <p className="text-xs text-muted-foreground py-2 text-center">
+                              No results
+                            </p>
                           ) : (
                             filteredCatalog.map((cat) => (
                               <button
                                 key={cat.id}
-                                onClick={() => handleAddItem(cat)}
+                                onClick={() => addItem(cat)}
                                 className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-secondary transition-colors text-left"
                               >
                                 <Plus size={13} className="text-muted-foreground flex-shrink-0" />
@@ -416,10 +327,7 @@ export function TemplatesPage() {
                   <Button variant="secondary" onClick={() => setApplyingTemplate(null)}>
                     Cancel
                   </Button>
-                  <Button
-                    onClick={handleApply}
-                    disabled={!selectedProjectId || isApplying}
-                  >
+                  <Button onClick={handleApply} disabled={!selectedProjectId || isApplying}>
                     {isApplying ? 'Applying…' : 'Apply Template'}
                   </Button>
                 </div>
@@ -434,8 +342,8 @@ export function TemplatesPage() {
         <Modal isOpen={true} onClose={() => setDeletingId(null)} title="Delete Template">
           <div className="space-y-4">
             <p className="text-sm text-muted-foreground">
-              Delete <strong className="text-foreground">{deletingTemplate.name}</strong>?
-              This will remove all items in this template and cannot be undone.
+              Delete <strong className="text-foreground">{deletingTemplate.name}</strong>? This will
+              remove all items in this template and cannot be undone.
             </p>
             <div className="flex justify-end gap-2">
               <Button variant="secondary" onClick={() => setDeletingId(null)}>

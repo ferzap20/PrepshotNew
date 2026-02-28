@@ -2,6 +2,7 @@ import { getDB } from '../connection';
 import type { UserGearItem } from '@/types/models';
 import { generateId } from '@/lib/utils/id';
 import { nowISO } from '@/lib/utils/date';
+import { validate, UserGearItemCreateSchema } from '@/lib/validation';
 
 export async function getAll(): Promise<UserGearItem[]> {
   const db = await getDB();
@@ -26,6 +27,7 @@ export async function getByCatalogItemId(catalogItemId: string): Promise<UserGea
 export async function create(
   data: Omit<UserGearItem, 'id' | 'createdAt' | 'updatedAt'>,
 ): Promise<UserGearItem> {
+  validate(UserGearItemCreateSchema, data);
   const db = await getDB();
   const now = nowISO();
   const item: UserGearItem = { ...data, id: generateId(), createdAt: now, updatedAt: now };

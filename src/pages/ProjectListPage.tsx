@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState } from 'react';
 import { useParams, Link } from 'react-router';
 import { ArrowLeft, Trash2, Pencil, ChevronDown, ChevronRight, Search, Plus, Package, Check, Send, Download } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
@@ -7,110 +7,45 @@ import { Card } from '@/components/ui/Card';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { CategoryFilterPills } from '@/components/ui/CategoryFilterPills';
 import { GearListEditModal } from '@/components/project-list/GearListEditModal';
-import {
-  projectsRepo,
-  catalogItemsRepo,
-  projectGeneralListsRepo,
-  userGearRepo,
-} from '@/lib/db/repositories';
-import { useAuth } from '@/hooks/useAuth';
+import { useGearList } from '@/hooks/useGearList';
 import { useAppSetting } from '@/hooks/useAppSetting';
 import { cn } from '@/lib/utils/cn';
 import { CatalogCategory } from '@/types/enums';
-import type { CatalogItem, ProjectGeneralListItem, UserGearItem, Project } from '@/types/models';
-
-function scoreMatch(query: string, item: CatalogItem): number {
-  const q = query.toLowerCase().trim();
-  if (!q) return 1;
-  const text = [item.name, item.brand, ...(item.aliases ?? [])].join(' ').toLowerCase();
-  if (item.name.toLowerCase().startsWith(q)) return 3;
-  if (text.includes(q)) return 2;
-  if (q.split(/\s+/).every((w) => text.includes(w))) return 1;
-  return 0;
-}
+import type { ProjectGeneralListItem } from '@/types/models';
 
 const CATEGORY_ORDER = Object.values(CatalogCategory);
 
 export function ProjectListPage() {
   const { projectId } = useParams<{ projectId: string }>();
-  const { session } = useAuth();
   const personalItemLabel = useAppSetting('personal_item_label', 'personal item');
 
-  const [project, setProject] = useState<Project | null>(null);
-  const [listItems, setListItems] = useState<ProjectGeneralListItem[]>([]);
-  const [catalogItems, setCatalogItems] = useState<CatalogItem[]>([]);
-  const [userGear, setUserGear] = useState<UserGearItem[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [collapsedCategories, setCollapsedCategories] = useState<Set<string>>(new Set());
+  const {
+    project,
+    listItems,
+    isLoading,
+    search,
+    setSearch,
+    categoryFilter,
+    setCategoryFilter,
+    catalogMap,
+    addedCatalogIds,
+    addedUserGearIds,
+    grouped,
+    filteredCatalog,
+    filteredUserGear,
+    isPublished,
+    reload,
+    addFromCatalog,
+    addFromUserGear,
+    exportCSV,
+    deleteItem,
+    togglePublish,
+  } = useGearList(projectId);
 
+  const [collapsedCategories, setCollapsedCategories] = useState<Set<string>>(new Set());
   const [mobileTab, setMobileTab] = useState<'list' | 'add'>('list');
   const [addTab, setAddTab] = useState<'catalog' | 'mygear'>('catalog');
-  const [search, setSearch] = useState('');
-  const [categoryFilter, setCategoryFilter] = useState('');
-
   const [editingItem, setEditingItem] = useState<ProjectGeneralListItem | null>(null);
-
-  const load = async () => {
-    if (!projectId || !session) return;
-    setIsLoading(true);
-    const [proj, items, catalog, gear] = await Promise.all([
-      projectsRepo.getById(projectId),
-      projectGeneralListsRepo.getByProjectId(projectId),
-      catalogItemsRepo.getAll(),
-      userGearRepo.getByUserId(session.userId),
-    ]);
-    setProject(proj ?? null);
-    setListItems(items);
-    setCatalogItems(catalog);
-    setUserGear(gear);
-    setIsLoading(false);
-  };
-
-  useEffect(() => { load(); }, [projectId, session?.userId]);
-
-  const catalogMap = useMemo(() => new Map(catalogItems.map((c) => [c.id, c])), [catalogItems]);
-  const addedCatalogIds = useMemo(() => new Set(listItems.map((i) => i.catalogItemId)), [listItems]);
-  const addedUserGearIds = useMemo(
-    () => new Set(listItems.filter((i) => i.userGearId).map((i) => i.userGearId!)),
-    [listItems],
-  );
-
-  const grouped = useMemo(() => {
-    const map = new Map<string, Array<{ item: ProjectGeneralListItem; cat: CatalogItem }>>();
-    for (const item of listItems) {
-      const cat = catalogMap.get(item.catalogItemId);
-      if (!cat) continue;
-      if (!map.has(cat.category)) map.set(cat.category, []);
-      map.get(cat.category)!.push({ item, cat });
-    }
-    return CATEGORY_ORDER
-      .filter((c) => map.has(c))
-      .map((category) => ({
-        category,
-        rows: map.get(category)!.sort((a, b) => a.cat.name.localeCompare(b.cat.name)),
-      }));
-  }, [listItems, catalogMap]);
-
-  const filteredCatalog = useMemo(() => {
-    let items = catalogItems;
-    if (categoryFilter) items = items.filter((c) => c.category === categoryFilter);
-    if (search.trim()) {
-      return items
-        .map((c) => ({ c, score: scoreMatch(search, c) }))
-        .filter(({ score }) => score > 0)
-        .sort((a, b) => b.score - a.score)
-        .map(({ c }) => c);
-    }
-    return [...items].sort((a, b) => a.name.localeCompare(b.name));
-  }, [catalogItems, search, categoryFilter]);
-
-  const filteredUserGear = useMemo(() => {
-    if (!search.trim()) return userGear;
-    return userGear.filter((g) => {
-      const cat = catalogMap.get(g.catalogItemId);
-      return cat ? scoreMatch(search, cat) > 0 : false;
-    });
-  }, [userGear, search, catalogMap]);
 
   const toggleCategory = (cat: string) => {
     setCollapsedCategories((prev) => {
@@ -118,77 +53,6 @@ export function ProjectListPage() {
       next.has(cat) ? next.delete(cat) : next.add(cat);
       return next;
     });
-  };
-
-  const isPublished = listItems.length > 0 && listItems.every((i) => i.published);
-
-  const handleTogglePublish = async () => {
-    const newVal = !isPublished;
-    await Promise.all(
-      listItems.map((item) => projectGeneralListsRepo.update(item.id, { published: newVal })),
-    );
-    await load();
-  };
-
-  const handleAddFromCatalog = async (catalogItem: CatalogItem) => {
-    if (!projectId || !session || addedCatalogIds.has(catalogItem.id)) return;
-    await projectGeneralListsRepo.create({
-      projectId,
-      userId: session.userId,
-      catalogItemId: catalogItem.id,
-      quantity: 1,
-      notes: '',
-      isRequired: false,
-      published: false,
-      source: null,
-      userGearId: null,
-    });
-    await load();
-  };
-
-  const handleAddFromMyGear = async (gearItem: UserGearItem) => {
-    if (!projectId || !session || addedUserGearIds.has(gearItem.id)) return;
-    await projectGeneralListsRepo.create({
-      projectId,
-      userId: session.userId,
-      catalogItemId: gearItem.catalogItemId,
-      quantity: gearItem.quantity ?? 1,
-      notes: '',
-      isRequired: false,
-      published: false,
-      source: 'personal',
-      userGearId: gearItem.id,
-    });
-    await load();
-  };
-
-  const handleExportCSV = () => {
-    const header = ['Name', 'Brand', 'Category', 'Quantity', 'Required', 'Notes'];
-    const rows = listItems.map((item) => {
-      const cat = catalogMap.get(item.catalogItemId);
-      return [
-        cat?.name ?? '',
-        cat?.brand ?? '',
-        cat?.category ?? '',
-        String(item.quantity),
-        item.isRequired ? 'Yes' : 'No',
-        item.notes,
-      ];
-    });
-    const escape = (v: string) => `"${v.replace(/"/g, '""')}"`;
-    const csv = [header, ...rows].map((r) => r.map(escape).join(',')).join('\n');
-    const blob = new Blob([csv], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${project?.name ?? 'gear-list'}-${new Date().toISOString().slice(0, 10)}.csv`;
-    a.click();
-    URL.revokeObjectURL(url);
-  };
-
-  const handleDelete = async (itemId: string) => {
-    await projectGeneralListsRepo.remove(itemId);
-    setListItems((prev) => prev.filter((i) => i.id !== itemId));
   };
 
   if (isLoading) {
@@ -248,7 +112,7 @@ export function ProjectListPage() {
                           <Pencil size={13} />
                         </button>
                         <button
-                          onClick={() => handleDelete(item.id)}
+                          onClick={() => deleteItem(item.id)}
                           className="p-1.5 rounded-lg text-muted-foreground hover:text-destructive hover:bg-secondary transition-colors"
                         >
                           <Trash2 size={13} />
@@ -317,12 +181,14 @@ export function ProjectListPage() {
                       <p className="text-xs text-muted-foreground">{cat.brand || cat.category}</p>
                     </div>
                     <button
-                      onClick={() => handleAddFromCatalog(cat)}
+                      onClick={() => addFromCatalog(cat)}
                       disabled={added}
                       title={added ? 'Already added' : 'Add to list'}
                       className={cn(
                         'p-1.5 rounded-lg transition-colors flex-shrink-0',
-                        added ? 'text-emerald-500 cursor-default' : 'text-muted-foreground hover:text-foreground hover:bg-border',
+                        added
+                          ? 'text-emerald-500 cursor-default'
+                          : 'text-muted-foreground hover:text-foreground hover:bg-border',
                       )}
                     >
                       <Plus size={14} />
@@ -356,16 +222,19 @@ export function ProjectListPage() {
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium truncate">{cat.name}</p>
                     <p className="text-xs text-muted-foreground">
-                      {gear.condition}{gear.serialNumber ? ` · ${gear.serialNumber}` : ''}
+                      {gear.condition}
+                      {gear.serialNumber ? ` · ${gear.serialNumber}` : ''}
                     </p>
                   </div>
                   <button
-                    onClick={() => handleAddFromMyGear(gear)}
+                    onClick={() => addFromUserGear(gear)}
                     disabled={added}
                     title={added ? 'Already added' : 'Add to list'}
                     className={cn(
                       'p-1.5 rounded-lg transition-colors flex-shrink-0',
-                      added ? 'text-emerald-500 cursor-default' : 'text-muted-foreground hover:text-foreground hover:bg-border',
+                      added
+                        ? 'text-emerald-500 cursor-default'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-border',
                     )}
                   >
                     <Plus size={14} />
@@ -392,17 +261,16 @@ export function ProjectListPage() {
         <div className="flex items-center justify-between gap-4">
           <h1>Gear List</h1>
           <div className="flex items-center gap-2">
-            <span className="text-sm text-muted-foreground">{listItems.length} item{listItems.length !== 1 ? 's' : ''}</span>
+            <span className="text-sm text-muted-foreground">
+              {listItems.length} item{listItems.length !== 1 ? 's' : ''}
+            </span>
             {listItems.length > 0 && (
               <>
-                <Button variant="secondary" onClick={handleExportCSV}>
+                <Button variant="secondary" onClick={exportCSV}>
                   <Download size={14} />
                   Export
                 </Button>
-                <Button
-                  variant={isPublished ? 'primary' : 'secondary'}
-                  onClick={handleTogglePublish}
-                >
+                <Button variant={isPublished ? 'primary' : 'secondary'} onClick={togglePublish}>
                   {isPublished ? <Check size={14} /> : <Send size={14} />}
                   {isPublished ? 'Published' : 'Publish'}
                 </Button>
@@ -419,7 +287,9 @@ export function ProjectListPage() {
             onClick={() => setMobileTab(tab)}
             className={cn(
               'px-3 py-1.5 rounded-lg text-sm transition-colors',
-              mobileTab === tab ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground',
+              mobileTab === tab
+                ? 'bg-primary text-primary-foreground'
+                : 'bg-secondary text-muted-foreground',
             )}
           >
             {tab === 'list' ? 'Gear List' : 'Add Gear'}
@@ -428,10 +298,20 @@ export function ProjectListPage() {
       </div>
 
       <div className="flex gap-4 flex-1 min-h-0">
-        <div className={cn('lg:w-3/5 lg:flex flex-col min-h-0', mobileTab === 'add' ? 'hidden' : 'flex w-full')}>
+        <div
+          className={cn(
+            'lg:w-3/5 lg:flex flex-col min-h-0',
+            mobileTab === 'add' ? 'hidden' : 'flex w-full',
+          )}
+        >
           {GearListPanel}
         </div>
-        <div className={cn('lg:w-2/5 lg:flex flex-col min-h-0 border-l border-border pl-4', mobileTab === 'list' ? 'hidden lg:flex' : 'flex w-full')}>
+        <div
+          className={cn(
+            'lg:w-2/5 lg:flex flex-col min-h-0 border-l border-border pl-4',
+            mobileTab === 'list' ? 'hidden lg:flex' : 'flex w-full',
+          )}
+        >
           {AddGearPanel}
         </div>
       </div>
@@ -442,7 +322,10 @@ export function ProjectListPage() {
           onClose={() => setEditingItem(null)}
           item={editingItem}
           catalogItemName={catalogMap.get(editingItem.catalogItemId)?.name ?? ''}
-          onUpdated={() => { load(); setEditingItem(null); }}
+          onUpdated={() => {
+            reload();
+            setEditingItem(null);
+          }}
         />
       )}
     </div>

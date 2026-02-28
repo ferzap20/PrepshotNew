@@ -175,10 +175,151 @@
     "category": "Grip",
     "subcategory": "Clamp",
     "description": "End jaw clamp for gripping irregular surfaces.",
-    "specs": {
-      "jaw_type": "end"
-    },
+    "specs": { "jaw_type": "end" },
     "weight_kg": 0.9,
     "source": "Cardellini"
+  },
+  {
+    "id": "grip_wire_rig_flying_fx",
+    "name": "Flying FX Wire Rig System",
+    "brand": "Flying FX",
+    "category": "Grip",
+    "subcategory": "Wire Rig",
+    "description": "Professional wire rig system for flying actors or props.",
+    "specs": { "max_load_kg": 120 },
+    "weight_kg": 85.0,
+    "source": "Flying FX"
+  },
+  {
+    "id": "grip_wire_rig_2point",
+    "name": "2-Point Wire Rig",
+    "brand": "Generic",
+    "category": "Grip",
+    "subcategory": "Wire Rig",
+    "description": "Two-point wire rig for controlled horizontal movement.",
+    "specs": { "max_span_m": 20 },
+    "weight_kg": 40.0,
+    "source": "B&H"
+  },
+  {
+    "id": "grip_wire_rig_4point",
+    "name": "4-Point Wire Rig",
+    "brand": "StuntTech",
+    "category": "Grip",
+    "subcategory": "Wire Rig",
+    "description": "Four-point stunt rig for precise 3D movement.",
+    "specs": { "max_load_kg": 150 },
+    "weight_kg": 110.0,
+    "source": "StuntTech"
+  },
+  {
+    "id": "grip_crane_supertechno_50",
+    "name": "SuperTechno 50 Crane",
+    "brand": "SuperTechno",
+    "category": "Grip",
+    "subcategory": "Crane",
+    "description": "50ft telescopic crane used for large-scale productions.",
+    "specs": { "reach_ft": 50 },
+    "weight_kg": 1600.0,
+    "source": "SuperTechno"
+  },
+  {
+    "id": "grip_crane_supertechno_22",
+    "name": "SuperTechno 22 Crane",
+    "brand": "SuperTechno",
+    "category": "Grip",
+    "subcategory": "Crane",
+    "description": "Compact telescopic crane for indoor and tight locations.",
+    "specs": { "reach_ft": 22 },
+    "weight_kg": 650.0,
+    "source": "SuperTechno"
+  },
+  {
+    "id": "grip_stunt_rig_harness_pro",
+    "name": "Pro Stunt Harness Rig",
+    "brand": "ActionRig",
+    "category": "Grip",
+    "subcategory": "Stunt Rig",
+    "description": "Full-body stunt harness rig for wire-assisted stunts.",
+    "specs": { "max_load_kg": 140 },
+    "weight_kg": 6.0,
+    "source": "ActionRig"
+  },
+  {
+    "id": "grip_stunt_rig_quickrelease",
+    "name": "Quick-Release Stunt Rig",
+    "brand": "ActionRig",
+    "category": "Grip",
+    "subcategory": "Stunt Rig",
+    "description": "Quick-release stunt rig for dynamic action scenes.",
+    "specs": { "release_type": "mechanical" },
+    "weight_kg": 4.0,
+    "source": "ActionRig"
+  },
+  {
+    "id": "grip_winch_electric_500kg",
+    "name": "Electric Winch 500kg",
+    "brand": "Modern",
+    "category": "Grip",
+    "subcategory": "Winch",
+    "description": "Electric winch for controlled lifting and rigging.",
+    "specs": { "capacity_kg": 500 },
+    "weight_kg": 28.0,
+    "source": "Modern"
+  },
+  {
+    "id": "grip_winch_manual_200kg",
+    "name": "Manual Winch 200kg",
+    "brand": "Generic",
+    "category": "Grip",
+    "subcategory": "Winch",
+    "description": "Manual winch for lightweight rigging tasks.",
+    "specs": { "capacity_kg": 200 },
+    "weight_kg": 12.0,
+    "source": "B&H"
+  },
+  {
+    "id": "grip_remote_slider_10ft",
+    "name": "10ft Remote Motorized Slider",
+    "brand": "Kessler",
+    "category": "Grip",
+    "subcategory": "Slider",
+    "description": "Motorized slider for remote-controlled camera movement.",
+    "specs": { "length_ft": 10 },
+    "weight_kg": 14.0,
+    "source": "Kessler"
+  },
+  {
+    "id": "grip_remote_slider_4ft",
+    "name": "4ft Motorized Slider",
+    "brand": "Rhino",
+    "category": "Grip",
+    "subcategory": "Slider",
+    "description": "Compact motorized slider for precise motion control.",
+    "specs": { "length_ft": 4 },
+    "weight_kg": 5.0,
+    "source": "Rhino"
+  },
+  {
+    "id": "grip_heavy_duty_spreader_pro",
+    "name": "Heavy Duty Spreader Pro",
+    "brand": "Ronford-Baker",
+    "category": "Grip",
+    "subcategory": "Support",
+    "description": "Reinforced spreader for heavy-duty tripods.",
+    "specs": { "compatibility": "RB HD" },
+    "weight_kg": 4.0,
+    "source": "Ronford-Baker"
+  },
+  {
+    "id": "grip_mega_boom_arm",
+    "name": "Mega Boom Arm",
+    "brand": "Manfrotto",
+    "category": "Grip",
+    "subcategory": "Boom Arm",
+    "description": "Large boom arm for overhead lighting and camera rigs.",
+    "specs": { "length_m": 3.5 },
+    "weight_kg": 7.5,
+    "source": "Manfrotto"
   }
 ]

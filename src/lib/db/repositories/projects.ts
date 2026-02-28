@@ -2,6 +2,7 @@ import { getDB } from '../connection';
 import type { Project } from '@/types/models';
 import { generateId } from '@/lib/utils/id';
 import { nowISO } from '@/lib/utils/date';
+import { validate, ProjectCreateSchema } from '@/lib/validation';
 
 export async function getAll(): Promise<Project[]> {
   const db = await getDB();
@@ -19,6 +20,7 @@ export async function getByUserId(userId: string): Promise<Project[]> {
 }
 
 export async function create(data: Omit<Project, 'id' | 'createdAt' | 'updatedAt'>): Promise<Project> {
+  validate(ProjectCreateSchema, data);
   const db = await getDB();
   const now = nowISO();
   const project: Project = { ...data, id: generateId(), createdAt: now, updatedAt: now };

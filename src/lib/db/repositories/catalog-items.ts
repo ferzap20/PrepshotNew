@@ -3,6 +3,7 @@ import type { CatalogItem } from '@/types/models';
 import type { CatalogCategory } from '@/types/enums';
 import { generateId } from '@/lib/utils/id';
 import { nowISO } from '@/lib/utils/date';
+import { validate, CatalogItemCreateSchema } from '@/lib/validation';
 
 export async function getAll(): Promise<CatalogItem[]> {
   const db = await getDB();
@@ -20,6 +21,7 @@ export async function getByCategory(category: CatalogCategory): Promise<CatalogI
 }
 
 export async function create(data: Omit<CatalogItem, 'id' | 'createdAt' | 'updatedAt'>): Promise<CatalogItem> {
+  validate(CatalogItemCreateSchema, data);
   const db = await getDB();
   const now = nowISO();
   const item: CatalogItem = { ...data, id: generateId(), createdAt: now, updatedAt: now };

@@ -4,6 +4,7 @@ import type { User } from '@/types/models';
 import { UserRole } from '@/types/enums';
 import { generateId } from '@/lib/utils/id';
 import { nowISO } from '@/lib/utils/date';
+import { validate, RegisterSchema } from '@/lib/validation';
 
 const SALT_ROUNDS = 10;
 const SESSION_KEY = 'prepshot_session';
@@ -15,11 +16,10 @@ export interface AuthSession {
 }
 
 export async function register(email: string, password: string): Promise<User> {
+  validate(RegisterSchema, { email, password });
   const db = await getDB();
   const existing = await db.getFromIndex('users', 'by-email', email);
   if (existing) throw new Error('Email already registered');
-
-  if (password.length < 6) throw new Error('Password must be at least 6 characters');
 
   const hash = await bcrypt.hash(password, SALT_ROUNDS);
   const now = nowISO();

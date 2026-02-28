@@ -17,7 +17,10 @@
       "Bash(wc -l /Users/ferzap/Documents/Projects/Prepshot/src/pages/*.tsx)",
       "Bash(find /Users/ferzap/Documents/Projects/Prepshot/src -name \"*.tsx\" -exec grep -l \"try.*catch\\\\|throw new Error\" {} ;)",
       "Bash(wc -l /Users/ferzap/Documents/Projects/Prepshot/src/components/**/*.tsx)",
-      "Bash(grep -r \"throw\\\\|Error\" /Users/ferzap/Documents/Projects/Prepshot/src/pages/*.tsx)"
+      "Bash(grep -r \"throw\\\\|Error\" /Users/ferzap/Documents/Projects/Prepshot/src/pages/*.tsx)",
+      "Bash(npm install --save-dev fake-indexeddb)",
+      "Bash(npm test)",
+      "Bash(npx tsc -b --noEmit)"
     ]
   }
 }
