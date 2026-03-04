@@ -21,7 +21,8 @@
       "Bash(npm install --save-dev fake-indexeddb)",
       "Bash(npm test)",
       "Bash(npx tsc -b --noEmit)",
-      "Bash(npm test -- --run)"
+      "Bash(npm test -- --run)",
+      "Bash(node -e \":*)"
     ]
   }
 }

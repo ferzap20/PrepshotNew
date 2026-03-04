@@ -1,0 +1,871 @@
+[
+  {
+    "id": "audio_mic_shotgun_mkh416",
+    "name": "Sennheiser MKH 416",
+    "brand": "Sennheiser",
+    "category": "Audio",
+    "subcategory": "Shotgun Microphone",
+    "description": "Industry-standard short shotgun mic for film and broadcast.",
+    "specs": {
+      "polar_pattern": "supercardioid",
+      "frequency_range_hz": "40-20000"
+    },
+    "weight_kg": 0.17,
+    "connectors": [
+      "XLR"
+    ],
+    "source": "Sennheiser"
+  },
+  {
+    "id": "audio_mic_shotgun_ntg5",
+    "name": "Rode NTG5",
+    "brand": "Rode",
+    "category": "Audio",
+    "subcategory": "Shotgun Microphone",
+    "description": "Lightweight shotgun mic with low self-noise.",
+    "specs": {
+      "polar_pattern": "supercardioid",
+      "frequency_range_hz": "20-20000"
+    },
+    "weight_kg": 0.076,
+    "connectors": [
+      "XLR"
+    ],
+    "source": "Rode"
+  },
+  {
+    "id": "audio_mic_shotgun_dpa4017",
+    "name": "DPA 4017B",
+    "brand": "DPA",
+    "category": "Audio",
+    "subcategory": "Shotgun Microphone",
+    "description": "Premium shotgun mic with natural off-axis response.",
+    "specs": {
+      "polar_pattern": "supercardioid",
+      "frequency_range_hz": "70-20000"
+    },
+    "weight_kg": 0.07,
+    "connectors": [
+      "XLR"
+    ],
+    "source": "DPA"
+  },
+  {
+    "id": "audio_mic_lav_sanken_cos11",
+    "name": "Sanken COS-11D Lavalier",
+    "brand": "Sanken",
+    "category": "Audio",
+    "subcategory": "Lavalier Microphone",
+    "description": "Industry-standard lav mic for film and TV dialogue.",
+    "specs": {
+      "polar_pattern": "omnidirectional",
+      "frequency_range_hz": "50-20000"
+    },
+    "weight_kg": 0.01,
+    "connectors": [
+      "TA5",
+      "3.5mm"
+    ],
+    "source": "Sanken"
+  },
+  {
+    "id": "audio_mic_lav_dpa4060",
+    "name": "DPA 4060 Lavalier",
+    "brand": "DPA",
+    "category": "Audio",
+    "subcategory": "Lavalier Microphone",
+    "description": "High-fidelity lavalier mic with wide dynamic range.",
+    "specs": {
+      "polar_pattern": "omnidirectional",
+      "frequency_range_hz": "20-20000"
+    },
+    "weight_kg": 0.01,
+    "connectors": [
+      "MicroDot"
+    ],
+    "source": "DPA"
+  },
+  {
+    "id": "audio_mic_stereo_bp4025",
+    "name": "Audio-Technica BP4025",
+    "brand": "Audio-Technica",
+    "category": "Audio",
+    "subcategory": "Stereo Microphone",
+    "description": "X/Y stereo mic for ambience and environmental recording.",
+    "specs": {
+      "polar_pattern": "X/Y stereo",
+      "frequency_range_hz": "20-17000"
+    },
+    "weight_kg": 0.3,
+    "connectors": [
+      "XLR5"
+    ],
+    "source": "Audio-Technica"
+  },
+  {
+    "id": "audio_mic_boundary_shure91",
+    "name": "Shure Beta 91A",
+    "brand": "Shure",
+    "category": "Audio",
+    "subcategory": "Boundary Microphone",
+    "description": "Boundary mic for table scenes, cars, and wide coverage.",
+    "specs": {
+      "polar_pattern": "half-cardioid",
+      "frequency_range_hz": "20-20000"
+    },
+    "weight_kg": 0.47,
+    "connectors": [
+      "XLR"
+    ],
+    "source": "Shure"
+  },
+  {
+    "id": "audio_wireless_tx_lectro_lmb",
+    "name": "Lectrosonics LMb Transmitter",
+    "brand": "Lectrosonics",
+    "category": "Audio",
+    "subcategory": "Wireless Transmitter",
+    "description": "Professional UHF transmitter for lavalier microphones.",
+    "specs": {
+      "frequency_mhz": "537-614",
+      "power_mw": "50/100"
+    },
+    "weight_kg": 0.1,
+    "connectors": [
+      "TA5"
+    ],
+    "source": "Lectrosonics"
+  },
+  {
+    "id": "audio_wireless_rx_lectro_src",
+    "name": "Lectrosonics SRc Dual Receiver",
+    "brand": "Lectrosonics",
+    "category": "Audio",
+    "subcategory": "Wireless Receiver",
+    "description": "Dual-channel slot-in receiver for ENG and cinema workflows.",
+    "specs": {
+      "frequency_mhz": "537-614",
+      "channels": 2
+    },
+    "weight_kg": 0.2,
+    "connectors": [
+      "TA3",
+      "XLR"
+    ],
+    "source": "Lectrosonics"
+  },
+  {
+    "id": "audio_wireless_tx_sennheiser_g4",
+    "name": "Sennheiser G4 Bodypack TX",
+    "brand": "Sennheiser",
+    "category": "Audio",
+    "subcategory": "Wireless Transmitter",
+    "description": "Reliable wireless transmitter for lavaliers and headsets.",
+    "specs": {
+      "frequency_mhz": "516-558",
+      "power_mw": "10/30"
+    },
+    "weight_kg": 0.12,
+    "connectors": [
+      "3.5mm"
+    ],
+    "source": "Sennheiser"
+  },
+  {
+    "id": "audio_wireless_rx_sennheiser_g4",
+    "name": "Sennheiser G4 Camera Receiver",
+    "brand": "Sennheiser",
+    "category": "Audio",
+    "subcategory": "Wireless Receiver",
+    "description": "Camera-mounted receiver for ENG and documentary work.",
+    "specs": {
+      "frequency_mhz": "516-558",
+      "outputs": "XLR/3.5mm"
+    },
+    "weight_kg": 0.16,
+    "connectors": [
+      "XLR",
+      "3.5mm"
+    ],
+    "source": "Sennheiser"
+  },
+  {
+    "id": "audio_wireless_tx_sony_uwp",
+    "name": "Sony UWP-D Transmitter",
+    "brand": "Sony",
+    "category": "Audio",
+    "subcategory": "Wireless Transmitter",
+    "description": "Digital/analog hybrid transmitter for Sony wireless systems.",
+    "specs": {
+      "frequency_mhz": "470-700"
+    },
+    "weight_kg": 0.09,
+    "connectors": [
+      "3.5mm"
+    ],
+    "source": "Sony"
+  },
+  {
+    "id": "audio_wireless_rx_sony_uwp",
+    "name": "Sony UWP-D Receiver",
+    "brand": "Sony",
+    "category": "Audio",
+    "subcategory": "Wireless Receiver",
+    "description": "Camera-mounted receiver compatible with Sony MI shoe.",
+    "specs": {
+      "frequency_mhz": "470-700"
+    },
+    "weight_kg": 0.1,
+    "connectors": [
+      "MI Shoe",
+      "3.5mm"
+    ],
+    "source": "Sony"
+  },
+  {
+    "id": "audio_ifb_tx_lectro_t4",
+    "name": "Lectrosonics IFB T4 Transmitter",
+    "brand": "Lectrosonics",
+    "category": "Audio",
+    "subcategory": "IFB Transmitter",
+    "description": "IFB transmitter for director and crew monitoring.",
+    "specs": {
+      "frequency_mhz": "486-700"
+    },
+    "weight_kg": 0.3,
+    "connectors": [
+      "XLR"
+    ],
+    "source": "Lectrosonics"
+  },
+  {
+    "id": "audio_ifb_rx_lectro_r1a",
+    "name": "Lectrosonics R1a IFB Receiver",
+    "brand": "Lectrosonics",
+    "category": "Audio",
+    "subcategory": "IFB Receiver",
+    "description": "Compact IFB receiver for on-set monitoring.",
+    "specs": {
+      "frequency_mhz": "486-700"
+    },
+    "weight_kg": 0.1,
+    "connectors": [
+      "3.5mm"
+    ],
+    "source": "Lectrosonics"
+  },
+  {
+    "id": "audio_antenna_sharkfin",
+    "name": "Sharkfin Directional Antenna",
+    "brand": "Lectrosonics",
+    "category": "Audio",
+    "subcategory": "Antenna",
+    "description": "Directional antenna for long-range wireless reception.",
+    "specs": {
+      "gain_db": 7
+    },
+    "weight_kg": 0.4,
+    "connectors": [
+      "BNC"
+    ],
+    "source": "Lectrosonics"
+  },
+  {
+    "id": "audio_camera_module_sony_xlrk3m",
+    "name": "Sony XLR-K3M Audio Module",
+    "brand": "Sony",
+    "category": "Audio",
+    "subcategory": "Camera Audio Module",
+    "description": "Dual XLR audio interface for Sony mirrorless cameras.",
+    "specs": {
+      "inputs": 2,
+      "phantom_power": true
+    },
+    "weight_kg": 0.2,
+    "connectors": [
+      "XLR",
+      "MI Shoe"
+    ],
+    "source": "Sony"
+  },
+  {
+    "id": "audio_recorder_sd_833",
+    "name": "Sound Devices 833",
+    "brand": "Sound Devices",
+    "category": "Audio",
+    "subcategory": "Recorder",
+    "description": "Professional 8‑channel mixer‑recorder for film production.",
+    "specs": {
+      "tracks": 12,
+      "media": "SD/USB",
+      "bit_depth": "32‑bit float"
+    },
+    "weight_kg": 1.1,
+    "connectors": [
+      "XLR",
+      "TA3",
+      "USB‑C"
+    ],
+    "source": "Sound Devices"
+  },
+  {
+    "id": "audio_recorder_sd_888",
+    "name": "Sound Devices 888",
+    "brand": "Sound Devices",
+    "category": "Audio",
+    "subcategory": "Recorder",
+    "description": "Compact 16‑track mixer‑recorder with Dante support.",
+    "specs": {
+      "tracks": 20,
+      "media": "SD/USB",
+      "network": "Dante"
+    },
+    "weight_kg": 1.7,
+    "connectors": [
+      "XLR",
+      "TA3",
+      "USB‑C",
+      "Ethernet"
+    ],
+    "source": "Sound Devices"
+  },
+  {
+    "id": "audio_recorder_zoom_f8n",
+    "name": "Zoom F8n Pro",
+    "brand": "Zoom",
+    "category": "Audio",
+    "subcategory": "Recorder",
+    "description": "8‑input field recorder with advanced limiters.",
+    "specs": {
+      "tracks": 10,
+      "media": "SD",
+      "bit_depth": "32‑bit float"
+    },
+    "weight_kg": 0.9,
+    "connectors": [
+      "XLR",
+      "TA3"
+    ],
+    "source": "Zoom"
+  },
+  {
+    "id": "audio_recorder_mixpre6ii",
+    "name": "Sound Devices MixPre‑6 II",
+    "brand": "Sound Devices",
+    "category": "Audio",
+    "subcategory": "Recorder",
+    "description": "Portable 6‑input recorder with 32‑bit float recording.",
+    "specs": {
+      "tracks": 8,
+      "media": "SD"
+    },
+    "weight_kg": 0.8,
+    "connectors": [
+      "XLR",
+      "USB‑C"
+    ],
+    "source": "Sound Devices"
+  },
+  {
+    "id": "audio_boompole_ktek_klassic",
+    "name": "K‑Tek Klassic Boom Pole",
+    "brand": "K‑Tek",
+    "category": "Audio",
+    "subcategory": "Boom Pole",
+    "description": "Carbon fiber boom pole for professional boom operation.",
+    "specs": {
+      "length_m": "0.9‑3.0"
+    },
+    "weight_kg": 0.6,
+    "connectors": [
+      "XLR"
+    ],
+    "source": "K‑Tek"
+  },
+  {
+    "id": "audio_boompole_ambient_qx",
+    "name": "Ambient QX Boom Pole",
+    "brand": "Ambient",
+    "category": "Audio",
+    "subcategory": "Boom Pole",
+    "description": "Lightweight carbon fiber boom pole with internal cable.",
+    "specs": {
+      "length_m": "1.0‑4.0"
+    },
+    "weight_kg": 0.7,
+    "connectors": [
+      "XLR"
+    ],
+    "source": "Ambient"
+  },
+  {
+    "id": "audio_wind_rycote_cyclone",
+    "name": "Rycote Cyclone Blimp",
+    "brand": "Rycote",
+    "category": "Audio",
+    "subcategory": "Wind Protection",
+    "description": "High‑end blimp system for shotgun microphones.",
+    "specs": {
+      "compatibility": "short/medium shotgun"
+    },
+    "weight_kg": 0.8,
+    "connectors": [
+      "XLR"
+    ],
+    "source": "Rycote"
+  },
+  {
+    "id": "audio_wind_cinela_pianissimo",
+    "name": "Cinela Pianissimo",
+    "brand": "Cinela",
+    "category": "Audio",
+    "subcategory": "Wind Protection",
+    "description": "Premium wind protection for compact shotgun mics.",
+    "specs": {
+      "compatibility": "short shotgun"
+    },
+    "weight_kg": 0.75,
+    "connectors": [
+      "XLR"
+    ],
+    "source": "Cinela"
+  },
+  {
+    "id": "audio_headphones_sony7506",
+    "name": "Sony MDR‑7506",
+    "brand": "Sony",
+    "category": "Audio",
+    "subcategory": "Headphones",
+    "description": "Industry‑standard closed‑back monitoring headphones.",
+    "specs": {
+      "frequency_range_hz": "10‑20000"
+    },
+    "weight_kg": 0.23,
+    "connectors": [
+      "3.5mm",
+      "1/4"
+    ],
+    "source": "Sony"
+  },
+  {
+    "id": "audio_slate_denecke_ts3",
+    "name": "Denecke TS‑3 Smart Slate",
+    "brand": "Denecke",
+    "category": "Audio",
+    "subcategory": "Timecode Slate",
+    "description": "Industry‑standard timecode slate for sync.",
+    "specs": {
+      "timecode": "LTC",
+      "display": "LED"
+    },
+    "weight_kg": 1.2,
+    "connectors": [
+      "BNC"
+    ],
+    "source": "Denecke"
+  },
+  {
+    "id": "audio_mounting_ursa_mini",
+    "name": "URSA Mini Mounts Kit",
+    "brand": "URSA",
+    "category": "Audio",
+    "subcategory": "Lavalier Mounting",
+    "description": "Mounting kit for hiding lavaliers under clothing.",
+    "specs": {
+      "contents": "stickies, soft circles, mounts"
+    },
+    "weight_kg": 0.05,
+    "compatibility": [
+      "lavaliers"
+    ],
+    "source": "URSA"
+  },
+  {
+    "id": "audio_mounting_rycote_overcovers",
+    "name": "Rycote Overcovers",
+    "brand": "Rycote",
+    "category": "Audio",
+    "subcategory": "Lavalier Mounting",
+    "description": "Wind protection and mounting pads for lavaliers.",
+    "specs": {
+      "use": "under clothing"
+    },
+    "weight_kg": 0.03,
+    "compatibility": [
+      "lavaliers"
+    ],
+    "source": "Rycote"
+  },
+  {
+    "id": "audio_mic_ambisonic_sennheiser_ambeo",
+    "name": "Sennheiser AMBEO VR Mic",
+    "brand": "Sennheiser",
+    "category": "Audio",
+    "subcategory": "Ambisonic Microphone",
+    "description": "Ambisonic VR microphone capturing full 360° spatial audio.",
+    "specs": {
+      "format": "A-format",
+      "capsules": 4
+    },
+    "weight_kg": 0.33,
+    "connectors": [
+      "XLR4"
+    ],
+    "source": "Sennheiser"
+  },
+  {
+    "id": "audio_mic_ambisonic_soundfield_st450",
+    "name": "SoundField ST450 MKII",
+    "brand": "SoundField",
+    "category": "Audio",
+    "subcategory": "Ambisonic Microphone",
+    "description": "Broadcast-grade ambisonic microphone for immersive audio.",
+    "specs": {
+      "format": "B-format",
+      "capsules": 4
+    },
+    "weight_kg": 0.7,
+    "connectors": [
+      "XLR"
+    ],
+    "source": "SoundField"
+  },
+  {
+    "id": "audio_wirelessboom_tx_zaxcom_zmt4",
+    "name": "Zaxcom ZMT4 Boom Transmitter",
+    "brand": "Zaxcom",
+    "category": "Audio",
+    "subcategory": "Wireless Boom",
+    "description": "Lightweight digital transmitter for wireless boom operation.",
+    "specs": {
+      "frequency_mhz": "512-608",
+      "recording": "internal"
+    },
+    "weight_kg": 0.08,
+    "connectors": [
+      "TA5"
+    ],
+    "source": "Zaxcom"
+  },
+  {
+    "id": "audio_wirelessboom_rx_zaxcom_qrx200",
+    "name": "Zaxcom QRX200 Receiver",
+    "brand": "Zaxcom",
+    "category": "Audio",
+    "subcategory": "Wireless Boom",
+    "description": "Digital receiver for Zaxcom wireless boom and lav systems.",
+    "specs": {
+      "channels": 2
+    },
+    "weight_kg": 0.3,
+    "connectors": [
+      "XLR",
+      "TA3"
+    ],
+    "source": "Zaxcom"
+  },
+  {
+    "id": "audio_mic_plant_countryman_b3",
+    "name": "Countryman B3 Plant Mic",
+    "brand": "Countryman",
+    "category": "Audio",
+    "subcategory": "Plant Microphone",
+    "description": "Tiny omnidirectional mic ideal for hidden plant setups.",
+    "specs": {
+      "polar_pattern": "omni",
+      "frequency_range_hz": "20-20000"
+    },
+    "weight_kg": 0.01,
+    "connectors": [
+      "TA5",
+      "3.5mm"
+    ],
+    "source": "Countryman"
+  },
+  {
+    "id": "audio_mic_plant_dpa4098",
+    "name": "DPA 4098 Supercardioid Plant Mic",
+    "brand": "DPA",
+    "category": "Audio",
+    "subcategory": "Plant Microphone",
+    "description": "Miniature supercardioid mic for discreet placement.",
+    "specs": {
+      "polar_pattern": "supercardioid",
+      "frequency_range_hz": "100-15000"
+    },
+    "weight_kg": 0.02,
+    "connectors": [
+      "MicroDot"
+    ],
+    "source": "DPA"
+  },
+  {
+    "id": "audio_mic_hydrophone_aquarian_h2a",
+    "name": "Aquarian H2a Hydrophone",
+    "brand": "Aquarian Audio",
+    "category": "Audio",
+    "subcategory": "Hydrophone",
+    "description": "Underwater microphone for aquatic sound recording.",
+    "specs": {
+      "depth_rating_m": 80
+    },
+    "weight_kg": 0.4,
+    "connectors": [
+      "XLR"
+    ],
+    "source": "Aquarian Audio"
+  },
+  {
+    "id": "audio_mic_contact_barcus_4000",
+    "name": "Barcus Berry 4000 Contact Mic",
+    "brand": "Barcus Berry",
+    "category": "Audio",
+    "subcategory": "Contact Microphone",
+    "description": "Contact microphone for capturing vibrations and foley.",
+    "specs": {
+      "type": "piezo"
+    },
+    "weight_kg": 0.05,
+    "connectors": [
+      "1/4"
+    ],
+    "source": "Barcus Berry"
+  },
+  {
+    "id": "audio_bag_orca_or30",
+    "name": "Orca OR-30 Audio Bag",
+    "brand": "Orca",
+    "category": "Audio",
+    "subcategory": "Audio Bag",
+    "description": "Padded audio bag for mixer/recorder setups.",
+    "specs": {
+      "compatibility": "833/F8n/MixPre"
+    },
+    "weight_kg": 1.1,
+    "source": "Orca"
+  },
+  {
+    "id": "audio_bag_ktek_ktbag",
+    "name": "K-Tek Stingray Small Bag",
+    "brand": "K-Tek",
+    "category": "Audio",
+    "subcategory": "Audio Bag",
+    "description": "Compact audio bag for lightweight field rigs.",
+    "specs": {
+      "compatibility": "MixPre/F4"
+    },
+    "weight_kg": 0.9,
+    "source": "K-Tek"
+  },
+  {
+    "id": "audio_harness_orca_or40",
+    "name": "Orca OR-40 Harness",
+    "brand": "Orca",
+    "category": "Audio",
+    "subcategory": "Harness",
+    "description": "Ergonomic harness for supporting audio bags.",
+    "specs": {
+      "padding": "memory foam"
+    },
+    "weight_kg": 0.8,
+    "source": "Orca"
+  },
+  {
+    "id": "audio_harness_ktek_kshrn3",
+    "name": "K-Tek KSHRN3 Harness",
+    "brand": "K-Tek",
+    "category": "Audio",
+    "subcategory": "Harness",
+    "description": "Lightweight harness for long production days.",
+    "specs": {
+      "support": "X-style"
+    },
+    "weight_kg": 0.7,
+    "source": "K-Tek"
+  },
+  {
+    "id": "audio_return_sony_dwr_s03d",
+    "name": "Sony DWR-S03D Camera Receiver",
+    "brand": "Sony",
+    "category": "Audio",
+    "subcategory": "Camera Return",
+    "description": "Dual-channel digital receiver for Sony slot-in cameras.",
+    "specs": {
+      "frequency_mhz": "470-700",
+      "channels": 2
+    },
+    "weight_kg": 0.2,
+    "connectors": [
+      "MI Shoe",
+      "XLR"
+    ],
+    "source": "Sony"
+  },
+  {
+    "id": "audio_return_panasonic_ag_rx",
+    "name": "Panasonic AG Camera Return Module",
+    "brand": "Panasonic",
+    "category": "Audio",
+    "subcategory": "Camera Return",
+    "description": "Camera return audio module for ENG workflows.",
+    "specs": {
+      "channels": 2
+    },
+    "weight_kg": 0.25,
+    "connectors": [
+      "XLR"
+    ],
+    "source": "Panasonic"
+  },
+  {
+    "id": "audio_antennadistribution_lectro_octopack",
+    "name": "Lectrosonics Octopack",
+    "brand": "Lectrosonics",
+    "category": "Audio",
+    "subcategory": "Antenna Distribution",
+    "description": "Antenna distribution system for multi-receiver setups.",
+    "specs": {
+      "outputs": 8
+    },
+    "weight_kg": 1.8,
+    "connectors": [
+      "BNC"
+    ],
+    "source": "Lectrosonics"
+  },
+  {
+    "id": "audio_antennadistribution_wisycom_mcr42ad",
+    "name": "Wisycom MCR42-AD",
+    "brand": "Wisycom",
+    "category": "Audio",
+    "subcategory": "Antenna Distribution",
+    "description": "Wideband antenna distribution for Wisycom receivers.",
+    "specs": {
+      "bandwidth_mhz": 330
+    },
+    "weight_kg": 1.5,
+    "connectors": [
+      "BNC"
+    ],
+    "source": "Wisycom"
+  },
+  {
+    "id": "audio_timecode_rx_tentacle_tracke",
+    "name": "Tentacle Track E Timecode Recorder",
+    "brand": "Tentacle",
+    "category": "Audio",
+    "subcategory": "Timecode Receiver",
+    "description": "Wireless timecode-enabled audio recorder for talent miking.",
+    "specs": {
+      "timecode": "Bluetooth LTC",
+      "recording": "32-bit float"
+    },
+    "weight_kg": 0.05,
+    "connectors": [
+      "3.5mm"
+    ],
+    "source": "Tentacle"
+  },
+  {
+    "id": "audio_timecode_rx_ambient_nanolockit",
+    "name": "Ambient NanoLockit",
+    "brand": "Ambient",
+    "category": "Audio",
+    "subcategory": "Timecode Receiver",
+    "description": "Compact wireless timecode sync box.",
+    "specs": {
+      "timecode": "ACN",
+      "battery_life_h": 35
+    },
+    "weight_kg": 0.07,
+    "connectors": [
+      "LEMO"
+    ],
+    "source": "Ambient"
+  },
+  {
+    "id": "audio_cart_soundcart_mini",
+    "name": "SoundCart MiniCart",
+    "brand": "SoundCart",
+    "category": "Audio",
+    "subcategory": "Audio Cart",
+    "description": "Compact audio cart for bag or small mixer setups.",
+    "specs": {
+      "material": "aluminum",
+      "wheels": "locking"
+    },
+    "weight_kg": 12,
+    "source": "SoundCart"
+  },
+  {
+    "id": "audio_cart_sounddevices_scart",
+    "name": "Sound Devices SCART",
+    "brand": "Sound Devices",
+    "category": "Audio",
+    "subcategory": "Audio Cart",
+    "description": "Modular audio cart for multi-recorder workflows.",
+    "specs": {
+      "rack_units": 6
+    },
+    "weight_kg": 18,
+    "source": "Sound Devices"
+  },
+  {
+    "id": "audio_monitor_ifb_sennheiser_g4",
+    "name": "Sennheiser G4 IFB Monitor Pack",
+    "brand": "Sennheiser",
+    "category": "Audio",
+    "subcategory": "Crew Monitoring",
+    "description": "IFB receiver for director and crew monitoring.",
+    "specs": {
+      "frequency_mhz": "516-558"
+    },
+    "weight_kg": 0.1,
+    "connectors": [
+      "3.5mm"
+    ],
+    "source": "Sennheiser"
+  },
+  {
+    "id": "audio_utility_boomholder",
+    "name": "Boom Pole Holder",
+    "brand": "K-Tek",
+    "category": "Audio",
+    "subcategory": "Utility",
+    "description": "Clamp-mounted boom pole holder for carts and stands.",
+    "specs": {
+      "mount": "universal"
+    },
+    "weight_kg": 0.4,
+    "source": "K-Tek"
+  },
+  {
+    "id": "audio_utility_cablehangers",
+    "name": "Audio Cable Hanger Set",
+    "brand": "Orca",
+    "category": "Audio",
+    "subcategory": "Utility",
+    "description": "Set of hangers for organizing audio cables on carts.",
+    "specs": {
+      "material": "aluminum"
+    },
+    "weight_kg": 0.3,
+    "source": "Orca"
+  },
+  {
+    "id": "audio_utility_batterycharger_np1",
+    "name": "NP-1 Battery Charger",
+    "brand": "IDX",
+    "category": "Audio",
+    "subcategory": "Battery Charger",
+    "description": "Dual-bay charger for NP-1 batteries used in audio bags.",
+    "specs": {
+      "bays": 2
+    },
+    "weight_kg": 0.9,
+    "connectors": [
+      "AC"
+    ],
+    "source": "IDX"
+  }
+]

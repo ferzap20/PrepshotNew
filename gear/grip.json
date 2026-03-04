@@ -37,18 +37,304 @@
     },
     "weight_kg": 6.5,
     "source": "ARRI Rental"
+  },
+  {
+    "id": "grip_flag_solid_24x36",
+    "name": "24x36 Solid Flag",
+    "brand": "Matthews",
+    "category": "Grip",
+    "subcategory": "Flag",
+    "description": "Standard 24x36 inch solid flag for cutting light.",
+    "specs": {
+      "size_in": "24x36"
+    },
+    "weight_kg": 1.2,
+    "source": "Matthews"
+  },
+  {
+    "id": "grip_flag_silk_24x36",
+    "name": "24x36 Silk Diffusion",
+    "brand": "Matthews",
+    "category": "Grip",
+    "subcategory": "Flag",
+    "description": "24x36 silk diffusion for softening light.",
+    "specs": {
+      "size_in": "24x36"
+    },
+    "weight_kg": 0.9,
+    "source": "Matthews"
+  },
+  {
+    "id": "grip_flag_openscrim_24x36",
+    "name": "24x36 Open Scrim",
+    "brand": "Matthews",
+    "category": "Grip",
+    "subcategory": "Scrim",
+    "description": "Open scrim for reducing light intensity.",
+    "specs": {
+      "size_in": "24x36"
+    },
+    "weight_kg": 0.8,
+    "source": "Matthews"
+  },
+  {
+    "id": "grip_frame_4x4_solid",
+    "name": "4x4 Solid Frame",
+    "brand": "Matthews",
+    "category": "Grip",
+    "subcategory": "Frame",
+    "description": "4x4 solid for blocking large areas of light.",
+    "specs": {
+      "size_ft": "4x4"
+    },
+    "weight_kg": 3.5,
+    "source": "Matthews"
+  },
+  {
+    "id": "grip_frame_4x4_silk",
+    "name": "4x4 Silk Frame",
+    "brand": "Matthews",
+    "category": "Grip",
+    "subcategory": "Frame",
+    "description": "4x4 silk diffusion for soft, even lighting.",
+    "specs": {
+      "size_ft": "4x4"
+    },
+    "weight_kg": 2.8,
+    "source": "Matthews"
+  },
+  {
+    "id": "grip_frame_6x6_ultrabounce",
+    "name": "6x6 Ultrabounce",
+    "brand": "Matthews",
+    "category": "Grip",
+    "subcategory": "Frame",
+    "description": "6x6 ultrabounce for soft reflected light.",
+    "specs": {
+      "size_ft": "6x6"
+    },
+    "weight_kg": 4,
+    "source": "Matthews"
+  },
+  {
+    "id": "grip_magic_arm",
+    "name": "Magic Arm",
+    "brand": "Manfrotto",
+    "category": "Grip",
+    "subcategory": "Arm",
+    "description": "Adjustable articulating arm for mounting accessories.",
+    "specs": {
+      "length_cm": 53
+    },
+    "weight_kg": 1.1,
+    "source": "Manfrotto"
+  },
+  {
+    "id": "grip_grip_head_2_5",
+    "name": "2.5\" Grip Head",
+    "brand": "Matthews",
+    "category": "Grip",
+    "subcategory": "Head",
+    "description": "Standard grip head for mounting flags and arms.",
+    "specs": {
+      "diameter_in": 2.5
+    },
+    "weight_kg": 0.6,
+    "source": "Matthews"
+  },
+  {
+    "id": "grip_baby_pin_5",
+    "name": "5\" Baby Pin",
+    "brand": "Avenger",
+    "category": "Grip",
+    "subcategory": "Adapter",
+    "description": "Standard 5-inch baby pin for mounting lights.",
+    "specs": {
+      "length_in": 5
+    },
+    "weight_kg": 0.3,
+    "source": "Avenger"
+  },
+  {
+    "id": "grip_cheeseboro_clamp",
+    "name": "Cheeseboro Clamp",
+    "brand": "Modern",
+    "category": "Grip",
+    "subcategory": "Clamp",
+    "description": "Heavy-duty clamp for rigging pipes and truss.",
+    "specs": {
+      "type": "fixed"
+    },
+    "weight_kg": 1.4,
+    "source": "Modern"
+  },
+  {
+    "id": "grip_cardellini_endjaw",
+    "name": "Cardellini End Jaw Clamp",
+    "brand": "Cardellini",
+    "category": "Grip",
+    "subcategory": "Clamp",
+    "description": "End jaw clamp for gripping irregular surfaces.",
+    "specs": {
+      "jaw_type": "end"
+    },
+    "weight_kg": 0.9,
+    "source": "Cardellini"
+  },
+  {
+    "id": "grip_crane_jl_fisher_23",
+    "name": "J.L. Fisher Model 23 Crane",
+    "brand": "J.L. Fisher",
+    "category": "Grip",
+    "subcategory": "Crane",
+    "description": "Studio crane with smooth telescoping arm for large productions.",
+    "specs": {
+      "reach_ft": 23
+    },
+    "weight_kg": 680,
+    "source": "J.L. Fisher"
+  },
+  {
+    "id": "grip_crane_giraffe_classic",
+    "name": "Giraffe Classic Crane",
+    "brand": "Giraffe",
+    "category": "Grip",
+    "subcategory": "Crane",
+    "description": "Modular crane system for feature film work.",
+    "specs": {
+      "reach_ft": 30
+    },
+    "weight_kg": 720,
+    "source": "Giraffe"
+  },
+  {
+    "id": "grip_car_rig_hostess_tray",
+    "name": "Hostess Tray Car Mount",
+    "brand": "Modern",
+    "category": "Grip",
+    "subcategory": "Car Rig",
+    "description": "Side-mounted platform for filming actors in moving vehicles.",
+    "specs": {
+      "mount": "door frame"
+    },
+    "weight_kg": 18,
+    "source": "Modern"
+  },
+  {
+    "id": "grip_car_rig_suction_kit",
+    "name": "Suction Cup Car Rig Kit",
+    "brand": "Matthews",
+    "category": "Grip",
+    "subcategory": "Car Rig",
+    "description": "Vacuum suction mount kit for lightweight camera rigs.",
+    "specs": {
+      "capacity_kg": 25
+    },
+    "weight_kg": 6,
+    "source": "Matthews"
+  },
+  {
+    "id": "grip_truss_box_12in",
+    "name": "12\" Box Truss Section",
+    "brand": "Global Truss",
+    "category": "Grip",
+    "subcategory": "Truss",
+    "description": "Aluminum truss for overhead rigging and lighting grids.",
+    "specs": {
+      "length_m": 2
+    },
+    "weight_kg": 14,
+    "source": "Global Truss"
+  },
+  {
+    "id": "grip_truss_corner_block",
+    "name": "Truss Corner Block",
+    "brand": "Global Truss",
+    "category": "Grip",
+    "subcategory": "Truss",
+    "description": "Corner block for multi-directional truss assembly.",
+    "specs": {
+      "compatibility": "12in truss"
+    },
+    "weight_kg": 8,
+    "source": "Global Truss"
+  },
+  {
+    "id": "grip_rigging_chainmotor_1t",
+    "name": "1-Ton Chain Motor",
+    "brand": "CM Lodestar",
+    "category": "Grip",
+    "subcategory": "Rigging",
+    "description": "Electric chain hoist for lifting truss and heavy fixtures.",
+    "specs": {
+      "capacity_kg": 1000
+    },
+    "weight_kg": 55,
+    "source": "CM Lodestar"
+  },
+  {
+    "id": "grip_rigging_spanset_2t",
+    "name": "2-Ton Spanset",
+    "brand": "Spanset",
+    "category": "Grip",
+    "subcategory": "Rigging",
+    "description": "Heavy-duty spanset for securing loads.",
+    "specs": {
+      "capacity_kg": 2000
+    },
+    "weight_kg": 2,
+    "source": "Spanset"
+  },
+  {
+    "id": "grip_tracking_vehicle_quadrunner",
+    "name": "Quad Tracking Vehicle",
+    "brand": "Filmotechnic",
+    "category": "Grip",
+    "subcategory": "Tracking Vehicle",
+    "description": "Off-road quad for dynamic tracking shots.",
+    "specs": {
+      "max_speed_kmh": 70
+    },
+    "weight_kg": 350,
+    "source": "Filmotechnic"
+  },
+  {
+    "id": "grip_tracking_vehicle_rickshaw",
+    "name": "Camera Rickshaw",
+    "brand": "Modern",
+    "category": "Grip",
+    "subcategory": "Tracking Vehicle",
+    "description": "Rickshaw for handheld or Steadicam tracking shots.",
+    "specs": {
+      "suspension": "pneumatic"
+    },
+    "weight_kg": 25,
+    "source": "Modern"
+  },
+  {
+    "id": "grip_specialty_speedrail_kit",
+    "name": "Speedrail Rigging Kit",
+    "brand": "Matthews",
+    "category": "Grip",
+    "subcategory": "Rigging",
+    "description": "Complete speedrail kit for custom rigging builds.",
+    "specs": {
+      "diameter_in": 1.25
+    },
+    "weight_kg": 12,
+    "source": "Matthews"
+  },
+  {
+    "id": "grip_specialty_camera_slider_6ft",
+    "name": "6ft Heavy-Duty Camera Slider",
+    "brand": "Kessler",
+    "category": "Grip",
+    "subcategory": "Slider",
+    "description": "Long slider for smooth tracking moves with heavy cameras.",
+    "specs": {
+      "length_ft": 6
+    },
+    "weight_kg": 10,
+    "source": "Kessler"
   }
 ]
-{"id":"grip_flag_solid_24x36","name":"24x36 Solid Flag","brand":"Matthews","category":"Grip","subcategory":"Flag","description":"Standard 24x36 inch solid flag for cutting light.","specs":{"size_in":"24x36"},"weight_kg":1.2,"source":"Matthews"},
-{"id":"grip_flag_silk_24x36","name":"24x36 Silk Diffusion","brand":"Matthews","category":"Grip","subcategory":"Flag","description":"24x36 silk diffusion for softening light.","specs":{"size_in":"24x36"},"weight_kg":0.9,"source":"Matthews"},
-{"id":"grip_flag_openscrim_24x36","name":"24x36 Open Scrim","brand":"Matthews","category":"Grip","subcategory":"Scrim","description":"Open scrim for reducing light intensity.","specs":{"size_in":"24x36"},"weight_kg":0.8,"source":"Matthews"},
-
-{"id":"grip_frame_4x4_solid","name":"4x4 Solid Frame","brand":"Matthews","category":"Grip","subcategory":"Frame","description":"4x4 solid for blocking large areas of light.","specs":{"size_ft":"4x4"},"weight_kg":3.5,"source":"Matthews"},
-{"id":"grip_frame_4x4_silk","name":"4x4 Silk Frame","brand":"Matthews","category":"Grip","subcategory":"Frame","description":"4x4 silk diffusion for soft, even lighting.","specs":{"size_ft":"4x4"},"weight_kg":2.8,"source":"Matthews"},
-{"id":"grip_frame_6x6_ultrabounce","name":"6x6 Ultrabounce","brand":"Matthews","category":"Grip","subcategory":"Frame","description":"6x6 ultrabounce for soft reflected light.","specs":{"size_ft":"6x6"},"weight_kg":4.0,"source":"Matthews"},
-
-{"id":"grip_magic_arm","name":"Magic Arm","brand":"Manfrotto","category":"Grip","subcategory":"Arm","description":"Adjustable articulating arm for mounting accessories.","specs":{"length_cm":53},"weight_kg":1.1,"source":"Manfrotto"},
-{"id":"grip_grip_head_2_5","name":"2.5\" Grip Head","brand":"Matthews","category":"Grip","subcategory":"Head","description":"Standard grip head for mounting flags and arms.","specs":{"diameter_in":2.5},"weight_kg":0.6,"source":"Matthews"},
-{"id":"grip_baby_pin_5","name":"5\" Baby Pin","brand":"Avenger","category":"Grip","subcategory":"Adapter","description":"Standard 5-inch baby pin for mounting lights.","specs":{"length_in":5},"weight_kg":0.3,"source":"Avenger"},
-{"id":"grip_cheeseboro_clamp","name":"Cheeseboro Clamp","brand":"Modern","category":"Grip","subcategory":"Clamp","description":"Heavy-duty clamp for rigging pipes and truss.","specs":{"type":"fixed"},"weight_kg":1.4,"source":"Modern"},
-{"id":"grip_cardellini_endjaw","name":"Cardellini End Jaw Clamp","brand":"Cardellini","category":"Grip","subcategory":"Clamp","description":"End jaw clamp for gripping irregular surfaces.","specs":{"jaw_type":"end"},"weight_kg":0.9,"source":"Cardellini"}

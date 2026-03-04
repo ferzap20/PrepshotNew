@@ -27,6 +27,9 @@ export function ProjectListPage() {
     setSearch,
     categoryFilter,
     setCategoryFilter,
+    brandFilter,
+    setBrandFilter,
+    brandOptions,
     catalogMap,
     addedCatalogIds,
     addedUserGearIds,
@@ -43,7 +46,7 @@ export function ProjectListPage() {
   } = useGearList(projectId);
 
   const [collapsedCategories, setCollapsedCategories] = useState<Set<string>>(new Set());
-  const [mobileTab, setMobileTab] = useState<'list' | 'add'>('list');
+  const [mobileTab, setMobileTab] = useState<'list' | 'add'>('add');
   const [addTab, setAddTab] = useState<'catalog' | 'mygear'>('catalog');
   const [editingItem, setEditingItem] = useState<ProjectGeneralListItem | null>(null);
 
@@ -70,7 +73,7 @@ export function ProjectListPage() {
         <EmptyState
           icon={<Package size={32} />}
           title="No gear added yet"
-          description="Browse the catalog or your gear on the right to add items."
+          description="Browse the catalog or your gear on the left to add items."
         />
       ) : (
         grouped.map(({ category, rows }) => {
@@ -165,6 +168,18 @@ export function ProjectListPage() {
             onSelect={setCategoryFilter}
           />
 
+          {brandOptions.length > 0 && (
+            <CategoryFilterPills
+              categories={brandOptions.map((b) => b.label)}
+              active={brandOptions.find((b) => b.value === brandFilter)?.label ?? ''}
+              onSelect={(label) => {
+                const opt = brandOptions.find((b) => b.label === label);
+                setBrandFilter(opt && opt.value !== brandFilter ? opt.value : '');
+              }}
+              allLabel="All brands"
+            />
+          )}
+
           <div className="flex flex-col gap-1.5 overflow-y-auto flex-1 min-h-0">
             {filteredCatalog.length === 0 ? (
               <p className="text-sm text-muted-foreground text-center py-8">No items found.</p>
@@ -177,7 +192,14 @@ export function ProjectListPage() {
                     className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors"
                   >
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium truncate">{cat.name}</p>
+                      <div className="flex items-center gap-1.5">
+                        <p className="text-sm font-medium truncate">{cat.name}</p>
+                        {added && (
+                          <span className="shrink-0 px-1.5 py-0.5 rounded-full text-[10px] font-medium bg-emerald-500/15 text-emerald-500">
+                            Added
+                          </span>
+                        )}
+                      </div>
                       <p className="text-xs text-muted-foreground">{cat.brand || cat.category}</p>
                     </div>
                     <button
@@ -281,7 +303,7 @@ export function ProjectListPage() {
       </div>
 
       <div className="flex gap-1 lg:hidden flex-shrink-0">
-        {(['list', 'add'] as const).map((tab) => (
+        {(['add', 'list'] as const).map((tab) => (
           <button
             key={tab}
             onClick={() => setMobileTab(tab)}
@@ -292,7 +314,7 @@ export function ProjectListPage() {
                 : 'bg-secondary text-muted-foreground',
             )}
           >
-            {tab === 'list' ? 'Gear List' : 'Add Gear'}
+            {tab === 'add' ? 'Add Gear' : 'Gear List'}
           </button>
         ))}
       </div>
@@ -301,18 +323,18 @@ export function ProjectListPage() {
         <div
           className={cn(
             'lg:w-3/5 lg:flex flex-col min-h-0',
-            mobileTab === 'add' ? 'hidden' : 'flex w-full',
+            mobileTab === 'list' ? 'hidden' : 'flex w-full',
           )}
         >
-          {GearListPanel}
+          {AddGearPanel}
         </div>
         <div
           className={cn(
             'lg:w-2/5 lg:flex flex-col min-h-0 border-l border-border pl-4',
-            mobileTab === 'list' ? 'hidden lg:flex' : 'flex w-full',
+            mobileTab === 'add' ? 'hidden lg:flex' : 'flex w-full',
           )}
         >
-          {AddGearPanel}
+          {GearListPanel}
         </div>
       </div>
 

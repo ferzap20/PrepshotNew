@@ -113,7 +113,7 @@
     "specs": {
       "size_ft": "6x6"
     },
-    "weight_kg": 4.0,
+    "weight_kg": 4,
     "source": "Matthews"
   },
   {
@@ -175,7 +175,9 @@
     "category": "Grip",
     "subcategory": "Clamp",
     "description": "End jaw clamp for gripping irregular surfaces.",
-    "specs": { "jaw_type": "end" },
+    "specs": {
+      "jaw_type": "end"
+    },
     "weight_kg": 0.9,
     "source": "Cardellini"
   },
@@ -186,8 +188,10 @@
     "category": "Grip",
     "subcategory": "Wire Rig",
     "description": "Professional wire rig system for flying actors or props.",
-    "specs": { "max_load_kg": 120 },
-    "weight_kg": 85.0,
+    "specs": {
+      "max_load_kg": 120
+    },
+    "weight_kg": 85,
     "source": "Flying FX"
   },
   {
@@ -197,8 +201,10 @@
     "category": "Grip",
     "subcategory": "Wire Rig",
     "description": "Two-point wire rig for controlled horizontal movement.",
-    "specs": { "max_span_m": 20 },
-    "weight_kg": 40.0,
+    "specs": {
+      "max_span_m": 20
+    },
+    "weight_kg": 40,
     "source": "B&H"
   },
   {
@@ -208,8 +214,10 @@
     "category": "Grip",
     "subcategory": "Wire Rig",
     "description": "Four-point stunt rig for precise 3D movement.",
-    "specs": { "max_load_kg": 150 },
-    "weight_kg": 110.0,
+    "specs": {
+      "max_load_kg": 150
+    },
+    "weight_kg": 110,
     "source": "StuntTech"
   },
   {
@@ -219,8 +227,10 @@
     "category": "Grip",
     "subcategory": "Crane",
     "description": "50ft telescopic crane used for large-scale productions.",
-    "specs": { "reach_ft": 50 },
-    "weight_kg": 1600.0,
+    "specs": {
+      "reach_ft": 50
+    },
+    "weight_kg": 1600,
     "source": "SuperTechno"
   },
   {
@@ -230,8 +240,10 @@
     "category": "Grip",
     "subcategory": "Crane",
     "description": "Compact telescopic crane for indoor and tight locations.",
-    "specs": { "reach_ft": 22 },
-    "weight_kg": 650.0,
+    "specs": {
+      "reach_ft": 22
+    },
+    "weight_kg": 650,
     "source": "SuperTechno"
   },
   {
@@ -241,8 +253,10 @@
     "category": "Grip",
     "subcategory": "Stunt Rig",
     "description": "Full-body stunt harness rig for wire-assisted stunts.",
-    "specs": { "max_load_kg": 140 },
-    "weight_kg": 6.0,
+    "specs": {
+      "max_load_kg": 140
+    },
+    "weight_kg": 6,
     "source": "ActionRig"
   },
   {
@@ -252,8 +266,10 @@
     "category": "Grip",
     "subcategory": "Stunt Rig",
     "description": "Quick-release stunt rig for dynamic action scenes.",
-    "specs": { "release_type": "mechanical" },
-    "weight_kg": 4.0,
+    "specs": {
+      "release_type": "mechanical"
+    },
+    "weight_kg": 4,
     "source": "ActionRig"
   },
   {
@@ -263,8 +279,10 @@
     "category": "Grip",
     "subcategory": "Winch",
     "description": "Electric winch for controlled lifting and rigging.",
-    "specs": { "capacity_kg": 500 },
-    "weight_kg": 28.0,
+    "specs": {
+      "capacity_kg": 500
+    },
+    "weight_kg": 28,
     "source": "Modern"
   },
   {
@@ -274,8 +292,10 @@
     "category": "Grip",
     "subcategory": "Winch",
     "description": "Manual winch for lightweight rigging tasks.",
-    "specs": { "capacity_kg": 200 },
-    "weight_kg": 12.0,
+    "specs": {
+      "capacity_kg": 200
+    },
+    "weight_kg": 12,
     "source": "B&H"
   },
   {
@@ -285,8 +305,10 @@
     "category": "Grip",
     "subcategory": "Slider",
     "description": "Motorized slider for remote-controlled camera movement.",
-    "specs": { "length_ft": 10 },
-    "weight_kg": 14.0,
+    "specs": {
+      "length_ft": 10
+    },
+    "weight_kg": 14,
     "source": "Kessler"
   },
   {
@@ -296,8 +318,10 @@
     "category": "Grip",
     "subcategory": "Slider",
     "description": "Compact motorized slider for precise motion control.",
-    "specs": { "length_ft": 4 },
-    "weight_kg": 5.0,
+    "specs": {
+      "length_ft": 4
+    },
+    "weight_kg": 5,
     "source": "Rhino"
   },
   {
@@ -307,8 +331,10 @@
     "category": "Grip",
     "subcategory": "Support",
     "description": "Reinforced spreader for heavy-duty tripods.",
-    "specs": { "compatibility": "RB HD" },
-    "weight_kg": 4.0,
+    "specs": {
+      "compatibility": "RB HD"
+    },
+    "weight_kg": 4,
     "source": "Ronford-Baker"
   },
   {
@@ -318,8 +344,166 @@
     "category": "Grip",
     "subcategory": "Boom Arm",
     "description": "Large boom arm for overhead lighting and camera rigs.",
-    "specs": { "length_m": 3.5 },
+    "specs": {
+      "length_m": 3.5
+    },
     "weight_kg": 7.5,
     "source": "Manfrotto"
+  },
+  {
+    "id": "grip_crane_jl_fisher_23",
+    "name": "J.L. Fisher Model 23 Crane",
+    "brand": "J.L. Fisher",
+    "category": "Grip",
+    "subcategory": "Crane",
+    "description": "Studio crane with smooth telescoping arm for large productions.",
+    "specs": {
+      "reach_ft": 23
+    },
+    "weight_kg": 680,
+    "source": "J.L. Fisher"
+  },
+  {
+    "id": "grip_crane_giraffe_classic",
+    "name": "Giraffe Classic Crane",
+    "brand": "Giraffe",
+    "category": "Grip",
+    "subcategory": "Crane",
+    "description": "Modular crane system for feature film work.",
+    "specs": {
+      "reach_ft": 30
+    },
+    "weight_kg": 720,
+    "source": "Giraffe"
+  },
+  {
+    "id": "grip_car_rig_hostess_tray",
+    "name": "Hostess Tray Car Mount",
+    "brand": "Modern",
+    "category": "Grip",
+    "subcategory": "Car Rig",
+    "description": "Side-mounted platform for filming actors in moving vehicles.",
+    "specs": {
+      "mount": "door frame"
+    },
+    "weight_kg": 18,
+    "source": "Modern"
+  },
+  {
+    "id": "grip_car_rig_suction_kit",
+    "name": "Suction Cup Car Rig Kit",
+    "brand": "Matthews",
+    "category": "Grip",
+    "subcategory": "Car Rig",
+    "description": "Vacuum suction mount kit for lightweight camera rigs.",
+    "specs": {
+      "capacity_kg": 25
+    },
+    "weight_kg": 6,
+    "source": "Matthews"
+  },
+  {
+    "id": "grip_truss_box_12in",
+    "name": "12\" Box Truss Section",
+    "brand": "Global Truss",
+    "category": "Grip",
+    "subcategory": "Truss",
+    "description": "Aluminum truss for overhead rigging and lighting grids.",
+    "specs": {
+      "length_m": 2
+    },
+    "weight_kg": 14,
+    "source": "Global Truss"
+  },
+  {
+    "id": "grip_truss_corner_block",
+    "name": "Truss Corner Block",
+    "brand": "Global Truss",
+    "category": "Grip",
+    "subcategory": "Truss",
+    "description": "Corner block for multi-directional truss assembly.",
+    "specs": {
+      "compatibility": "12in truss"
+    },
+    "weight_kg": 8,
+    "source": "Global Truss"
+  },
+  {
+    "id": "grip_rigging_chainmotor_1t",
+    "name": "1-Ton Chain Motor",
+    "brand": "CM Lodestar",
+    "category": "Grip",
+    "subcategory": "Rigging",
+    "description": "Electric chain hoist for lifting truss and heavy fixtures.",
+    "specs": {
+      "capacity_kg": 1000
+    },
+    "weight_kg": 55,
+    "source": "CM Lodestar"
+  },
+  {
+    "id": "grip_rigging_spanset_2t",
+    "name": "2-Ton Spanset",
+    "brand": "Spanset",
+    "category": "Grip",
+    "subcategory": "Rigging",
+    "description": "Heavy-duty spanset for securing loads.",
+    "specs": {
+      "capacity_kg": 2000
+    },
+    "weight_kg": 2,
+    "source": "Spanset"
+  },
+  {
+    "id": "grip_tracking_vehicle_quadrunner",
+    "name": "Quad Tracking Vehicle",
+    "brand": "Filmotechnic",
+    "category": "Grip",
+    "subcategory": "Tracking Vehicle",
+    "description": "Off-road quad for dynamic tracking shots.",
+    "specs": {
+      "max_speed_kmh": 70
+    },
+    "weight_kg": 350,
+    "source": "Filmotechnic"
+  },
+  {
+    "id": "grip_tracking_vehicle_rickshaw",
+    "name": "Camera Rickshaw",
+    "brand": "Modern",
+    "category": "Grip",
+    "subcategory": "Tracking Vehicle",
+    "description": "Rickshaw for handheld or Steadicam tracking shots.",
+    "specs": {
+      "suspension": "pneumatic"
+    },
+    "weight_kg": 25,
+    "source": "Modern"
+  },
+  {
+    "id": "grip_specialty_speedrail_kit",
+    "name": "Speedrail Rigging Kit",
+    "brand": "Matthews",
+    "category": "Grip",
+    "subcategory": "Rigging",
+    "description": "Complete speedrail kit for custom rigging builds.",
+    "specs": {
+      "diameter_in": 1.25
+    },
+    "weight_kg": 12,
+    "source": "Matthews"
+  },
+  {
+    "id": "grip_specialty_camera_slider_6ft",
+    "name": "6ft Heavy-Duty Camera Slider",
+    "brand": "Kessler",
+    "category": "Grip",
+    "subcategory": "Slider",
+    "description": "Long slider for smooth tracking moves with heavy cameras.",
+    "specs": {
+      "length_ft": 6
+    },
+    "weight_kg": 10,
+    "source": "Kessler"
   }
 ]

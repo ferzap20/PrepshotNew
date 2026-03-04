@@ -24,6 +24,7 @@ export function useGearList(projectId: string | undefined) {
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
+  const [brandFilter, setBrandFilter] = useState('');
 
   const load = async () => {
     if (!projectId || !session) return;
@@ -46,6 +47,27 @@ export function useGearList(projectId: string | undefined) {
   }, [projectId, session?.userId]);
 
   const catalogMap = useMemo(() => new Map(catalogItems.map((c) => [c.id, c])), [catalogItems]);
+
+  // Reset brand filter whenever category changes
+  useEffect(() => { setBrandFilter(''); }, [categoryFilter]);
+
+  const { brandOptions, top7BrandNames } = useMemo(() => {
+    if (!categoryFilter) return { brandOptions: [] as { label: string; value: string }[], top7BrandNames: new Set<string>() };
+    const inCategory = catalogItems.filter((c) => c.category === categoryFilter);
+    if (inCategory.length <= 20) return { brandOptions: [] as { label: string; value: string }[], top7BrandNames: new Set<string>() };
+
+    const counts = new Map<string, number>();
+    for (const item of inCategory) {
+      counts.set(item.brand, (counts.get(item.brand) ?? 0) + 1);
+    }
+    const sorted = [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+    const top7 = sorted.slice(0, 7);
+    const top7Names = new Set(top7.map(([b]) => b));
+    const options = top7.map(([brand]) => ({ label: brand, value: brand }));
+    if (sorted.length > 7) options.push({ label: 'Others', value: '__others__' });
+
+    return { brandOptions: options, top7BrandNames: top7Names };
+  }, [catalogItems, categoryFilter]);
 
   const addedCatalogIds = useMemo(() => new Set(listItems.map((i) => i.catalogItemId)), [listItems]);
 
@@ -71,6 +93,13 @@ export function useGearList(projectId: string | undefined) {
   const filteredCatalog = useMemo(() => {
     let items = catalogItems;
     if (categoryFilter) items = items.filter((c) => c.category === categoryFilter);
+    if (brandFilter) {
+      if (brandFilter === '__others__') {
+        items = items.filter((c) => !top7BrandNames.has(c.brand));
+      } else {
+        items = items.filter((c) => c.brand === brandFilter);
+      }
+    }
     if (search.trim()) {
       return items
         .map((c) => ({ c, score: scoreMatch(search, c) }))
@@ -79,7 +108,7 @@ export function useGearList(projectId: string | undefined) {
         .map(({ c }) => c);
     }
     return [...items].sort((a, b) => a.name.localeCompare(b.name));
-  }, [catalogItems, search, categoryFilter]);
+  }, [catalogItems, search, categoryFilter, brandFilter, top7BrandNames]);
 
   const filteredUserGear = useMemo(() => {
     if (!search.trim()) return userGear;
@@ -171,6 +200,9 @@ export function useGearList(projectId: string | undefined) {
     setSearch,
     categoryFilter,
     setCategoryFilter,
+    brandFilter,
+    setBrandFilter,
+    brandOptions,
     catalogMap,
     addedCatalogIds,
     addedUserGearIds,

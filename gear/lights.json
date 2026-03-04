@@ -12,7 +12,9 @@
       "dimming": "0-100%"
     },
     "weight_kg": 4.3,
-    "connectors": ["Neutrik PowerCON"],
+    "connectors": [
+      "Neutrik PowerCON"
+    ],
     "source": "B&H"
   },
   {
@@ -43,5 +45,1060 @@
     },
     "weight_kg": 3.2,
     "source": "Keslow Camera"
+  },
+  {
+    "id": "light_astera_nyx_bulb",
+    "name": "Astera NYX Bulb",
+    "brand": "Astera",
+    "category": "Lighting",
+    "subcategory": "Practical RGB",
+    "description": "RGBWW smart bulb for practical lighting with wireless DMX control.",
+    "specs": {
+      "power_w": 10,
+      "color_temp_k": "2700-6500"
+    },
+    "weight_kg": 0.12,
+    "connectors": [
+      "E26",
+      "Wireless"
+    ],
+    "source": "Astera"
+  },
+  {
+    "id": "light_astera_pixelbrick",
+    "name": "Astera PixelBrick",
+    "brand": "Astera",
+    "category": "Lighting",
+    "subcategory": "Effects",
+    "description": "Compact RGBWW fixture with pixel control for effects and accents.",
+    "specs": {
+      "power_w": 15,
+      "color_temp_k": "3200-6500"
+    },
+    "weight_kg": 0.55,
+    "connectors": [
+      "DC",
+      "Wireless"
+    ],
+    "source": "Astera"
+  },
+  {
+    "id": "light_aputure_f10_fresnel",
+    "name": "Aputure F10 Fresnel",
+    "brand": "Aputure",
+    "category": "Lighting",
+    "subcategory": "Modifier",
+    "description": "Large fresnel modifier for high-output COB lights.",
+    "specs": {
+      "lens_diameter_in": 10
+    },
+    "weight_kg": 3,
+    "connectors": [
+      "Bowens"
+    ],
+    "source": "Aputure"
+  },
+  {
+    "id": "light_aputure_spotlight_max",
+    "name": "Aputure Spotlight Max",
+    "brand": "Aputure",
+    "category": "Lighting",
+    "subcategory": "Modifier",
+    "description": "Precision projection lens for shaping LED spotlights.",
+    "specs": {
+      "gobo_size": "B-size"
+    },
+    "weight_kg": 4.2,
+    "connectors": [
+      "Bowens"
+    ],
+    "source": "Aputure"
+  },
+  {
+    "id": "light_chimera_softbox_large",
+    "name": "Chimera Large Softbox",
+    "brand": "Chimera",
+    "category": "Lighting",
+    "subcategory": "Modifier",
+    "description": "Large softbox for soft, even key lighting.",
+    "specs": {
+      "size_cm": "120x160"
+    },
+    "weight_kg": 2.1,
+    "connectors": [
+      "Speedring"
+    ],
+    "source": "Chimera"
+  },
+  {
+    "id": "light_chimera_octaplus_5",
+    "name": "Chimera OctaPlus 5",
+    "brand": "Chimera",
+    "category": "Lighting",
+    "subcategory": "Modifier",
+    "description": "5-foot octagonal softbox for beauty and portrait lighting.",
+    "specs": {
+      "diameter_ft": 5
+    },
+    "weight_kg": 3,
+    "connectors": [
+      "Speedring"
+    ],
+    "source": "Chimera"
+  },
+  {
+    "id": "light_robeforte",
+    "name": "Robe Forte LED Profile",
+    "brand": "Robe",
+    "category": "Lighting",
+    "subcategory": "Stage/Effects",
+    "description": "High-output LED profile fixture used for concerts and film effects.",
+    "specs": {
+      "power_w": 1000,
+      "color_temp_k": "2700-8000"
+    },
+    "weight_kg": 38,
+    "connectors": [
+      "DMX",
+      "Ethernet"
+    ],
+    "source": "Robe"
+  },
+  {
+    "id": "light_robe_tetra2",
+    "name": "Robe Tetra2",
+    "brand": "Robe",
+    "category": "Lighting",
+    "subcategory": "Effects",
+    "description": "Linear LED bar with pixel control for dynamic effects.",
+    "specs": {
+      "pixels": 18
+    },
+    "weight_kg": 12,
+    "connectors": [
+      "DMX",
+      "Ethernet"
+    ],
+    "source": "Robe"
+  },
+  {
+    "id": "light_litepanels_gemini_2x1_hard",
+    "name": "Litepanels Gemini 2x1 Hard",
+    "brand": "Litepanels",
+    "category": "Lighting",
+    "subcategory": "LED Panel",
+    "description": "High-output RGBWW hard panel for film and TV.",
+    "specs": {
+      "power_w": 500,
+      "color_temp_k": "2700-10000"
+    },
+    "weight_kg": 10,
+    "connectors": [
+      "AC",
+      "DC"
+    ],
+    "source": "Litepanels"
+  },
+  {
+    "id": "light_litepanels_gemini_1x1_soft",
+    "name": "Litepanels Gemini 1x1 Soft",
+    "brand": "Litepanels",
+    "category": "Lighting",
+    "subcategory": "LED Panel",
+    "description": "Soft RGBWW panel with full color control.",
+    "specs": {
+      "power_w": 200,
+      "color_temp_k": "2700-10000"
+    },
+    "weight_kg": 5.3,
+    "connectors": [
+      "AC",
+      "DC"
+    ],
+    "source": "Litepanels"
+  },
+  {
+    "id": "light_k5600_joker2_800",
+    "name": "K5600 Joker2 800W HMI",
+    "brand": "K5600",
+    "category": "Lighting",
+    "subcategory": "HMI",
+    "description": "Compact 800W HMI used for punchy daylight lighting.",
+    "specs": {
+      "power_w": 800,
+      "color_temp_k": 5600
+    },
+    "weight_kg": 3.7,
+    "connectors": [
+      "PowerCon"
+    ],
+    "source": "K5600"
+  },
+  {
+    "id": "light_k5600_joker2_1600",
+    "name": "K5600 Joker2 1600W HMI",
+    "brand": "K5600",
+    "category": "Lighting",
+    "subcategory": "HMI",
+    "description": "1600W HMI with high output in a compact form.",
+    "specs": {
+      "power_w": 1600,
+      "color_temp_k": 5600
+    },
+    "weight_kg": 5.5,
+    "connectors": [
+      "PowerCon"
+    ],
+    "source": "K5600"
+  },
+  {
+    "id": "light_aquarii_200w_waterproof",
+    "name": "Aquarii 200W Waterproof LED",
+    "brand": "Aquarii",
+    "category": "Lighting",
+    "subcategory": "Waterproof",
+    "description": "IP68-rated waterproof LED for underwater or rain scenes.",
+    "specs": {
+      "power_w": 200,
+      "color_temp_k": "3000-6000"
+    },
+    "weight_kg": 4,
+    "connectors": [
+      "Submersible"
+    ],
+    "source": "Aquarii"
+  },
+  {
+    "id": "light_hydra_panel",
+    "name": "Hydra RGB Panel",
+    "brand": "Hydra",
+    "category": "Lighting",
+    "subcategory": "Waterproof",
+    "description": "Waterproof RGB panel for extreme environments.",
+    "specs": {
+      "power_w": 150,
+      "color_temp_k": "2700-6500"
+    },
+    "weight_kg": 3.2,
+    "connectors": [
+      "DC"
+    ],
+    "source": "Hydra"
+  },
+  {
+    "id": "light_aputure_600x_pro",
+    "name": "Aputure LS 600x Pro",
+    "brand": "Aputure",
+    "category": "Lighting",
+    "subcategory": "LED Spotlight",
+    "description": "Bi-color 600W COB LED with high output and weather resistance.",
+    "specs": {
+      "power_w": 600,
+      "color_temp_k": "2700-6500"
+    },
+    "weight_kg": 4.3,
+    "connectors": [
+      "AC",
+      "DC"
+    ],
+    "source": "Aputure"
+  },
+  {
+    "id": "light_aputure_1200d_pro",
+    "name": "Aputure LS 1200d Pro",
+    "brand": "Aputure",
+    "category": "Lighting",
+    "subcategory": "LED Spotlight",
+    "description": "1200W daylight COB LED with extremely high output.",
+    "specs": {
+      "power_w": 1200,
+      "color_temp_k": 5600
+    },
+    "weight_kg": 8,
+    "connectors": [
+      "AC"
+    ],
+    "source": "Aputure"
+  },
+  {
+    "id": "light_nanlux_ev1500b",
+    "name": "Nanlux Evoke 1500B",
+    "brand": "Nanlux",
+    "category": "Lighting",
+    "subcategory": "LED Spotlight",
+    "description": "1500W bi-color LED spotlight for large-scale productions.",
+    "specs": {
+      "power_w": 1500,
+      "color_temp_k": "2700-6500"
+    },
+    "weight_kg": 19,
+    "connectors": [
+      "AC"
+    ],
+    "source": "Nanlux"
+  },
+  {
+    "id": "light_nanlux_ev1200",
+    "name": "Nanlux Evoke 1200",
+    "brand": "Nanlux",
+    "category": "Lighting",
+    "subcategory": "LED Spotlight",
+    "description": "1200W daylight LED with HMI-level output.",
+    "specs": {
+      "power_w": 1200,
+      "color_temp_k": 5600
+    },
+    "weight_kg": 17,
+    "connectors": [
+      "AC"
+    ],
+    "source": "Nanlux"
+  },
+  {
+    "id": "light_kinoflo_freefly",
+    "name": "Kino Flo FreeStyle 31",
+    "brand": "Kino Flo",
+    "category": "Lighting",
+    "subcategory": "LED Panel",
+    "description": "RGBWW LED panel with cinema-grade color science.",
+    "specs": {
+      "power_w": 150,
+      "color_temp_k": "2500-9900"
+    },
+    "weight_kg": 6,
+    "connectors": [
+      "AC",
+      "DC"
+    ],
+    "source": "Kino Flo"
+  },
+  {
+    "id": "light_kinoflo_freefly_21",
+    "name": "Kino Flo FreeStyle 21",
+    "brand": "Kino Flo",
+    "category": "Lighting",
+    "subcategory": "LED Panel",
+    "description": "Compact RGBWW panel for interviews and mobile setups.",
+    "specs": {
+      "power_w": 100,
+      "color_temp_k": "2500-9900"
+    },
+    "weight_kg": 4,
+    "connectors": [
+      "AC",
+      "DC"
+    ],
+    "source": "Kino Flo"
+  },
+  {
+    "id": "light_etc_sourcefour_led",
+    "name": "ETC Source Four LED Series 3",
+    "brand": "ETC",
+    "category": "Lighting",
+    "subcategory": "LED Fresnel",
+    "description": "High-end LED profile with full color mixing.",
+    "specs": {
+      "power_w": 300,
+      "color_temp_k": "2700-6500"
+    },
+    "weight_kg": 7.7,
+    "connectors": [
+      "DMX",
+      "AC"
+    ],
+    "source": "ETC"
+  },
+  {
+    "id": "light_etc_fresnel_adapt",
+    "name": "ETC Fresnel Adapter",
+    "brand": "ETC",
+    "category": "Lighting",
+    "subcategory": "Modifier",
+    "description": "Fresnel adapter for Source Four LED fixtures.",
+    "specs": {
+      "lens_diameter_in": 7
+    },
+    "weight_kg": 2,
+    "connectors": [
+      "ETC"
+    ],
+    "source": "ETC"
+  },
+  {
+    "id": "light_astera_crmx_spot",
+    "name": "Astera SpotMax",
+    "brand": "Astera",
+    "category": "Lighting",
+    "subcategory": "Effects",
+    "description": "High-output RGBWW spotlight with wireless CRMX.",
+    "specs": {
+      "power_w": 200,
+      "color_temp_k": "2700-6500"
+    },
+    "weight_kg": 3.5,
+    "connectors": [
+      "DC",
+      "Wireless"
+    ],
+    "source": "Astera"
+  },
+  {
+    "id": "light_digital_spacelight",
+    "name": "Digital LED Spacelight",
+    "brand": "Creamsource",
+    "category": "Lighting",
+    "subcategory": "Volumetric",
+    "description": "LED spacelight for large-area soft top lighting.",
+    "specs": {
+      "power_w": 600,
+      "color_temp_k": "2700-6500"
+    },
+    "weight_kg": 12,
+    "connectors": [
+      "AC"
+    ],
+    "source": "Creamsource"
+  },
+  {
+    "id": "light_creamsource_vortex8",
+    "name": "Creamsource Vortex8",
+    "brand": "Creamsource",
+    "category": "Lighting",
+    "subcategory": "LED Panel",
+    "description": "High-output RGBW panel with weatherproof design.",
+    "specs": {
+      "power_w": 650,
+      "color_temp_k": "2200-15000"
+    },
+    "weight_kg": 13,
+    "connectors": [
+      "AC",
+      "DC"
+    ],
+    "source": "Creamsource"
+  },
+  {
+    "id": "light_creamsource_vortex4",
+    "name": "Creamsource Vortex4",
+    "brand": "Creamsource",
+    "category": "Lighting",
+    "subcategory": "LED Panel",
+    "description": "Compact RGBW panel with high punch.",
+    "specs": {
+      "power_w": 325,
+      "color_temp_k": "2200-15000"
+    },
+    "weight_kg": 7.5,
+    "connectors": [
+      "AC",
+      "DC"
+    ],
+    "source": "Creamsource"
+  },
+  {
+    "id": "light_nanlux_dynao_1200b",
+    "name": "Nanlux Dyno 1200B",
+    "brand": "Nanlux",
+    "category": "Lighting",
+    "subcategory": "LED Panel",
+    "description": "Large bi-color soft panel with high output for studio and location work.",
+    "specs": {
+      "power_w": 1200,
+      "color_temp_k": "2700-6500"
+    },
+    "weight_kg": 19.5,
+    "connectors": [
+      "AC",
+      "DC"
+    ],
+    "source": "Nanlux"
+  },
+  {
+    "id": "light_nanlux_dynao_650c",
+    "name": "Nanlux Dyno 650C",
+    "brand": "Nanlux",
+    "category": "Lighting",
+    "subcategory": "RGB Panel",
+    "description": "RGBWW soft panel with full color control and effects.",
+    "specs": {
+      "power_w": 650,
+      "color_temp_k": "2700-20000"
+    },
+    "weight_kg": 15,
+    "connectors": [
+      "AC",
+      "DC"
+    ],
+    "source": "Nanlux"
+  },
+  {
+    "id": "light_etc_sourcefour_led_lustr",
+    "name": "ETC Source Four LED Lustr",
+    "brand": "ETC",
+    "category": "Lighting",
+    "subcategory": "LED Profile",
+    "description": "High-precision LED profile with full-spectrum color mixing.",
+    "specs": {
+      "power_w": 300,
+      "color_temp_k": "2700-6500"
+    },
+    "weight_kg": 7,
+    "connectors": [
+      "DMX",
+      "AC"
+    ],
+    "source": "ETC"
+  },
+  {
+    "id": "light_etc_fresnel_led",
+    "name": "ETC LED Fresnel",
+    "brand": "ETC",
+    "category": "Lighting",
+    "subcategory": "LED Fresnel",
+    "description": "LED fresnel with smooth dimming and wide zoom range.",
+    "specs": {
+      "power_w": 350,
+      "color_temp_k": "2700-6500"
+    },
+    "weight_kg": 6.5,
+    "connectors": [
+      "DMX",
+      "AC"
+    ],
+    "source": "ETC"
+  },
+  {
+    "id": "light_kinoflo_select_30",
+    "name": "Kino Flo Select 30",
+    "brand": "Kino Flo",
+    "category": "Lighting",
+    "subcategory": "LED Panel",
+    "description": "RGBWW soft panel with Kino Flo color science.",
+    "specs": {
+      "power_w": 150,
+      "color_temp_k": "2500-9900"
+    },
+    "weight_kg": 5,
+    "connectors": [
+      "AC",
+      "DC"
+    ],
+    "source": "Kino Flo"
+  },
+  {
+    "id": "light_kinoflo_select_20",
+    "name": "Kino Flo Select 20",
+    "brand": "Kino Flo",
+    "category": "Lighting",
+    "subcategory": "LED Panel",
+    "description": "Compact RGBWW panel for interviews and mobile setups.",
+    "specs": {
+      "power_w": 100,
+      "color_temp_k": "2500-9900"
+    },
+    "weight_kg": 3.5,
+    "connectors": [
+      "AC",
+      "DC"
+    ],
+    "source": "Kino Flo"
+  },
+  {
+    "id": "light_creamsource_spacex",
+    "name": "Creamsource SpaceX",
+    "brand": "Creamsource",
+    "category": "Lighting",
+    "subcategory": "Volumetric",
+    "description": "High-output LED spacelight for large-area soft top lighting.",
+    "specs": {
+      "power_w": 1200,
+      "color_temp_k": "2700-6500"
+    },
+    "weight_kg": 14,
+    "connectors": [
+      "AC"
+    ],
+    "source": "Creamsource"
+  },
+  {
+    "id": "light_hydra_300w_ip68",
+    "name": "Hydra 300W Waterproof LED",
+    "brand": "Hydra",
+    "category": "Lighting",
+    "subcategory": "Waterproof",
+    "description": "IP68-rated LED fixture for underwater and extreme weather.",
+    "specs": {
+      "power_w": 300,
+      "color_temp_k": "3000-6500"
+    },
+    "weight_kg": 4.5,
+    "connectors": [
+      "Submersible"
+    ],
+    "source": "Hydra"
+  },
+  {
+    "id": "light_aputure_600c_pro",
+    "name": "Aputure LS 600c Pro",
+    "brand": "Aputure",
+    "category": "Lighting",
+    "subcategory": "RGB Spotlight",
+    "description": "RGBWW 600W spotlight with Bowens mount and high output.",
+    "specs": {
+      "power_w": 600,
+      "color_temp_k": "2300-10000"
+    },
+    "weight_kg": 4.6,
+    "connectors": [
+      "AC",
+      "DC"
+    ],
+    "source": "Aputure"
+  },
+  {
+    "id": "light_aputure_900d_pro",
+    "name": "Aputure LS 900d Pro",
+    "brand": "Aputure",
+    "category": "Lighting",
+    "subcategory": "LED Spotlight",
+    "description": "900W daylight COB with extreme punch for outdoor use.",
+    "specs": {
+      "power_w": 900,
+      "color_temp_k": 5600
+    },
+    "weight_kg": 7.8,
+    "connectors": [
+      "AC"
+    ],
+    "source": "Aputure"
+  },
+  {
+    "id": "light_godox_f600bi",
+    "name": "Godox F600Bi",
+    "brand": "Godox",
+    "category": "Lighting",
+    "subcategory": "LED Panel",
+    "description": "Foldable bi-color LED panel for lightweight travel setups.",
+    "specs": {
+      "power_w": 600,
+      "color_temp_k": "2700-6500"
+    },
+    "weight_kg": 3.2,
+    "connectors": [
+      "AC",
+      "DC"
+    ],
+    "source": "Godox"
+  },
+  {
+    "id": "light_robe_megapointe",
+    "name": "Robe MegaPointe",
+    "brand": "Robe",
+    "category": "Lighting",
+    "subcategory": "Effects",
+    "description": "Hybrid beam/spot/wash fixture used for film effects and concerts.",
+    "specs": {
+      "power_w": 470,
+      "color_temp_k": "variable"
+    },
+    "weight_kg": 22,
+    "connectors": [
+      "DMX",
+      "Ethernet"
+    ],
+    "source": "Robe"
+  },
+  {
+    "id": "light_robe_footsie",
+    "name": "Robe Footsie",
+    "brand": "Robe",
+    "category": "Lighting",
+    "subcategory": "Effects",
+    "description": "Low-profile RGBWW footlight for stage and film.",
+    "specs": {
+      "power_w": 100
+    },
+    "weight_kg": 3,
+    "connectors": [
+      "DMX"
+    ],
+    "source": "Robe"
+  },
+  {
+    "id": "light_chauvet_colorbandpix",
+    "name": "Chauvet ColorBand Pix",
+    "brand": "Chauvet",
+    "category": "Lighting",
+    "subcategory": "Pixel Bar",
+    "description": "RGB pixel bar with individual LED control.",
+    "specs": {
+      "pixels": 12
+    },
+    "weight_kg": 4,
+    "connectors": [
+      "DMX"
+    ],
+    "source": "Chauvet"
+  },
+  {
+    "id": "light_chauvet_epix_strip",
+    "name": "Chauvet Épix Strip Tour",
+    "brand": "Chauvet",
+    "category": "Lighting",
+    "subcategory": "Pixel Bar",
+    "description": "High-resolution pixel strip for dynamic effects.",
+    "specs": {
+      "pixels": 50
+    },
+    "weight_kg": 2.5,
+    "connectors": [
+      "Ethernet"
+    ],
+    "source": "Chauvet"
+  },
+  {
+    "id": "light_litegear_litemat_plus4",
+    "name": "LiteMat Plus 4",
+    "brand": "LiteGear",
+    "category": "Lighting",
+    "subcategory": "LED Mat",
+    "description": "Lightweight LED mat for soft, flexible lighting.",
+    "specs": {
+      "power_w": 200,
+      "color_temp_k": "2600-6000"
+    },
+    "weight_kg": 1.6,
+    "connectors": [
+      "DC"
+    ],
+    "source": "LiteGear"
+  },
+  {
+    "id": "light_litegear_litepanel_2x8",
+    "name": "LitePanel 2x8",
+    "brand": "LiteGear",
+    "category": "Lighting",
+    "subcategory": "LED Panel",
+    "description": "Large LED panel for soft, wraparound lighting.",
+    "specs": {
+      "power_w": 400,
+      "color_temp_k": "2600-6000"
+    },
+    "weight_kg": 4.5,
+    "connectors": [
+      "DC"
+    ],
+    "source": "LiteGear"
+  },
+  {
+    "id": "light_kino_4bank_2ft",
+    "name": "Kino Flo 4Bank 2ft",
+    "brand": "Kino Flo",
+    "category": "Lighting",
+    "subcategory": "Fluorescent",
+    "description": "Classic 4-tube fluorescent fixture for soft studio lighting.",
+    "specs": {
+      "power_w": 220,
+      "color_temp_k": "3200/5600"
+    },
+    "weight_kg": 6,
+    "connectors": [
+      "IEC"
+    ],
+    "source": "Kino Flo"
+  },
+  {
+    "id": "light_kino_tegra_4ft",
+    "name": "Kino Flo Tegra 4ft",
+    "brand": "Kino Flo",
+    "category": "Lighting",
+    "subcategory": "Fluorescent",
+    "description": "High-output fluorescent fixture for studio and location.",
+    "specs": {
+      "power_w": 290,
+      "color_temp_k": "3200/5600"
+    },
+    "weight_kg": 7.5,
+    "connectors": [
+      "IEC"
+    ],
+    "source": "Kino Flo"
+  },
+  {
+    "id": "light_digital_flickerfree_5k",
+    "name": "Digital 5K Flicker-Free Tungsten",
+    "brand": "Mole-Richardson",
+    "category": "Lighting",
+    "subcategory": "Tungsten",
+    "description": "Flicker-free 5K tungsten fresnel for high-speed cinematography.",
+    "specs": {
+      "power_w": 5000,
+      "color_temp_k": 3200
+    },
+    "weight_kg": 24,
+    "connectors": [
+      "32A"
+    ],
+    "source": "Mole-Richardson"
+  },
+  {
+    "id": "light_digital_flickerfree_10k",
+    "name": "Digital 10K Flicker-Free Tungsten",
+    "brand": "Mole-Richardson",
+    "category": "Lighting",
+    "subcategory": "Tungsten",
+    "description": "High-speed compatible 10K tungsten fresnel.",
+    "specs": {
+      "power_w": 10000,
+      "color_temp_k": 3200
+    },
+    "weight_kg": 45,
+    "connectors": [
+      "63A"
+    ],
+    "source": "Mole-Richardson"
+  },
+  {
+    "id": "light_laser_skybeam_300w",
+    "name": "SkyBeam 300W Laser",
+    "brand": "LaserTech",
+    "category": "Lighting",
+    "subcategory": "Laser",
+    "description": "High-power film-safe laser for volumetric and atmospheric effects.",
+    "specs": {
+      "power_w": 300
+    },
+    "weight_kg": 12,
+    "connectors": [
+      "DMX"
+    ],
+    "source": "LaserTech"
+  },
+  {
+    "id": "light_volumetric_hazer_pro",
+    "name": "Pro Hazer 2.0",
+    "brand": "Look Solutions",
+    "category": "Lighting",
+    "subcategory": "Atmosphere",
+    "description": "Professional hazer for volumetric lighting effects.",
+    "specs": {
+      "output_m3_min": 200
+    },
+    "weight_kg": 8,
+    "connectors": [
+      "AC"
+    ],
+    "source": "Look Solutions"
+  },
+  {
+    "id": "light_arri_skypanel_s360c",
+    "name": "ARRI SkyPanel S360-C",
+    "brand": "ARRI",
+    "category": "Lighting",
+    "subcategory": "RGB Soft Panel",
+    "description": "Massive RGBW soft light with high output and wide color control.",
+    "specs": {
+      "power_w": 1500,
+      "color_temp_k": "2800-10000"
+    },
+    "weight_kg": 40,
+    "connectors": [
+      "AC",
+      "DMX",
+      "Ethernet"
+    ],
+    "source": "ARRI"
+  },
+  {
+    "id": "light_arri_skypanel_s120c",
+    "name": "ARRI SkyPanel S120-C",
+    "brand": "ARRI",
+    "category": "Lighting",
+    "subcategory": "RGB Soft Panel",
+    "description": "Long-format RGBW soft panel ideal for wraparound lighting.",
+    "specs": {
+      "power_w": 400,
+      "color_temp_k": "2800-10000"
+    },
+    "weight_kg": 12.5,
+    "connectors": [
+      "AC",
+      "DMX"
+    ],
+    "source": "ARRI"
+  },
+  {
+    "id": "light_arri_t12",
+    "name": "ARRI T12 12K Tungsten",
+    "brand": "ARRI",
+    "category": "Lighting",
+    "subcategory": "Tungsten",
+    "description": "12,000W tungsten fresnel for large-scale studio lighting.",
+    "specs": {
+      "power_w": 12000,
+      "color_temp_k": 3200
+    },
+    "weight_kg": 65,
+    "connectors": [
+      "125A"
+    ],
+    "source": "ARRI"
+  },
+  {
+    "id": "light_arri_arrimax_18k",
+    "name": "ARRI ARRIMAX 18K",
+    "brand": "ARRI",
+    "category": "Lighting",
+    "subcategory": "HMI",
+    "description": "18K HMI with MAX reflector for maximum punch and throw.",
+    "specs": {
+      "power_w": 18000,
+      "color_temp_k": 5600
+    },
+    "weight_kg": 80,
+    "connectors": [
+      "VEAM"
+    ],
+    "source": "ARRI"
+  },
+  {
+    "id": "light_creamsource_spacelight",
+    "name": "Creamsource Space Light",
+    "brand": "Creamsource",
+    "category": "Lighting",
+    "subcategory": "Volumetric",
+    "description": "LED spacelight for large-area overhead soft illumination.",
+    "specs": {
+      "power_w": 1000,
+      "color_temp_k": "2700-6500"
+    },
+    "weight_kg": 18,
+    "connectors": [
+      "AC"
+    ],
+    "source": "Creamsource"
+  },
+  {
+    "id": "light_nanlux_ev1500c",
+    "name": "Nanlux Evoke 1500C",
+    "brand": "Nanlux",
+    "category": "Lighting",
+    "subcategory": "RGB Spotlight",
+    "description": "1500W RGBWW spotlight with extreme output and color control.",
+    "specs": {
+      "power_w": 1500,
+      "color_temp_k": "1800-20000"
+    },
+    "weight_kg": 20,
+    "connectors": [
+      "AC"
+    ],
+    "source": "Nanlux"
+  },
+  {
+    "id": "light_nanlux_dyno_300c",
+    "name": "Nanlux Dyno 300C",
+    "brand": "Nanlux",
+    "category": "Lighting",
+    "subcategory": "RGB Soft Panel",
+    "description": "RGBWW soft panel with high output and wide color range.",
+    "specs": {
+      "power_w": 300,
+      "color_temp_k": "2700-20000"
+    },
+    "weight_kg": 9,
+    "connectors": [
+      "AC",
+      "DC"
+    ],
+    "source": "Nanlux"
+  },
+  {
+    "id": "light_litepanels_gemini_2x1_soft",
+    "name": "Litepanels Gemini 2x1 Soft",
+    "brand": "Litepanels",
+    "category": "Lighting",
+    "subcategory": "RGB Soft Panel",
+    "description": "Soft RGBWW panel with accurate color reproduction.",
+    "specs": {
+      "power_w": 350,
+      "color_temp_k": "2700-10000"
+    },
+    "weight_kg": 10.1,
+    "connectors": [
+      "AC",
+      "DC"
+    ],
+    "source": "Litepanels"
+  },
+  {
+    "id": "light_litepanels_gemini_1x1_hard",
+    "name": "Litepanels Gemini 1x1 Hard",
+    "brand": "Litepanels",
+    "category": "Lighting",
+    "subcategory": "LED Panel",
+    "description": "Hard RGBWW panel with high punch for key or bounce.",
+    "specs": {
+      "power_w": 200,
+      "color_temp_k": "2700-10000"
+    },
+    "weight_kg": 5.5,
+    "connectors": [
+      "AC",
+      "DC"
+    ],
+    "source": "Litepanels"
+  },
+  {
+    "id": "light_astera_crmx_spotmax",
+    "name": "Astera SpotMax",
+    "brand": "Astera",
+    "category": "Lighting",
+    "subcategory": "Effects",
+    "description": "High-output RGBWW spotlight with wireless CRMX control.",
+    "specs": {
+      "power_w": 200,
+      "color_temp_k": "2700-6500"
+    },
+    "weight_kg": 3.5,
+    "connectors": [
+      "DC",
+      "Wireless"
+    ],
+    "source": "Astera"
+  },
+  {
+    "id": "light_hydra_500w_ip68",
+    "name": "Hydra 500W Waterproof LED",
+    "brand": "Hydra",
+    "category": "Lighting",
+    "subcategory": "Waterproof",
+    "description": "IP68-rated 500W LED for underwater and extreme weather.",
+    "specs": {
+      "power_w": 500,
+      "color_temp_k": "3000-6500"
+    },
+    "weight_kg": 6,
+    "connectors": [
+      "Submersible"
+    ],
+    "source": "Hydra"
+  },
+  {
+    "id": "light_digital_spacelight_1500",
+    "name": "Digital LED Spacelight 1500W",
+    "brand": "Digital Sputnik",
+    "category": "Lighting",
+    "subcategory": "Volumetric",
+    "description": "High-output LED spacelight for large studios.",
+    "specs": {
+      "power_w": 1500,
+      "color_temp_k": "2700-6500"
+    },
+    "weight_kg": 20,
+    "connectors": [
+      "AC"
+    ],
+    "source": "Digital Sputnik"
   }
 ]

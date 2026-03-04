@@ -11,6 +11,8 @@ import lensData from '@/data/gear/lens.json';
 import cablesData from '@/data/gear/cables.json';
 import gripData from '@/data/gear/grip.json';
 import lightsData from '@/data/gear/lights.json';
+import accessoriesData from '@/data/gear/accessories.json';
+import audioData from '@/data/gear/audio.json';
 
 // Pre-computed bcrypt hash — plaintext never appears in the bundle
 const ADMIN_HASH = '$2b$10$tOQm2PrR43YmfvUMULZtjOkXjJeNr7CLd4WKdZ/3m0E3GSxxq3J1e';
@@ -56,7 +58,7 @@ interface GearJsonItem {
   source?: string;
 }
 
-const CATALOG_SEED_VERSION = '1';
+const CATALOG_SEED_VERSION = '2';
 
 function mapGearItem(raw: GearJsonItem): CatalogItem {
   const now = nowISO();
@@ -91,6 +93,8 @@ export async function seedCatalog(): Promise<void> {
     ...cablesData,
     ...gripData,
     ...lightsData,
+    ...accessoriesData,
+    ...audioData,
   ];
 
   for (const raw of allRaw) {

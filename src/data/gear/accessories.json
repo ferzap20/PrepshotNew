@@ -1,0 +1,1791 @@
+[
+  {
+    "id": "acc_mattebox_arri_mmb2",
+    "name": "ARRI MMB-2 Matte Box",
+    "brand": "ARRI",
+    "category": "Accessory",
+    "subcategory": "Matte Box",
+    "description": "Compact matte box for lightweight setups with 4x5.65 trays.",
+    "specs": {
+      "filter_size": "4x5.65",
+      "mount": "15mm LWS"
+    },
+    "weight_kg": 0.7,
+    "compatibility": [
+      "cinema_cameras"
+    ],
+    "source": "ARRI"
+  },
+  {
+    "id": "acc_mattebox_brighttangerine_misfit",
+    "name": "Bright Tangerine Misfit Atom",
+    "brand": "Bright Tangerine",
+    "category": "Accessory",
+    "subcategory": "Matte Box",
+    "description": "Ultra-light clip-on matte box for gimbal and handheld work.",
+    "specs": {
+      "filter_size": "4x5.65",
+      "mount": "clip-on"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "cinema_cameras"
+    ],
+    "source": "Bright Tangerine"
+  },
+  {
+    "id": "acc_followfocus_arri_ff5",
+    "name": "ARRI FF-5 Follow Focus",
+    "brand": "ARRI",
+    "category": "Accessory",
+    "subcategory": "Follow Focus",
+    "description": "Precision follow focus system for cine lenses.",
+    "specs": {
+      "mount": "15mm/19mm"
+    },
+    "weight_kg": 1.1,
+    "compatibility": [
+      "cine_lenses"
+    ],
+    "source": "ARRI"
+  },
+  {
+    "id": "acc_followfocus_tilta_nucleus_m",
+    "name": "Tilta Nucleus-M Wireless FF",
+    "brand": "Tilta",
+    "category": "Accessory",
+    "subcategory": "Wireless Follow Focus",
+    "description": "Wireless dual-channel follow focus system.",
+    "specs": {
+      "range_m": 300
+    },
+    "weight_kg": 1.8,
+    "compatibility": [
+      "cine_lenses"
+    ],
+    "source": "Tilta"
+  },
+  {
+    "id": "acc_baseplate_15mm_lws",
+    "name": "15mm LWS Baseplate",
+    "brand": "SmallRig",
+    "category": "Accessory",
+    "subcategory": "Baseplate",
+    "description": "Standard 15mm lightweight support baseplate.",
+    "specs": {
+      "rod_standard": "15mm LWS"
+    },
+    "weight_kg": 0.4,
+    "compatibility": [
+      "cinema_cameras"
+    ],
+    "source": "SmallRig"
+  },
+  {
+    "id": "acc_baseplate_19mm_studio",
+    "name": "19mm Studio Baseplate",
+    "brand": "ARRI",
+    "category": "Accessory",
+    "subcategory": "Baseplate",
+    "description": "Heavy-duty 19mm studio baseplate for large cinema rigs.",
+    "specs": {
+      "rod_standard": "19mm Studio"
+    },
+    "weight_kg": 0.9,
+    "compatibility": [
+      "cinema_cameras"
+    ],
+    "source": "ARRI"
+  },
+  {
+    "id": "acc_cage_tilta_bmpcc6k",
+    "name": "Tilta Camera Cage for BMPCC 6K",
+    "brand": "Tilta",
+    "category": "Accessory",
+    "subcategory": "Camera Cage",
+    "description": "Full cage for Blackmagic Pocket Cinema Camera 6K.",
+    "specs": {
+      "mount_points": "1/4-20, 3/8-16"
+    },
+    "weight_kg": 0.6,
+    "compatibility": [
+      "bmpcc6k"
+    ],
+    "source": "Tilta"
+  },
+  {
+    "id": "acc_handle_top_wooden",
+    "name": "Wooden Camera Top Handle",
+    "brand": "Wooden Camera",
+    "category": "Accessory",
+    "subcategory": "Handle",
+    "description": "Universal top handle for cinema cameras.",
+    "specs": {
+      "mount": "NATO"
+    },
+    "weight_kg": 0.3,
+    "compatibility": [
+      "camera_cages"
+    ],
+    "source": "Wooden Camera"
+  },
+  {
+    "id": "acc_adapter_pl_to_e",
+    "name": "PL to Sony E Adapter",
+    "brand": "Metabones",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "High-quality PL to E-mount adapter.",
+    "specs": {
+      "mount_in": "PL",
+      "mount_out": "E"
+    },
+    "weight_kg": 0.25,
+    "compatibility": [
+      "pl_lenses",
+      "e_mount_cameras"
+    ],
+    "source": "Metabones"
+  },
+  {
+    "id": "acc_adapter_ef_to_rf",
+    "name": "EF to RF Adapter",
+    "brand": "Canon",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Canon EF to RF adapter for mirrorless cameras.",
+    "specs": {
+      "mount_in": "EF",
+      "mount_out": "RF"
+    },
+    "weight_kg": 0.1,
+    "compatibility": [
+      "ef_lenses",
+      "rf_mount_cameras"
+    ],
+    "source": "Canon"
+  },
+  {
+    "id": "acc_adapter_canon_ef_to_micro",
+    "name": "Canon EF to Micro Four Thirds Adapter",
+    "brand": "Fotodiox",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Adapter for using Canon EF lenses on Micro Four Thirds cameras.",
+    "specs": {
+      "mount_in": "EF",
+      "mount_out": "MFT"
+    },
+    "weight_kg": 0.15,
+    "compatibility": [
+      "ef_lenses",
+      "mft_cameras"
+    ],
+    "source": "Fotodiox"
+  },
+  {
+    "id": "acc_adapter_nikon_f_to_z",
+    "name": "Nikon F to Z Adapter",
+    "brand": "Nikon",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Adapter for using Nikon F-mount lenses on Z-series mirrorless cameras.",
+    "specs": {
+      "mount_in": "F",
+      "mount_out": "Z"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "f_lenses",
+      "z_mount_cameras"
+    ],
+    "source": "Nikon"
+  },
+  {
+    "id": "acc_adapter_sony_a_to_e",
+    "name": "Sony A to E Adapter",
+    "brand": "Sony",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Adapter for using Sony A-mount lenses on E-mount cameras.",
+    "specs": {
+      "mount_in": "A",
+      "mount_out": "E"
+    },
+    "weight_kg": 0.1,
+    "compatibility": [
+      "a_lenses",
+      "e_mount_cameras"
+    ],
+    "source": "Sony"
+  },
+  {
+    "id": "acc_adapter_leica_m_to_e",
+    "name": "Leica M to Sony E Adapter",
+    "brand": "Leica",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Adapter for using Leica M-mount lenses on Sony E-mount cameras.",
+    "specs": {
+      "mount_in": "M",
+      "mount_out": "E"
+    },
+    "weight_kg": 0.1,
+    "compatibility": [
+      "m_lenses",
+      "e_mount_cameras"
+    ],
+    "source": "Leica"
+  },
+  {
+    "id": "acc_adapter_zeiss_batis_to_e",
+    "name": "Zeiss Batis to Sony E Adapter",
+    "brand": "Zeiss",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Adapter for using Zeiss Batis lenses on Sony E-mount cameras.",
+    "specs": {
+      "mount_in": "Batis",
+      "mount_out": "E"
+    },
+    "weight_kg": 0.1,
+    "compatibility": [
+      "batis_lenses",
+      "e_mount_cameras"
+    ],
+    "source": "Zeiss"
+  },
+  {
+    "id": "acc_adapter_samyang_xp_to_e",
+    "name": "Samyang XP to Sony E Adapter",
+    "brand": "Samyang",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Adapter for using Samyang XP lenses on Sony E-mount cameras.",
+    "specs": {
+      "mount_in": "XP",
+      "mount_out": "E"
+    },
+    "weight_kg": 0.1,
+    "compatibility": [
+      "xp_lenses",
+      "e_mount_cameras"
+    ],
+    "source": "Samyang"
+  },
+  {
+    "id": "acc_adapter_cine_mod_to_rf",
+    "name": "Cine Mod to Canon RF Adapter",
+    "brand": "Canon",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Adapter for using Canon Cine Mod lenses on RF-mount cameras.",
+    "specs": {
+      "mount_in": "Cine Mod",
+      "mount_out": "RF"
+    },
+    "weight_kg": 0.15,
+    "compatibility": [
+      "cine_mod_lenses",
+      "rf_mount_cameras"
+    ],
+    "source": "Canon"
+  },
+  {
+    "id": "acc_adapter_mft_to_e",
+    "name": "Micro Four Thirds to Sony E Adapter",
+    "brand": "Metabones",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Adapter for using Micro Four Thirds lenses on Sony E-mount cameras.",
+    "specs": {
+      "mount_in": "MFT",
+      "mount_out": "E"
+    },
+    "weight_kg": 0.15,
+    "compatibility": [
+      "mft_lenses",
+      "e_mount_cameras"
+    ],
+    "source": "Metabones"
+  },
+  {
+    "id": "acc_adapter_canon_ef_to_e",
+    "name": "Canon EF to Sony E Adapter",
+    "brand": "Fotodiox",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Adapter for using Canon EF lenses on Sony E-mount cameras.",
+    "specs": {
+      "mount_in": "EF",
+      "mount_out": "E"
+    },
+    "weight_kg": 0.15,
+    "compatibility": [
+      "ef_lenses",
+      "e_mount_cameras"
+    ],
+    "source": "Fotodiox"
+  },
+  {
+    "id": "acc_adapter_zeiss_cp3_to_e",
+    "name": "Zeiss CP.3 to Sony E Adapter",
+    "brand": "Zeiss",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Adapter for using Zeiss CP.3 lenses on Sony E-mount cameras.",
+    "specs": {
+      "mount_in": "CP.3",
+      "mount_out": "E"
+    },
+    "weight_kg": 0.1,
+    "compatibility": [
+      "cp3_lenses",
+      "e_mount_cameras"
+    ],
+    "source": "Zeiss"
+  },
+  {
+    "id": "acc_adapter_sigma_mc11_to_e",
+    "name": "Sigma MC-11 to Sony E Adapter",
+    "brand": "Sigma",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Adapter for using Sigma EF-mount lenses on Sony E-mount cameras.",
+    "specs": {
+      "mount_in": "EF",
+      "mount_out": "E"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "ef_lenses",
+      "e_mount_cameras"
+    ],
+    "source": "Sigma"
+  },
+  {
+    "id": "acc_adapter_metabones_speedbooster_to_e",
+    "name": "Metabones Speed Booster to Sony E Adapter",
+    "brand": "Metabones",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Speed booster adapter for using full-frame lenses on Sony E-mount cameras with increased aperture.",
+    "specs": {
+      "mount_in": "various_full_frame",
+      "mount_out": "E"
+    },
+    "weight_kg": 0.25,
+    "compatibility": [
+      "full_frame_lenses",
+      "e_mount_cameras"
+    ],
+    "source": "Metabones"
+  },
+  {
+    "id": "acc_adapter_red_raptor_to_rf",
+    "name": "RED RAPTOR to Canon RF Adapter",
+    "brand": "RED",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Adapter for using RED RAPTOR lenses on Canon RF-mount cameras.",
+    "specs": {
+      "mount_in": "RAPTOR",
+      "mount_out": "RF"
+    },
+    "weight_kg": 0.15,
+    "compatibility": [
+      "raptor_lenses",
+      "rf_mount_cameras"
+    ],
+    "source": "RED"
+  },
+  {
+    "id": "acc_adapter_leica_s_to_e",
+    "name": "Leica S to Sony E Adapter",
+    "brand": "Leica",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Adapter for using Leica S-mount lenses on Sony E-mount cameras.",
+    "specs": {
+      "mount_in": "S",
+      "mount_out": "E"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "s_lenses",
+      "e_mount_cameras"
+    ],
+    "source": "Leica"
+  },
+  {
+    "id": "acc_adapter_cine_mod_to_rf_v2",
+    "name": "Cine Mod to Canon RF Adapter v2",
+    "brand": "Canon",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Updated adapter for using Canon Cine Mod lenses on RF-mount cameras with improved compatibility.",
+    "specs": {
+      "mount_in": "Cine Mod",
+      "mount_out": "RF"
+    },
+    "weight_kg": 0.15,
+    "compatibility": [
+      "cine_mod_lenses",
+      "rf_mount_cameras"
+    ],
+    "source": "Canon"
+  },
+  {
+    "id": "acc_adapter_samyang_xp_to_e_v2",
+    "name": "Samyang XP to Sony E Adapter v2",
+    "brand": "Samyang",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Updated adapter for using Samyang XP lenses on Sony E-mount cameras with improved compatibility.",
+    "specs": {
+      "mount_in": "XP",
+      "mount_out": "E"
+    },
+    "weight_kg": 0.1,
+    "compatibility": [
+      "xp_lenses",
+      "e_mount_cameras"
+    ],
+    "source": "Samyang"
+  },
+  {
+    "id": "acc_adapter_zeiss_batis_to_e_v2",
+    "name": "Zeiss Batis to Sony E Adapter v2",
+    "brand": "Zeiss",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Updated adapter for using Zeiss Batis lenses on Sony E-mount cameras with improved compatibility.",
+    "specs": {
+      "mount_in": "Batis",
+      "mount_out": "E"
+    },
+    "weight_kg": 0.1,
+    "compatibility": [
+      "batis_lenses",
+      "e_mount_cameras"
+    ],
+    "source": "Zeiss"
+  },
+  {
+    "id": "acc_adapter_leica_m_to_e_v2",
+    "name": "Leica M to Sony E Adapter v2",
+    "brand": "Leica",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Updated adapter for using Leica M-mount lenses on Sony E-mount cameras with improved compatibility.",
+    "specs": {
+      "mount_in": "M",
+      "mount_out": "E"
+    },
+    "weight_kg": 0.1,
+    "compatibility": [
+      "m_lenses",
+      "e_mount_cameras"
+    ],
+    "source": "Leica"
+  },
+  {
+    "id": "acc_adapter_sony_a_to_e_v2",
+    "name": "Sony A to E Adapter v2",
+    "brand": "Sony",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Updated adapter for using Sony A-mount lenses on E-mount cameras with improved compatibility.",
+    "specs": {
+      "mount_in": "A",
+      "mount_out": "E"
+    },
+    "weight_kg": 0.1,
+    "compatibility": [
+      "a_lenses",
+      "e_mount_cameras"
+    ],
+    "source": "Sony"
+  },
+  {
+    "id": "acc_adapter_nikon_f_to_z_v2",
+    "name": "Nikon F to Z Adapter v2",
+    "brand": "Nikon",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Updated adapter for using Nikon F-mount lenses on Z-series mirrorless cameras with improved compatibility.",
+    "specs": {
+      "mount_in": "F",
+      "mount_out": "Z"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "f_lenses",
+      "z_mount_cameras"
+    ],
+    "source": "Nikon"
+  },
+  {
+    "id": "acc_monitor_smallhd_503",
+    "name": "SmallHD 503 UltraBright",
+    "brand": "SmallHD",
+    "category": "Accessory",
+    "subcategory": "Monitor",
+    "description": "5-inch daylight-viewable monitor for on-camera use.",
+    "specs": {
+      "brightness_nits": 2200,
+      "resolution": "1080p"
+    },
+    "weight_kg": 0.4,
+    "connectors": [
+      "SDI",
+      "HDMI"
+    ],
+    "source": "SmallHD"
+  },
+  {
+    "id": "acc_monitor_atomossumo19",
+    "name": "Atomos Sumo 19",
+    "brand": "Atomos",
+    "category": "Accessory",
+    "subcategory": "Monitor",
+    "description": "19-inch HDR monitor/recorder for directors and DIT.",
+    "specs": {
+      "resolution": "4K",
+      "brightness_nits": 1200
+    },
+    "weight_kg": 5.5,
+    "connectors": [
+      "SDI",
+      "HDMI"
+    ],
+    "source": "Atomos"
+  },
+  {
+    "id": "acc_wireless_teradek_bolt4k",
+    "name": "Teradek Bolt 4K TX/RX",
+    "brand": "Teradek",
+    "category": "Accessory",
+    "subcategory": "Wireless Video",
+    "description": "Zero-delay 4K wireless video transmission system.",
+    "specs": {
+      "range_m": 450
+    },
+    "weight_kg": 1.2,
+    "connectors": [
+      "SDI",
+      "HDMI"
+    ],
+    "source": "Teradek"
+  },
+  {
+    "id": "acc_wireless_hollyland_mars400s",
+    "name": "Hollyland Mars 400S Pro",
+    "brand": "Hollyland",
+    "category": "Accessory",
+    "subcategory": "Wireless Video",
+    "description": "Affordable wireless video system for small productions.",
+    "specs": {
+      "range_m": 120
+    },
+    "weight_kg": 0.6,
+    "connectors": [
+      "SDI",
+      "HDMI"
+    ],
+    "source": "Hollyland"
+  },
+  {
+    "id": "acc_battery_vmount_150wh",
+    "name": "150Wh V-Mount Battery",
+    "brand": "Core SWX",
+    "category": "Accessory",
+    "subcategory": "Battery",
+    "description": "Standard 150Wh V-mount battery for cinema cameras.",
+    "specs": {
+      "capacity_wh": 150
+    },
+    "weight_kg": 1,
+    "connectors": [
+      "D-Tap"
+    ],
+    "source": "Core SWX"
+  },
+  {
+    "id": "acc_battery_goldmount_190wh",
+    "name": "190Wh Gold-Mount Battery",
+    "brand": "Anton Bauer",
+    "category": "Accessory",
+    "subcategory": "Battery",
+    "description": "High-capacity Gold-mount battery for broadcast and cinema.",
+    "specs": {
+      "capacity_wh": 190
+    },
+    "weight_kg": 1.1,
+    "connectors": [
+      "D-Tap"
+    ],
+    "source": "Anton Bauer"
+  },
+  {
+    "id": "acc_charger_quad_vmount",
+    "name": "Quad V-Mount Charger",
+    "brand": "IDX",
+    "category": "Accessory",
+    "subcategory": "Charger",
+    "description": "Four-bay V-mount battery charger.",
+    "specs": {
+      "bays": 4
+    },
+    "weight_kg": 2.5,
+    "connectors": [
+      "AC"
+    ],
+    "source": "IDX"
+  },
+  {
+    "id": "acc_media_cfast2_256gb",
+    "name": "256GB CFast 2.0 Card",
+    "brand": "SanDisk",
+    "category": "Accessory",
+    "subcategory": "Media",
+    "description": "High-speed CFast 2.0 card for cinema cameras.",
+    "specs": {
+      "capacity_gb": 256
+    },
+    "weight_kg": 0.02,
+    "compatibility": [
+      "cfast_cameras"
+    ],
+    "source": "SanDisk"
+  },
+  {
+    "id": "acc_media_cfexpressb_512gb",
+    "name": "512GB CFexpress Type B",
+    "brand": "Sony",
+    "category": "Accessory",
+    "subcategory": "Media",
+    "description": "High-performance CFexpress card for 8K recording.",
+    "specs": {
+      "capacity_gb": 512
+    },
+    "weight_kg": 0.02,
+    "compatibility": [
+      "cfexpress_cameras"
+    ],
+    "source": "Sony"
+  },
+  {
+    "id": "acc_media_red_minimag_960",
+    "name": "RED MINI-MAG 960GB",
+    "brand": "RED",
+    "category": "Accessory",
+    "subcategory": "Media",
+    "description": "High-speed media for RED DSMC2 cameras.",
+    "specs": {
+      "capacity_gb": 960
+    },
+    "weight_kg": 0.05,
+    "compatibility": [
+      "red_cameras"
+    ],
+    "source": "RED"
+  },
+  {
+    "id": "acc_filter_tiffen_glimmerglass_4x565",
+    "name": "Tiffen Glimmerglass 4x5.65",
+    "brand": "Tiffen",
+    "category": "Accessory",
+    "subcategory": "Filter",
+    "description": "Glimmerglass filter for adding subtle sparkle to highlights.",
+    "specs": {
+      "filter_size": "4x5.65",
+      "type": "glimmer"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "matte_boxes"
+    ],
+    "source": "Tiffen"
+  },
+  {
+    "id": "acc_filter_schneider_softedge_4x565",
+    "name": "Schneider Soft Edge 4x5.65",
+    "brand": "Schneider",
+    "category": "Accessory",
+    "subcategory": "Filter",
+    "description": "Soft edge filter for gentle diffusion and glow.",
+    "specs": {
+      "filter_size": "4x5.65",
+      "type": "soft_edge"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "matte_boxes"
+    ],
+    "source": "Schneider"
+  },
+  {
+    "id": "acc_filter_tiffen_protostar_4x565",
+    "name": "Tiffen Protostar 4x5.65",
+    "brand": "Tiffen",
+    "category": "Accessory",
+    "subcategory": "Filter",
+    "description": "Protostar filter for creating a starburst effect on highlights.",
+    "specs": {
+      "filter_size": "4x5.65",
+      "type": "protostar"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "matte_boxes"
+    ],
+    "source": "Tiffen"
+  },
+  {
+    "id": "acc_filter_schneider_irnd_4x565",
+    "name": "Schneider IRND 4x5.65",
+    "brand": "Schneider",
+    "category": "Accessory",
+    "subcategory": "Filter",
+    "description": "Infrared ND filter for digital sensors to maintain color accuracy.",
+    "specs": {
+      "filter_size": "4x5.65",
+      "type": "irnd"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "matte_boxes"
+    ],
+    "source": "Schneider"
+  },
+  {
+    "id": "acc_filter_tiffen_blackpromist_1_8",
+    "name": "Tiffen Black Pro Mist 1/8 4x5.65",
+    "brand": "Tiffen",
+    "category": "Accessory",
+    "subcategory": "Filter",
+    "description": "Subtle diffusion filter for softening highlights and reducing contrast.",
+    "specs": {
+      "filter_size": "4x5.65",
+      "type": "diffusion"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "matte_boxes"
+    ],
+    "source": "Tiffen"
+  },
+  {
+    "id": "acc_filter_schneider_polarizer_circular_4x565",
+    "name": "Schneider Circular Polarizer 4x5.65",
+    "brand": "Schneider",
+    "category": "Accessory",
+    "subcategory": "Filter",
+    "description": "Circular polarizer for controlling reflections and enhancing colors.",
+    "specs": {
+      "filter_size": "4x5.65",
+      "type": "circular_polarizer"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "matte_boxes"
+    ],
+    "source": "Schneider"
+  },
+  {
+    "id": "acc_filter_tiffen_closeup_diopter_-3",
+    "name": "-3 Close-Up Diopter 138mm",
+    "brand": "Tiffen",
+    "category": "Accessory",
+    "subcategory": "Filter",
+    "description": "Close-up diopter for macro-style cinematography with negative magnification.",
+    "specs": {
+      "filter_size": "138mm",
+      "strength": "-3"
+    },
+    "weight_kg": 0.25,
+    "compatibility": [
+      "diopter_trays"
+    ],
+    "source": "Tiffen"
+  },
+  {
+    "id": "acc_mount_magic_arm_12in",
+    "name": "12\" Magic Arm",
+    "brand": "Manfrotto",
+    "category": "Accessory",
+    "subcategory": "Mounting",
+    "description": "Longer adjustable arm for mounting monitors and accessories.",
+    "specs": {
+      "length_in": 12
+    },
+    "weight_kg": 0.5,
+    "compatibility": [
+      "1/4-20",
+      "3/8-16"
+    ],
+    "source": "Manfrotto"
+  },
+  {
+    "id": "acc_mount_nato_rail_200mm",
+    "name": "200mm NATO Rail",
+    "brand": "SmallRig",
+    "category": "Accessory",
+    "subcategory": "Mounting",
+    "description": "Longer NATO rail for quick-release accessories.",
+    "specs": {
+      "length_mm": 200
+    },
+    "weight_kg": 0.15,
+    "compatibility": [
+      "camera_cages"
+    ],
+    "source": "SmallRig"
+  },
+  {
+    "id": "acc_mount_cheese_plate_large",
+    "name": "Large Cheese Plate",
+    "brand": "Wooden Camera",
+    "category": "Accessory",
+    "subcategory": "Mounting",
+    "description": "Larger cheese plate for rig building with more mounting options.",
+    "specs": {
+      "mount_points": "1/4-20, 3/8-16"
+    },
+    "weight_kg": 0.5,
+    "compatibility": [
+      "camera_rigs"
+    ],
+    "source": "Wooden Camera"
+  },
+  {
+    "id": "acc_gimbal_counterweight_500g",
+    "name": "500g Gimbal Counterweight",
+    "brand": "DJI",
+    "category": "Accessory",
+    "subcategory": "Gimbal Accessory",
+    "description": "Heavier counterweight for balancing heavier lenses on gimbals.",
+    "specs": {
+      "weight_g": 500
+    },
+    "weight_kg": 0.5,
+    "compatibility": [
+      "ronin_gimbals"
+    ],
+    "source": "DJI"
+  },
+  {
+    "id": "acc_gimbal_dual_handle",
+    "name": "Dual Handle for Ronin-S",
+    "brand": "DJI",
+    "category": "Accessory",
+    "subcategory": "Gimbal Accessory",
+    "description": "Two-handed grip for DJI Ronin-S gimbal.",
+    "specs": {
+      "material": "plastic"
+    },
+    "weight_kg": 0.8,
+    "compatibility": [
+      "ronin_s"
+    ],
+    "source": "DJI"
+  },
+  {
+    "id": "acc_protection_camera_cover",
+    "name": "Universal Camera Cover",
+    "brand": "Think Tank",
+    "category": "Accessory",
+    "subcategory": "Protection",
+    "description": "Protective cover for cameras against dust and light rain.",
+    "specs": {
+      "size": "universal"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "cinema_cameras"
+    ],
+    "source": "Think Tank"
+  },
+  {
+    "id": "acc_case_pelican_1650",
+    "name": "Pelican 1650 Hard Case",
+    "brand": "Pelican",
+    "category": "Accessory",
+    "subcategory": "Case",
+    "description": "Large hard case with foam for extensive camera gear.",
+    "specs": {
+      "waterproof": "IP67"
+    },
+    "weight_kg": 10,
+    "compatibility": [
+      "camera_kits"
+    ],
+    "source": "Pelican"
+  },
+  {
+    "id": "acc_rod_15mm_24in",
+    "name": "15mm Rod 24\"",
+    "brand": "SmallRig",
+    "category": "Accessory",
+    "subcategory": "Rods",
+    "description": "Longer 15mm aluminum rod for camera rigging.",
+    "specs": {
+      "length_in": 24
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "15mm_lws"
+    ],
+    "source": "SmallRig"
+  },
+  {
+    "id": "acc_rod_19mm_studio_24in",
+    "name": "19mm Studio Rod 24\"",
+    "brand": "ARRI",
+    "category": "Accessory",
+    "subcategory": "Rods",
+    "description": "Longer 19mm studio rod for heavy-duty cinema builds.",
+    "specs": {
+      "length_in": 24
+    },
+    "weight_kg": 0.4,
+    "compatibility": [
+      "19mm_studio"
+    ],
+    "source": "ARRI"
+  },
+  {
+    "id": "acc_quickrelease_arri_plate_dovetail",
+    "name": "ARRI Dovetail Quick Release Plate",
+    "brand": "ARRI",
+    "category": "Accessory",
+    "subcategory": "Quick Release",
+    "description": "Dovetail quick-release plate for ARRI camera rigs.",
+    "specs": {
+      "mount": "dovetail"
+    },
+    "weight_kg": 0.15,
+    "compatibility": [
+      "tripods",
+      "cages"
+    ],
+    "source": "ARRI"
+  },
+  {
+    "id": "acc_quickrelease_smallrig_plate",
+    "name": "SmallRig Quick Release Plate",
+    "brand": "SmallRig",
+    "category": "Accessory",
+    "subcategory": "Quick Release",
+    "description": "Standard quick-release plate for SmallRig camera rigs.",
+    "specs": {
+      "mount": "1/4-20"
+    },
+    "weight_kg": 0.1,
+    "compatibility": [
+      "tripods",
+      "cages"
+    ],
+    "source": "SmallRig"
+  },
+  {
+    "id": "acc_clamp_superclamp",
+    "name": "Super Clamp",
+    "brand": "Manfrotto",
+    "category": "Accessory",
+    "subcategory": "Clamp",
+    "description": "Versatile clamp for mounting accessories to various surfaces.",
+    "specs": {
+      "max_opening_mm": 55
+    },
+    "weight_kg": 0.3,
+    "compatibility": [
+      "camera_rigs"
+    ],
+    "source": "Manfrotto"
+  },
+  {
+    "id": "acc_clamp_cclamp",
+    "name": "C-Clamp",
+    "brand": "Matthews",
+    "category": "Accessory",
+    "subcategory": "Clamp",
+    "description": "Heavy-duty C-clamp for rigging to pipes and truss.",
+    "specs": {
+      "max_opening_mm": 50
+    },
+    "weight_kg": 0.5,
+    "compatibility": [
+      "pipes",
+      "truss"
+    ],
+    "source": "Matthews"
+  },
+  {
+    "id": "acc_clamp_cardellini",
+    "name": "Cardellini Clamp",
+    "brand": "Cardellini",
+    "category": "Accessory",
+    "subcategory": "Clamp",
+    "description": "Clamp with adjustable jaws for gripping irregular surfaces.",
+    "specs": {
+      "jaw_type": "adjustable"
+    },
+    "weight_kg": 0.4,
+    "compatibility": [
+      "camera_rigs"
+    ],
+    "source": "Cardellini"
+  },
+  {
+    "id": "acc_filter_tiffen_blackpromist_1_4",
+    "name": "Tiffen Black Pro Mist 1/4 4x5.65",
+    "brand": "Tiffen",
+    "category": "Accessory",
+    "subcategory": "Filter",
+    "description": "Diffusion filter for softening highlights and reducing contrast.",
+    "specs": {
+      "filter_size": "4x5.65",
+      "type": "diffusion"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "matte_boxes"
+    ],
+    "source": "Tiffen"
+  },
+  {
+    "id": "acc_filter_polarizer_4x565",
+    "name": "4x5.65 Polarizer",
+    "brand": "Schneider",
+    "category": "Accessory",
+    "subcategory": "Filter",
+    "description": "Linear polarizer for controlling reflections and glare.",
+    "specs": {
+      "filter_size": "4x5.65",
+      "type": "polarizer"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "matte_boxes"
+    ],
+    "source": "Schneider"
+  },
+  {
+    "id": "acc_filter_closeup_diopter_+1",
+    "name": "+1 Close-Up Diopter 138mm",
+    "brand": "Tiffen",
+    "category": "Accessory",
+    "subcategory": "Filter",
+    "description": "Close-up diopter for macro-style cinematography.",
+    "specs": {
+      "filter_size": "138mm",
+      "strength": "+1"
+    },
+    "weight_kg": 0.25,
+    "compatibility": [
+      "diopter_trays"
+    ],
+    "source": "Tiffen"
+  },
+  {
+    "id": "acc_mount_magic_arm_7in",
+    "name": "7\" Magic Arm",
+    "brand": "Manfrotto",
+    "category": "Accessory",
+    "subcategory": "Mounting",
+    "description": "Adjustable arm for mounting monitors and accessories.",
+    "specs": {
+      "length_in": 7
+    },
+    "weight_kg": 0.4,
+    "compatibility": [
+      "1/4-20",
+      "3/8-16"
+    ],
+    "source": "Manfrotto"
+  },
+  {
+    "id": "acc_mount_nato_rail_100mm",
+    "name": "100mm NATO Rail",
+    "brand": "SmallRig",
+    "category": "Accessory",
+    "subcategory": "Mounting",
+    "description": "Standard NATO rail for quick-release accessories.",
+    "specs": {
+      "length_mm": 100
+    },
+    "weight_kg": 0.1,
+    "compatibility": [
+      "camera_cages"
+    ],
+    "source": "SmallRig"
+  },
+  {
+    "id": "acc_mount_cheese_plate",
+    "name": "Universal Cheese Plate",
+    "brand": "Wooden Camera",
+    "category": "Accessory",
+    "subcategory": "Mounting",
+    "description": "Multipurpose cheese plate for rig building.",
+    "specs": {
+      "mount_points": "1/4-20, 3/8-16"
+    },
+    "weight_kg": 0.3,
+    "compatibility": [
+      "camera_rigs"
+    ],
+    "source": "Wooden Camera"
+  },
+  {
+    "id": "acc_gimbal_counterweight_200g",
+    "name": "200g Gimbal Counterweight",
+    "brand": "DJI",
+    "category": "Accessory",
+    "subcategory": "Gimbal Accessory",
+    "description": "Counterweight for balancing heavy lenses on gimbals.",
+    "specs": {
+      "weight_g": 200
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "ronin_gimbals"
+    ],
+    "source": "DJI"
+  },
+  {
+    "id": "acc_gimbal_ring_grip",
+    "name": "Ronin 2 Ring Grip",
+    "brand": "DJI",
+    "category": "Accessory",
+    "subcategory": "Gimbal Accessory",
+    "description": "Two-handed ring grip for Ronin 2.",
+    "specs": {
+      "material": "carbon fiber"
+    },
+    "weight_kg": 1.5,
+    "compatibility": [
+      "ronin2"
+    ],
+    "source": "DJI"
+  },
+  {
+    "id": "acc_protection_raincover",
+    "name": "Camera Rain Cover",
+    "brand": "ARRI",
+    "category": "Accessory",
+    "subcategory": "Protection",
+    "description": "Weatherproof cover for cinema cameras.",
+    "specs": {
+      "size": "universal"
+    },
+    "weight_kg": 0.3,
+    "compatibility": [
+      "cinema_cameras"
+    ],
+    "source": "ARRI"
+  },
+  {
+    "id": "acc_case_pelican_1510",
+    "name": "Pelican 1510 Hard Case",
+    "brand": "Pelican",
+    "category": "Accessory",
+    "subcategory": "Case",
+    "description": "Carry-on size hard case with foam for camera gear.",
+    "specs": {
+      "waterproof": "IP67"
+    },
+    "weight_kg": 6.2,
+    "compatibility": [
+      "camera_kits"
+    ],
+    "source": "Pelican"
+  },
+  {
+    "id": "acc_rod_15mm_12in",
+    "name": "15mm Rod 12\"",
+    "brand": "SmallRig",
+    "category": "Accessory",
+    "subcategory": "Rods",
+    "description": "Standard 15mm aluminum rod for camera rigging.",
+    "specs": {
+      "length_in": 12
+    },
+    "weight_kg": 0.12,
+    "compatibility": [
+      "15mm_lws"
+    ],
+    "source": "SmallRig"
+  },
+  {
+    "id": "acc_rod_19mm_18in",
+    "name": "19mm Rod 18\"",
+    "brand": "ARRI",
+    "category": "Accessory",
+    "subcategory": "Rods",
+    "description": "19mm studio rod for heavy-duty cinema builds.",
+    "specs": {
+      "length_in": 18
+    },
+    "weight_kg": 0.25,
+    "compatibility": [
+      "19mm_studio"
+    ],
+    "source": "ARRI"
+  },
+  {
+    "id": "acc_quickrelease_501plate",
+    "name": "Manfrotto 501 Quick Release Plate",
+    "brand": "Manfrotto",
+    "category": "Accessory",
+    "subcategory": "Quick Release",
+    "description": "Standard quick-release plate for lightweight camera rigs.",
+    "specs": {
+      "mount": "1/4-20"
+    },
+    "weight_kg": 0.1,
+    "compatibility": [
+      "tripods",
+      "cages"
+    ],
+    "source": "Manfrotto"
+  },
+  {
+    "id": "acc_quickrelease_ursa_plate",
+    "name": "Blackmagic URSA Mini Shoulder Plate",
+    "brand": "Blackmagic",
+    "category": "Accessory",
+    "subcategory": "Shoulder Rig",
+    "description": "Shoulder mount and quick-release plate for URSA Mini cameras.",
+    "specs": {
+      "mount": "VCT"
+    },
+    "weight_kg": 1.2,
+    "compatibility": [
+      "ursa_mini"
+    ],
+    "source": "Blackmagic"
+  },
+  {
+    "id": "acc_clamp_noga_arm",
+    "name": "Noga Arm Hold-It",
+    "brand": "Noga",
+    "category": "Accessory",
+    "subcategory": "Mounting Arm",
+    "description": "Articulating arm for monitors and accessories.",
+    "specs": {
+      "length_cm": 28
+    },
+    "weight_kg": 0.35,
+    "compatibility": [
+      "monitors",
+      "cages"
+    ],
+    "source": "Noga"
+  },
+  {
+    "id": "acc_plate_arri_dovetail_12",
+    "name": "ARRI 12\" Dovetail Plate",
+    "brand": "ARRI",
+    "category": "Accessory",
+    "subcategory": "Plate",
+    "description": "Standard 12-inch dovetail for cinema camera mounting.",
+    "specs": {
+      "length_in": 12
+    },
+    "weight_kg": 0.6,
+    "compatibility": [
+      "bridgeplates"
+    ],
+    "source": "ARRI"
+  },
+  {
+    "id": "acc_plate_universal_cheese",
+    "name": "Universal Cheese Plate",
+    "brand": "Tilta",
+    "category": "Accessory",
+    "subcategory": "Plate",
+    "description": "Multipurpose cheese plate for rig building.",
+    "specs": {
+      "mount_points": "1/4-20, 3/8-16"
+    },
+    "weight_kg": 0.3,
+    "compatibility": [
+      "rigging"
+    ],
+    "source": "Tilta"
+  },
+  {
+    "id": "acc_adapter_speedbooster_ef_mft",
+    "name": "EF to MFT Speed Booster XL",
+    "brand": "Metabones",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Speed booster for adapting EF lenses to MFT with wider FOV.",
+    "specs": {
+      "reduction": "0.64x"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "ef_lenses",
+      "mft_cameras"
+    ],
+    "source": "Metabones"
+  },
+  {
+    "id": "acc_adapter_pl_lpl",
+    "name": "PL to LPL Adapter",
+    "brand": "ARRI",
+    "category": "Accessory",
+    "subcategory": "Lens Adapter",
+    "description": "Adapter for mounting PL lenses on LPL cameras.",
+    "specs": {
+      "mount_in": "PL",
+      "mount_out": "LPL"
+    },
+    "weight_kg": 0.18,
+    "compatibility": [
+      "pl_lenses",
+      "lpl_cameras"
+    ],
+    "source": "ARRI"
+  },
+  {
+    "id": "acc_adapter_bayonet_to_15mm",
+    "name": "Bayonet to 15mm Adapter",
+    "brand": "SmallRig",
+    "category": "Accessory",
+    "subcategory": "Mounting Adapter",
+    "description": "Adapter for mounting bayonet accessories on 15mm rods.",
+    "specs": {
+      "mount_in": "bayonet",
+      "mount_out": "15mm"
+    },
+    "weight_kg": 0.1,
+    "compatibility": [
+      "15mm_rods"
+    ],
+    "source": "SmallRig"
+  },
+  {
+    "id": "acc_adapter_rod_to_nato",
+    "name": "Rod to NATO Adapter",
+    "brand": "Wooden Camera",
+    "category": "Accessory",
+    "subcategory": "Mounting Adapter",
+    "description": "Adapter for attaching NATO accessories to rods.",
+    "specs": {
+      "mount_in": "15mm/19mm rod",
+      "mount_out": "NATO"
+    },
+    "weight_kg": 0.15,
+    "compatibility": [
+      "rods"
+    ],
+    "source": "Wooden Camera"
+  },
+  {
+    "id": "acc_adapter_cage_to_rod",
+    "name": "Cage to Rod Adapter",
+    "brand": "Tilta",
+    "category": "Accessory",
+    "subcategory": "Mounting Adapter",
+    "description": "Adapter for mounting rods directly to camera cages.",
+    "specs": {
+      "mount_in": "cage",
+      "mount_out": "15mm rod"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "camera_cages"
+    ],
+    "source": "Tilta"
+  },
+  {
+    "id": "acc_adapter_monitor_to_cage",
+    "name": "Monitor to Cage Adapter",
+    "brand": "SmallRig",
+    "category": "Accessory",
+    "subcategory": "Mounting Adapter",
+    "description": "Adapter for mounting monitors to camera cages.",
+    "specs": {
+      "mount_in": "monitor",
+      "mount_out": "cage"
+    },
+    "weight_kg": 0.1,
+    "compatibility": [
+      "monitors",
+      "camera_cages"
+    ],
+    "source": "SmallRig"
+  },
+  {
+    "id": "acc_timecode_tentacle_sync_e",
+    "name": "Tentacle Sync E",
+    "brand": "Tentacle",
+    "category": "Accessory",
+    "subcategory": "Timecode",
+    "description": "Compact Bluetooth timecode generator for multi-camera sync.",
+    "specs": {
+      "connector": "3.5mm"
+    },
+    "weight_kg": 0.03,
+    "compatibility": [
+      "cameras",
+      "audio_recorders"
+    ],
+    "source": "Tentacle"
+  },
+  {
+    "id": "acc_timecode_ambient_acn",
+    "name": "Ambient ACN Lockit",
+    "brand": "Ambient",
+    "category": "Accessory",
+    "subcategory": "Timecode",
+    "description": "Professional timecode and sync generator.",
+    "specs": {
+      "connector": "LEMO"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "arri",
+      "sound_devices"
+    ],
+    "source": "Ambient"
+  },
+  {
+    "id": "acc_wireless_control_ronin",
+    "name": "Ronin 2 Remote Controller",
+    "brand": "DJI",
+    "category": "Accessory",
+    "subcategory": "Wireless Control",
+    "description": "Wireless control unit for Ronin 2 gimbals.",
+    "specs": {
+      "range_m": 150
+    },
+    "weight_kg": 0.4,
+    "compatibility": [
+      "ronin2"
+    ],
+    "source": "DJI"
+  },
+  {
+    "id": "acc_wireless_control_teradek_rt",
+    "name": "Teradek RT CTRL.1",
+    "brand": "Teradek",
+    "category": "Accessory",
+    "subcategory": "Wireless Control",
+    "description": "Wireless follow focus controller for Teradek RT motors.",
+    "specs": {
+      "channels": 1
+    },
+    "weight_kg": 0.5,
+    "compatibility": [
+      "rt_motors"
+    ],
+    "source": "Teradek"
+  },
+  {
+    "id": "acc_dit_cardreader_sony_cfexpress",
+    "name": "Sony CFexpress Type B Reader",
+    "brand": "Sony",
+    "category": "Accessory",
+    "subcategory": "Media Reader",
+    "description": "High-speed CFexpress Type B card reader.",
+    "specs": {
+      "interface": "USB-C"
+    },
+    "weight_kg": 0.1,
+    "compatibility": [
+      "cfexpress_cards"
+    ],
+    "source": "Sony"
+  },
+  {
+    "id": "acc_dit_cardreader_red",
+    "name": "RED Station Mini-Mag Reader",
+    "brand": "RED",
+    "category": "Accessory",
+    "subcategory": "Media Reader",
+    "description": "Reader for RED MINI-MAG media.",
+    "specs": {
+      "interface": "USB-C"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "red_minimags"
+    ],
+    "source": "RED"
+  },
+  {
+    "id": "acc_lens_tool_backfocus",
+    "name": "Backfocus Calibration Tool",
+    "brand": "Chrosziel",
+    "category": "Accessory",
+    "subcategory": "Lens Tool",
+    "description": "Tool for adjusting backfocus on PL lenses.",
+    "specs": {
+      "compatibility": "PL"
+    },
+    "weight_kg": 0.15,
+    "source": "Chrosziel"
+  },
+  {
+    "id": "acc_lens_tool_shims_pl",
+    "name": "PL Shim Kit",
+    "brand": "ARRI",
+    "category": "Accessory",
+    "subcategory": "Lens Tool",
+    "description": "Shim set for adjusting PL mount flange depth.",
+    "specs": {
+      "sizes": "0.01-0.1mm"
+    },
+    "weight_kg": 0.05,
+    "source": "ARRI"
+  },
+  {
+    "id": "acc_monitor_cage_director",
+    "name": "Director’s Monitor Cage",
+    "brand": "Wooden Camera",
+    "category": "Accessory",
+    "subcategory": "Monitor Accessory",
+    "description": "Cage and handles for director’s monitor setups.",
+    "specs": {
+      "mount": "VESA"
+    },
+    "weight_kg": 1,
+    "compatibility": [
+      "monitors"
+    ],
+    "source": "Wooden Camera"
+  },
+  {
+    "id": "acc_wireless_ifb_receiver",
+    "name": "IFB Wireless Receiver",
+    "brand": "Lectrosonics",
+    "category": "Accessory",
+    "subcategory": "Wireless Monitoring",
+    "description": "Wireless IFB receiver for director and crew monitoring.",
+    "specs": {
+      "frequency_mhz": "470-608"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "ifb_transmitters"
+    ],
+    "source": "Lectrosonics"
+  },
+  {
+    "id": "acc_wireless_ifb_transmitter",
+    "name": "IFB Wireless Transmitter",
+    "brand": "Lectrosonics",
+    "category": "Accessory",
+    "subcategory": "Wireless Monitoring",
+    "description": "Wireless IFB transmitter for talent and crew communication.",
+    "specs": {
+      "frequency_mhz": "470-608"
+    },
+    "weight_kg": 0.3,
+    "compatibility": [
+      "ifb_receivers"
+    ],
+    "source": "Lectrosonics"
+  },
+  {
+    "id": "acc_cable_timecode_bnc_30cm",
+    "name": "Timecode BNC Cable 30cm",
+    "brand": "Generic",
+    "category": "Accessory",
+    "subcategory": "Cable",
+    "description": "Short BNC-to-BNC cable for timecode sync between cameras and audio recorders.",
+    "specs": {
+      "length_m": 0.3,
+      "connector": "BNC"
+    },
+    "source": "B&H"
+  },
+  {
+    "id": "acc_cable_timecode_lemo5_bnc",
+    "name": "LEMO 5-pin to BNC Timecode Cable",
+    "brand": "Ambient",
+    "category": "Accessory",
+    "subcategory": "Cable",
+    "description": "LEMO 5-pin to BNC cable for timecode input/output on ARRI and Sound Devices gear.",
+    "specs": {
+      "length_m": 0.5,
+      "connector": "LEMO5-BNC"
+    },
+    "source": "Ambient"
+  },
+  {
+    "id": "acc_cable_timecode_tentacle",
+    "name": "Tentacle Sync Timecode Cable",
+    "brand": "Tentacle",
+    "category": "Accessory",
+    "subcategory": "Cable",
+    "description": "Timecode cable for Tentacle Sync devices to cameras and audio recorders.",
+    "specs": {
+      "length_m": 0.3,
+      "connector": "3.5mm-BNC"
+    },
+    "source": "Tentacle"
+  },
+  {
+    "id": "acc_gimbal_tilta_advanced_kit",
+    "name": "Tilta Advanced Gimbal Kit",
+    "brand": "Tilta",
+    "category": "Accessory",
+    "subcategory": "Gimbal Accessory",
+    "description": "Complete accessory kit for DJI Ronin and Tilta gimbals.",
+    "specs": {
+      "components": "arms, plates, cables"
+    },
+    "weight_kg": 2.5,
+    "compatibility": [
+      "ronin",
+      "tilta"
+    ],
+    "source": "Tilta"
+  },
+  {
+    "id": "acc_gimbal_counterweight_kit",
+    "name": "Gimbal Counterweight Kit",
+    "brand": "DJI",
+    "category": "Accessory",
+    "subcategory": "Gimbal Accessory",
+    "description": "Counterweight system for balancing heavy lenses.",
+    "specs": {
+      "weights": "50g, 100g, 200g"
+    },
+    "weight_kg": 0.5,
+    "compatibility": [
+      "ronin"
+    ],
+    "source": "DJI"
+  },
+  {
+    "id": "acc_tripod_spreader_floor",
+    "name": "Floor Spreader",
+    "brand": "Sachtler",
+    "category": "Accessory",
+    "subcategory": "Tripod Accessory",
+    "description": "Floor spreader for Sachtler tripods.",
+    "specs": {
+      "compatibility": "Sachtler 75/100mm"
+    },
+    "weight_kg": 1.2,
+    "source": "Sachtler"
+  },
+  {
+    "id": "acc_tripod_spreader_mid",
+    "name": "Mid-Level Spreader",
+    "brand": "OConnor",
+    "category": "Accessory",
+    "subcategory": "Tripod Accessory",
+    "description": "Mid-level spreader for OConnor tripods.",
+    "specs": {
+      "compatibility": "OConnor 100/150mm"
+    },
+    "weight_kg": 1,
+    "source": "OConnor"
+  },
+  {
+    "id": "acc_raincover_large",
+    "name": "Large Camera Rain Cover",
+    "brand": "ARRI",
+    "category": "Accessory",
+    "subcategory": "Protection",
+    "description": "Weatherproof cover for large cinema cameras.",
+    "specs": {
+      "size": "large"
+    },
+    "weight_kg": 0.4,
+    "compatibility": [
+      "alexa",
+      "venice"
+    ],
+    "source": "ARRI"
+  },
+  {
+    "id": "acc_raincover_small",
+    "name": "Compact Camera Rain Cover",
+    "brand": "PortaBrace",
+    "category": "Accessory",
+    "subcategory": "Protection",
+    "description": "Rain cover for DSLR and mirrorless cameras.",
+    "specs": {
+      "size": "small"
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "dslr",
+      "mirrorless"
+    ],
+    "source": "PortaBrace"
+  },
+  {
+    "id": "acc_case_pelican_1610",
+    "name": "Pelican 1610 Hard Case",
+    "brand": "Pelican",
+    "category": "Accessory",
+    "subcategory": "Case",
+    "description": "Large rolling hard case for camera kits.",
+    "specs": {
+      "waterproof": "IP67"
+    },
+    "weight_kg": 8,
+    "compatibility": [
+      "camera_kits"
+    ],
+    "source": "Pelican"
+  },
+  {
+    "id": "acc_case_hprc_2550w",
+    "name": "HPRC 2550W Hard Case",
+    "brand": "HPRC",
+    "category": "Accessory",
+    "subcategory": "Case",
+    "description": "Lightweight hard case with wheels.",
+    "specs": {
+      "waterproof": "IP67"
+    },
+    "weight_kg": 6,
+    "compatibility": [
+      "accessories"
+    ],
+    "source": "HPRC"
+  },
+  {
+    "id": "acc_tool_multitool_leatherman",
+    "name": "Leatherman Multitool",
+    "brand": "Leatherman",
+    "category": "Accessory",
+    "subcategory": "Tool",
+    "description": "Essential multitool for on-set adjustments.",
+    "specs": {
+      "tools": "pliers, knife, screwdriver"
+    },
+    "weight_kg": 0.25,
+    "compatibility": [
+      "rigging"
+    ],
+    "source": "Leatherman"
+  },
+  {
+    "id": "acc_tool_lenspen",
+    "name": "LensPen Cleaning Tool",
+    "brand": "LensPen",
+    "category": "Accessory",
+    "subcategory": "Cleaning",
+    "description": "Compact cleaning tool for lenses and filters.",
+    "specs": {
+      "type": "carbon tip"
+    },
+    "weight_kg": 0.05,
+    "compatibility": [
+      "lenses"
+    ],
+    "source": "LensPen"
+  }
+]

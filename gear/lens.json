@@ -13,7 +13,9 @@
       "coverage": "Super 35"
     },
     "weight_kg": 1.7,
-    "compatibility": ["pl_mount_cameras"],
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
     "source": "Keslow Camera"
   },
   {
@@ -30,7 +32,9 @@
       "coverage": "Super 35"
     },
     "weight_kg": 1.8,
-    "compatibility": ["pl_mount_cameras"],
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
     "source": "Keslow Camera"
   },
   {
@@ -47,10 +51,11 @@
       "coverage": "Super 35"
     },
     "weight_kg": 1.7,
-    "compatibility": ["pl_mount_cameras"],
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
     "source": "Keslow Camera"
   },
-
   {
     "id": "lens_zeiss_supreme_35mm",
     "name": "Zeiss Supreme Prime 35mm T1.5",
@@ -65,7 +70,9 @@
       "coverage": "Full Frame"
     },
     "weight_kg": 1.4,
-    "compatibility": ["pl_mount_cameras"],
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
     "source": "ARRI Rental"
   },
   {
@@ -82,10 +89,11 @@
       "coverage": "Full Frame"
     },
     "weight_kg": 1.6,
-    "compatibility": ["pl_mount_cameras"],
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
     "source": "ARRI Rental"
   },
-
   {
     "id": "lens_angenieux_optimo_28_76",
     "name": "Angénieux Optimo 28-76mm T2.6",
@@ -99,8 +107,10 @@
       "aperture": "T2.6",
       "coverage": "Super 35"
     },
-    "weight_kg": 2.0,
-    "compatibility": ["pl_mount_cameras"],
+    "weight_kg": 2,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
     "source": "Keslow Camera"
   },
   {
@@ -117,10 +127,11 @@
       "coverage": "Super 35"
     },
     "weight_kg": 2.4,
-    "compatibility": ["pl_mount_cameras"],
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
     "source": "Keslow Camera"
   },
-
   {
     "id": "lens_leitz_summilux_50mm",
     "name": "Leitz Summilux-C 50mm T1.4",
@@ -135,10 +146,11 @@
       "coverage": "Super 35"
     },
     "weight_kg": 1.6,
-    "compatibility": ["pl_mount_cameras"],
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
     "source": "Panavision"
   },
-
   {
     "id": "lens_sigma_ff_35mm",
     "name": "Sigma FF High Speed 35mm T1.5",
@@ -153,11 +165,11 @@
       "coverage": "Full Frame"
     },
     "weight_kg": 1.2,
-    "compatibility": ["pl_mount_cameras"],
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
     "source": "B&H"
-  }
-]
-[
+  },
   {
     "id": "lens_arri_signature_35mm",
     "name": "ARRI Signature Prime 35mm T1.8",
@@ -172,7 +184,9 @@
       "coverage": "Large Format"
     },
     "weight_kg": 1.7,
-    "compatibility": ["lpl_mount_cameras"],
+    "compatibility": [
+      "lpl_mount_cameras"
+    ],
     "source": "ARRI Rental"
   },
   {
@@ -189,10 +203,11 @@
       "coverage": "Large Format"
     },
     "weight_kg": 1.9,
-    "compatibility": ["lpl_mount_cameras"],
+    "compatibility": [
+      "lpl_mount_cameras"
+    ],
     "source": "ARRI Rental"
   },
-
   {
     "id": "lens_canon_cne_24mm",
     "name": "Canon CN-E 24mm T1.5 L",
@@ -207,7 +222,9 @@
       "coverage": "Full Frame"
     },
     "weight_kg": 1.2,
-    "compatibility": ["ef_mount_cameras"],
+    "compatibility": [
+      "ef_mount_cameras"
+    ],
     "source": "Canon"
   },
   {
@@ -224,10 +241,11 @@
       "coverage": "Full Frame"
     },
     "weight_kg": 1.1,
-    "compatibility": ["ef_mount_cameras"],
+    "compatibility": [
+      "ef_mount_cameras"
+    ],
     "source": "Canon"
   },
-
   {
     "id": "lens_fujinon_premista_28_100",
     "name": "Fujinon Premista 28-100mm T2.9",
@@ -242,7 +260,9 @@
       "coverage": "Large Format"
     },
     "weight_kg": 3.8,
-    "compatibility": ["pl_mount_cameras"],
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
     "source": "Fujinon"
   },
   {
@@ -259,10 +279,11 @@
       "coverage": "Large Format"
     },
     "weight_kg": 3.8,
-    "compatibility": ["pl_mount_cameras"],
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
     "source": "Fujinon"
   },
-
   {
     "id": "lens_tokina_vista_18mm",
     "name": "Tokina Vista 18mm T1.5",
@@ -277,7 +298,9 @@
       "coverage": "Full Frame"
     },
     "weight_kg": 2.3,
-    "compatibility": ["pl_mount_cameras"],
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
     "source": "Tokina"
   },
   {
@@ -294,52 +317,1469 @@
       "coverage": "Full Frame"
     },
     "weight_kg": 2.5,
-    "compatibility": ["pl_mount_cameras"],
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
     "source": "Tokina"
+  },
+  {
+    "id": "lens_ultrafast_35mm_t095",
+    "name": "35mm T0.95 Ultra-Fast Prime",
+    "brand": "Mitakon",
+    "category": "Lens",
+    "subcategory": "Ultra-Fast Prime",
+    "description": "Extremely fast cine prime for low-light and shallow depth of field.",
+    "mount": "EF",
+    "specs": {
+      "focal_length_mm": 35,
+      "aperture": "T0.95",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 0.9,
+    "compatibility": [
+      "ef_mount_cameras"
+    ],
+    "source": "Mitakon"
+  },
+  {
+    "id": "lens_ultrafast_50mm_t095",
+    "name": "50mm T0.95 Ultra-Fast Prime",
+    "brand": "Mitakon",
+    "category": "Lens",
+    "subcategory": "Ultra-Fast Prime",
+    "description": "Ultra-fast 50mm prime with cinematic bokeh.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 50,
+      "aperture": "T0.95",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 1.1,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Mitakon"
+  },
+  {
+    "id": "lens_ultrafast_85mm_t095",
+    "name": "85mm T0.95 Ultra-Fast Prime",
+    "brand": "Mitakon",
+    "category": "Lens",
+    "subcategory": "Ultra-Fast Prime",
+    "description": "Telephoto ultra-fast prime for extreme low-light performance.",
+    "mount": "EF",
+    "specs": {
+      "focal_length_mm": 85,
+      "aperture": "T0.95",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 1.3,
+    "compatibility": [
+      "ef_mount_cameras"
+    ],
+    "source": "Mitakon"
+  },
+  {
+    "id": "lens_zeiss_supreme_18mm",
+    "name": "Zeiss Supreme Prime 18mm",
+    "brand": "Zeiss",
+    "category": "Lens",
+    "subcategory": "Cinema Prime",
+    "description": "High-quality 18mm cinema prime with exceptional sharpness.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 18,
+      "aperture": "T2.2",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 0.75,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Zeiss"
+  },
+  {
+    "id": "lens_anamorphic_1_33x_40mm",
+    "name": "40mm 1.33x Anamorphic Prime",
+    "brand": "Sirui",
+    "category": "Lens",
+    "subcategory": "Anamorphic Prime",
+    "description": "Compact anamorphic lens with 1.33x squeeze for cinematic flares.",
+    "mount": "E",
+    "specs": {
+      "focal_length_mm": 40,
+      "aperture": "T2",
+      "squeeze": "1.33x",
+      "coverage": "APS-C"
+    },
+    "weight_kg": 0.7,
+    "compatibility": [
+      "e_mount_cameras"
+    ],
+    "source": "Sirui"
+  },
+  {
+    "id": "lens_anamorphic_1_8x_65mm",
+    "name": "65mm 1.8x Anamorphic Prime",
+    "brand": "Atlas",
+    "category": "Lens",
+    "subcategory": "Anamorphic Prime",
+    "description": "High-character anamorphic lens with 1.8x squeeze.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 65,
+      "aperture": "T2.2",
+      "squeeze": "1.8x",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 2.3,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Atlas"
+  },
+  {
+    "id": "lens_tiltshift_50mm_t28",
+    "name": "50mm T2.8 Tilt-Shift Cine",
+    "brand": "Canon",
+    "category": "Lens",
+    "subcategory": "Tilt-Shift",
+    "description": "Tilt-shift lens adapted for cinema for perspective control.",
+    "mount": "EF",
+    "specs": {
+      "focal_length_mm": 50,
+      "aperture": "T2.8",
+      "tilt_deg": 8,
+      "shift_mm": 12
+    },
+    "weight_kg": 0.9,
+    "compatibility": [
+      "ef_mount_cameras"
+    ],
+    "source": "Canon"
+  },
+  {
+    "id": "lens_tiltshift_24mm_t35",
+    "name": "24mm T3.5 Tilt-Shift Cine",
+    "brand": "Canon",
+    "category": "Lens",
+    "subcategory": "Tilt-Shift",
+    "description": "Wide-angle tilt-shift lens for architectural cinematography.",
+    "mount": "EF",
+    "specs": {
+      "focal_length_mm": 24,
+      "aperture": "T3.5",
+      "tilt_deg": 8,
+      "shift_mm": 12
+    },
+    "weight_kg": 0.78,
+    "compatibility": [
+      "ef_mount_cameras"
+    ],
+    "source": "Canon"
+  },
+  {
+    "id": "lens_softfocus_85mm",
+    "name": "85mm Soft Focus Prime",
+    "brand": "Lensbaby",
+    "category": "Lens",
+    "subcategory": "Soft Focus",
+    "description": "Soft-focus portrait lens with dreamy rendering.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 85,
+      "aperture": "T2.8",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 0.6,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Lensbaby"
+  },
+  {
+    "id": "lens_softfocus_50mm",
+    "name": "50mm Soft Focus Prime",
+    "brand": "Lensbaby",
+    "category": "Lens",
+    "subcategory": "Soft Focus",
+    "description": "Creative soft-focus lens for stylized cinematography.",
+    "mount": "EF",
+    "specs": {
+      "focal_length_mm": 50,
+      "aperture": "T2.5",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 0.45,
+    "compatibility": [
+      "ef_mount_cameras"
+    ],
+    "source": "Lensbaby"
+  },
+  {
+    "id": "lens_bokeh_105mm_dc",
+    "name": "105mm Defocus Control",
+    "brand": "Nikon",
+    "category": "Lens",
+    "subcategory": "Bokeh Control",
+    "description": "Prime lens with adjustable bokeh rendering.",
+    "mount": "F",
+    "specs": {
+      "focal_length_mm": 105,
+      "aperture": "T2",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 0.64,
+    "compatibility": [
+      "f_mount_cameras"
+    ],
+    "source": "Nikon"
+  },
+  {
+    "id": "lens_bokeh_135mm_dc",
+    "name": "135mm Defocus Control",
+    "brand": "Nikon",
+    "category": "Lens",
+    "subcategory": "Bokeh Control",
+    "description": "Telephoto prime with adjustable spherical aberration for custom bokeh.",
+    "mount": "F",
+    "specs": {
+      "focal_length_mm": 135,
+      "aperture": "T2",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 0.75,
+    "compatibility": [
+      "f_mount_cameras"
+    ],
+    "source": "Nikon"
+  },
+  {
+    "id": "lens_bokeh_85mm_dc",
+    "name": "85mm Defocus Control",
+    "brand": "Nikon",
+    "category": "Lens",
+    "subcategory": "Bokeh Control",
+    "description": "Portrait prime with adjustable bokeh characteristics.",
+    "mount": "F",
+    "specs": {
+      "focal_length_mm": 85,
+      "aperture": "T2",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 0.5,
+    "compatibility": [
+      "f_mount_cameras"
+    ],
+    "source": "Nikon"
+  },
+  {
+    "id": "lens_cooke_anamorphic_32mm",
+    "name": "Cooke Anamorphic/i 32mm T2.3",
+    "brand": "Cooke",
+    "category": "Lens",
+    "subcategory": "Anamorphic Prime",
+    "description": "2x anamorphic prime with classic Cooke look and oval bokeh.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 32,
+      "aperture": "T2.3",
+      "squeeze": "2x",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 2.5,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Cooke"
+  },
+  {
+    "id": "lens_cooke_anamorphic_50mm",
+    "name": "Cooke Anamorphic/i 50mm T2.3",
+    "brand": "Cooke",
+    "category": "Lens",
+    "subcategory": "Anamorphic Prime",
+    "description": "Standard anamorphic focal length with warm rendering.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 50,
+      "aperture": "T2.3",
+      "squeeze": "2x",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 2.6,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Cooke"
+  },
+  {
+    "id": "lens_cooke_anamorphic_75mm",
+    "name": "Cooke Anamorphic/i 75mm T2.3",
+    "brand": "Cooke",
+    "category": "Lens",
+    "subcategory": "Anamorphic Prime",
+    "description": "Portrait-length anamorphic lens with smooth falloff.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 75,
+      "aperture": "T2.3",
+      "squeeze": "2x",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 2.7,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Cooke"
+  },
+  {
+    "id": "lens_hawk_vlite_35mm",
+    "name": "Hawk V-Lite 35mm T2.2",
+    "brand": "Hawk",
+    "category": "Lens",
+    "subcategory": "Anamorphic Prime",
+    "description": "Compact 2x anamorphic lens with characteristic Hawk flare.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 35,
+      "aperture": "T2.2",
+      "squeeze": "2x",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 2.1,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Vantage"
+  },
+  {
+    "id": "lens_hawk_vlite_50mm",
+    "name": "Hawk V-Lite 50mm T2.2",
+    "brand": "Hawk",
+    "category": "Lens",
+    "subcategory": "Anamorphic Prime",
+    "description": "Popular anamorphic lens known for organic texture.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 50,
+      "aperture": "T2.2",
+      "squeeze": "2x",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 2.2,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Vantage"
+  },
+  {
+    "id": "lens_atlas_orion_32mm",
+    "name": "Atlas Orion 32mm T2",
+    "brand": "Atlas",
+    "category": "Lens",
+    "subcategory": "Anamorphic Prime",
+    "description": "Affordable 2x anamorphic lens with modern mechanics.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 32,
+      "aperture": "T2",
+      "squeeze": "2x",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 2.3,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Atlas"
+  },
+  {
+    "id": "lens_atlas_orion_65mm",
+    "name": "Atlas Orion 65mm T2",
+    "brand": "Atlas",
+    "category": "Lens",
+    "subcategory": "Anamorphic Prime",
+    "description": "Mid-range anamorphic lens with strong flares.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 65,
+      "aperture": "T2",
+      "squeeze": "2x",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 2.4,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Atlas"
+  },
+  {
+    "id": "lens_panavision_cseries_40mm",
+    "name": "Panavision C-Series 40mm T2.3",
+    "brand": "Panavision",
+    "category": "Lens",
+    "subcategory": "Anamorphic Prime",
+    "description": "Classic Panavision anamorphic lens with vintage character.",
+    "mount": "PV",
+    "specs": {
+      "focal_length_mm": 40,
+      "aperture": "T2.3",
+      "squeeze": "2x",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 2,
+    "compatibility": [
+      "pv_mount_cameras"
+    ],
+    "source": "Panavision"
+  },
+  {
+    "id": "lens_panavision_e_series_50mm",
+    "name": "Panavision E-Series 50mm T2",
+    "brand": "Panavision",
+    "category": "Lens",
+    "subcategory": "Anamorphic Prime",
+    "description": "Vintage anamorphic lens with strong horizontal flares.",
+    "mount": "PV",
+    "specs": {
+      "focal_length_mm": 50,
+      "aperture": "T2",
+      "squeeze": "2x",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 2.3,
+    "compatibility": [
+      "pv_mount_cameras"
+    ],
+    "source": "Panavision"
+  },
+  {
+    "id": "lens_kowa_anamorphic_40mm",
+    "name": "Kowa Anamorphic 40mm T2.3",
+    "brand": "Kowa",
+    "category": "Lens",
+    "subcategory": "Anamorphic Prime",
+    "description": "Lightweight vintage anamorphic lens with soft edges and strong character.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 40,
+      "aperture": "T2.3",
+      "squeeze": "2x",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 1.1,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Kowa"
+  },
+  {
+    "id": "lens_kowa_anamorphic_75mm",
+    "name": "Kowa Anamorphic 75mm T2.8",
+    "brand": "Kowa",
+    "category": "Lens",
+    "subcategory": "Anamorphic Prime",
+    "description": "Classic portrait-length anamorphic lens with vintage softness.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 75,
+      "aperture": "T2.8",
+      "squeeze": "2x",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 1.2,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Kowa"
+  },
+  {
+    "id": "lens_canon_k35_24mm",
+    "name": "Canon K35 24mm T1.5 (Rehoused)",
+    "brand": "Canon",
+    "category": "Lens",
+    "subcategory": "Vintage Prime",
+    "description": "Rehoused vintage full-frame lens with famous K35 softness and halation.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 24,
+      "aperture": "T1.5",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 1.3,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Canon"
+  },
+  {
+    "id": "lens_canon_k35_55mm",
+    "name": "Canon K35 55mm T1.4 (Rehoused)",
+    "brand": "Canon",
+    "category": "Lens",
+    "subcategory": "Vintage Prime",
+    "description": "Classic K35 portrait lens with creamy bokeh.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 55,
+      "aperture": "T1.4",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 1.4,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Canon"
+  },
+  {
+    "id": "lens_zeiss_superspeed_35mm",
+    "name": "Zeiss Super Speed MKIII 35mm T1.3",
+    "brand": "Zeiss",
+    "category": "Lens",
+    "subcategory": "Vintage Prime",
+    "description": "Fast vintage cinema prime with iconic Zeiss contrast.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 35,
+      "aperture": "T1.3",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 0.9,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Zeiss"
+  },
+  {
+    "id": "lens_zeiss_superspeed_85mm",
+    "name": "Zeiss Super Speed MKIII 85mm T1.3",
+    "brand": "Zeiss",
+    "category": "Lens",
+    "subcategory": "Vintage Prime",
+    "description": "Portrait-length vintage lens with shallow depth of field.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 85,
+      "aperture": "T1.3",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 1,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Zeiss"
+  },
+  {
+    "id": "lens_super_baltar_25mm",
+    "name": "Super Baltar 25mm T2.3 (Rehoused)",
+    "brand": "Bausch & Lomb",
+    "category": "Lens",
+    "subcategory": "Vintage Prime",
+    "description": "Classic Hollywood lens with low contrast and warm tones.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 25,
+      "aperture": "T2.3",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 1.2,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Bausch & Lomb"
+  },
+  {
+    "id": "lens_super_baltar_50mm",
+    "name": "Super Baltar 50mm T2.3 (Rehoused)",
+    "brand": "Bausch & Lomb",
+    "category": "Lens",
+    "subcategory": "Vintage Prime",
+    "description": "Vintage lens known for creamy rendering and halation.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 50,
+      "aperture": "T2.3",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 1.3,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Bausch & Lomb"
+  },
+  {
+    "id": "lens_cooke_panchro_32mm",
+    "name": "Cooke Speed Panchro 32mm T2.3 (Rehoused)",
+    "brand": "Cooke",
+    "category": "Lens",
+    "subcategory": "Vintage Prime",
+    "description": "Rehoused classic Panchro lens with soft edges and warm tones.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 32,
+      "aperture": "T2.3",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 1.1,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Cooke"
+  },
+  {
+    "id": "lens_cooke_panchro_75mm",
+    "name": "Cooke Speed Panchro 75mm T2.3 (Rehoused)",
+    "brand": "Cooke",
+    "category": "Lens",
+    "subcategory": "Vintage Prime",
+    "description": "Vintage portrait lens with gentle contrast.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 75,
+      "aperture": "T2.3",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 1.2,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Cooke"
+  },
+  {
+    "id": "lens_probe_laowa_24mm",
+    "name": "Laowa 24mm T14 Probe Lens",
+    "brand": "Laowa",
+    "category": "Lens",
+    "subcategory": "Specialty Lens",
+    "description": "Unique probe lens for extreme close-ups and macro cinematography.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 24,
+      "aperture": "T14",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 0.8,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Laowa"
+  },
+  {
+    "id": "lens_probe_laowa_periprobe",
+    "name": "Laowa 24mm T14 PeriProbe",
+    "brand": "Laowa",
+    "category": "Lens",
+    "subcategory": "Specialty Lens",
+    "description": "Periscope-style probe lens with interchangeable tips.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 24,
+      "aperture": "T14",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 1,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Laowa"
+  },
+  {
+    "id": "lens_macro_canon_100mm",
+    "name": "Canon 100mm Macro T2.8 (Cine Mod)",
+    "brand": "Canon",
+    "category": "Lens",
+    "subcategory": "Macro Lens",
+    "description": "Cine-mod macro lens used for close-up cinematography.",
+    "mount": "EF",
+    "specs": {
+      "focal_length_mm": 100,
+      "aperture": "T2.8",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 0.75,
+    "compatibility": [
+      "ef_mount_cameras"
+    ],
+    "source": "Canon"
+  },
+  {
+    "id": "lens_tiltshift_canon_24mm",
+    "name": "Canon TS-E 24mm T3.5L II (Cine Mod)",
+    "brand": "Canon",
+    "category": "Lens",
+    "subcategory": "Tilt-Shift Lens",
+    "description": "Tilt-shift lens adapted for cinema use.",
+    "mount": "EF",
+    "specs": {
+      "focal_length_mm": 24,
+      "aperture": "T3.5",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 0.78,
+    "compatibility": [
+      "ef_mount_cameras"
+    ],
+    "source": "Canon"
+  },
+  {
+    "id": "lens_canon_600mm",
+    "name": "Canon 600mm T4 (Cine Mod)",
+    "brand": "Canon",
+    "category": "Lens",
+    "subcategory": "Telephoto",
+    "description": "Super-telephoto lens used for wildlife, sports, and specialty cinematic shots.",
+    "mount": "EF",
+    "specs": {
+      "focal_length_mm": 600,
+      "aperture": "T4",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 3,
+    "compatibility": [
+      "ef_mount_cameras"
+    ],
+    "source": "Canon"
+  },
+  {
+    "id": "lens_sony_400mm",
+    "name": "Sony 400mm T2.8 (Cine Mod)",
+    "brand": "Sony",
+    "category": "Lens",
+    "subcategory": "Telephoto",
+    "description": "Fast telephoto lens adapted for cinema use.",
+    "mount": "E",
+    "specs": {
+      "focal_length_mm": 400,
+      "aperture": "T2.8",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 2.9,
+    "compatibility": [
+      "e_mount_cameras"
+    ],
+    "source": "Sony"
+  },
+  {
+    "id": "lens_ir_25mm",
+    "name": "IR 25mm T1.8 Infrared Lens",
+    "brand": "Navitar",
+    "category": "Lens",
+    "subcategory": "Infrared",
+    "description": "Infrared-sensitive lens used for night vision and forensic cinematography.",
+    "mount": "C",
+    "specs": {
+      "focal_length_mm": 25,
+      "aperture": "T1.8",
+      "coverage": "1-inch"
+    },
+    "weight_kg": 0.3,
+    "compatibility": [
+      "c_mount_cameras"
+    ],
+    "source": "Navitar"
+  },
+  {
+    "id": "lens_ir_50mm",
+    "name": "IR 50mm T2 Infrared Lens",
+    "brand": "Navitar",
+    "category": "Lens",
+    "subcategory": "Infrared",
+    "description": "50mm IR lens for surveillance and scientific imaging.",
+    "mount": "C",
+    "specs": {
+      "focal_length_mm": 50,
+      "aperture": "T2",
+      "coverage": "1-inch"
+    },
+    "weight_kg": 0.35,
+    "compatibility": [
+      "c_mount_cameras"
+    ],
+    "source": "Navitar"
+  },
+  {
+    "id": "lens_probe_venus_15mm",
+    "name": "Laowa 15mm T8 Macro Probe",
+    "brand": "Laowa",
+    "category": "Lens",
+    "subcategory": "Macro Probe",
+    "description": "Ultra-wide probe lens for extreme macro cinematography.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 15,
+      "aperture": "T8",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 1.2,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Laowa"
+  },
+  {
+    "id": "lens_mirror_reflex_500mm",
+    "name": "500mm Reflex Mirror Lens (Cine Mod)",
+    "brand": "Tokina",
+    "category": "Lens",
+    "subcategory": "Mirror Lens",
+    "description": "Catadioptric mirror lens with donut bokeh, adapted for cinema.",
+    "mount": "EF",
+    "specs": {
+      "focal_length_mm": 500,
+      "aperture": "T8",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 0.7,
+    "compatibility": [
+      "ef_mount_cameras"
+    ],
+    "source": "Tokina"
+  },
+  {
+    "id": "lens_forensic_uv_60mm",
+    "name": "UV 60mm Forensic Lens",
+    "brand": "Coastal Optics",
+    "category": "Lens",
+    "subcategory": "Forensic",
+    "description": "UV-sensitive lens used for forensic and scientific imaging.",
+    "mount": "F",
+    "specs": {
+      "focal_length_mm": 60,
+      "aperture": "T4",
+      "coverage": "APS-C"
+    },
+    "weight_kg": 0.6,
+    "compatibility": [
+      "f_mount_cameras"
+    ],
+    "source": "Coastal Optics"
+  },
+  {
+    "id": "lens_forensic_multispec_60mm",
+    "name": "60mm Multispectral Lens",
+    "brand": "Coastal Optics",
+    "category": "Lens",
+    "subcategory": "Forensic",
+    "description": "Multispectral lens covering UV, visible, and IR wavelengths.",
+    "mount": "F",
+    "specs": {
+      "focal_length_mm": 60,
+      "aperture": "T4",
+      "coverage": "APS-C"
+    },
+    "weight_kg": 0.65,
+    "compatibility": [
+      "f_mount_cameras"
+    ],
+    "source": "Coastal Optics"
+  },
+  {
+    "id": "lens_macro_100mm_t28",
+    "name": "100mm T2.8 Macro Cine",
+    "brand": "Sigma",
+    "category": "Lens",
+    "subcategory": "Macro Cine",
+    "description": "Cinema macro lens with 1:1 reproduction for detailed close-ups.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 100,
+      "aperture": "T2.8",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 1.2,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Sigma"
+  },
+  {
+    "id": "lens_macro_60mm_t28",
+    "name": "60mm T2.8 Macro Cine",
+    "brand": "Tokina",
+    "category": "Lens",
+    "subcategory": "Macro Cine",
+    "description": "Compact macro cine lens for product and tabletop cinematography.",
+    "mount": "EF",
+    "specs": {
+      "focal_length_mm": 60,
+      "aperture": "T2.8",
+      "coverage": "APS-C"
+    },
+    "weight_kg": 0.9,
+    "compatibility": [
+      "ef_mount_cameras"
+    ],
+    "source": "Tokina"
+  },
+  {
+    "id": "lens_probe_35mm_t14",
+    "name": "35mm T14 Probe Cine",
+    "brand": "Laowa",
+    "category": "Lens",
+    "subcategory": "Probe",
+    "description": "Probe lens with long barrel for extreme close-up shots.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 35,
+      "aperture": "T14",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 1.1,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Laowa"
+  },
+  {
+    "id": "lens_probe_90degree",
+    "name": "90° Periscope Probe Lens",
+    "brand": "Innovision",
+    "category": "Lens",
+    "subcategory": "Probe",
+    "description": "Right-angle periscope probe lens for unique perspectives.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 24,
+      "aperture": "T14",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 1.4,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Innovision"
+  },
+  {
+    "id": "lens_ultratele_150_600",
+    "name": "150-600mm T5.6 Cine Zoom",
+    "brand": "Sigma",
+    "category": "Lens",
+    "subcategory": "Telephoto Zoom",
+    "description": "Long-range telephoto zoom adapted for cinema.",
+    "mount": "EF",
+    "specs": {
+      "focal_range_mm": "150-600",
+      "aperture": "T5.6",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 2.9,
+    "compatibility": [
+      "ef_mount_cameras"
+    ],
+    "source": "Sigma"
+  },
+  {
+    "id": "lens_ultratele_50_300",
+    "name": "50-300mm T4.5 Cine Zoom",
+    "brand": "Canon",
+    "category": "Lens",
+    "subcategory": "Telephoto Zoom",
+    "description": "Versatile telephoto cine zoom for wildlife and sports.",
+    "mount": "PL",
+    "specs": {
+      "focal_range_mm": "50-300",
+      "aperture": "T4.5",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 3.8,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Canon"
+  },
+  {
+    "id": "lens_vr180_pro",
+    "name": "VR180 Pro Dual Lens",
+    "brand": "Entaniya",
+    "category": "Lens",
+    "subcategory": "VR180",
+    "description": "Dual-lens VR180 optic for immersive stereoscopic capture.",
+    "mount": "RF",
+    "specs": {
+      "focal_length_mm": 7,
+      "aperture": "T3.0",
+      "coverage": "180°"
+    },
+    "weight_kg": 0.9,
+    "compatibility": [
+      "rf_mount_cameras"
+    ],
+    "source": "Entaniya"
+  },
+  {
+    "id": "lens_vr360_superwide",
+    "name": "360° Superwide Cine Lens",
+    "brand": "Nikon",
+    "category": "Lens",
+    "subcategory": "Panoramic",
+    "description": "Full 360° panoramic lens for immersive capture.",
+    "mount": "F",
+    "specs": {
+      "coverage": "360°",
+      "aperture": "T5.6"
+    },
+    "weight_kg": 1,
+    "compatibility": [
+      "f_mount_cameras"
+    ],
+    "source": "Nikon"
+  },
+  {
+    "id": "lens_panorama_8mm_ff",
+    "name": "8mm Full-Frame Fisheye",
+    "brand": "Samyang",
+    "category": "Lens",
+    "subcategory": "Panoramic",
+    "description": "Full-frame fisheye lens for panoramic and VR workflows.",
+    "mount": "EF",
+    "specs": {
+      "focal_length_mm": 8,
+      "aperture": "T3.5",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 0.4,
+    "compatibility": [
+      "ef_mount_cameras"
+    ],
+    "source": "Samyang"
+  },
+  {
+    "id": "lens_scientific_uv_85mm",
+    "name": "85mm UV Macro Cine",
+    "brand": "Coastal Optics",
+    "category": "Lens",
+    "subcategory": "Scientific",
+    "description": "UV-optimized macro lens for forensic and scientific imaging.",
+    "mount": "F",
+    "specs": {
+      "focal_length_mm": 85,
+      "aperture": "T4",
+      "coverage": "APS-C"
+    },
+    "weight_kg": 0.7,
+    "compatibility": [
+      "f_mount_cameras"
+    ],
+    "source": "Coastal Optics"
+  },
+  {
+    "id": "lens_vintage_rehouse_k35_24mm",
+    "name": "Canon K-35 Rehoused 24mm T1.5",
+    "brand": "Canon",
+    "category": "Lens",
+    "subcategory": "Vintage Rehoused",
+    "description": "Rehoused Canon K-35 prime with classic vintage rendering.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 24,
+      "aperture": "T1.5",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 1.2,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Canon"
+  },
+  {
+    "id": "lens_vintage_rehouse_k35_35mm",
+    "name": "Canon K-35 Rehoused 35mm T1.5",
+    "brand": "Canon",
+    "category": "Lens",
+    "subcategory": "Vintage Rehoused",
+    "description": "Vintage K-35 lens rehoused for modern cinema use.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 35,
+      "aperture": "T1.5",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 1.3,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Canon"
+  },
+  {
+    "id": "lens_anamorphic_macro_50mm",
+    "name": "50mm T2.8 Anamorphic Macro",
+    "brand": "Atlas",
+    "category": "Lens",
+    "subcategory": "Anamorphic Macro",
+    "description": "Macro anamorphic lens for close-up cinematic shots.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 50,
+      "aperture": "T2.8",
+      "squeeze": "1.5x",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 1.6,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Atlas"
+  },
+  {
+    "id": "lens_anamorphic_macro_90mm",
+    "name": "90mm T2.8 Anamorphic Macro",
+    "brand": "Atlas",
+    "category": "Lens",
+    "subcategory": "Anamorphic Macro",
+    "description": "Telephoto anamorphic macro lens for product cinematography.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 90,
+      "aperture": "T2.8",
+      "squeeze": "1.5x",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 1.8,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Atlas"
+  },
+  {
+    "id": "lens_ultratele_800mm_t11",
+    "name": "800mm T11 Cine Prime",
+    "brand": "Canon",
+    "category": "Lens",
+    "subcategory": "Telephoto Prime",
+    "description": "Super-telephoto cine prime for wildlife and sports.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 800,
+      "aperture": "T11",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 4.5,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Canon"
+  },
+  {
+    "id": "lens_ultratele_2000mm_t16",
+    "name": "2000mm T16 Super Telephoto",
+    "brand": "Nikon",
+    "category": "Lens",
+    "subcategory": "Telephoto Prime",
+    "description": "Extreme telephoto lens adapted for cinema applications.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 2000,
+      "aperture": "T16",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 8,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Nikon"
+  },
+  {
+    "id": "lens_probe_ultrawide_12mm",
+    "name": "12mm T8 Probe Cine",
+    "brand": "Laowa",
+    "category": "Lens",
+    "subcategory": "Probe",
+    "description": "Ultra-wide probe lens for immersive macro perspectives.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 12,
+      "aperture": "T8",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 1.2,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Laowa"
+  },
+  {
+    "id": "lens_probe_periscope_45deg",
+    "name": "45° Periscope Probe Lens",
+    "brand": "Innovision",
+    "category": "Lens",
+    "subcategory": "Probe",
+    "description": "Periscope probe lens with 45° angled optics.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 24,
+      "aperture": "T14",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 1.5,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Innovision"
+  },
+  {
+    "id": "lens_specialty_swirl_58mm",
+    "name": "58mm Swirl Bokeh Lens",
+    "brand": "Helios Rehouse",
+    "category": "Lens",
+    "subcategory": "Specialty",
+    "description": "Rehoused Helios lens with signature swirl bokeh.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 58,
+      "aperture": "T2",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 0.9,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Helios"
+  },
+  {
+    "id": "lens_specialty_softfocus_40mm",
+    "name": "40mm Soft Focus Cine",
+    "brand": "Lensbaby",
+    "category": "Lens",
+    "subcategory": "Specialty",
+    "description": "Soft-focus lens for dreamy, stylized cinematography.",
+    "mount": "EF",
+    "specs": {
+      "focal_length_mm": 40,
+      "aperture": "T2.8",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 0.4,
+    "compatibility": [
+      "ef_mount_cameras"
+    ],
+    "source": "Lensbaby"
+  },
+  {
+    "id": "lens_panoramic_5.7mm_ff",
+    "name": "5.7mm Full-Frame Fisheye",
+    "brand": "Sigma",
+    "category": "Lens",
+    "subcategory": "Panoramic",
+    "description": "Full-frame fisheye lens for immersive VR and panoramic capture.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 5.7,
+      "aperture": "T3.5",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 0.6,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Sigma"
+  },
+  {
+    "id": "lens_scientific_macro_uv_60mm",
+    "name": "60mm UV Macro Cine",
+    "brand": "Coastal Optics",
+    "category": "Lens",
+    "subcategory": "Scientific",
+    "description": "UV-optimized macro lens for forensic and scientific imaging.",
+    "mount": "F",
+    "specs": {
+      "focal_length_mm": 60,
+      "aperture": "T4",
+      "coverage": "APS-C"
+    },
+    "weight_kg": 0.7,
+    "compatibility": [
+      "f_mount_cameras"
+    ],
+    "source": "Coastal Optics"
+  },
+  {
+    "id": "lens_anamorphic_vintage_lomo_35",
+    "name": "Lomo Squarefront 35mm T2.4",
+    "brand": "Lomo",
+    "category": "Lens",
+    "subcategory": "Vintage Anamorphic",
+    "description": "Classic Soviet-era anamorphic with heavy flares and distortion.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 35,
+      "aperture": "T2.4",
+      "squeeze": "2x",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 2.1,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Lomo"
+  },
+  {
+    "id": "lens_anamorphic_vintage_lomo_50",
+    "name": "Lomo Squarefront 50mm T2.4",
+    "brand": "Lomo",
+    "category": "Lens",
+    "subcategory": "Vintage Anamorphic",
+    "description": "Vintage anamorphic prime with iconic blue streak flares.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 50,
+      "aperture": "T2.4",
+      "squeeze": "2x",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 2.3,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Lomo"
+  },
+  {
+    "id": "lens_rehouse_helios_44_58mm",
+    "name": "Helios 44-2 58mm Rehoused",
+    "brand": "Helios Rehouse",
+    "category": "Lens",
+    "subcategory": "Vintage Rehoused",
+    "description": "Rehoused Helios still lens with signature swirl bokeh.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 58,
+      "aperture": "T2",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 0.9,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Helios"
+  },
+  {
+    "id": "lens_rehouse_nikon_ai_28mm",
+    "name": "Nikon AI-S 28mm Rehoused",
+    "brand": "Nikon Rehouse",
+    "category": "Lens",
+    "subcategory": "Vintage Rehoused",
+    "description": "Rehoused Nikon still lens with classic contrast and color.",
+    "mount": "PL",
+    "specs": {
+      "focal_length_mm": 28,
+      "aperture": "T2.8",
+      "coverage": "Full Frame"
+    },
+    "weight_kg": 0.8,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Nikon"
+  },
+  {
+    "id": "lens_tiltshift_cine_17mm",
+    "name": "17mm T4 Tilt-Shift Cine",
+    "brand": "Canon",
+    "category": "Lens",
+    "subcategory": "Tilt-Shift Cine",
+    "description": "Ultra-wide tilt-shift lens adapted for cinema.",
+    "mount": "EF",
+    "specs": {
+      "focal_length_mm": 17,
+      "aperture": "T4",
+      "tilt_deg": 8,
+      "shift_mm": 12
+    },
+    "weight_kg": 0.85,
+    "compatibility": [
+      "ef_mount_cameras"
+    ],
+    "source": "Canon"
+  },
+  {
+    "id": "lens_tiltshift_cine_90mm",
+    "name": "90mm T2.8 Tilt-Shift Cine",
+    "brand": "Canon",
+    "category": "Lens",
+    "subcategory": "Tilt-Shift Cine",
+    "description": "Telephoto tilt-shift lens for product and tabletop cinematography.",
+    "mount": "EF",
+    "specs": {
+      "focal_length_mm": 90,
+      "aperture": "T2.8",
+      "tilt_deg": 10,
+      "shift_mm": 12
+    },
+    "weight_kg": 0.9,
+    "compatibility": [
+      "ef_mount_cameras"
+    ],
+    "source": "Canon"
+  },
+  {
+    "id": "lens_extremezoom_25_300mm",
+    "name": "25-300mm T3.5 Cine Zoom",
+    "brand": "Fujinon",
+    "category": "Lens",
+    "subcategory": "Cinema Zoom",
+    "description": "Long-range cinema zoom for documentary and wildlife.",
+    "mount": "PL",
+    "specs": {
+      "focal_range_mm": "25-300",
+      "aperture": "T3.5",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 8.5,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Fujinon"
+  },
+  {
+    "id": "lens_extremezoom_50_1000mm",
+    "name": "50-1000mm T5 Cine Zoom",
+    "brand": "Canon",
+    "category": "Lens",
+    "subcategory": "Cinema Zoom",
+    "description": "Legendary long-range cine zoom with built-in extender.",
+    "mount": "PL",
+    "specs": {
+      "focal_range_mm": "50-1000",
+      "aperture": "T5",
+      "coverage": "Super 35"
+    },
+    "weight_kg": 12,
+    "compatibility": [
+      "pl_mount_cameras"
+    ],
+    "source": "Canon"
+  },
+  {
+    "id": "lens_specialty_splitdiopter_138mm",
+    "name": "138mm Split Diopter",
+    "brand": "Schneider",
+    "category": "Lens",
+    "subcategory": "Specialty",
+    "description": "Split diopter for deep-focus and creative foreground effects.",
+    "mount": "Tray",
+    "specs": {
+      "size_mm": 138
+    },
+    "weight_kg": 0.3,
+    "compatibility": [
+      "diopter_trays"
+    ],
+    "source": "Schneider"
+  },
+  {
+    "id": "lens_specialty_prism_lens",
+    "name": "Prism Lens FX Triangle Prism",
+    "brand": "Prism Lens FX",
+    "category": "Lens",
+    "subcategory": "Specialty",
+    "description": "Creative prism lens for in-camera refraction effects.",
+    "mount": "77mm",
+    "specs": {
+      "thread_mm": 77
+    },
+    "weight_kg": 0.2,
+    "compatibility": [
+      "filter_threads"
+    ],
+    "source": "Prism Lens FX"
   }
 ]
-{"id":"lens_cooke_anamorphic_32mm","name":"Cooke Anamorphic/i 32mm T2.3","brand":"Cooke","category":"Lens","subcategory":"Anamorphic Prime","description":"2x anamorphic prime with classic Cooke look and oval bokeh.","mount":"PL","specs":{"focal_length_mm":32,"aperture":"T2.3","squeeze":"2x","coverage":"Super 35"},"weight_kg":2.5,"compatibility":["pl_mount_cameras"],"source":"Cooke"},
-{"id":"lens_cooke_anamorphic_50mm","name":"Cooke Anamorphic/i 50mm T2.3","brand":"Cooke","category":"Lens","subcategory":"Anamorphic Prime","description":"Standard anamorphic focal length with warm rendering.","mount":"PL","specs":{"focal_length_mm":50,"aperture":"T2.3","squeeze":"2x","coverage":"Super 35"},"weight_kg":2.6,"compatibility":["pl_mount_cameras"],"source":"Cooke"},
-{"id":"lens_cooke_anamorphic_75mm","name":"Cooke Anamorphic/i 75mm T2.3","brand":"Cooke","category":"Lens","subcategory":"Anamorphic Prime","description":"Portrait-length anamorphic lens with smooth falloff.","mount":"PL","specs":{"focal_length_mm":75,"aperture":"T2.3","squeeze":"2x","coverage":"Super 35"},"weight_kg":2.7,"compatibility":["pl_mount_cameras"],"source":"Cooke"},
-
-{"id":"lens_hawk_vlite_35mm","name":"Hawk V-Lite 35mm T2.2","brand":"Hawk","category":"Lens","subcategory":"Anamorphic Prime","description":"Compact 2x anamorphic lens with characteristic Hawk flare.","mount":"PL","specs":{"focal_length_mm":35,"aperture":"T2.2","squeeze":"2x","coverage":"Super 35"},"weight_kg":2.1,"compatibility":["pl_mount_cameras"],"source":"Vantage"},
-{"id":"lens_hawk_vlite_50mm","name":"Hawk V-Lite 50mm T2.2","brand":"Hawk","category":"Lens","subcategory":"Anamorphic Prime","description":"Popular anamorphic lens known for organic texture.","mount":"PL","specs":{"focal_length_mm":50,"aperture":"T2.2","squeeze":"2x","coverage":"Super 35"},"weight_kg":2.2,"compatibility":["pl_mount_cameras"],"source":"Vantage"},
-
-{"id":"lens_atlas_orion_32mm","name":"Atlas Orion 32mm T2","brand":"Atlas","category":"Lens","subcategory":"Anamorphic Prime","description":"Affordable 2x anamorphic lens with modern mechanics.","mount":"PL","specs":{"focal_length_mm":32,"aperture":"T2","squeeze":"2x","coverage":"Super 35"},"weight_kg":2.3,"compatibility":["pl_mount_cameras"],"source":"Atlas"},
-{"id":"lens_atlas_orion_65mm","name":"Atlas Orion 65mm T2","brand":"Atlas","category":"Lens","subcategory":"Anamorphic Prime","description":"Mid-range anamorphic lens with strong flares.","mount":"PL","specs":{"focal_length_mm":65,"aperture":"T2","squeeze":"2x","coverage":"Super 35"},"weight_kg":2.4,"compatibility":["pl_mount_cameras"],"source":"Atlas"},
-
-{"id":"lens_panavision_cseries_40mm","name":"Panavision C-Series 40mm T2.3","brand":"Panavision","category":"Lens","subcategory":"Anamorphic Prime","description":"Classic Panavision anamorphic lens with vintage character.","mount":"PV","specs":{"focal_length_mm":40,"aperture":"T2.3","squeeze":"2x","coverage":"Super 35"},"weight_kg":2.0,"compatibility":["pv_mount_cameras"],"source":"Panavision"},
-{"id":"lens_panavision_e_series_50mm","name":"Panavision E-Series 50mm T2","brand":"Panavision","category":"Lens","subcategory":"Anamorphic Prime","description":"Vintage anamorphic lens with strong horizontal flares.","mount":"PV","specs":{"focal_length_mm":50,"aperture":"T2","squeeze":"2x","coverage":"Super 35"},"weight_kg":2.3,"compatibility":["pv_mount_cameras"],"source":"Panavision"},
-
-{"id":"lens_kowa_anamorphic_40mm","name":"Kowa Anamorphic 40mm T2.3","brand":"Kowa","category":"Lens","subcategory":"Anamorphic Prime","description":"Lightweight vintage anamorphic lens with soft edges and strong character.","mount":"PL","specs":{"focal_length_mm":40,"aperture":"T2.3","squeeze":"2x","coverage":"Super 35"},"weight_kg":1.1,"compatibility":["pl_mount_cameras"],"source":"Kowa"},
-{"id":"lens_kowa_anamorphic_75mm","name":"Kowa Anamorphic 75mm T2.8","brand":"Kowa","category":"Lens","subcategory":"Anamorphic Prime","description":"Classic portrait-length anamorphic lens with vintage softness.","mount":"PL","specs":{"focal_length_mm":75,"aperture":"T2.8","squeeze":"2x","coverage":"Super 35"},"weight_kg":1.2,"compatibility":["pl_mount_cameras"],"source":"Kowa"}
-{"id":"lens_canon_k35_24mm","name":"Canon K35 24mm T1.5 (Rehoused)","brand":"Canon","category":"Lens","subcategory":"Vintage Prime","description":"Rehoused vintage full-frame lens with famous K35 softness and halation.","mount":"PL","specs":{"focal_length_mm":24,"aperture":"T1.5","coverage":"Full Frame"},"weight_kg":1.3,"compatibility":["pl_mount_cameras"],"source":"Canon"},
-{"id":"lens_canon_k35_55mm","name":"Canon K35 55mm T1.4 (Rehoused)","brand":"Canon","category":"Lens","subcategory":"Vintage Prime","description":"Classic K35 portrait lens with creamy bokeh.","mount":"PL","specs":{"focal_length_mm":55,"aperture":"T1.4","coverage":"Full Frame"},"weight_kg":1.4,"compatibility":["pl_mount_cameras"],"source":"Canon"},
-
-{"id":"lens_zeiss_superspeed_35mm","name":"Zeiss Super Speed MKIII 35mm T1.3","brand":"Zeiss","category":"Lens","subcategory":"Vintage Prime","description":"Fast vintage cinema prime with iconic Zeiss contrast.","mount":"PL","specs":{"focal_length_mm":35,"aperture":"T1.3","coverage":"Super 35"},"weight_kg":0.9,"compatibility":["pl_mount_cameras"],"source":"Zeiss"},
-{"id":"lens_zeiss_superspeed_85mm","name":"Zeiss Super Speed MKIII 85mm T1.3","brand":"Zeiss","category":"Lens","subcategory":"Vintage Prime","description":"Portrait-length vintage lens with shallow depth of field.","mount":"PL","specs":{"focal_length_mm":85,"aperture":"T1.3","coverage":"Super 35"},"weight_kg":1.0,"compatibility":["pl_mount_cameras"],"source":"Zeiss"},
-
-{"id":"lens_super_baltar_25mm","name":"Super Baltar 25mm T2.3 (Rehoused)","brand":"Bausch & Lomb","category":"Lens","subcategory":"Vintage Prime","description":"Classic Hollywood lens with low contrast and warm tones.","mount":"PL","specs":{"focal_length_mm":25,"aperture":"T2.3","coverage":"Super 35"},"weight_kg":1.2,"compatibility":["pl_mount_cameras"],"source":"Bausch & Lomb"},
-{"id":"lens_super_baltar_50mm","name":"Super Baltar 50mm T2.3 (Rehoused)","brand":"Bausch & Lomb","category":"Lens","subcategory":"Vintage Prime","description":"Vintage lens known for creamy rendering and halation.","mount":"PL","specs":{"focal_length_mm":50,"aperture":"T2.3","coverage":"Super 35"},"weight_kg":1.3,"compatibility":["pl_mount_cameras"],"source":"Bausch & Lomb"},
-
-{"id":"lens_cooke_panchro_32mm","name":"Cooke Speed Panchro 32mm T2.3 (Rehoused)","brand":"Cooke","category":"Lens","subcategory":"Vintage Prime","description":"Rehoused classic Panchro lens with soft edges and warm tones.","mount":"PL","specs":{"focal_length_mm":32,"aperture":"T2.3","coverage":"Super 35"},"weight_kg":1.1,"compatibility":["pl_mount_cameras"],"source":"Cooke"},
-{"id":"lens_cooke_panchro_75mm","name":"Cooke Speed Panchro 75mm T2.3 (Rehoused)","brand":"Cooke","category":"Lens","subcategory":"Vintage Prime","description":"Vintage portrait lens with gentle contrast.","mount":"PL","specs":{"focal_length_mm":75,"aperture":"T2.3","coverage":"Super 35"},"weight_kg":1.2,"compatibility":["pl_mount_cameras"],"source":"Cooke"},
-
-{"id":"lens_probe_laowa_24mm","name":"Laowa 24mm T14 Probe Lens","brand":"Laowa","category":"Lens","subcategory":"Specialty Lens","description":"Unique probe lens for extreme close-ups and macro cinematography.","mount":"PL","specs":{"focal_length_mm":24,"aperture":"T14","coverage":"Super 35"},"weight_kg":0.8,"compatibility":["pl_mount_cameras"],"source":"Laowa"},
-{"id":"lens_probe_laowa_periprobe","name":"Laowa 24mm T14 PeriProbe","brand":"Laowa","category":"Lens","subcategory":"Specialty Lens","description":"Periscope-style probe lens with interchangeable tips.","mount":"PL","specs":{"focal_length_mm":24,"aperture":"T14","coverage":"Super 35"},"weight_kg":1.0,"compatibility":["pl_mount_cameras"],"source":"Laowa"},
-
-{"id":"lens_macro_canon_100mm","name":"Canon 100mm Macro T2.8 (Cine Mod)","brand":"Canon","category":"Lens","subcategory":"Macro Lens","description":"Cine-mod macro lens used for close-up cinematography.","mount":"EF","specs":{"focal_length_mm":100,"aperture":"T2.8","coverage":"Full Frame"},"weight_kg":0.75,"compatibility":["ef_mount_cameras"],"source":"Canon"},
-
-{"id":"lens_tiltshift_canon_24mm","name":"Canon TS-E 24mm T3.5L II (Cine Mod)","brand":"Canon","category":"Lens","subcategory":"Tilt-Shift Lens","description":"Tilt-shift lens adapted for cinema use.","mount":"EF","specs":{"focal_length_mm":24,"aperture":"T3.5","coverage":"Full Frame"},"weight_kg":0.78,"compatibility":["ef_mount_cameras"],"source":"Canon"}
-{"id":"lens_canon_600mm","name":"Canon 600mm T4 (Cine Mod)","brand":"Canon","category":"Lens","subcategory":"Telephoto","description":"Super-telephoto lens used for wildlife, sports, and specialty cinematic shots.","mount":"EF","specs":{"focal_length_mm":600,"aperture":"T4","coverage":"Full Frame"},"weight_kg":3.0,"compatibility":["ef_mount_cameras"],"source":"Canon"},
-{"id":"lens_sony_400mm","name":"Sony 400mm T2.8 (Cine Mod)","brand":"Sony","category":"Lens","subcategory":"Telephoto","description":"Fast telephoto lens adapted for cinema use.","mount":"E","specs":{"focal_length_mm":400,"aperture":"T2.8","coverage":"Full Frame"},"weight_kg":2.9,"compatibility":["e_mount_cameras"],"source":"Sony"},
-
-{"id":"lens_ir_25mm","name":"IR 25mm T1.8 Infrared Lens","brand":"Navitar","category":"Lens","subcategory":"Infrared","description":"Infrared-sensitive lens used for night vision and forensic cinematography.","mount":"C","specs":{"focal_length_mm":25,"aperture":"T1.8","coverage":"1-inch"},"weight_kg":0.3,"compatibility":["c_mount_cameras"],"source":"Navitar"},
-{"id":"lens_ir_50mm","name":"IR 50mm T2 Infrared Lens","brand":"Navitar","category":"Lens","subcategory":"Infrared","description":"50mm IR lens for surveillance and scientific imaging.","mount":"C","specs":{"focal_length_mm":50,"aperture":"T2","coverage":"1-inch"},"weight_kg":0.35,"compatibility":["c_mount_cameras"],"source":"Navitar"},
-
-{"id":"lens_probe_venus_15mm","name":"Laowa 15mm T8 Macro Probe","brand":"Laowa","category":"Lens","subcategory":"Macro Probe","description":"Ultra-wide probe lens for extreme macro cinematography.","mount":"PL","specs":{"focal_length_mm":15,"aperture":"T8","coverage":"Super 35"},"weight_kg":1.2,"compatibility":["pl_mount_cameras"],"source":"Laowa"},
-
-{"id":"lens_mirror_reflex_500mm","name":"500mm Reflex Mirror Lens (Cine Mod)","brand":"Tokina","category":"Lens","subcategory":"Mirror Lens","description":"Catadioptric mirror lens with donut bokeh, adapted for cinema.","mount":"EF","specs":{"focal_length_mm":500,"aperture":"T8","coverage":"Full Frame"},"weight_kg":0.7,"compatibility":["ef_mount_cameras"],"source":"Tokina"},
-
-{"id":"lens_forensic_uv_60mm","name":"UV 60mm Forensic Lens","brand":"Coastal Optics","category":"Lens","subcategory":"Forensic","description":"UV-sensitive lens used for forensic and scientific imaging.","mount":"F","specs":{"focal_length_mm":60,"aperture":"T4","coverage":"APS-C"},"weight_kg":0.6,"compatibility":["f_mount_cameras"],"source":"Coastal Optics"},
-{"id":"lens_forensic_multispec_60mm","name":"60mm Multispectral Lens","brand":"Coastal Optics","category":"Lens","subcategory":"Forensic","description":"Multispectral lens covering UV, visible, and IR wavelengths.","mount":"F","specs":{"focal_length_mm":60,"aperture":"T4","coverage":"APS-C"},"weight_kg":0.65,"compatibility":["f_mount_cameras"],"source":"Coastal Optics"}
