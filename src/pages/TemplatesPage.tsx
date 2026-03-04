@@ -9,6 +9,7 @@ import { Modal } from '@/components/ui/Modal';
 import { projectsRepo } from '@/lib/db/repositories';
 import { useAuth } from '@/hooks/useAuth';
 import { useTemplateManager } from '@/hooks/useTemplateManager';
+import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
 import { useToast } from '@/hooks/useToast';
 import { cn } from '@/lib/utils/cn';
 import type { PackageTemplate, Project } from '@/types/models';
@@ -97,7 +98,10 @@ export function TemplatesPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1>Templates</h1>
+        <div className="flex items-center gap-2">
+          <h1>Templates</h1>
+          <DebugFileBadge />
+        </div>
         <Button onClick={() => setIsCreateOpen(true)}>
           <Plus size={16} />
           New Template

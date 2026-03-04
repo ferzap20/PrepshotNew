@@ -9,6 +9,7 @@ import {
   EditCatalogItemModal,
   DeleteCatalogItemDialog,
 } from '@/components/catalog/CatalogItemModals';
+import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
 import { catalogItemsRepo } from '@/lib/db/repositories';
 import { useAuth } from '@/hooks/useAuth';
 import { UserRole, CatalogCategory } from '@/types/enums';
@@ -56,7 +57,10 @@ export function CatalogPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between gap-4">
-        <h1>Catalog</h1>
+        <div className="flex items-center gap-2">
+          <h1>Catalog</h1>
+          <DebugFileBadge />
+        </div>
         {isAdmin && (
           <Button onClick={() => setIsCreateOpen(true)}>
             <Plus size={16} />

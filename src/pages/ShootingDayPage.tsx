@@ -7,6 +7,7 @@ import { Card } from '@/components/ui/Card';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { shootingDaysRepo } from '@/lib/db/repositories';
 import { useShootingDayDetail } from '@/hooks/useShootingDayDetail';
+import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
 import { useAppSetting } from '@/hooks/useAppSetting';
 import { formatDateCustom } from '@/lib/utils/date';
 import { cn } from '@/lib/utils/cn';
@@ -324,7 +325,10 @@ export function ShootingDayPage() {
         </Link>
         <div className="flex items-center justify-between gap-4">
           <div>
-            <h1>{day ? formatDateCustom(day.date, dateFormat) : 'Shooting Day'}</h1>
+            <div className="flex items-center gap-2">
+              <h1>{day ? formatDateCustom(day.date, dateFormat) : 'Shooting Day'}</h1>
+              <DebugFileBadge />
+            </div>
             <p className="text-xs text-muted-foreground">
               {totalEffective} item{totalEffective !== 1 ? 's' : ''} planned
             </p>

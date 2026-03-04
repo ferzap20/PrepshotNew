@@ -53,19 +53,20 @@ export const router = createBrowserRouter([
       </AuthGuard>
     ),
     children: [
-      { index: true, element: page(<HomePage />) },
-      { path: 'projects', element: page(<ProjectsPage />) },
-      { path: 'projects/:projectId', element: page(<ProjectDetailPage />) },
-      { path: 'projects/:projectId/list', element: page(<ProjectListPage />) },
-      { path: 'projects/:projectId/days', element: page(<ShootingDaysPage />) },
-      { path: 'projects/:projectId/days/:dayId', element: page(<ShootingDayPage />) },
-      { path: 'templates', element: page(<TemplatesPage />) },
-      { path: 'catalog', element: page(<CatalogPage />) },
-      { path: 'my-gear', element: page(<MyGearPage />) },
-      { path: 'rental-sources', element: page(<RentalSourcesPage />) },
-      { path: 'settings', element: page(<SettingsPage />) },
+      { index: true, element: page(<HomePage />), handle: { filename: 'HomePage.tsx' } },
+      { path: 'projects', element: page(<ProjectsPage />), handle: { filename: 'ProjectsPage.tsx' } },
+      { path: 'projects/:projectId', element: page(<ProjectDetailPage />), handle: { filename: 'ProjectDetailPage.tsx' } },
+      { path: 'projects/:projectId/list', element: page(<ProjectListPage />), handle: { filename: 'ProjectListPage.tsx' } },
+      { path: 'projects/:projectId/days', element: page(<ShootingDaysPage />), handle: { filename: 'ShootingDaysPage.tsx' } },
+      { path: 'projects/:projectId/days/:dayId', element: page(<ShootingDayPage />), handle: { filename: 'ShootingDayPage.tsx' } },
+      { path: 'templates', element: page(<TemplatesPage />), handle: { filename: 'TemplatesPage.tsx' } },
+      { path: 'catalog', element: page(<CatalogPage />), handle: { filename: 'CatalogPage.tsx' } },
+      { path: 'my-gear', element: page(<MyGearPage />), handle: { filename: 'MyGearPage.tsx' } },
+      { path: 'rental-sources', element: page(<RentalSourcesPage />), handle: { filename: 'RentalSourcesPage.tsx' } },
+      { path: 'settings', element: page(<SettingsPage />), handle: { filename: 'SettingsPage.tsx' } },
       {
         path: 'admin',
+        handle: { filename: 'AdminPage.tsx' },
         element: (
           <AdminGuard>
             {page(<AdminPage />)}

@@ -8,6 +8,7 @@ import {
   EditRentalSourceModal,
   DeleteRentalSourceDialog,
 } from '@/components/rental-sources/RentalSourceModals';
+import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
 import { rentalSourcesRepo } from '@/lib/db/repositories';
 import { useAuth } from '@/hooks/useAuth';
 import { UserRole } from '@/types/enums';
@@ -92,7 +93,10 @@ export function RentalSourcesPage() {
   return (
     <div className="flex flex-col h-full space-y-4">
       <div className="flex items-center justify-between gap-4 flex-shrink-0">
-        <h1>Rental Sources</h1>
+        <div className="flex items-center gap-2">
+          <h1>Rental Sources</h1>
+          <DebugFileBadge />
+        </div>
         {isAdmin && (
           <Button onClick={() => setIsCreateOpen(true)}>
             <Plus size={16} />

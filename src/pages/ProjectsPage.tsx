@@ -8,6 +8,7 @@ import { EmptyState } from '@/components/ui/EmptyState';
 import { CreateProjectModal } from '@/components/projects/CreateProjectModal';
 import { EditProjectModal } from '@/components/projects/EditProjectModal';
 import { DeleteProjectDialog } from '@/components/projects/DeleteProjectDialog';
+import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
 import { useProjects } from '@/hooks/useProjects';
 import { projectGeneralListsRepo } from '@/lib/db/repositories';
 import { formatShortDate } from '@/lib/utils/date';
@@ -39,7 +40,7 @@ function ProjectRowCard({
       <Link to={`/projects/${project.id}`} className="flex-1 min-w-0">
         <div className="flex items-center gap-3 flex-wrap">
           <span className="font-medium truncate">{project.name}</span>
-          {project.role && <Badge variant="default">{project.role}</Badge>}
+          {project.productionCompany && <Badge variant="info">{project.productionCompany}</Badge>}
         </div>
         <p className="text-xs text-muted-foreground mt-0.5">
           {dateRange} · {equipmentCount} item{equipmentCount !== 1 ? 's' : ''}
@@ -107,7 +108,10 @@ export function ProjectsPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between gap-4">
-        <h1>Projects</h1>
+        <div className="flex items-center gap-2">
+          <h1>Projects</h1>
+          <DebugFileBadge />
+        </div>
         <Button onClick={() => setIsCreateOpen(true)}>
           <Plus size={16} />
           New Project

@@ -26,14 +26,11 @@ export function ProjectCard({ project, equipmentCount }: ProjectCardProps) {
           <ChevronRight size={16} className="text-muted-foreground flex-shrink-0 mt-0.5" />
         </div>
 
-        <div className="flex items-center gap-2 flex-wrap">
-          {project.role && (
-            <Badge variant="default">{project.role}</Badge>
-          )}
-          {project.productionCompany && (
+        {project.productionCompany && (
+          <div className="flex items-center gap-2 flex-wrap">
             <Badge variant="info">{project.productionCompany}</Badge>
-          )}
-        </div>
+          </div>
+        )}
 
         {project.notes && (
           <div className="text-xs text-muted-foreground">

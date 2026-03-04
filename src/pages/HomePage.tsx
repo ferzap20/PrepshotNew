@@ -5,6 +5,7 @@ import { EmptyState } from '@/components/ui/EmptyState';
 import { ProjectCard } from '@/components/dashboard/ProjectCard';
 import { CreateProjectModal } from '@/components/projects/CreateProjectModal';
 import { OnboardingModal } from '@/components/ui/OnboardingModal';
+import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
 import { useProjects } from '@/hooks/useProjects';
 import { useAuth } from '@/hooks/useAuth';
 import { projectGeneralListsRepo, usersRepo } from '@/lib/db/repositories';
@@ -49,7 +50,10 @@ export function HomePage() {
     <div className="space-y-6">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h1>Welcome back, {displayName}</h1>
+          <div className="flex items-center gap-2">
+            <h1>Welcome back, {displayName}</h1>
+            <DebugFileBadge />
+          </div>
           <p className="text-sm text-muted-foreground mt-1">
             {projects.length > 0
               ? `You have ${projects.length} project${projects.length !== 1 ? 's' : ''}.`

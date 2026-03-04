@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router';
-import { ArrowLeft, Pencil, Copy, Trash2, Package, CalendarDays, Calendar } from 'lucide-react';
+import { ArrowLeft, Pencil, Copy, Trash2, Package, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
 import { EditProjectModal } from '@/components/projects/EditProjectModal';
 import { DuplicateProjectModal } from '@/components/projects/DuplicateProjectModal';
+import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
 import { DeleteProjectDialog } from '@/components/projects/DeleteProjectDialog';
-import { projectsRepo, projectGeneralListsRepo, shootingDaysRepo } from '@/lib/db/repositories';
+import { ProjectGearListPreview } from '@/components/project/ProjectGearListPreview';
+import { projectsRepo, projectGeneralListsRepo, catalogItemsRepo, usersRepo } from '@/lib/db/repositories';
 import { formatDateCustom } from '@/lib/utils/date';
 import { useAppSetting } from '@/hooks/useAppSetting';
 import { useAuth } from '@/hooks/useAuth';
-import type { Project } from '@/types/models';
+import type { Project, ProjectGeneralListItem, CatalogItem, User } from '@/types/models';
 
 export function ProjectDetailPage() {
   const { projectId } = useParams<{ projectId: string }>();
@@ -19,8 +21,9 @@ export function ProjectDetailPage() {
   const { session } = useAuth();
   const [project, setProject] = useState<Project | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [equipmentCount, setEquipmentCount] = useState(0);
-  const [daysCount, setDaysCount] = useState(0);
+  const [listItems, setListItems] = useState<ProjectGeneralListItem[]>([]);
+  const [catalogItems, setCatalogItems] = useState<CatalogItem[]>([]);
+  const [listUsers, setListUsers] = useState<User[]>([]);
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isDuplicateOpen, setIsDuplicateOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
@@ -32,12 +35,14 @@ export function ProjectDetailPage() {
       const p = await projectsRepo.getById(projectId);
       if (!p) { navigate('/projects', { replace: true }); return; }
       setProject(p);
-      const [items, days] = await Promise.all([
+      const [items, catalog, users] = await Promise.all([
         projectGeneralListsRepo.getByProjectId(projectId),
-        shootingDaysRepo.getByProjectId(projectId),
+        catalogItemsRepo.getAll(),
+        usersRepo.getAll(),
       ]);
-      setEquipmentCount(items.length);
-      setDaysCount(days.length);
+      setListItems(items);
+      setCatalogItems(catalog);
+      setListUsers(users);
       setIsLoading(false);
     };
     load();
@@ -86,15 +91,19 @@ export function ProjectDetailPage() {
       {/* Project header */}
       <div className="space-y-3">
         <div className="flex flex-col gap-1">
-          <h1>{project.name}</h1>
+          <div className="flex items-center gap-2">
+            <h1>{project.name}</h1>
+            <DebugFileBadge />
+          </div>
           {project.productionCompany && (
-            <span className="text-sm text-muted-foreground">{project.productionCompany}</span>
+            <span className="w-fit">
+              <Badge variant="info">{project.productionCompany}</Badge>
+            </span>
           )}
         </div>
         <div className="flex flex-col gap-1.5 text-sm text-muted-foreground">
           {(project.crewType || project.role) && (
             <div className="flex items-center gap-2">
-              <span className="w-24 text-xs uppercase tracking-wide">Role</span>
               {project.crewType && <span>{project.crewType}</span>}
               {project.role && <Badge variant="default">{project.role}</Badge>}
               {project.firstAC && <span className="text-muted-foreground/60">· 1st AC: {project.firstAC}</span>}
@@ -134,57 +143,27 @@ export function ProjectDetailPage() {
         </div>
       </div>
 
-      {/* Quick stats */}
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-        <Card className="flex items-center gap-3 py-3">
-          <div className="p-2 rounded-lg bg-primary/10 flex-shrink-0">
-            <Package size={16} className="text-primary" />
+      {/* Gear list */}
+      <div className="space-y-3">
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <Package size={16} className="text-muted-foreground" />
+            <h2 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">Gear List</h2>
           </div>
-          <div>
-            <p className="text-lg font-semibold leading-none">{equipmentCount}</p>
-            <p className="text-xs text-muted-foreground mt-0.5">Gear items</p>
-          </div>
+          <Link
+            to={`/projects/${project.id}/list`}
+            className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Edit →
+          </Link>
+        </div>
+        <Card>
+          <ProjectGearListPreview
+            items={listItems}
+            catalogItems={catalogItems}
+            users={listUsers}
+          />
         </Card>
-        <Card className="flex items-center gap-3 py-3">
-          <div className="p-2 rounded-lg bg-primary/10 flex-shrink-0">
-            <CalendarDays size={16} className="text-primary" />
-          </div>
-          <div>
-            <p className="text-lg font-semibold leading-none">{daysCount}</p>
-            <p className="text-xs text-muted-foreground mt-0.5">Shooting days</p>
-          </div>
-        </Card>
-      </div>
-
-      {/* Navigation cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <Link to={`/projects/${project.id}/list`}>
-          <Card hoverable className="flex items-center gap-4">
-            <div className="p-3 rounded-lg bg-primary/10 flex-shrink-0">
-              <Package size={20} className="text-primary" />
-            </div>
-            <div>
-              <h3>Gear List</h3>
-              <p className="text-xs text-muted-foreground">
-                {equipmentCount} item{equipmentCount !== 1 ? 's' : ''} · Manage equipment
-              </p>
-            </div>
-          </Card>
-        </Link>
-
-        <Link to={`/projects/${project.id}/days`}>
-          <Card hoverable className="flex items-center gap-4">
-            <div className="p-3 rounded-lg bg-primary/10 flex-shrink-0">
-              <CalendarDays size={20} className="text-primary" />
-            </div>
-            <div>
-              <h3>Shooting Days</h3>
-              <p className="text-xs text-muted-foreground">
-                {daysCount} day{daysCount !== 1 ? 's' : ''} · Manage schedule
-              </p>
-            </div>
-          </Card>
-        </Link>
       </div>
 
       <EditProjectModal

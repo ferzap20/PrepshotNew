@@ -8,6 +8,7 @@ import { useAppSetting } from '@/hooks/useAppSetting';
 import { formatDateCustom } from '@/lib/utils/date';
 import { cn } from '@/lib/utils/cn';
 import type { Project, ShootingDay } from '@/types/models';
+import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
 
 const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const DAY_LABELS = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
@@ -111,7 +112,10 @@ export function ShootingDaysPage() {
           {project?.name ?? 'Project'}
         </Link>
         <div className="flex items-center justify-between">
-          <h1>Shooting Days</h1>
+          <div className="flex items-center gap-2">
+            <h1>Shooting Days</h1>
+            <DebugFileBadge />
+          </div>
           <span className="text-sm text-muted-foreground">{days.length} day{days.length !== 1 ? 's' : ''}</span>
         </div>
         {project?.startDate && (

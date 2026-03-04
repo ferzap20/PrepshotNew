@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/Button';
 import { Modal } from '@/components/ui/Modal';
 import { useAuth } from '@/hooks/useAuth';
 import { useAppSettings } from '@/hooks/useAppSettings';
+import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
 import {
   appSettingsRepo,
   usersRepo,
@@ -281,7 +282,10 @@ export function SettingsPage() {
 
   return (
     <div className="space-y-6">
-      <h1>Settings</h1>
+      <div className="flex items-center gap-2">
+        <h1>Settings</h1>
+        <DebugFileBadge />
+      </div>
 
       <AccountSettings />
 

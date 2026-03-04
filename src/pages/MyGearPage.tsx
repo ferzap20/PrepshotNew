@@ -9,6 +9,7 @@ import {
   EditMyGearItemModal,
   DeleteMyGearItemDialog,
 } from '@/components/my-gear/MyGearItemModals';
+import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
 import { userGearRepo, catalogItemsRepo } from '@/lib/db/repositories';
 import { useAuth } from '@/hooks/useAuth';
 import { formatShortDate } from '@/lib/utils/date';
@@ -56,7 +57,10 @@ export function MyGearPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between gap-4">
         <div>
-          <h1>My Gear</h1>
+          <div className="flex items-center gap-2">
+            <h1>My Gear</h1>
+            <DebugFileBadge />
+          </div>
           <p className="text-sm text-muted-foreground mt-1">Your personal equipment collection.</p>
         </div>
         <Button onClick={() => setIsAddOpen(true)}>

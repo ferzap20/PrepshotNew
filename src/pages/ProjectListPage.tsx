@@ -7,6 +7,7 @@ import { Card } from '@/components/ui/Card';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { CategoryFilterPills } from '@/components/ui/CategoryFilterPills';
 import { GearListEditModal } from '@/components/project-list/GearListEditModal';
+import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
 import { useGearList } from '@/hooks/useGearList';
 import { useAppSetting } from '@/hooks/useAppSetting';
 import { cn } from '@/lib/utils/cn';
@@ -281,7 +282,10 @@ export function ProjectListPage() {
           {project?.name ?? 'Project'}
         </Link>
         <div className="flex items-center justify-between gap-4">
-          <h1>Gear List</h1>
+          <div className="flex items-center gap-2">
+            <h1>Gear List</h1>
+            <DebugFileBadge />
+          </div>
           <div className="flex items-center gap-2">
             <span className="text-sm text-muted-foreground">
               {listItems.length} item{listItems.length !== 1 ? 's' : ''}

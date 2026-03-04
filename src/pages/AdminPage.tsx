@@ -8,6 +8,7 @@ import { UserRole, CatalogCategory } from '@/types/enums';
 import { formatDateCustom } from '@/lib/utils/date';
 import { useAppSetting } from '@/hooks/useAppSetting';
 import type { User, CatalogItem } from '@/types/models';
+import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
 
 export function AdminPage() {
   const { session } = useAuth();
@@ -57,6 +58,7 @@ export function AdminPage() {
       <div className="flex items-center gap-3">
         <Shield size={20} className="text-primary" />
         <h1>Admin Panel</h1>
+        <DebugFileBadge />
       </div>
 
       {/* User Management */}
