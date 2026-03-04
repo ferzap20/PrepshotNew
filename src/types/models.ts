@@ -156,3 +156,17 @@ export interface AppSetting {
   value: string;
   updatedAt: string;
 }
+
+export interface RentalCompany {
+  id: string;
+  name: string;
+  city: string;
+  country: string;
+  address: string;
+  phone: string;
+  email: string;
+  website: string;
+  specialties: string[];
+  featured: boolean;
+  notes: string;
+}

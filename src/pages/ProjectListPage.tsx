@@ -297,7 +297,7 @@ export function ProjectListPage() {
                   projectId={projectId ?? ''}
                   project={project}
                   items={listItems}
-                  catalogItems={catalogItems}
+                  catalogItems={Array.from(catalogMap.values())}
                 />
                 <Button variant="secondary" onClick={exportCSV}>
                   <Download size={14} />

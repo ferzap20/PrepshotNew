@@ -23,7 +23,9 @@
       "Bash(npx tsc -b --noEmit)",
       "Bash(npm test -- --run)",
       "Bash(node -e \":*)",
-      "Bash(echo \"EXIT:$?\")"
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(npm uninstall leaflet react-leaflet @types/leaflet)",
+      "Bash(npx vitest run)"
     ]
   }
 }

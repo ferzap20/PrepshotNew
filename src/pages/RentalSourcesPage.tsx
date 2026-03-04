@@ -1,35 +1,40 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
-import { Plus, Search, MapPin, Building2, Pencil, Trash2, Loader2, Map, List } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Plus, Search, Building2 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
 import { EmptyState } from '@/components/ui/EmptyState';
+import { CategoryFilterPills } from '@/components/ui/CategoryFilterPills';
 import {
   CreateRentalSourceModal,
   EditRentalSourceModal,
   DeleteRentalSourceDialog,
 } from '@/components/rental-sources/RentalSourceModals';
+import { RentalCompanyCard, localSourceToCompany } from '@/components/rental-sources/RentalCompanyCard';
 import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
 import { rentalSourcesRepo } from '@/lib/db/repositories';
 import { useAuth } from '@/hooks/useAuth';
 import { UserRole } from '@/types/enums';
-import { cn } from '@/lib/utils/cn';
-import type { RentalSource } from '@/types/models';
-
-const RentalMap = lazy(() =>
-  import('@/components/rental-sources/RentalMap').then((m) => ({ default: m.RentalMap })),
-);
+import type { RentalCompany, RentalSource } from '@/types/models';
+import rentalCompaniesData from '@/data/rental-companies.json';
 
 const LAST_CITY_KEY = 'prepshot_last_rental_city';
 
-async function geocodeCity(city: string): Promise<[number, number] | null> {
+const SPECIALTIES = ['Camera', 'Lenses', 'Lighting', 'Grip'] as const;
+
+/** Extract unique cities from the combined list */
+function getUniqueCities(companies: RentalCompany[]): string[] {
+  const cities = new Set(companies.map((c) => c.city).filter(Boolean));
+  return Array.from(cities).sort();
+}
+
+/** Reverse-geocode coords to city name via Nominatim */
+async function reverseGeocodeCity(lat: number, lon: number): Promise<string | null> {
   try {
     const res = await fetch(
-      `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(city)}&format=json&limit=1`,
+      `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`,
       { headers: { 'Accept-Language': 'en' } },
     );
     const data = await res.json();
-    if (!data.length) return null;
-    return [parseFloat(data[0].lat), parseFloat(data[0].lon)];
+    return data?.address?.city || data?.address?.town || data?.address?.state || null;
   } catch {
     return null;
   }
@@ -39,56 +44,85 @@ export function RentalSourcesPage() {
   const { session } = useAuth();
   const isAdmin = session?.role === UserRole.Admin;
 
-  const [sources, setSources] = useState<RentalSource[]>([]);
+  const [localSources, setLocalSources] = useState<RentalSource[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [citySearch, setCitySearch] = useState(() => localStorage.getItem(LAST_CITY_KEY) ?? '');
-  const [mapCenter, setMapCenter] = useState<[number, number] | null>(null);
-  const [isSearching, setIsSearching] = useState(false);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [mobileTab, setMobileTab] = useState<'list' | 'map'>('list');
+  const [citySearch, setCitySearch] = useState('');
+  const [activeCity, setActiveCity] = useState(() => localStorage.getItem(LAST_CITY_KEY) ?? '');
+  const [activeSpecialty, setActiveSpecialty] = useState('');
 
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [editingSource, setEditingSource] = useState<RentalSource | null>(null);
   const [deletingSource, setDeletingSource] = useState<RentalSource | null>(null);
 
+  // Merge hardcoded + local sources
+  const hardcoded: RentalCompany[] = rentalCompaniesData as RentalCompany[];
+  const localAsCompanies = localSources.map(localSourceToCompany);
+  const allCompanies = [...hardcoded, ...localAsCompanies];
+  const cities = getUniqueCities(allCompanies);
+
+  // Filter
+  const filtered = allCompanies.filter((c) => {
+    if (activeCity && c.city.toLowerCase() !== activeCity.toLowerCase()) return false;
+    if (activeSpecialty && !c.specialties.includes(activeSpecialty)) return false;
+    return true;
+  });
+
+  // Sort: alphabetical by name
+  filtered.sort((a, b) => a.name.localeCompare(b.name));
+
   const load = async () => {
     setIsLoading(true);
     const data = await rentalSourcesRepo.getAll();
-    data.sort((a, b) => a.name.localeCompare(b.name));
-    setSources(data);
+    setLocalSources(data);
     setIsLoading(false);
   };
 
   useEffect(() => {
     load();
+
+    // Try to detect city from last search or geolocation
     const lastCity = localStorage.getItem(LAST_CITY_KEY);
-    if (lastCity) {
-      geocodeCity(lastCity).then((coords) => { if (coords) setMapCenter(coords); });
-    } else if (navigator.geolocation) {
+    if (!lastCity && navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
-        (pos) => setMapCenter([pos.coords.latitude, pos.coords.longitude]),
+        async (pos) => {
+          const city = await reverseGeocodeCity(pos.coords.latitude, pos.coords.longitude);
+          if (city) {
+            // Find closest matching city in our directory
+            const match = cities.find((c) => c.toLowerCase().includes(city.toLowerCase()));
+            if (match) {
+              setActiveCity(match);
+              localStorage.setItem(LAST_CITY_KEY, match);
+            }
+          }
+        },
         () => {},
         { timeout: 5000 },
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleCitySearch = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!citySearch.trim()) return;
-    setIsSearching(true);
-    const coords = await geocodeCity(citySearch.trim());
-    setIsSearching(false);
-    if (coords) {
-      setMapCenter(coords);
-      localStorage.setItem(LAST_CITY_KEY, citySearch.trim());
+  const handleCitySelect = (city: string) => {
+    setActiveCity(city);
+    if (city) {
+      localStorage.setItem(LAST_CITY_KEY, city);
+    } else {
+      localStorage.removeItem(LAST_CITY_KEY);
     }
   };
 
-  const handleSelectSource = (id: string) => {
-    setSelectedId(id);
-    setMobileTab('map');
+  const handleCitySearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!citySearch.trim()) return;
+    const match = cities.find((c) => c.toLowerCase().includes(citySearch.trim().toLowerCase()));
+    if (match) {
+      handleCitySelect(match);
+      setCitySearch('');
+    }
   };
+
+  // Track which local source IDs exist for edit/delete
+  const localIds = new Set(localSources.map((s) => s.id));
 
   return (
     <div className="flex flex-col h-full space-y-4">
@@ -100,11 +134,12 @@ export function RentalSourcesPage() {
         {isAdmin && (
           <Button onClick={() => setIsCreateOpen(true)}>
             <Plus size={16} />
-            Add Source
+            Add Custom
           </Button>
         )}
       </div>
 
+      {/* City search bar */}
       <form onSubmit={handleCitySearch} className="flex gap-2 flex-shrink-0">
         <div className="relative flex-1">
           <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
@@ -112,82 +147,114 @@ export function RentalSourcesPage() {
             type="text"
             value={citySearch}
             onChange={(e) => setCitySearch(e.target.value)}
-            placeholder="Search city or area to center the map…"
+            placeholder="Search city…"
             className="w-full pl-9 pr-3 py-2 text-sm bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/50"
           />
         </div>
-        <Button type="submit" variant="secondary" disabled={isSearching}>
-          {isSearching ? <Loader2 size={14} className="animate-spin" /> : <MapPin size={14} />}
-          Go
-        </Button>
       </form>
 
-      <div className="flex gap-1 lg:hidden flex-shrink-0">
-        <button
-          onClick={() => setMobileTab('list')}
-          className={cn('flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm transition-colors', mobileTab === 'list' ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground')}
-        >
-          <List size={14} /> List
-        </button>
-        <button
-          onClick={() => setMobileTab('map')}
-          className={cn('flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm transition-colors', mobileTab === 'map' ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground')}
-        >
-          <Map size={14} /> Map
-        </button>
+      {/* City pills */}
+      <div className="flex-shrink-0 space-y-2">
+        <div className="flex gap-1.5 flex-wrap">
+          <button
+            onClick={() => handleCitySelect('')}
+            className={`px-2.5 py-1 rounded-full text-xs transition-colors ${!activeCity ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground'}`}
+          >
+            All Cities
+          </button>
+          {cities.map((city) => (
+            <button
+              key={city}
+              onClick={() => handleCitySelect(city === activeCity ? '' : city)}
+              className={`px-2.5 py-1 rounded-full text-xs transition-colors ${activeCity === city ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground'}`}
+            >
+              {city}
+            </button>
+          ))}
+        </div>
+
+        {/* Specialty filter */}
+        <CategoryFilterPills
+          categories={SPECIALTIES}
+          active={activeSpecialty}
+          onSelect={setActiveSpecialty}
+          allLabel="All Specialties"
+        />
       </div>
 
-      <div className="flex gap-4 flex-1 min-h-0">
-        <div className={cn('flex flex-col gap-2 overflow-y-auto lg:w-2/5', mobileTab === 'map' ? 'hidden lg:flex' : 'flex w-full')}>
-          {isLoading ? (
-            [1, 2, 3].map((i) => <div key={i} className="h-20 rounded-xl bg-secondary animate-pulse flex-shrink-0" />)
-          ) : sources.length === 0 ? (
-            <EmptyState
-              icon={<Building2 size={32} />}
-              title="No rental sources yet"
-              description={isAdmin ? 'Add the first rental source.' : 'No rental sources have been added.'}
-              action={isAdmin ? <Button onClick={() => setIsCreateOpen(true)}><Plus size={16} />Add Source</Button> : undefined}
+      {/* Heading */}
+      {activeCity && (
+        <p className="text-sm text-muted-foreground flex-shrink-0">
+          Rental houses in <span className="font-medium text-foreground">{activeCity}</span>
+        </p>
+      )}
+
+      {/* Company list */}
+      <div className="flex flex-col gap-2 overflow-y-auto flex-1 min-h-0">
+        {isLoading ? (
+          [1, 2, 3].map((i) => (
+            <div key={i} className="h-24 rounded-xl bg-secondary animate-pulse flex-shrink-0" />
+          ))
+        ) : filtered.length === 0 ? (
+          <EmptyState
+            icon={<Building2 size={32} />}
+            title="No rental houses found"
+            description={
+              activeCity || activeSpecialty
+                ? 'Try a different city or specialty filter.'
+                : 'No rental sources in the directory yet.'
+            }
+          />
+        ) : (
+          filtered.map((company) => (
+            <RentalCompanyCard
+              key={company.id}
+              company={company}
+              isLocal={localIds.has(company.id)}
+              isAdmin={isAdmin}
+              onEdit={() => {
+                const src = localSources.find((s) => s.id === company.id);
+                if (src) setEditingSource(src);
+              }}
+              onDelete={() => {
+                const src = localSources.find((s) => s.id === company.id);
+                if (src) setDeletingSource(src);
+              }}
             />
-          ) : (
-            sources.map((source) => (
-              <Card
-                key={source.id}
-                hoverable
-                onClick={() => handleSelectSource(source.id)}
-                className={cn('flex items-start gap-3 py-3 px-4 cursor-pointer flex-shrink-0', selectedId === source.id && 'ring-1 ring-primary')}
-              >
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2">
-                    <span className="font-medium truncate">{source.name}</span>
-                    {source.latitude !== null && <MapPin size={12} className="text-primary flex-shrink-0" />}
-                  </div>
-                  {source.address && <p className="text-xs text-muted-foreground mt-0.5 truncate">{source.address}</p>}
-                  {source.location && !source.address && <p className="text-xs text-muted-foreground mt-0.5">{source.location}</p>}
-                  {source.contactInfo && <p className="text-xs text-muted-foreground mt-0.5 line-clamp-1">{source.contactInfo}</p>}
-                </div>
-                {isAdmin && (
-                  <div className="flex items-center gap-1 flex-shrink-0">
-                    <button onClick={(e) => { e.stopPropagation(); setEditingSource(source); }} className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"><Pencil size={14} /></button>
-                    <button onClick={(e) => { e.stopPropagation(); setDeletingSource(source); }} className="p-1.5 rounded-lg text-muted-foreground hover:text-destructive hover:bg-secondary transition-colors"><Trash2 size={14} /></button>
-                  </div>
-                )}
-              </Card>
-            ))
-          )}
-        </div>
-
-        <div className={cn('flex-1 min-h-[400px] lg:min-h-0 rounded-xl overflow-hidden', mobileTab === 'list' ? 'hidden lg:block' : 'block')}>
-          <Suspense fallback={<div className="h-full w-full bg-secondary rounded-xl animate-pulse" />}>
-            <RentalMap sources={sources} flyTo={mapCenter} selectedId={selectedId} onSelectSource={setSelectedId} />
-          </Suspense>
-        </div>
+          ))
+        )}
       </div>
 
+      {/* Admin modals (for custom local entries only) */}
       {isAdmin && (
         <>
-          <CreateRentalSourceModal isOpen={isCreateOpen} onClose={() => setIsCreateOpen(false)} onCreated={() => load()} />
-          {editingSource && <EditRentalSourceModal isOpen={true} onClose={() => setEditingSource(null)} source={editingSource} onUpdated={() => { load(); setEditingSource(null); }} />}
-          {deletingSource && <DeleteRentalSourceDialog isOpen={true} onClose={() => setDeletingSource(null)} source={deletingSource} onDeleted={() => { load(); setDeletingSource(null); }} />}
+          <CreateRentalSourceModal
+            isOpen={isCreateOpen}
+            onClose={() => setIsCreateOpen(false)}
+            onCreated={() => load()}
+          />
+          {editingSource && (
+            <EditRentalSourceModal
+              isOpen={true}
+              onClose={() => setEditingSource(null)}
+              source={editingSource}
+              onUpdated={() => {
+                load();
+                setEditingSource(null);
+              }}
+            />
+          )}
+          {deletingSource && (
+            <DeleteRentalSourceDialog
+              isOpen={true}
+              onClose={() => setDeletingSource(null)}
+              source={deletingSource}
+              onDeleted={() => {
+                load();
+                setDeletingSource(null);
+              }}
+            />
+          )}
         </>
       )}
     </div>
