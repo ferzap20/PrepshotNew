@@ -8,6 +8,7 @@ import { EmptyState } from '@/components/ui/EmptyState';
 import { CategoryFilterPills } from '@/components/ui/CategoryFilterPills';
 import { GearListEditModal } from '@/components/project-list/GearListEditModal';
 import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
+import { ExportMenu } from '@/components/project/ExportMenu';
 import { useGearList } from '@/hooks/useGearList';
 import { useAppSetting } from '@/hooks/useAppSetting';
 import { cn } from '@/lib/utils/cn';
@@ -292,9 +293,15 @@ export function ProjectListPage() {
             </span>
             {listItems.length > 0 && (
               <>
+                <ExportMenu
+                  projectId={projectId ?? ''}
+                  project={project}
+                  items={listItems}
+                  catalogItems={catalogItems}
+                />
                 <Button variant="secondary" onClick={exportCSV}>
                   <Download size={14} />
-                  Export
+                  CSV
                 </Button>
                 <Button variant={isPublished ? 'primary' : 'secondary'} onClick={togglePublish}>
                   {isPublished ? <Check size={14} /> : <Send size={14} />}

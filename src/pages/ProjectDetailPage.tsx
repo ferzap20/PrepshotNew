@@ -9,6 +9,7 @@ import { DuplicateProjectModal } from '@/components/projects/DuplicateProjectMod
 import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
 import { DeleteProjectDialog } from '@/components/projects/DeleteProjectDialog';
 import { ProjectGearListPreview } from '@/components/project/ProjectGearListPreview';
+import { ExportMenu } from '@/components/project/ExportMenu';
 import { projectsRepo, projectGeneralListsRepo, catalogItemsRepo, usersRepo } from '@/lib/db/repositories';
 import { formatDateCustom } from '@/lib/utils/date';
 import { useAppSetting } from '@/hooks/useAppSetting';
@@ -150,12 +151,20 @@ export function ProjectDetailPage() {
             <Package size={16} className="text-muted-foreground" />
             <h2 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">Gear List</h2>
           </div>
-          <Link
-            to={`/projects/${project.id}/list`}
-            className="text-xs text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Edit →
-          </Link>
+          <div className="flex items-center gap-3">
+            <ExportMenu
+              projectId={project.id}
+              project={project}
+              items={listItems}
+              catalogItems={catalogItems}
+            />
+            <Link
+              to={`/projects/${project.id}/list`}
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Edit →
+            </Link>
+          </div>
         </div>
         <Card>
           <ProjectGearListPreview

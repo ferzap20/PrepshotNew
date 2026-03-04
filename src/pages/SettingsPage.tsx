@@ -8,6 +8,7 @@ import { Modal } from '@/components/ui/Modal';
 import { useAuth } from '@/hooks/useAuth';
 import { useAppSettings } from '@/hooks/useAppSettings';
 import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
+import { ListLayoutSettings } from '@/components/settings/ListLayoutSettings';
 import {
   appSettingsRepo,
   usersRepo,
@@ -292,6 +293,8 @@ export function SettingsPage() {
       <DateFormatSettings />
 
       {isAdmin && <AdminSettings />}
+
+      <ListLayoutSettings />
 
       <DataManagement />
     </div>

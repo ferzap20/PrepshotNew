@@ -23,6 +23,7 @@ const MyGearPage = lazy(() => import('@/pages/MyGearPage').then((m) => ({ defaul
 const RentalSourcesPage = lazy(() => import('@/pages/RentalSourcesPage').then((m) => ({ default: m.RentalSourcesPage })));
 const SettingsPage = lazy(() => import('@/pages/SettingsPage').then((m) => ({ default: m.SettingsPage })));
 const AdminPage = lazy(() => import('@/pages/AdminPage').then((m) => ({ default: m.AdminPage })));
+const PrintPage = lazy(() => import('@/pages/PrintPage').then((m) => ({ default: m.PrintPage })));
 
 function PageLoader() {
   return (
@@ -74,6 +75,16 @@ export const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: '/projects/:projectId/print',
+    element: (
+      <AuthGuard>
+        <Suspense fallback={<PageLoader />}>
+          <PrintPage />
+        </Suspense>
+      </AuthGuard>
+    ),
   },
   { path: '*', element: <NotFoundPage /> },
 ]);

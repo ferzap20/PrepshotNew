@@ -1,0 +1,38 @@
+@media print {
+  /* Hide all non-print elements */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Force light background regardless of theme */
+  html,
+  body,
+  [data-theme] {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  /* Remove shadows and visual chrome */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Page setup */
+  @page {
+    margin: 1.5cm 2cm;
+    size: A4 portrait;
+  }
+
+  /* Prevent category headers from orphaning */
+  .print-category {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Prevent items from splitting mid-row */
+  .print-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
