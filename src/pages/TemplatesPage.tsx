@@ -85,9 +85,9 @@ export function TemplatesPage() {
   if (isLoading) {
     return (
       <div className="space-y-4">
-        <div className="h-8 w-48 bg-secondary rounded animate-pulse" />
+        <div className="h-8 w-48 bg-muted rounded animate-pulse" />
         {[1, 2].map((i) => (
-          <div key={i} className="h-16 rounded-xl bg-secondary animate-pulse" />
+          <div key={i} className="h-16 rounded-xl bg-muted animate-pulse" />
         ))}
       </div>
     );
@@ -159,7 +159,7 @@ export function TemplatesPage() {
                     </button>
                     <button
                       onClick={() => setDeletingId(template.id)}
-                      className="p-1.5 rounded-lg text-muted-foreground hover:text-destructive hover:bg-secondary transition-colors"
+                      className="p-1.5 rounded-lg text-muted-foreground hover:text-destructive hover:bg-muted transition-colors"
                     >
                       <Trash2 size={14} />
                     </button>
@@ -175,7 +175,7 @@ export function TemplatesPage() {
                           return (
                             <div
                               key={item.id}
-                              className="flex items-center gap-3 py-1.5 px-2 rounded-lg hover:bg-secondary/50"
+                              className="flex items-center gap-3 py-1.5 px-2 rounded-lg hover:bg-muted/50"
                             >
                               <div className="flex-1 min-w-0">
                                 <span className="text-sm">{cat?.name ?? 'Unknown item'}</span>
@@ -228,7 +228,7 @@ export function TemplatesPage() {
                               <button
                                 key={cat.id}
                                 onClick={() => addItem(cat)}
-                                className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-secondary transition-colors text-left"
+                                className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-muted transition-colors text-left"
                               >
                                 <Plus size={13} className="text-muted-foreground flex-shrink-0" />
                                 <span className="text-sm flex-1 min-w-0">{cat.name}</span>
@@ -323,7 +323,7 @@ export function TemplatesPage() {
                           'w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left text-sm transition-colors',
                           selectedProjectId === p.id
                             ? 'bg-primary/10 text-primary'
-                            : 'hover:bg-secondary',
+                            : 'hover:bg-muted',
                         )}
                       >
                         <FolderOpen size={14} className="flex-shrink-0" />

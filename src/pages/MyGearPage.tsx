@@ -72,7 +72,7 @@ export function MyGearPage() {
       {isLoading ? (
         <div className="space-y-2">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-20 rounded-xl bg-secondary animate-pulse" />
+            <div key={i} className="h-20 rounded-xl bg-muted animate-pulse" />
           ))}
         </div>
       ) : rows.length === 0 ? (
@@ -120,14 +120,14 @@ export function MyGearPage() {
               <div className="flex items-center gap-1 flex-shrink-0">
                 <button
                   onClick={() => setEditingRow({ gear, catalog })}
-                  className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                  className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
                   aria-label="Edit"
                 >
                   <Pencil size={14} />
                 </button>
                 <button
                   onClick={() => setDeletingRow({ gear, catalog })}
-                  className="p-1.5 rounded-lg text-muted-foreground hover:text-destructive hover:bg-secondary transition-colors"
+                  className="p-1.5 rounded-lg text-muted-foreground hover:text-destructive hover:bg-muted transition-colors"
                   aria-label="Remove"
                 >
                   <Trash2 size={14} />

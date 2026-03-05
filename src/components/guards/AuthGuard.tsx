@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router';
 import { useAuth } from '@/hooks/useAuth';
-import { PrepShotLogo } from '@/components/brand/PrepShotLogo';
+
 
 export function AuthGuard({ children }: { children: React.ReactNode }) {
   const { session, isLoading } = useAuth();
@@ -8,7 +8,7 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
-        <PrepShotLogo size="lg" />
+        <img src="/prepshot logo main.png" alt="PrepShot" className="h-20 w-auto object-contain" />
       </div>
     );
   }

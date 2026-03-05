@@ -8,9 +8,9 @@ const icons = {
 };
 
 const colors = {
-  success: 'text-emerald-500',
+  success: 'text-prepshot-teal',
   error: 'text-destructive',
-  info: 'text-primary',
+  info: 'text-prepshot-sage',
 };
 
 export function ToastContainer() {

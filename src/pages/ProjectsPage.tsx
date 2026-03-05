@@ -50,7 +50,7 @@ function ProjectRowCard({
       <div className="relative flex-shrink-0">
         <button
           onClick={(e) => { e.preventDefault(); setMenuOpen((v) => !v); }}
-          className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+          className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
           aria-label="Actions"
         >
           <MoreVertical size={16} />
@@ -64,14 +64,14 @@ function ProjectRowCard({
             )}>
               <button
                 onClick={() => { setMenuOpen(false); onEdit(project); }}
-                className="flex items-center gap-2 w-full px-3 py-2 text-sm hover:bg-secondary transition-colors text-left"
+                className="flex items-center gap-2 w-full px-3 py-2 text-sm hover:bg-muted transition-colors text-left"
               >
                 <Pencil size={14} />
                 Edit
               </button>
               <button
                 onClick={() => { setMenuOpen(false); onDelete(project); }}
-                className="flex items-center gap-2 w-full px-3 py-2 text-sm hover:bg-secondary transition-colors text-left text-destructive"
+                className="flex items-center gap-2 w-full px-3 py-2 text-sm hover:bg-muted transition-colors text-left text-destructive"
               >
                 <Trash2 size={14} />
                 Delete
@@ -121,7 +121,7 @@ export function ProjectsPage() {
       {isLoading ? (
         <div className="space-y-3">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-16 rounded-xl bg-secondary animate-pulse" />
+            <div key={i} className="h-16 rounded-xl bg-muted animate-pulse" />
           ))}
         </div>
       ) : projects.length === 0 ? (

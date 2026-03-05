@@ -48,7 +48,7 @@ export function PWANotifications() {
           <span className="flex-1">App ready for offline use</span>
           <button
             onClick={() => setOfflineReady(false)}
-            className="p-1 rounded hover:bg-secondary text-muted-foreground transition-colors"
+            className="p-1 rounded hover:bg-muted text-muted-foreground transition-colors"
           >
             <X size={14} />
           </button>
@@ -66,7 +66,7 @@ export function PWANotifications() {
           </button>
           <button
             onClick={() => setDeferredPrompt(null)}
-            className="p-1 rounded hover:bg-secondary text-muted-foreground transition-colors"
+            className="p-1 rounded hover:bg-muted text-muted-foreground transition-colors"
           >
             <X size={14} />
           </button>

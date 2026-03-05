@@ -95,8 +95,8 @@ export function ShootingDaysPage() {
   if (isLoading) {
     return (
       <div className="space-y-4">
-        <div className="h-6 w-40 bg-secondary rounded animate-pulse" />
-        <div className="h-64 bg-secondary rounded-xl animate-pulse" />
+        <div className="h-6 w-40 bg-muted rounded animate-pulse" />
+        <div className="h-64 bg-muted rounded-xl animate-pulse" />
       </div>
     );
   }
@@ -129,11 +129,11 @@ export function ShootingDaysPage() {
       {/* Calendar */}
       <Card>
         <div className="flex items-center justify-between mb-4">
-          <button onClick={prevMonth} className="p-1.5 rounded-lg hover:bg-secondary transition-colors">
+          <button onClick={prevMonth} className="p-1.5 rounded-lg hover:bg-muted transition-colors">
             <ChevronLeft size={16} />
           </button>
           <span className="text-sm font-medium">{MONTH_NAMES[calMonth]} {calYear}</span>
-          <button onClick={nextMonth} className="p-1.5 rounded-lg hover:bg-secondary transition-colors">
+          <button onClick={nextMonth} className="p-1.5 rounded-lg hover:bg-muted transition-colors">
             <ChevronRight size={16} />
           </button>
         </div>
@@ -160,7 +160,7 @@ export function ShootingDaysPage() {
                 disabled={!inRange}
                 className={cn(
                   'relative flex flex-col items-center justify-center h-9 rounded-lg text-sm transition-colors',
-                  inRange ? 'hover:bg-secondary cursor-pointer' : 'cursor-default opacity-30',
+                  inRange ? 'hover:bg-muted cursor-pointer' : 'cursor-default opacity-30',
                   isToday && 'ring-1 ring-primary',
                   hasDay && inRange && 'bg-primary/10 text-primary font-medium',
                 )}
@@ -203,7 +203,7 @@ export function ShootingDaysPage() {
               </div>
               <button
                 onClick={(e) => handleDelete(day.id, e)}
-                className="p-1.5 rounded-lg text-muted-foreground hover:text-destructive hover:bg-secondary transition-colors flex-shrink-0"
+                className="p-1.5 rounded-lg text-muted-foreground hover:text-destructive hover:bg-muted transition-colors flex-shrink-0"
               >
                 <Trash2 size={14} />
               </button>

@@ -90,7 +90,7 @@ export function CatalogPage() {
                 'px-3 py-1 rounded-full text-xs font-medium transition-colors',
                 activeCategory === cat
                   ? 'bg-primary text-primary-foreground'
-                  : 'bg-secondary text-muted-foreground hover:text-foreground',
+                  : 'bg-muted text-muted-foreground hover:text-foreground',
               )}
             >
               {cat}
@@ -103,7 +103,7 @@ export function CatalogPage() {
       {isLoading ? (
         <div className="space-y-2">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="h-20 rounded-xl bg-secondary animate-pulse" />
+            <div key={i} className="h-20 rounded-xl bg-muted animate-pulse" />
           ))}
         </div>
       ) : filtered.length === 0 ? (
@@ -151,14 +151,14 @@ export function CatalogPage() {
                 <div className="flex items-center gap-1 flex-shrink-0">
                   <button
                     onClick={() => setEditingItem(item)}
-                    className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                    className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
                     aria-label="Edit"
                   >
                     <Pencil size={14} />
                   </button>
                   <button
                     onClick={() => setDeletingItem(item)}
-                    className="p-1.5 rounded-lg text-muted-foreground hover:text-destructive hover:bg-secondary transition-colors"
+                    className="p-1.5 rounded-lg text-muted-foreground hover:text-destructive hover:bg-muted transition-colors"
                     aria-label="Delete"
                   >
                     <Trash2 size={14} />

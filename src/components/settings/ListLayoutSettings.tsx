@@ -20,7 +20,7 @@ function ToggleRow({ label, settingKey, defaultValue = true, settings, setSettin
         aria-checked={value}
         onClick={() => setSetting(settingKey, String(!value))}
         className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors ${
-          value ? 'bg-primary' : 'bg-secondary'
+          value ? 'bg-primary' : 'bg-muted'
         }`}
       >
         <span

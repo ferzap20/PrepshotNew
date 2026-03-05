@@ -63,8 +63,8 @@ export function ShootingDayPage() {
   if (isLoading) {
     return (
       <div className="space-y-4">
-        <div className="h-6 w-40 bg-secondary rounded animate-pulse" />
-        <div className="h-64 bg-secondary rounded-xl animate-pulse" />
+        <div className="h-6 w-40 bg-muted rounded animate-pulse" />
+        <div className="h-64 bg-muted rounded-xl animate-pulse" />
       </div>
     );
   }
@@ -141,7 +141,7 @@ export function ShootingDayPage() {
             return (
               <div
                 key={catId}
-                className="flex items-center gap-3 px-3 py-2 rounded-xl bg-secondary/30 mb-1.5 opacity-60"
+                className="flex items-center gap-3 px-3 py-2 rounded-xl bg-muted/30 mb-1.5 opacity-60"
               >
                 <span className="text-sm flex-1 line-through">{cat.name}</span>
                 <button
@@ -170,7 +170,7 @@ export function ShootingDayPage() {
               'px-3 py-1.5 rounded-lg text-sm transition-colors',
               rightTab === tab
                 ? 'bg-primary text-primary-foreground'
-                : 'bg-secondary text-muted-foreground',
+                : 'bg-muted text-muted-foreground',
             )}
           >
             {tab === 'adjust' ? 'Adjust Base' : 'Add Items'}
@@ -196,7 +196,7 @@ export function ShootingDayPage() {
                 <div
                   key={item.id}
                   className={cn(
-                    'flex items-center gap-3 px-3 py-2.5 rounded-xl bg-secondary/50 transition-colors',
+                    'flex items-center gap-3 px-3 py-2.5 rounded-xl bg-muted/50 transition-colors',
                     isRemoved && 'opacity-50',
                   )}
                 >
@@ -212,14 +212,14 @@ export function ShootingDayPage() {
                         onClick={() =>
                           adjustQty(item.catalogItemId, Math.max(1, currentQty - 1), item.quantity)
                         }
-                        className="w-6 h-6 flex items-center justify-center rounded bg-secondary hover:bg-border text-sm transition-colors"
+                        className="w-6 h-6 flex items-center justify-center rounded bg-muted hover:bg-border text-sm transition-colors"
                       >
                         −
                       </button>
                       <span className="w-6 text-center text-sm">{currentQty}</span>
                       <button
                         onClick={() => adjustQty(item.catalogItemId, currentQty + 1, item.quantity)}
-                        className="w-6 h-6 flex items-center justify-center rounded bg-secondary hover:bg-border text-sm transition-colors"
+                        className="w-6 h-6 flex items-center justify-center rounded bg-muted hover:bg-border text-sm transition-colors"
                       >
                         +
                       </button>
@@ -231,8 +231,8 @@ export function ShootingDayPage() {
                     className={cn(
                       'p-1.5 rounded-lg transition-colors flex-shrink-0',
                       isRemoved
-                        ? 'text-muted-foreground hover:text-foreground hover:bg-secondary'
-                        : 'text-muted-foreground hover:text-destructive hover:bg-secondary',
+                        ? 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                        : 'text-muted-foreground hover:text-destructive hover:bg-muted',
                     )}
                   >
                     {isRemoved ? <RotateCcw size={13} /> : <Trash2 size={13} />}
@@ -292,7 +292,7 @@ export function ShootingDayPage() {
               filteredCatalog.map((cat) => (
                 <div
                   key={cat.id}
-                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors"
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-muted/50 hover:bg-muted transition-colors"
                 >
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium truncate">{cat.name}</p>
@@ -349,7 +349,7 @@ export function ShootingDayPage() {
               'px-3 py-1.5 rounded-lg text-sm transition-colors',
               mobileTab === tab
                 ? 'bg-primary text-primary-foreground'
-                : 'bg-secondary text-muted-foreground',
+                : 'bg-muted text-muted-foreground',
             )}
           >
             {tab === 'list' ? 'Gear List' : 'Modify'}

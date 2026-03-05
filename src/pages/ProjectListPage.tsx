@@ -63,8 +63,8 @@ export function ProjectListPage() {
   if (isLoading) {
     return (
       <div className="space-y-4">
-        <div className="h-6 w-40 bg-secondary rounded animate-pulse" />
-        <div className="h-64 bg-secondary rounded-xl animate-pulse" />
+        <div className="h-6 w-40 bg-muted rounded animate-pulse" />
+        <div className="h-64 bg-muted rounded-xl animate-pulse" />
       </div>
     );
   }
@@ -112,13 +112,13 @@ export function ProjectListPage() {
                       <div className="flex items-center gap-1 flex-shrink-0">
                         <button
                           onClick={() => setEditingItem(item)}
-                          className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                          className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
                         >
                           <Pencil size={13} />
                         </button>
                         <button
                           onClick={() => deleteItem(item.id)}
-                          className="p-1.5 rounded-lg text-muted-foreground hover:text-destructive hover:bg-secondary transition-colors"
+                          className="p-1.5 rounded-lg text-muted-foreground hover:text-destructive hover:bg-muted transition-colors"
                         >
                           <Trash2 size={13} />
                         </button>
@@ -154,7 +154,7 @@ export function ProjectListPage() {
             onClick={() => setAddTab(tab)}
             className={cn(
               'px-3 py-1.5 rounded-lg text-sm transition-colors',
-              addTab === tab ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground',
+              addTab === tab ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground',
             )}
           >
             {tab === 'catalog' ? 'Catalog' : 'My Gear'}
@@ -191,7 +191,7 @@ export function ProjectListPage() {
                 return (
                   <div
                     key={cat.id}
-                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors"
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-muted/50 hover:bg-muted transition-colors"
                   >
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5">
@@ -241,7 +241,7 @@ export function ProjectListPage() {
               return (
                 <div
                   key={gear.id}
-                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors"
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-muted/50 hover:bg-muted transition-colors"
                 >
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium truncate">{cat.name}</p>
@@ -322,7 +322,7 @@ export function ProjectListPage() {
               'px-3 py-1.5 rounded-lg text-sm transition-colors',
               mobileTab === tab
                 ? 'bg-primary text-primary-foreground'
-                : 'bg-secondary text-muted-foreground',
+                : 'bg-muted text-muted-foreground',
             )}
           >
             {tab === 'add' ? 'Add Gear' : 'Gear List'}

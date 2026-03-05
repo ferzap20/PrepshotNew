@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils/cn';
 
-type BadgeVariant = 'default' | 'success' | 'warning' | 'danger' | 'info';
+type BadgeVariant = 'default' | 'success' | 'warning' | 'danger' | 'info' | 'outline';
 
 interface BadgeProps {
   variant?: BadgeVariant;
@@ -9,18 +9,19 @@ interface BadgeProps {
 }
 
 const variantStyles: Record<BadgeVariant, string> = {
-  default: 'bg-primary/15 text-primary border-primary/20',
-  success: 'bg-emerald-500/15 text-emerald-500 border-emerald-500/20',
-  warning: 'bg-amber-500/15 text-amber-500 border-amber-500/20',
-  danger: 'bg-destructive/15 text-destructive border-destructive/20',
-  info: 'bg-blue-500/15 text-blue-500 border-blue-500/20',
+  default:  'bg-prepshot-teal-light text-prepshot-teal-dark border-transparent',
+  success:  'bg-prepshot-sage-light text-prepshot-charcoal border-transparent',
+  warning:  'bg-prepshot-peach-light text-prepshot-charcoal border-transparent',
+  danger:   'bg-prepshot-error-bg text-prepshot-error-text border-prepshot-error-border',
+  info:     'bg-prepshot-info-bg text-prepshot-info-text border-transparent',
+  outline:  'border-primary text-primary bg-transparent',
 };
 
 export function Badge({ variant = 'default', children, className }: BadgeProps) {
   return (
     <span
       className={cn(
-        'text-xs px-2 py-0.5 rounded-full border inline-flex items-center',
+        'text-xs px-2.5 py-0.5 rounded-full border inline-flex items-center gap-1',
         variantStyles[variant],
         className,
       )}

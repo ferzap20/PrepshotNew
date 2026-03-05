@@ -78,7 +78,7 @@ export function ExportMenu({ projectId, project, items, catalogItems }: Props) {
     <div className="relative" ref={ref}>
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors border border-transparent hover:border-border"
+        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors border border-transparent hover:border-border"
       >
         {copied ? <CheckCheck size={14} className="text-green-500" /> : <Share2 size={14} />}
         <span>{copied ? 'Copied!' : 'Share'}</span>
@@ -88,28 +88,28 @@ export function ExportMenu({ projectId, project, items, catalogItems }: Props) {
         <div className="absolute right-0 top-full mt-1 z-50 w-48 rounded-lg border border-border bg-background shadow-lg overflow-hidden">
           <button
             onClick={handlePrint}
-            className="flex items-center gap-2.5 w-full px-3 py-2 text-sm text-left hover:bg-secondary transition-colors"
+            className="flex items-center gap-2.5 w-full px-3 py-2 text-sm text-left hover:bg-muted transition-colors"
           >
             <Printer size={14} className="text-muted-foreground" />
             Print / Save PDF
           </button>
           <button
             onClick={handleCopy}
-            className="flex items-center gap-2.5 w-full px-3 py-2 text-sm text-left hover:bg-secondary transition-colors"
+            className="flex items-center gap-2.5 w-full px-3 py-2 text-sm text-left hover:bg-muted transition-colors"
           >
             <Copy size={14} className="text-muted-foreground" />
             Copy as text
           </button>
           <button
             onClick={handleShare}
-            className="flex items-center gap-2.5 w-full px-3 py-2 text-sm text-left hover:bg-secondary transition-colors"
+            className="flex items-center gap-2.5 w-full px-3 py-2 text-sm text-left hover:bg-muted transition-colors"
           >
             <Share2 size={14} className="text-muted-foreground" />
             Send via app
           </button>
           <button
             onClick={handleEmail}
-            className="flex items-center gap-2.5 w-full px-3 py-2 text-sm text-left hover:bg-secondary transition-colors"
+            className="flex items-center gap-2.5 w-full px-3 py-2 text-sm text-left hover:bg-muted transition-colors"
           >
             <Mail size={14} className="text-muted-foreground" />
             Send by email

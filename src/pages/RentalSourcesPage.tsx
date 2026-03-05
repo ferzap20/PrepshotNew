@@ -158,7 +158,7 @@ export function RentalSourcesPage() {
         <div className="flex gap-1.5 flex-wrap">
           <button
             onClick={() => handleCitySelect('')}
-            className={`px-2.5 py-1 rounded-full text-xs transition-colors ${!activeCity ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground'}`}
+            className={`px-2.5 py-1 rounded-full text-xs transition-colors ${!activeCity ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}`}
           >
             All Cities
           </button>
@@ -166,7 +166,7 @@ export function RentalSourcesPage() {
             <button
               key={city}
               onClick={() => handleCitySelect(city === activeCity ? '' : city)}
-              className={`px-2.5 py-1 rounded-full text-xs transition-colors ${activeCity === city ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground'}`}
+              className={`px-2.5 py-1 rounded-full text-xs transition-colors ${activeCity === city ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}`}
             >
               {city}
             </button>
@@ -193,7 +193,7 @@ export function RentalSourcesPage() {
       <div className="flex flex-col gap-2 overflow-y-auto flex-1 min-h-0">
         {isLoading ? (
           [1, 2, 3].map((i) => (
-            <div key={i} className="h-24 rounded-xl bg-secondary animate-pulse flex-shrink-0" />
+            <div key={i} className="h-24 rounded-xl bg-muted animate-pulse flex-shrink-0" />
           ))
         ) : filtered.length === 0 ? (
           <EmptyState

@@ -90,7 +90,7 @@ export function ProjectForm({ initial, onSubmit, onCancel, submitLabel }: Projec
                 'flex flex-col items-center justify-center gap-1.5 p-3 rounded-xl border-2 transition-all text-sm font-medium',
                 crewType === value
                   ? 'bg-primary text-primary-foreground border-primary ring-2 ring-primary/30'
-                  : 'bg-secondary text-muted-foreground border-border hover:border-muted-foreground/40',
+                  : 'bg-muted text-muted-foreground border-border hover:border-muted-foreground/40',
               )}
             >
               <Icon size={20} />

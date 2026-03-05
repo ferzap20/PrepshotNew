@@ -1,81 +1,139 @@
 @custom-variant dark (&:is(.dark *));
 
-[data-theme="light"] {
-  --background: #F8F9FA;
-  --foreground: #0B0D11;
-  --card: #FFFFFF;
-  --card-foreground: #0B0D11;
-  --popover: #FFFFFF;
-  --popover-foreground: #0B0D11;
-  --primary: #E8A030;
-  --primary-foreground: #FFFFFF;
-  --secondary: #F1F3F5;
-  --secondary-foreground: #0B0D11;
-  --muted: #F1F3F5;
-  --muted-foreground: #6B7280;
-  --accent: #E8A030;
-  --accent-foreground: #FFFFFF;
-  --destructive: #E5484D;
-  --destructive-foreground: #FFFFFF;
-  --border: rgba(0, 0, 0, 0.1);
-  --input: transparent;
-  --input-background: #F1F3F5;
-  --switch-background: #CBD5E1;
-  --ring: #E8A030;
-  --sidebar: #F1F3F5;
-  --sidebar-foreground: #0B0D11;
-  --sidebar-primary: #E8A030;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #E2E8F0;
-  --sidebar-accent-foreground: #0B0D11;
-  --sidebar-border: rgba(0, 0, 0, 0.1);
-  --sidebar-ring: #E8A030;
-}
-
+/* ── LIGHT MODE (default) ──────────────────────────── */
 :root {
   --font-size: 16px;
-  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --background: #0B0D11;
-  --foreground: #E8EAED;
-  --card: #14171D;
-  --card-foreground: #E8EAED;
-  --popover: #14171D;
-  --popover-foreground: #E8EAED;
-  --primary: #E8A030;
-  --primary-foreground: #0B0D11;
-  --secondary: #1C2028;
-  --secondary-foreground: #E8EAED;
-  --muted: #1C2028;
-  --muted-foreground: #8B8FA3;
-  --accent: #E8A030;
-  --accent-foreground: #0B0D11;
-  --destructive: #E5484D;
-  --destructive-foreground: #ffffff;
-  --border: rgba(255, 255, 255, 0.08);
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+
+  --background: #F7F5F2;
+  --foreground: #2C3033;
+  --card: #FFFFFF;
+  --card-foreground: #2C3033;
+  --popover: #FFFFFF;
+  --popover-foreground: #2C3033;
+  --primary: #5AA19E;
+  --primary-foreground: #FFFFFF;
+  --secondary: #FAC29E;
+  --secondary-foreground: #2C3033;
+  --muted: #E8E4DF;
+  --muted-foreground: #6B7280;
+  --accent: #85B6AA;
+  --accent-foreground: #FFFFFF;
+  --destructive: #D4183D;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(44, 48, 51, 0.12);
   --input: transparent;
-  --input-background: #1C2028;
-  --switch-background: #2A2F3A;
+  --input-background: #F0EDE9;
+  --switch-background: #C5C0B9;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #E8A030;
-  --chart-1: #E8A030;
-  --chart-2: #3B82F6;
-  --chart-3: #10B981;
-  --chart-4: #8B5CF6;
-  --chart-5: #F43F5E;
+  --ring: #5AA19E;
+  --chart-1: #5AA19E;
+  --chart-2: #FAC29E;
+  --chart-3: #85B6AA;
+  --chart-4: #2C3033;
+  --chart-5: #D4A574;
   --radius: 0.5rem;
-  --sidebar: #0F1116;
-  --sidebar-foreground: #E8EAED;
-  --sidebar-primary: #E8A030;
-  --sidebar-primary-foreground: #0B0D11;
-  --sidebar-accent: #1C2028;
-  --sidebar-accent-foreground: #E8EAED;
+
+  --prepshot-charcoal: #2C3033;
+  --prepshot-teal: #5AA19E;
+  --prepshot-sage: #85B6AA;
+  --prepshot-peach: #FAC29E;
+  --prepshot-peach-light: #FDE8D5;
+  --prepshot-teal-dark: #4A8785;
+  --prepshot-teal-light: #D0E5E3;
+  --prepshot-sage-light: #D6E8E1;
+  --prepshot-charcoal-light: #3D4347;
+  --prepshot-info-bg: #D0E5E3;
+  --prepshot-info-text: #2C3033;
+  --prepshot-warning-bg: #FDE8D5;
+  --prepshot-warning-text: #2C3033;
+  --prepshot-success-bg: #D6E8E1;
+  --prepshot-success-text: #2C3033;
+  --prepshot-error-bg: #FEF2F2;
+  --prepshot-error-text: #7F1D1D;
+  --prepshot-error-border: #FECACA;
+  --prepshot-highlight-bg: #D0E5E3;
+  --prepshot-highlight-text: #2C3033;
+  --prepshot-highlight-muted: rgba(44, 48, 51, 0.7);
+  --prepshot-kbd-bg: rgba(255, 255, 255, 0.6);
+
+  --sidebar: #F7F5F2;
+  --sidebar-foreground: #2C3033;
+  --sidebar-primary: #5AA19E;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #E8E4DF;
+  --sidebar-accent-foreground: #2C3033;
+  --sidebar-border: rgba(44, 48, 51, 0.1);
+  --sidebar-ring: #5AA19E;
+}
+
+/* ── DARK MODE ─────────────────────────────────────── */
+.dark {
+  --background: #1A1D1F;
+  --foreground: #E8E4DF;
+  --card: #2C3033;
+  --card-foreground: #E8E4DF;
+  --popover: #2C3033;
+  --popover-foreground: #E8E4DF;
+  --primary: #5AA19E;
+  --primary-foreground: #FFFFFF;
+  --secondary: #FAC29E;
+  --secondary-foreground: #2C3033;
+  --muted: #3D4347;
+  --muted-foreground: #9CA3AF;
+  --accent: #85B6AA;
+  --accent-foreground: #1A1D1F;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.1);
+  --input-background: #3D4347;
+  --switch-background: #555B61;
+  --ring: #5AA19E;
+  --chart-1: #5AA19E;
+  --chart-2: #FAC29E;
+  --chart-3: #85B6AA;
+  --chart-4: #E8E4DF;
+  --chart-5: #D4A574;
+
+  --prepshot-charcoal: #E8E4DF;
+  --prepshot-teal: #6BBFBC;
+  --prepshot-sage: #9DCABD;
+  --prepshot-peach: #FAC29E;
+  --prepshot-peach-light: rgba(250, 194, 158, 0.15);
+  --prepshot-teal-dark: #6BBFBC;
+  --prepshot-teal-light: rgba(90, 161, 158, 0.15);
+  --prepshot-sage-light: rgba(133, 182, 170, 0.15);
+  --prepshot-charcoal-light: #9CA3AF;
+  --prepshot-info-bg: rgba(90, 161, 158, 0.15);
+  --prepshot-info-text: #E8E4DF;
+  --prepshot-warning-bg: rgba(250, 194, 158, 0.15);
+  --prepshot-warning-text: #E8E4DF;
+  --prepshot-success-bg: rgba(133, 182, 170, 0.15);
+  --prepshot-success-text: #E8E4DF;
+  --prepshot-error-bg: rgba(239, 68, 68, 0.15);
+  --prepshot-error-text: #FCA5A5;
+  --prepshot-error-border: rgba(239, 68, 68, 0.3);
+  --prepshot-highlight-bg: rgba(90, 161, 158, 0.15);
+  --prepshot-highlight-text: #E8E4DF;
+  --prepshot-highlight-muted: rgba(232, 228, 223, 0.7);
+  --prepshot-kbd-bg: rgba(255, 255, 255, 0.15);
+
+  --sidebar: #1A1D1F;
+  --sidebar-foreground: #E8E4DF;
+  --sidebar-primary: #5AA19E;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #3D4347;
+  --sidebar-accent-foreground: #E8E4DF;
   --sidebar-border: rgba(255, 255, 255, 0.08);
-  --sidebar-ring: #E8A030;
+  --sidebar-ring: #5AA19E;
 }
 
 @theme inline {
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -102,6 +160,28 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  --color-prepshot-charcoal: var(--prepshot-charcoal);
+  --color-prepshot-teal: var(--prepshot-teal);
+  --color-prepshot-sage: var(--prepshot-sage);
+  --color-prepshot-peach: var(--prepshot-peach);
+  --color-prepshot-peach-light: var(--prepshot-peach-light);
+  --color-prepshot-teal-dark: var(--prepshot-teal-dark);
+  --color-prepshot-teal-light: var(--prepshot-teal-light);
+  --color-prepshot-sage-light: var(--prepshot-sage-light);
+  --color-prepshot-charcoal-light: var(--prepshot-charcoal-light);
+  --color-prepshot-info-bg: var(--prepshot-info-bg);
+  --color-prepshot-info-text: var(--prepshot-info-text);
+  --color-prepshot-warning-bg: var(--prepshot-warning-bg);
+  --color-prepshot-warning-text: var(--prepshot-warning-text);
+  --color-prepshot-success-bg: var(--prepshot-success-bg);
+  --color-prepshot-success-text: var(--prepshot-success-text);
+  --color-prepshot-error-bg: var(--prepshot-error-bg);
+  --color-prepshot-error-text: var(--prepshot-error-text);
+  --color-prepshot-error-border: var(--prepshot-error-border);
+  --color-prepshot-highlight-bg: var(--prepshot-highlight-bg);
+  --color-prepshot-highlight-text: var(--prepshot-highlight-text);
+  --color-prepshot-highlight-muted: var(--prepshot-highlight-muted);
+  --color-prepshot-kbd-bg: var(--prepshot-kbd-bg);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -122,14 +202,8 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: var(--font-family);
+    @apply bg-background text-foreground font-sans;
   }
-
-  /**
-  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
-  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
-  */
 
   html {
     font-size: var(--font-size);

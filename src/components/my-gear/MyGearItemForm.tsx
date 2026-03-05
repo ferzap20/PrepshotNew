@@ -66,7 +66,7 @@ export function MyGearItemForm({ initial, fixedCatalogItem, onSubmit, onCancel, 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       {fixedCatalogItem ? (
-        <div className="px-3 py-2 rounded-lg bg-secondary text-sm">
+        <div className="px-3 py-2 rounded-lg bg-muted text-sm">
           <span className="font-medium">{fixedCatalogItem.name}</span>
           {fixedCatalogItem.brand && (
             <span className="text-muted-foreground"> — {fixedCatalogItem.brand}</span>

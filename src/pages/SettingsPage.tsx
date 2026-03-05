@@ -63,7 +63,7 @@ function AccountSettings() {
     return (
       <Card>
         <h3 className="mb-3">Account</h3>
-        <div className="h-20 bg-secondary rounded animate-pulse" />
+        <div className="h-20 bg-muted rounded animate-pulse" />
       </Card>
     );
   }

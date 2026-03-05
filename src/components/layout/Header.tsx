@@ -1,5 +1,4 @@
 import { Menu, LogOut, Wifi, WifiOff, Sun, Moon } from 'lucide-react';
-import { PrepShotLogo } from '@/components/brand/PrepShotLogo';
 import { useAuth } from '@/hooks/useAuth';
 import { useSidebar } from '@/hooks/useSidebar';
 import { useOnlineStatus } from '@/hooks/useOnlineStatus';
@@ -24,11 +23,11 @@ export function Header() {
         <div className="flex items-center gap-3">
           <button
             onClick={toggle}
-            className="lg:hidden p-2 rounded-lg hover:bg-secondary transition-colors text-muted-foreground"
+            className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground"
           >
             <Menu size={20} />
           </button>
-          <PrepShotLogo size="sm" />
+          <img src="/logo header.png" alt="PrepShot" className="h-7 w-auto object-contain" />
         </div>
 
         <div className="flex items-center gap-2">
@@ -43,7 +42,7 @@ export function Header() {
 
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-lg hover:bg-secondary transition-colors text-muted-foreground"
+            className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground"
             title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
@@ -56,7 +55,7 @@ export function Header() {
               </span>
               <button
                 onClick={handleLogout}
-                className="p-2 rounded-lg hover:bg-secondary transition-colors text-muted-foreground"
+                className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground"
                 title="Sign out"
               >
                 <LogOut size={16} />

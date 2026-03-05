@@ -3,7 +3,7 @@ import { Link, Navigate } from 'react-router';
 import { useAuth } from '@/hooks/useAuth';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
-import { PrepShotLogo } from '@/components/brand/PrepShotLogo';
+
 
 export function RegisterPage() {
   const { session, register } = useAuth();
@@ -42,7 +42,7 @@ export function RegisterPage() {
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="w-full max-w-sm space-y-8">
         <div className="flex flex-col items-center gap-4">
-          <PrepShotLogo size="lg" />
+          <img src="/prepshot logo main.png" alt="PrepShot" className="h-20 w-auto object-contain" />
           <p className="text-sm text-muted-foreground">Create your account</p>
         </div>
 

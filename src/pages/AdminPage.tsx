@@ -47,8 +47,8 @@ export function AdminPage() {
   if (isLoading) {
     return (
       <div className="space-y-4">
-        <div className="h-8 w-36 bg-secondary rounded animate-pulse" />
-        <div className="h-48 rounded-xl bg-secondary animate-pulse" />
+        <div className="h-8 w-36 bg-muted rounded animate-pulse" />
+        <div className="h-48 rounded-xl bg-muted animate-pulse" />
       </div>
     );
   }
@@ -75,7 +75,7 @@ export function AdminPage() {
             return (
               <div
                 key={user.id}
-                className="flex items-center gap-3 py-2 px-3 rounded-lg bg-secondary/30"
+                className="flex items-center gap-3 py-2 px-3 rounded-lg bg-muted/30"
               >
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium truncate">
@@ -94,7 +94,7 @@ export function AdminPage() {
                     onClick={() => handleToggleRole(user)}
                     disabled={togglingId === user.id}
                     title={isAdmin ? 'Demote to user' : 'Promote to admin'}
-                    className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors disabled:opacity-50"
+                    className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors disabled:opacity-50"
                   >
                     {isAdmin ? <ChevronDown size={14} /> : <ChevronUp size={14} />}
                   </button>

@@ -54,8 +54,8 @@ export function ProjectDetailPage() {
   if (isLoading) {
     return (
       <div className="space-y-6">
-        <div className="h-8 w-48 bg-secondary rounded animate-pulse" />
-        <div className="h-24 bg-secondary rounded-xl animate-pulse" />
+        <div className="h-8 w-48 bg-muted rounded animate-pulse" />
+        <div className="h-24 bg-muted rounded-xl animate-pulse" />
       </div>
     );
   }

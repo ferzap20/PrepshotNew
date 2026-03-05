@@ -55,13 +55,13 @@ export function RentalCompanyCard({
           <div className="flex items-center gap-1 flex-shrink-0">
             <button
               onClick={onEdit}
-              className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+              className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
             >
               <Pencil size={14} />
             </button>
             <button
               onClick={onDelete}
-              className="p-1.5 rounded-lg text-muted-foreground hover:text-destructive hover:bg-secondary transition-colors"
+              className="p-1.5 rounded-lg text-muted-foreground hover:text-destructive hover:bg-muted transition-colors"
             >
               <Trash2 size={14} />
             </button>

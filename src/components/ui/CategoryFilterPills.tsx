@@ -19,7 +19,7 @@ export function CategoryFilterPills({
         onClick={() => onSelect('')}
         className={cn(
           'px-2.5 py-1 rounded-full text-xs transition-colors',
-          !active ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground',
+          !active ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground',
         )}
       >
         {allLabel}
@@ -32,7 +32,7 @@ export function CategoryFilterPills({
             'px-2.5 py-1 rounded-full text-xs transition-colors',
             active === cat
               ? 'bg-primary text-primary-foreground'
-              : 'bg-secondary text-muted-foreground',
+              : 'bg-muted text-muted-foreground',
           )}
         >
           {cat}
