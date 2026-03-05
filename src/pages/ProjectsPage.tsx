@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react';
-import { Plus, FolderOpen, MoreVertical, Pencil, Trash2 } from 'lucide-react';
-import { Link } from 'react-router';
+import { Plus, FolderOpen, MoreVertical, Pencil, Trash2, Copy } from 'lucide-react';
+import { Link, useNavigate } from 'react-router';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { CreateProjectModal } from '@/components/projects/CreateProjectModal';
 import { EditProjectModal } from '@/components/projects/EditProjectModal';
+import { DuplicateProjectModal } from '@/components/projects/DuplicateProjectModal';
 import { DeleteProjectDialog } from '@/components/projects/DeleteProjectDialog';
 import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
 import { useProjects } from '@/hooks/useProjects';
+import { useAuth } from '@/hooks/useAuth';
 import { projectGeneralListsRepo } from '@/lib/db/repositories';
 import { formatShortDate } from '@/lib/utils/date';
 import { cn } from '@/lib/utils/cn';
@@ -20,11 +22,13 @@ function ProjectRowCard({
   equipmentCount,
   onEdit,
   onDelete,
+  onDuplicate,
 }: {
   project: Project;
   equipmentCount: number;
   onEdit: (p: Project) => void;
   onDelete: (p: Project) => void;
+  onDuplicate: (p: Project) => void;
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -67,7 +71,14 @@ function ProjectRowCard({
                 className="flex items-center gap-2 w-full px-3 py-2 text-sm hover:bg-muted transition-colors text-left"
               >
                 <Pencil size={14} />
-                Edit
+                Project Info
+              </button>
+              <button
+                onClick={() => { setMenuOpen(false); onDuplicate(project); }}
+                className="flex items-center gap-2 w-full px-3 py-2 text-sm hover:bg-muted transition-colors text-left"
+              >
+                <Copy size={14} />
+                Duplicate
               </button>
               <button
                 onClick={() => { setMenuOpen(false); onDelete(project); }}
@@ -85,10 +96,13 @@ function ProjectRowCard({
 }
 
 export function ProjectsPage() {
+  const navigate = useNavigate();
+  const { session } = useAuth();
   const { projects, isLoading, refresh } = useProjects();
   const [equipmentCounts, setEquipmentCounts] = useState<Record<string, number>>({});
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [editingProject, setEditingProject] = useState<Project | null>(null);
+  const [duplicatingProject, setDuplicatingProject] = useState<Project | null>(null);
   const [deletingProject, setDeletingProject] = useState<Project | null>(null);
 
   useEffect(() => {
@@ -144,6 +158,7 @@ export function ProjectsPage() {
               project={project}
               equipmentCount={equipmentCounts[project.id] ?? 0}
               onEdit={setEditingProject}
+              onDuplicate={setDuplicatingProject}
               onDelete={setDeletingProject}
             />
           ))}
@@ -153,7 +168,10 @@ export function ProjectsPage() {
       <CreateProjectModal
         isOpen={isCreateOpen}
         onClose={() => setIsCreateOpen(false)}
-        onCreated={() => { refresh(); }}
+        onCreated={(project) => {
+          refresh();
+          navigate(`/projects/${project.id}`);
+        }}
       />
 
       {editingProject && (
@@ -162,6 +180,15 @@ export function ProjectsPage() {
           onClose={() => setEditingProject(null)}
           project={editingProject}
           onUpdated={() => { refresh(); setEditingProject(null); }}
+        />
+      )}
+
+      {session && duplicatingProject && (
+        <DuplicateProjectModal
+          isOpen={true}
+          onClose={() => setDuplicatingProject(null)}
+          project={duplicatingProject}
+          userId={session.userId}
         />
       )}
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router';
-import { ArrowLeft, Pencil, Copy, Trash2, Package, Calendar } from 'lucide-react';
+import { ArrowLeft, Pencil, Copy, Trash2, Package, Calendar, MoreVertical } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
@@ -14,12 +14,14 @@ import { projectsRepo, projectGeneralListsRepo, catalogItemsRepo, usersRepo } fr
 import { formatDateCustom } from '@/lib/utils/date';
 import { useAppSetting } from '@/hooks/useAppSetting';
 import { useAuth } from '@/hooks/useAuth';
+import { useToast } from '@/hooks/useToast';
 import type { Project, ProjectGeneralListItem, CatalogItem, User } from '@/types/models';
 
 export function ProjectDetailPage() {
   const { projectId } = useParams<{ projectId: string }>();
   const navigate = useNavigate();
   const { session } = useAuth();
+  const { addToast } = useToast();
   const [project, setProject] = useState<Project | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [listItems, setListItems] = useState<ProjectGeneralListItem[]>([]);
@@ -28,6 +30,7 @@ export function ProjectDetailPage() {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isDuplicateOpen, setIsDuplicateOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!projectId) return;
@@ -51,6 +54,43 @@ export function ProjectDetailPage() {
 
   const dateFormat = useAppSetting('date_format', 'DD/MM/YYYY');
 
+  const catalogMap = new Map(catalogItems.map((c) => [c.id, c]));
+
+  const isPublished = listItems.length > 0 && listItems.every((i) => i.published);
+
+  const exportCSV = () => {
+    const header = ['Name', 'Brand', 'Category', 'Quantity', 'Required', 'Notes'];
+    const rows = listItems.map((item) => {
+      const cat = catalogMap.get(item.catalogItemId);
+      return [
+        cat?.name ?? '',
+        cat?.brand ?? '',
+        cat?.category ?? '',
+        String(item.quantity),
+        item.isRequired ? 'Yes' : 'No',
+        item.notes,
+      ];
+    });
+    const escape = (v: string) => `"${v.replace(/"/g, '""')}"`;
+    const csv = [header, ...rows].map((r) => r.map(escape).join(',')).join('\n');
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${project?.name ?? 'gear-list'}-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const togglePublish = async () => {
+    const newVal = !isPublished;
+    await Promise.all(
+      listItems.map((item) => projectGeneralListsRepo.update(item.id, { published: newVal })),
+    );
+    setListItems((prev) => prev.map((item) => ({ ...item, published: newVal })));
+    addToast(newVal ? 'Gear list published' : 'Gear list unpublished', 'success');
+  };
+
   if (isLoading) {
     return (
       <div className="space-y-6">
@@ -64,37 +104,59 @@ export function ProjectDetailPage() {
 
   return (
     <div className="space-y-6">
-      {/* Back + actions */}
-      <div className="flex items-center justify-between gap-4">
-        <Link
-          to="/projects"
-          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-        >
-          <ArrowLeft size={16} />
-          Projects
-        </Link>
-        <div className="flex items-center gap-2">
-          <Button variant="secondary" onClick={() => setIsEditOpen(true)}>
-            <Pencil size={14} />
-            Edit
-          </Button>
-          <Button variant="secondary" onClick={() => setIsDuplicateOpen(true)}>
-            <Copy size={14} />
-            Duplicate
-          </Button>
-          <Button variant="danger" onClick={() => setIsDeleteOpen(true)}>
-            <Trash2 size={14} />
-            Delete
-          </Button>
-        </div>
-      </div>
+      {/* Back */}
+      <Link
+        to="/projects"
+        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <ArrowLeft size={16} />
+        Projects
+      </Link>
 
       {/* Project header */}
       <div className="space-y-3">
         <div className="flex flex-col gap-1">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 relative">
             <h1>{project.name}</h1>
             <DebugFileBadge />
+            <div className="relative ml-auto">
+              <button
+                onClick={(e) => { e.preventDefault(); setMenuOpen((v) => !v); }}
+                className="p-1.5 rounded-lg text-prepshot-sage bg-accent/15 hover:bg-accent/25 transition-colors"
+                aria-label="Actions"
+              >
+                <MoreVertical size={16} />
+              </button>
+
+              {menuOpen && (
+                <>
+                  <div className="fixed inset-0 z-10" onClick={() => setMenuOpen(false)} />
+                  <div className="absolute right-0 top-8 z-20 min-w-[140px] rounded-lg border border-border bg-background shadow-lg py-1">
+                    <button
+                      onClick={() => { setMenuOpen(false); setIsEditOpen(true); }}
+                      className="flex items-center gap-2 w-full px-3 py-2 text-sm hover:bg-muted transition-colors text-left"
+                    >
+                      <Pencil size={14} />
+                      Project info
+                    </button>
+                    <button
+                      onClick={() => { setMenuOpen(false); setIsDuplicateOpen(true); }}
+                      className="flex items-center gap-2 w-full px-3 py-2 text-sm hover:bg-muted transition-colors text-left"
+                    >
+                      <Copy size={14} />
+                      Duplicate
+                    </button>
+                    <button
+                      onClick={() => { setMenuOpen(false); setIsDeleteOpen(true); }}
+                      className="flex items-center gap-2 w-full px-3 py-2 text-sm hover:bg-muted transition-colors text-left text-destructive"
+                    >
+                      <Trash2 size={14} />
+                      Delete
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
           {project.productionCompany && (
             <span className="w-fit">
@@ -152,18 +214,20 @@ export function ProjectDetailPage() {
             <h2 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">Gear List</h2>
           </div>
           <div className="flex items-center gap-3">
-            <ExportMenu
-              projectId={project.id}
-              project={project}
-              items={listItems}
-              catalogItems={catalogItems}
-            />
-            <Link
-              to={`/projects/${project.id}/list`}
-              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Edit →
-            </Link>
+            <Button variant="primary" size="sm" onClick={() => navigate(`/projects/${project.id}/list`)} disabled={listItems.length === 0}>
+              Edit Gear List
+            </Button>
+            {listItems.length > 0 && (
+              <ExportMenu
+                projectId={project.id}
+                project={project}
+                items={listItems}
+                catalogItems={catalogItems}
+                onExportCSV={exportCSV}
+                onTogglePublish={togglePublish}
+                isPublished={isPublished}
+              />
+            )}
           </div>
         </div>
         <Card>
@@ -171,6 +235,7 @@ export function ProjectDetailPage() {
             items={listItems}
             catalogItems={catalogItems}
             users={listUsers}
+            onCreateList={() => navigate(`/projects/${project.id}/list`)}
           />
         </Card>
       </div>

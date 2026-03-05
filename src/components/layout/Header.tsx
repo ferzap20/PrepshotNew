@@ -27,7 +27,11 @@ export function Header() {
           >
             <Menu size={20} />
           </button>
-          <img src="/logo header.png" alt="PrepShot" className="h-7 w-auto object-contain" />
+          <img
+            src={theme === 'dark' ? '/logo header.png' : '/logo header black.png'}
+            alt="PrepShot"
+            className="h-7 w-auto object-contain"
+          />
         </div>
 
         <div className="flex items-center gap-2">

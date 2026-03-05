@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router';
-import { ArrowLeft, Trash2, Pencil, ChevronDown, ChevronRight, Search, Plus, Package, Check, Send, Download } from 'lucide-react';
+import { ArrowLeft, Trash2, Pencil, ChevronDown, ChevronRight, Search, Plus, Package } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
@@ -179,6 +179,7 @@ export function ProjectListPage() {
                 setBrandFilter(opt && opt.value !== brandFilter ? opt.value : '');
               }}
               allLabel="All brands"
+              variant="secondary"
             />
           )}
 
@@ -298,15 +299,10 @@ export function ProjectListPage() {
                   project={project}
                   items={listItems}
                   catalogItems={Array.from(catalogMap.values())}
+                  onExportCSV={exportCSV}
+                  onTogglePublish={togglePublish}
+                  isPublished={isPublished}
                 />
-                <Button variant="secondary" onClick={exportCSV}>
-                  <Download size={14} />
-                  CSV
-                </Button>
-                <Button variant={isPublished ? 'primary' : 'secondary'} onClick={togglePublish}>
-                  {isPublished ? <Check size={14} /> : <Send size={14} />}
-                  {isPublished ? 'Published' : 'Publish'}
-                </Button>
               </>
             )}
           </div>

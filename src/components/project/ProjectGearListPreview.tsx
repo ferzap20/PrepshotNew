@@ -8,6 +8,7 @@ interface Props {
   printMode?: boolean;
   showBrand?: boolean;
   showQuantity?: boolean;
+  onCreateList?: () => void;
 }
 
 function getUserLabel(user: User | undefined): string {
@@ -23,6 +24,7 @@ export function ProjectGearListPreview({
   printMode = false,
   showBrand = true,
   showQuantity = true,
+  onCreateList,
 }: Props) {
   const catalogMap = useMemo(
     () => new Map(catalogItems.map((c) => [c.id, c])),
@@ -49,7 +51,17 @@ export function ProjectGearListPreview({
 
   if (items.length === 0) {
     return (
-      <p className="text-sm italic text-muted-foreground">No items in this list yet.</p>
+      <div className="flex flex-col items-center gap-3 py-4">
+        <p className="text-sm italic text-muted-foreground">No items in this list yet.</p>
+        {onCreateList && (
+          <button
+            onClick={onCreateList}
+            className="px-4 py-2 rounded-lg text-sm font-medium bg-primary text-primary-foreground hover:bg-prepshot-teal-dark transition-colors"
+          >
+            Create List
+          </button>
+        )}
+      </div>
     );
   }
 
