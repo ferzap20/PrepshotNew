@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils/cn';
 
-type BadgeVariant = 'default' | 'success' | 'warning' | 'danger' | 'info' | 'outline';
+type BadgeVariant = 'default' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'outline' | 'destructive';
 
 interface BadgeProps {
   variant?: BadgeVariant;
@@ -9,12 +9,14 @@ interface BadgeProps {
 }
 
 const variantStyles: Record<BadgeVariant, string> = {
-  default:  'bg-prepshot-teal-light text-prepshot-teal-dark border-transparent',
-  success:  'bg-prepshot-sage-light text-prepshot-charcoal border-transparent',
-  warning:  'bg-prepshot-peach-light text-prepshot-charcoal border-transparent',
-  danger:   'bg-prepshot-error-bg text-prepshot-error-text border-prepshot-error-border',
-  info:     'bg-prepshot-info-bg text-prepshot-info-text border-transparent',
-  outline:  'border-primary text-primary bg-transparent',
+  default:     'bg-prepshot-teal-light text-prepshot-teal-dark border-transparent',
+  secondary:   'bg-secondary text-secondary-foreground border-transparent',
+  success:     'bg-prepshot-sage-light text-prepshot-charcoal border-transparent',
+  warning:     'bg-prepshot-peach-light text-prepshot-charcoal border-transparent',
+  danger:      'bg-prepshot-error-bg text-prepshot-error-text border-prepshot-error-border',
+  destructive: 'bg-destructive text-destructive-foreground border-transparent',
+  info:        'bg-prepshot-info-bg text-prepshot-info-text border-transparent',
+  outline:     'border-primary text-primary bg-transparent',
 };
 
 export function Badge({ variant = 'default', children, className }: BadgeProps) {

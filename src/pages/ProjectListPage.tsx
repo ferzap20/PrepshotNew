@@ -147,14 +147,15 @@ export function ProjectListPage() {
         />
       </div>
 
-      <div className="flex gap-1 flex-shrink-0">
-        {(['catalog', 'mygear'] as const).map((tab) => (
+      <div className="flex flex-shrink-0 rounded-lg overflow-hidden border border-border">
+        {(['catalog', 'mygear'] as const).map((tab, i) => (
           <button
             key={tab}
             onClick={() => setAddTab(tab)}
             className={cn(
-              'px-3 py-1.5 rounded-lg text-sm transition-colors',
-              addTab === tab ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground',
+              'px-3 py-1.5 text-sm transition-colors',
+              i > 0 && 'border-l border-border',
+              addTab === tab ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:bg-muted/70',
             )}
           >
             {tab === 'catalog' ? 'Catalog' : 'My Gear'}

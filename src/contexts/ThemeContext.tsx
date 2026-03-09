@@ -15,7 +15,7 @@ const STORAGE_KEY = 'prepshot-theme';
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
-    return saved === 'light' ? 'light' : 'dark';
+    return saved === 'dark' ? 'dark' : 'light';
   });
 
   useEffect(() => {

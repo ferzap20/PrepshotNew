@@ -8,6 +8,7 @@ import {
   Settings,
   Shield,
   BookOpen,
+  Palette,
 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { useSidebar } from '@/hooks/useSidebar';
@@ -33,6 +34,10 @@ const mainNav: NavItem[] = [
 const systemNav: NavItem[] = [
   { to: '/settings', icon: <Settings size={18} />, label: 'Settings' },
   { to: '/admin', icon: <Shield size={18} />, label: 'Admin', adminOnly: true },
+];
+
+const designNav: NavItem[] = [
+  { to: '/design-elements', icon: <Palette size={18} />, label: 'Design Elements', adminOnly: true },
 ];
 
 function SidebarLink({ to, icon, label }: NavItem) {
@@ -64,6 +69,7 @@ export function Sidebar() {
   const isAdmin = session?.role === UserRole.Admin;
 
   const filteredSystemNav = systemNav.filter((item) => !item.adminOnly || isAdmin);
+  const filteredDesignNav = designNav.filter((item) => !item.adminOnly || isAdmin);
 
   return (
     <>
@@ -101,6 +107,17 @@ export function Sidebar() {
               <SidebarLink key={item.to} {...item} />
             ))}
           </div>
+
+          {isAdmin && filteredDesignNav.length > 0 && (
+            <div className="space-y-1">
+              <p className="text-[10px] uppercase tracking-wider text-muted-foreground px-3 mb-2">
+                Design
+              </p>
+              {filteredDesignNav.map((item) => (
+                <SidebarLink key={item.to} {...item} />
+              ))}
+            </div>
+          )}
         </nav>
       </aside>
     </>
