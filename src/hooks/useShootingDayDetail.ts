@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import {
   projectsRepo,
   shootingDaysRepo,
@@ -30,7 +30,7 @@ export function useShootingDayDetail(
   const [notesSaved, setNotesSaved] = useState(false);
   const [search, setSearch] = useState('');
 
-  const load = async () => {
+  const load = useCallback(async () => {
     if (!projectId || !dayId) return;
     setIsLoading(true);
     const [, d, items, modifications, catalog] = await Promise.all([
@@ -46,11 +46,11 @@ export function useShootingDayDetail(
     setMods(modifications);
     setCatalogItems(catalog);
     setIsLoading(false);
-  };
+  }, [projectId, dayId]);
 
   useEffect(() => {
     load();
-  }, [projectId, dayId]);
+  }, [load]);
 
   const catalogMap = useMemo(() => new Map(catalogItems.map((c) => [c.id, c])), [catalogItems]);
 
@@ -109,7 +109,7 @@ export function useShootingDayDetail(
       category,
       rows: map.get(category)!.sort((a, b) => a.catalogItem.name.localeCompare(b.catalogItem.name)),
     }));
-  }, [baseItems, mods, catalogMap, removedIds, addMods, modByCatalogId]);
+  }, [baseItems, catalogMap, removedIds, addMods, modByCatalogId]);
 
   const addedCatalogIds = useMemo(
     () =>

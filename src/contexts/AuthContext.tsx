@@ -7,6 +7,18 @@ export interface AuthSession {
   userId: string;
   email: string;
   role: UserRole;
+  name?: string;
+}
+
+interface ServerUser {
+  id: string;
+  email: string;
+  role: UserRole;
+  name?: string;
+}
+
+function toSession(u: ServerUser): AuthSession {
+  return { userId: u.id, email: u.email, role: u.role, name: u.name };
 }
 
 interface AuthContextValue {
@@ -15,6 +27,7 @@ interface AuthContextValue {
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string) => Promise<void>;
   logout: () => void;
+  refreshSession: () => Promise<void>;
 }
 
 export const AuthContext = createContext<AuthContextValue | null>(null);
@@ -24,21 +37,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check for existing session via the JWT cookie on the server
-    api.get<AuthSession>('/auth/me')
-      .then((user) => setSession(user))
+    api.get<ServerUser>('/auth/me')
+      .then((user) => setSession(toSession(user)))
       .catch(() => setSession(null))
       .finally(() => setIsLoading(false));
   }, []);
 
   const login = useCallback(async (email: string, password: string) => {
-    const user = await api.post<AuthSession>('/auth/login', { email, password });
-    setSession(user);
+    const user = await api.post<ServerUser>('/auth/login', { email, password });
+    setSession(toSession(user));
   }, []);
 
   const register = useCallback(async (email: string, password: string) => {
-    const user = await api.post<AuthSession>('/auth/register', { email, password });
-    setSession(user);
+    const user = await api.post<ServerUser>('/auth/register', { email, password });
+    setSession(toSession(user));
   }, []);
 
   const logout = useCallback(() => {
@@ -46,8 +58,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setSession(null);
   }, []);
 
+  const refreshSession = useCallback(async () => {
+    const user = await api.get<ServerUser>('/auth/me');
+    setSession(toSession(user));
+  }, []);
+
   return (
-    <AuthContext.Provider value={{ session, isLoading, login, register, logout }}>
+    <AuthContext.Provider value={{ session, isLoading, login, register, logout, refreshSession }}>
       {children}
     </AuthContext.Provider>
   );

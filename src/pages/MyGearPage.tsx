@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Plus, Wrench, Pencil, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
@@ -32,7 +32,7 @@ export function MyGearPage() {
   const [editingRow, setEditingRow] = useState<GearRow | null>(null);
   const [deletingRow, setDeletingRow] = useState<GearRow | null>(null);
 
-  const load = async () => {
+  const load = useCallback(async () => {
     if (!session) return;
     setIsLoading(true);
     const gearItems = await userGearRepo.getByUserId(session.userId);
@@ -49,9 +49,9 @@ export function MyGearPage() {
       .sort((a, b) => (a.catalog?.name ?? '').localeCompare(b.catalog?.name ?? ''));
     setRows(sorted);
     setIsLoading(false);
-  };
+  }, [session]);
 
-  useEffect(() => { load(); }, [session]);
+  useEffect(() => { load(); }, [load]);
 
   return (
     <div className="space-y-6">

@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import {
   projectsRepo,
   catalogItemsRepo,
@@ -26,7 +26,7 @@ export function useGearList(projectId: string | undefined) {
   const [categoryFilter, setCategoryFilter] = useState('');
   const [brandFilter, setBrandFilter] = useState('');
 
-  const load = async () => {
+  const load = useCallback(async () => {
     if (!projectId || !session) return;
     setIsLoading(true);
     const [proj, items, catalog, gear] = await Promise.all([
@@ -40,11 +40,11 @@ export function useGearList(projectId: string | undefined) {
     setCatalogItems(catalog);
     setUserGear(gear);
     setIsLoading(false);
-  };
+  }, [projectId, session]);
 
   useEffect(() => {
     load();
-  }, [projectId, session?.userId]);
+  }, [load]);
 
   const catalogMap = useMemo(() => new Map(catalogItems.map((c) => [c.id, c])), [catalogItems]);
 

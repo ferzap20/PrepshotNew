@@ -8,7 +8,7 @@ import { OnboardingModal } from '@/components/ui/OnboardingModal';
 import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
 import { useProjects } from '@/hooks/useProjects';
 import { useAuth } from '@/hooks/useAuth';
-import { projectGeneralListsRepo, usersRepo } from '@/lib/db/repositories';
+import { projectGeneralListsRepo } from '@/lib/db/repositories';
 import type { Project } from '@/types/models';
 
 export function HomePage() {
@@ -16,15 +16,9 @@ export function HomePage() {
   const { projects, isLoading, refresh } = useProjects();
   const [equipmentCounts, setEquipmentCounts] = useState<Record<string, number>>({});
   const [isCreateOpen, setIsCreateOpen] = useState(false);
-  const [displayName, setDisplayName] = useState('');
 
-  useEffect(() => {
-    if (!session?.userId) return;
-    usersRepo.getById(session.userId).then((user) => {
-      const name = user?.name?.trim() || session.email.split('@')[0];
-      setDisplayName(name);
-    });
-  }, [session?.userId, session?.email]);
+  const displayName =
+    session?.name?.trim() || (session?.email ? session.email.split('@')[0] : '');
 
   useEffect(() => {
     if (projects.length === 0) return;
@@ -51,7 +45,7 @@ export function HomePage() {
       <div className="flex items-start justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <h1>Welcome back, {displayName}</h1>
+            <h1>Welcome{displayName ? `, ${displayName}` : ''}</h1>
             <DebugFileBadge />
           </div>
           <p className="text-sm text-muted-foreground mt-1">

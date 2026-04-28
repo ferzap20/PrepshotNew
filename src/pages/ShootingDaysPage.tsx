@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useParams, Link, useNavigate } from 'react-router';
 import { ArrowLeft, ChevronLeft, ChevronRight, Trash2, CalendarDays } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
@@ -43,7 +43,7 @@ export function ShootingDaysPage() {
   const [calYear, setCalYear] = useState(new Date().getFullYear());
   const [calMonth, setCalMonth] = useState(new Date().getMonth());
 
-  const load = async () => {
+  const load = useCallback(async () => {
     if (!projectId) return;
     setIsLoading(true);
     const [proj, shootingDays] = await Promise.all([
@@ -58,9 +58,9 @@ export function ShootingDaysPage() {
       setCalMonth(d.getMonth());
     }
     setIsLoading(false);
-  };
+  }, [projectId]);
 
-  useEffect(() => { load(); }, [projectId]);
+  useEffect(() => { load(); }, [load]);
 
   const daysByDate = useMemo(() => new Map(days.map((d) => [d.date, d])), [days]);
 

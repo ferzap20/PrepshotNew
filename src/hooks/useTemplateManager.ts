@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import {
   packageTemplatesRepo,
   templateItemsRepo,
@@ -18,7 +18,7 @@ export function useTemplateManager() {
   const [templateItemsMap, setTemplateItemsMap] = useState<Map<string, TemplateItem[]>>(new Map());
   const [addSearch, setAddSearch] = useState('');
 
-  const load = async () => {
+  const load = useCallback(async () => {
     if (!session) return;
     setIsLoading(true);
     const [tmpl, catalog, allItems] = await Promise.all([
@@ -37,11 +37,11 @@ export function useTemplateManager() {
     }
     setTemplateItemsMap(map);
     setIsLoading(false);
-  };
+  }, [session]);
 
   useEffect(() => {
     load();
-  }, [session?.userId]);
+  }, [load]);
 
   const catalogMap = useMemo(() => new Map(catalogItems.map((c) => [c.id, c])), [catalogItems]);
 

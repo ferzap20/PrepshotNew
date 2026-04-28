@@ -31,20 +31,14 @@ const DATE_FORMAT_OPTIONS = [
 ];
 
 function AccountSettings() {
-  const { session } = useAuth();
-  const [name, setName] = useState('');
+  const { session, refreshSession } = useAuth();
+  const [name, setName] = useState(session?.name ?? '');
   const [saved, setSaved] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
-    if (session?.userId) {
-      usersRepo.getById(session.userId).then((user) => {
-        setName(user?.name ?? '');
-        setIsLoading(false);
-      });
-    }
-  }, [session?.userId]);
+    setName(session?.name ?? '');
+  }, [session?.name]);
 
   const handleSave = async (e: FormEvent) => {
     e.preventDefault();
@@ -52,21 +46,13 @@ function AccountSettings() {
     setIsSaving(true);
     try {
       await usersRepo.update(session.userId, { name: name.trim() });
+      await refreshSession();
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
     } finally {
       setIsSaving(false);
     }
   };
-
-  if (isLoading) {
-    return (
-      <Card>
-        <h3 className="mb-3">Account</h3>
-        <div className="h-20 bg-muted rounded animate-pulse" />
-      </Card>
-    );
-  }
 
   return (
     <Card>
