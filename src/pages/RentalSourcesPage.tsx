@@ -8,7 +8,8 @@ import {
   EditRentalSourceModal,
   DeleteRentalSourceDialog,
 } from '@/components/rental-sources/RentalSourceModals';
-import { RentalCompanyCard, localSourceToCompany } from '@/components/rental-sources/RentalCompanyCard';
+import { RentalCompanyCard } from '@/components/rental-sources/RentalCompanyCard';
+import { localSourceToCompany } from '@/utils/rentalSourceAdapter';
 import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
 import { rentalSourcesRepo } from '@/lib/db/repositories';
 import { useAuth } from '@/hooks/useAuth';

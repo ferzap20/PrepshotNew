@@ -1,7 +1,7 @@
 import { Phone, Globe, Mail, Pencil, Trash2 } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
-import type { RentalCompany, RentalSource } from '@/types/models';
+import type { RentalCompany } from '@/types/models';
 
 interface RentalCompanyCardProps {
   company: RentalCompany;
@@ -9,23 +9,6 @@ interface RentalCompanyCardProps {
   isAdmin?: boolean;
   onEdit?: () => void;
   onDelete?: () => void;
-}
-
-/** Adapts a local RentalSource (IndexedDB) into a RentalCompany shape */
-export function localSourceToCompany(s: RentalSource): RentalCompany {
-  return {
-    id: s.id,
-    name: s.name,
-    city: s.location || '',
-    country: '',
-    address: s.address || '',
-    phone: '',
-    email: '',
-    website: '',
-    specialties: [],
-    featured: false,
-    notes: s.notes || '',
-  };
 }
 
 export function RentalCompanyCard({
