@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useState, useEffect, useCallback, type ReactNode } from 'react';
-import { appSettingsRepo } from '@/lib/db/repositories';
+import { api, ApiError } from '@/lib/api/client';
+import { useAuth } from '@/hooks/useAuth';
 
 type SettingsMap = Record<string, string>;
 
@@ -13,20 +14,28 @@ interface AppSettingsContextValue {
 export const AppSettingsContext = createContext<AppSettingsContextValue | null>(null);
 
 export function AppSettingsProvider({ children }: { children: ReactNode }) {
+  const { session } = useAuth();
   const [settings, setSettings] = useState<SettingsMap>({});
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    appSettingsRepo.getAll().then((all) => {
-      const map: SettingsMap = {};
-      for (const s of all) map[s.key] = s.value;
-      setSettings(map);
+    if (!session) {
+      setSettings({});
       setIsLoaded(true);
-    });
-  }, []);
+      return;
+    }
+
+    api.get<SettingsMap>('/settings')
+      .then((map) => setSettings(map))
+      .catch((err) => {
+        if (!(err instanceof ApiError && err.status === 401)) throw err;
+        setSettings({});
+      })
+      .finally(() => setIsLoaded(true));
+  }, [session]);
 
   const setSetting = useCallback(async (key: string, value: string) => {
-    await appSettingsRepo.set(key, value);
+    await api.put(`/settings/${key}`, { value });
     setSettings((prev) => ({ ...prev, [key]: value }));
   }, []);
 

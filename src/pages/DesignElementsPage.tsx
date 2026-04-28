@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import {
-  Check, Copy, AlertCircle, Info, CheckCircle2, AlertTriangle,
-  Bell, Star, Zap, Shield, Crown, Camera, Plus, Trash2, Pencil,
+  Check, Copy, AlertCircle, Info,
+  Bell, Star, Shield, Crown, Camera, Plus, Trash2, Pencil,
   Download, Upload, Search, Settings, X, ChevronRight, Clock,
   Users, Film, Clapperboard, Video, Globe, Lock, Mic, Sparkles,
   Flame, Eye, Share2, Mail, FolderOpen, Image, Layers, FileText,
   Volume2, HardDrive, Tv, BarChart3, Headphones, User,
   MoreHorizontal, ArrowRight, ArrowUpRight, Play, Bookmark, Heart,
-  TrendingUp, Gauge, RotateCcw, CircleCheck, CircleX, ChevronDown,
+  TrendingUp, Gauge, RotateCcw, CircleCheck, CircleX,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';

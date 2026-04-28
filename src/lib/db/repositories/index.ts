@@ -1,14 +1,3 @@
-export * as usersRepo from './users';
-export * as projectsRepo from './projects';
-export * as projectMembersRepo from './project-members';
-export * as shootingDaysRepo from './shooting-days';
-export * as dailyDocumentsRepo from './daily-documents';
-export * as catalogItemsRepo from './catalog-items';
-export * as rentalSourcesRepo from './rental-sources';
-export * as catalogRentalSourcesRepo from './catalog-rental-sources';
-export * as projectGeneralListsRepo from './project-general-lists';
-export * as dayListModificationsRepo from './day-list-modifications';
-export * as packageTemplatesRepo from './package-templates';
-export * as templateItemsRepo from './template-items';
-export * as userGearRepo from './user-gear';
-export * as appSettingsRepo from './app-settings';
+// Re-exports from the API client layer — this file kept for import compatibility.
+// All data now fetched from the Hono backend via HTTP.
+export * from '@/lib/api/index';

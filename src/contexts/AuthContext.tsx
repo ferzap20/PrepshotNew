@@ -1,13 +1,13 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useState, useEffect, useCallback, type ReactNode } from 'react';
-import {
-  login as authLogin,
-  register as authRegister,
-  logout as authLogout,
-  getSession,
-  type AuthSession,
-} from '@/lib/auth/auth-service';
-import { seed } from '@/lib/db/seed';
+import { api } from '@/lib/api/client';
+import type { UserRole } from '@/types/enums';
+
+export interface AuthSession {
+  userId: string;
+  email: string;
+  role: UserRole;
+}
 
 interface AuthContextValue {
   session: AuthSession | null;
@@ -24,28 +24,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function init() {
-      await seed();
-      const existing = getSession();
-      setSession(existing);
-      setIsLoading(false);
-    }
-    init();
+    // Check for existing session via the JWT cookie on the server
+    api.get<AuthSession>('/auth/me')
+      .then((user) => setSession(user))
+      .catch(() => setSession(null))
+      .finally(() => setIsLoading(false));
   }, []);
 
   const login = useCallback(async (email: string, password: string) => {
-    const s = await authLogin(email, password);
-    setSession(s);
+    const user = await api.post<AuthSession>('/auth/login', { email, password });
+    setSession(user);
   }, []);
 
   const register = useCallback(async (email: string, password: string) => {
-    await authRegister(email, password);
-    const s = await authLogin(email, password);
-    setSession(s);
+    const user = await api.post<AuthSession>('/auth/register', { email, password });
+    setSession(user);
   }, []);
 
   const logout = useCallback(() => {
-    authLogout();
+    api.post('/auth/logout').catch(() => {});
     setSession(null);
   }, []);
 

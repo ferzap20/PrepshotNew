@@ -1,0 +1,33 @@
+# Dependencies (never send to Docker daemon)
+node_modules/
+server/node_modules/
+
+# Build outputs (stages rebuild these)
+dist/
+server/dist/
+
+# Git
+.git/
+.gitignore
+
+# Environment files (secrets injected at runtime by Coolify)
+.env
+.env.*
+!.env.example
+
+# Test artifacts
+coverage/
+**/__tests__/
+**/*.test.ts
+**/*.spec.ts
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Docs (not needed in the image)
+IMPLEMENTATION_PLAN.md
+README.md
+STYLE_GUIDE.md
