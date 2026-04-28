@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router';
 import { ArrowLeft, Pencil, Copy, Trash2, Package, Calendar, MoreVertical } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
@@ -10,12 +10,13 @@ import { DebugFileBadge } from '@/components/debug/DebugFileBadge';
 import { DeleteProjectDialog } from '@/components/projects/DeleteProjectDialog';
 import { ProjectGearListPreview } from '@/components/project/ProjectGearListPreview';
 import { ExportMenu } from '@/components/project/ExportMenu';
-import { projectsRepo, projectGeneralListsRepo, catalogItemsRepo, usersRepo } from '@/lib/db/repositories';
+import { ProjectMembersPanel } from '@/components/project/ProjectMembersPanel';
+import { projectsRepo, projectGeneralListsRepo, catalogItemsRepo, usersRepo, projectMembersRepo } from '@/lib/db/repositories';
 import { formatDateCustom } from '@/lib/utils/date';
 import { useAppSetting } from '@/hooks/useAppSetting';
 import { useAuth } from '@/hooks/useAuth';
 import { useToast } from '@/hooks/useToast';
-import type { Project, ProjectGeneralListItem, CatalogItem, User } from '@/types/models';
+import type { Project, ProjectGeneralListItem, CatalogItem, User, ProjectMember } from '@/types/models';
 
 export function ProjectDetailPage() {
   const { projectId } = useParams<{ projectId: string }>();
@@ -27,10 +28,17 @@ export function ProjectDetailPage() {
   const [listItems, setListItems] = useState<ProjectGeneralListItem[]>([]);
   const [catalogItems, setCatalogItems] = useState<CatalogItem[]>([]);
   const [listUsers, setListUsers] = useState<User[]>([]);
+  const [members, setMembers] = useState<ProjectMember[]>([]);
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isDuplicateOpen, setIsDuplicateOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const loadMembers = useCallback(async () => {
+    if (!projectId) return;
+    const m = await projectMembersRepo.getByProjectId(projectId);
+    setMembers(m);
+  }, [projectId]);
 
   useEffect(() => {
     if (!projectId) return;
@@ -39,14 +47,16 @@ export function ProjectDetailPage() {
       const p = await projectsRepo.getById(projectId);
       if (!p) { navigate('/projects', { replace: true }); return; }
       setProject(p);
-      const [items, catalog, users] = await Promise.all([
+      const [items, catalog, users, m] = await Promise.all([
         projectGeneralListsRepo.getByProjectId(projectId),
         catalogItemsRepo.getAll(),
         usersRepo.getAll(),
+        projectMembersRepo.getByProjectId(projectId),
       ]);
       setListItems(items);
       setCatalogItems(catalog);
       setListUsers(users);
+      setMembers(m);
       setIsLoading(false);
     };
     load();
@@ -205,6 +215,17 @@ export function ProjectDetailPage() {
           )}
         </div>
       </div>
+
+      {/* Team Members */}
+      <Card>
+        <ProjectMembersPanel
+          projectId={project.id}
+          members={members}
+          allUsers={listUsers}
+          currentUserId={session?.userId ?? ''}
+          onChanged={loadMembers}
+        />
+      </Card>
 
       {/* Gear list */}
       <div className="space-y-3">
