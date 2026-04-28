@@ -7,6 +7,8 @@ import { logger } from 'hono/logger';
 import { readFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { migrate } from 'drizzle-orm/node-postgres/migrator';
+import { db } from './db/connection.js';
 
 import authRoutes from './routes/auth.js';
 import projectRoutes from './routes/projects.js';
@@ -76,9 +78,20 @@ if (isProd) {
 // ---------------------------------------------------------------------------
 // Start
 // ---------------------------------------------------------------------------
-serve({ fetch: app.fetch, port }, (info) => {
-  console.log(`PrepShot server running on http://localhost:${info.port}`);
-  if (!isProd) {
-    console.log('Dev mode: frontend should run separately on http://localhost:5173');
-  }
+async function start() {
+  console.log('Running database migrations…');
+  await migrate(db, { migrationsFolder: join(__dirname, '../drizzle') });
+  console.log('Migrations complete.');
+
+  serve({ fetch: app.fetch, port }, (info) => {
+    console.log(`PrepShot server running on http://localhost:${info.port}`);
+    if (!isProd) {
+      console.log('Dev mode: frontend should run separately on http://localhost:5173');
+    }
+  });
+}
+
+start().catch((err) => {
+  console.error('Failed to start server:', err);
+  process.exit(1);
 });

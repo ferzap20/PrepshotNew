@@ -26,6 +26,9 @@ COPY --from=server-build /app/server/dist    ./server/dist
 COPY --from=server-build /app/server/node_modules ./server/node_modules
 COPY server/package.json ./server/
 
+# Drizzle migration SQL files (read by migrate() at startup)
+COPY server/drizzle ./server/drizzle
+
 # Gear data referenced by the seeder at runtime:
 #   node server/dist/db/seed.js → joins __dirname/../../../src/data/gear → /app/src/data/gear
 COPY src/data ./src/data
