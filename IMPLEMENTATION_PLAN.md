@@ -52,8 +52,8 @@ Browser
 | 1 | Backend foundation (all server code) | ✅ Done |
 | 2 | Frontend migration (replace IndexedDB with API client) | ✅ Done |
 | 3 | Dockerization (Dockerfile + docker-compose.coolify.yml) | ✅ Done |
-| 4 | Server setup via SSH (PostgreSQL, Coolify app, NPM, Cloudflare) | ⬜ Todo |
-| 5 | Go-live (deploy, seed, test, change passwords) | ⬜ Todo |
+| 4 | Server setup via SSH (PostgreSQL, Coolify app, NPM, Cloudflare) | ✅ Done |
+| 5 | Go-live (deploy, seed, test, change passwords) | 🟡 In progress |
 
 ---
 
@@ -155,7 +155,7 @@ the Vite SPA and the Hono API.
 
 ---
 
-## Session 4 — Server Setup (SSH work) ⬜
+## Session 4 — Server Setup (SSH work) ✅
 
 **Do these steps via SSH on your home server:**
 
@@ -214,14 +214,51 @@ curl https://prepshot.studiomirabelle.eu/api/auth/me
 
 ---
 
-## Session 5 — Go-Live ⬜
+## Session 5 — Go-Live 🟡
 
-1. Open `https://prepshot.studiomirabelle.eu`
-2. Log in: `admin@prepshot.local` / `admin`
-3. Settings → change admin password immediately
-4. Register your real user account
-5. Verify the catalog loaded (Admin → Catalog should show all gear)
-6. Run a quick smoke test: create a project, add gear, create a shooting day
+✅ App is reachable at https://prepshot.studiomirabelle.eu and login works.
+
+**Still to do:**
+1. ⬜ Change admin password (Settings → Account)
+2. ⬜ Register your real user account
+3. ⬜ Smoke test: create a project, add gear, create a shooting day, mark items rented
+4. ⬜ Verify catalog loaded (Admin → Catalog: should show 469 items)
+
+---
+
+## Deployment Gotchas — Lessons Learned (for future projects)
+
+These bit us during PrepShot's deployment. Apply them up front for the next project.
+
+### Coolify quirks
+- **`coolify-db` is internal** — that's Coolify's own Postgres. Create a *separate* PostgreSQL resource for projects.
+- **Coolify injects `NODE_ENV=production` at build time**, which makes `npm ci` skip devDependencies. Override it inside the Dockerfile build stages with `ENV NODE_ENV=development`. Only the final runtime stage should have `NODE_ENV=production`.
+- **Coolify does NOT publish container ports to the host by default** even if the Dockerfile has `EXPOSE`. You must set **"Ports Mappings: 3100:3100"** (or whatever port) in the app's Coolify config. Without this, NPM can't reach the container at `192.168.1.179:3100`.
+- **Container names use the image hash, not the project name.** To find the container, grep by the hash visible in Coolify build logs (e.g. `docker ps | grep <hash>`), not by project name.
+- The "ARG JWT_SECRET" warning during build is harmless — Coolify auto-injects all env vars as build args.
+
+### Drizzle migrations
+- The `server/drizzle/` folder must be **generated locally** with `cd server && npm run db:generate`, then **committed to git**. The Dockerfile copies it into the runtime image.
+- Auto-run migrations at server startup (`migrate()` in `index.ts`). It's idempotent and means redeploys "just work" without manual migration steps.
+
+### Lint blocker
+- ESLint rule `react-refresh/only-export-components` will fail CI if a component file exports a non-component function. Move helpers to `src/utils/`.
+
+### Network topology that worked
+```
+Browser → Cloudflare → Tunnel (cloudflared) → npm:80 → 192.168.1.179:3100 → container:3100
+```
+Force SSL in NPM = **OFF** (tunnel sends HTTP internally; would cause redirect loop).
+
+### Reference values (PrepShot)
+| Item | Value |
+|------|-------|
+| Domain | `prepshot.studiomirabelle.eu` |
+| Container port | `3100` |
+| Coolify Postgres container | `opvz9zji231pmxs7ddwghyoj` |
+| Coolify image-hash prefix | `hzfdcjwr7yjjs4uugfiellj2` |
+| Database name | `prepshot_db` |
+| Admin login (CHANGE THIS) | `admin@prepshot.local` / `admin` |
 
 ---
 
