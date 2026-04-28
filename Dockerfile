@@ -1,6 +1,8 @@
 # ── Stage 1: Build the React frontend ──────────────────────────────────────
 FROM node:22-alpine AS frontend-build
 WORKDIR /app
+# Override any injected NODE_ENV=production so devDependencies (tsc, vite) are installed
+ENV NODE_ENV=development
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
@@ -9,6 +11,7 @@ RUN npm run build
 # ── Stage 2: Build the Hono server ─────────────────────────────────────────
 FROM node:22-alpine AS server-build
 WORKDIR /app/server
+ENV NODE_ENV=development
 COPY server/package.json ./
 RUN npm install
 COPY server/ .
