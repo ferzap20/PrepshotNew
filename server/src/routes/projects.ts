@@ -6,15 +6,20 @@ import { authMiddleware } from '../middleware/auth.js';
 import { generateId, nowISO } from '../lib/utils.js';
 
 async function notify(userId: string, type: string, projectId: string, message: string) {
-  await db.insert(schema.notifications).values({
-    id: generateId(),
-    userId,
-    type,
-    projectId,
-    message,
-    read: false,
-    createdAt: nowISO(),
-  });
+  try {
+    await db.insert(schema.notifications).values({
+      id: generateId(),
+      userId,
+      type,
+      projectId,
+      message,
+      read: false,
+      createdAt: nowISO(),
+    });
+  } catch (err) {
+    // Don't let notification failures break the main operation
+    console.error('Failed to create notification:', err);
+  }
 }
 
 const app = new Hono();

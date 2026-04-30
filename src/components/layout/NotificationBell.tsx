@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Bell, X, Check, MessageSquare, UserPlus, UserMinus } from 'lucide-react';
+import { Bell, X, MessageSquare, UserPlus, UserMinus } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import { notificationsRepo } from '@/lib/db/repositories';
 import type { Notification } from '@/types/models';
@@ -55,26 +55,31 @@ export function NotificationBell() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [open]);
 
-  const handleOpen = () => {
-    setOpen((v) => !v);
-  };
-
-  const handleMarkAllRead = async () => {
-    await notificationsRepo.markAllRead();
-    setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
+  const handleOpen = async () => {
+    const willOpen = !open;
+    setOpen(willOpen);
+    // Mark everything read when the dropdown opens — "seen" = badge clears
+    if (willOpen && unreadCount > 0) {
+      setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
+      try {
+        await notificationsRepo.markAllRead();
+      } catch {
+        // best effort
+      }
+    }
   };
 
   const handleDismiss = async (e: React.MouseEvent, id: string) => {
     e.stopPropagation();
-    await notificationsRepo.remove(id);
     setNotifications((prev) => prev.filter((n) => n.id !== id));
+    try {
+      await notificationsRepo.remove(id);
+    } catch {
+      // best effort
+    }
   };
 
-  const handleClick = async (notif: Notification) => {
-    if (!notif.read) {
-      await notificationsRepo.markAllRead();
-      setNotifications((prev) => prev.map((n) => (n.id === notif.id ? { ...n, read: true } : n)));
-    }
+  const handleClick = (notif: Notification) => {
     setOpen(false);
     if (notif.projectId) {
       navigate(`/projects/${notif.projectId}`);
@@ -98,17 +103,8 @@ export function NotificationBell() {
 
       {open && (
         <div className="absolute right-0 top-full mt-1 z-50 w-80 rounded-xl border border-border bg-background shadow-xl overflow-hidden">
-          <div className="flex items-center justify-between px-3 py-2.5 border-b border-border">
+          <div className="px-3 py-2.5 border-b border-border">
             <span className="text-sm font-medium">Notifications</span>
-            {unreadCount > 0 && (
-              <button
-                onClick={handleMarkAllRead}
-                className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Check size={11} />
-                Mark all read
-              </button>
-            )}
           </div>
 
           <div className="max-h-80 overflow-y-auto">
