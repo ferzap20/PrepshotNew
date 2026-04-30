@@ -342,6 +342,14 @@ app.delete('/:projectId/list-items/:itemId', async (c) => {
 // List Item Comments
 // ---------------------------------------------------------------------------
 
+app.get('/:projectId/list-items/commented', async (c) => {
+  const rows = await db
+    .select({ listItemId: schema.listItemComments.listItemId })
+    .from(schema.listItemComments)
+    .where(eq(schema.listItemComments.projectId, c.req.param('projectId')));
+  return c.json([...new Set(rows.map((r) => r.listItemId))]);
+});
+
 app.get('/:projectId/list-items/:itemId/comments', async (c) => {
   const rows = await db
     .select()

@@ -10,6 +10,7 @@ interface Props {
   itemName: string;
   allUsers: User[];
   onClose: () => void;
+  onCommentSent?: (itemId: string) => void;
 }
 
 function formatTime(iso: string) {
@@ -17,7 +18,7 @@ function formatTime(iso: string) {
   return d.toLocaleString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
 }
 
-export function ListItemCommentModal({ projectId, itemId, itemName, allUsers, onClose }: Props) {
+export function ListItemCommentModal({ projectId, itemId, itemName, allUsers, onClose, onCommentSent }: Props) {
   const { session } = useAuth();
   const [comments, setComments] = useState<ListItemComment[]>([]);
   const [text, setText] = useState('');
@@ -45,6 +46,7 @@ export function ListItemCommentModal({ projectId, itemId, itemName, allUsers, on
       const comment = await listItemCommentsRepo.create(projectId, itemId, text.trim());
       setText('');
       setComments((prev) => [...prev, comment]);
+      onCommentSent?.(itemId);
     } finally {
       setSending(false);
     }

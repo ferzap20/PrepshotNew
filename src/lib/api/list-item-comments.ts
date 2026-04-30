@@ -1,6 +1,10 @@
 import { api } from './client';
 import type { ListItemComment } from '@/types/models';
 
+export async function getCommentedItemIds(projectId: string): Promise<string[]> {
+  return api.get<string[]>(`/projects/${projectId}/list-items/commented`);
+}
+
 export async function getByItemId(projectId: string, itemId: string): Promise<ListItemComment[]> {
   return api.get<ListItemComment[]>(`/projects/${projectId}/list-items/${itemId}/comments`);
 }

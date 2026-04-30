@@ -12,6 +12,7 @@ import { ProjectGearListPreview } from '@/components/project/ProjectGearListPrev
 import { ExportMenu } from '@/components/project/ExportMenu';
 import { ProjectMembersPanel } from '@/components/project/ProjectMembersPanel';
 import { projectsRepo, projectGeneralListsRepo, catalogItemsRepo, usersRepo, projectMembersRepo } from '@/lib/db/repositories';
+import { listItemCommentsRepo } from '@/lib/api';
 import { formatDateCustom } from '@/lib/utils/date';
 import { useAppSetting } from '@/hooks/useAppSetting';
 import { useAuth } from '@/hooks/useAuth';
@@ -29,6 +30,7 @@ export function ProjectDetailPage() {
   const [catalogItems, setCatalogItems] = useState<CatalogItem[]>([]);
   const [listUsers, setListUsers] = useState<User[]>([]);
   const [members, setMembers] = useState<ProjectMember[]>([]);
+  const [commentedItemIds, setCommentedItemIds] = useState<Set<string>>(new Set());
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isDuplicateOpen, setIsDuplicateOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
@@ -47,16 +49,18 @@ export function ProjectDetailPage() {
       const p = await projectsRepo.getById(projectId);
       if (!p) { navigate('/projects', { replace: true }); return; }
       setProject(p);
-      const [items, catalog, users, m] = await Promise.all([
+      const [items, catalog, users, m, commentedIds] = await Promise.all([
         projectGeneralListsRepo.getByProjectId(projectId),
         catalogItemsRepo.getAll(),
         usersRepo.getAll(),
         projectMembersRepo.getByProjectId(projectId),
+        listItemCommentsRepo.getCommentedItemIds(projectId).catch((e) => { console.error('getCommentedItemIds failed:', e); return [] as string[]; }),
       ]);
       setListItems(items);
       setCatalogItems(catalog);
       setListUsers(users);
       setMembers(m);
+      setCommentedItemIds(new Set(commentedIds));
       setIsLoading(false);
     };
     load();
@@ -282,6 +286,8 @@ export function ProjectDetailPage() {
               users={listUsers}
               members={members}
               project={project}
+              commentedItemIds={commentedItemIds}
+              onCommentSent={(itemId) => setCommentedItemIds((prev) => new Set([...prev, itemId]))}
               onCreateList={isOwner ? () => navigate(`/projects/${project.id}/list`) : undefined}
             />
           </Card>

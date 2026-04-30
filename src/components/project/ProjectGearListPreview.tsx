@@ -10,6 +10,8 @@ interface Props {
   users: User[];
   members?: ProjectMember[];
   project?: Project | null;
+  commentedItemIds?: Set<string>;
+  onCommentSent?: (itemId: string) => void;
   printMode?: boolean;
   showBrand?: boolean;
   showQuantity?: boolean;
@@ -36,6 +38,8 @@ export function ProjectGearListPreview({
   users,
   members = [],
   project,
+  commentedItemIds,
+  onCommentSent,
   printMode = false,
   showBrand = true,
   showQuantity = true,
@@ -160,15 +164,22 @@ export function ProjectGearListPreview({
                           {showQuantity && (
                             <span className="text-xs text-muted-foreground">×{item.quantity}</span>
                           )}
-                          {!printMode && projectId && (
-                            <button
-                              onClick={() => setCommentItem({ id: item.id, name: cat.name })}
-                              className="opacity-0 group-hover/row:opacity-100 p-1 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
-                              aria-label="Comments"
-                            >
-                              <MessageCircle size={13} />
-                            </button>
-                          )}
+                          {!printMode && projectId && (() => {
+                            const hasComments = commentedItemIds?.has(item.id);
+                            return (
+                              <button
+                                onClick={() => setCommentItem({ id: item.id, name: cat.name })}
+                                className={`p-1 rounded-md transition-all ${
+                                  hasComments
+                                    ? 'text-primary'
+                                    : 'opacity-0 group-hover/row:opacity-100 text-muted-foreground hover:text-foreground hover:bg-muted'
+                                }`}
+                                aria-label="Comments"
+                              >
+                                <MessageCircle size={13} fill={hasComments ? 'currentColor' : 'none'} />
+                              </button>
+                            );
+                          })()}
                         </div>
                       </div>
                     ))}
@@ -187,6 +198,7 @@ export function ProjectGearListPreview({
           itemName={commentItem.name}
           allUsers={users}
           onClose={() => setCommentItem(null)}
+          onCommentSent={onCommentSent}
         />
       )}
     </>
