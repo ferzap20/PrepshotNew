@@ -1,4 +1,4 @@
-CREATE TABLE "project_invitations" (
+CREATE TABLE IF NOT EXISTS "project_invitations" (
   "id" text PRIMARY KEY NOT NULL,
   "project_id" text NOT NULL REFERENCES "projects"("id") ON DELETE CASCADE,
   "email" text NOT NULL,

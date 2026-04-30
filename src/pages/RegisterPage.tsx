@@ -42,7 +42,7 @@ export function RegisterPage() {
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="w-full max-w-sm space-y-8">
         <div className="flex flex-col items-center gap-4">
-          <img src="/prepshot logo main.png" alt="PrepShot" className="h-20 w-auto object-contain" />
+          <img src="/prepshot logo main.png" alt="Prepshot" className="h-20 w-auto object-contain" />
           <p className="text-sm text-muted-foreground">Create your account</p>
         </div>
 

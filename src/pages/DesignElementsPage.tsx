@@ -973,7 +973,7 @@ export function DesignElementsPage() {
       <div className="mb-8">
         <h1>Design Elements</h1>
         <p className="text-muted-foreground text-sm mt-1">
-          PrepShot design system — all UI components, tokens, and patterns used in the app.
+          Prepshot design system — all UI components, tokens, and patterns used in the app.
         </p>
       </div>
 

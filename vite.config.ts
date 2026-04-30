@@ -11,8 +11,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['apple-touch-icon.png'],
       manifest: {
-        name: 'PrepShot',
-        short_name: 'PrepShot',
+        name: 'Prepshot',
+        short_name: 'Prepshot',
         description: 'Camera equipment management for film & TV production',
         theme_color: '#1A1D1F',
         background_color: '#1A1D1F',
