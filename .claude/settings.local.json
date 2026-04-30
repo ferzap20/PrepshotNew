@@ -28,7 +28,9 @@
       "Bash(npx vitest run)",
       "mcp__claude_ai_Figma__get_design_context",
       "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d[''contents''][0][''text'']\\)\")",
-      "mcp__claude_ai_Figma__get_screenshot"
+      "mcp__claude_ai_Figma__get_screenshot",
+      "Bash(python3 -c ' *)",
+      "Bash(powershell -Command ' *)"
     ]
   }
 }

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Share2, Printer, Copy, Mail, CheckCheck, Download, Check, Send } from 'lucide-react';
+import { Share2, Printer, Copy, Mail, CheckCheck, Download } from 'lucide-react';
 import { useAppSetting } from '@/hooks/useAppSetting';
 import { formatListAsText } from '@/lib/utils/formatListAsText';
 import type { ProjectGeneralListItem, CatalogItem, Project } from '@/types/models';
@@ -10,11 +10,9 @@ interface Props {
   items: ProjectGeneralListItem[];
   catalogItems: CatalogItem[];
   onExportCSV?: () => void;
-  onTogglePublish?: () => void;
-  isPublished?: boolean;
 }
 
-export function ExportMenu({ projectId, project, items, catalogItems, onExportCSV, onTogglePublish, isPublished = false }: Props) {
+export function ExportMenu({ projectId, project, items, catalogItems, onExportCSV }: Props) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -124,24 +122,6 @@ export function ExportMenu({ projectId, project, items, catalogItems, onExportCS
             >
               <Download size={14} className="text-muted-foreground" />
               Export CSV
-            </button>
-          )}
-          {onTogglePublish && (
-            <button
-              onClick={() => { onTogglePublish(); setOpen(false); }}
-              className="flex items-center gap-2.5 w-full px-3 py-2 text-sm text-left hover:bg-muted transition-colors"
-            >
-              {isPublished ? (
-                <>
-                  <Check size={14} className="text-primary" />
-                  Unpublish
-                </>
-              ) : (
-                <>
-                  <Send size={14} className="text-muted-foreground" />
-                  Publish
-                </>
-              )}
             </button>
           )}
         </div>

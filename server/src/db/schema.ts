@@ -54,6 +54,39 @@ export const projectMembers = pgTable('project_members', {
 });
 
 // ---------------------------------------------------------------------------
+// Project Invitations
+// ---------------------------------------------------------------------------
+export const projectInvitations = pgTable('project_invitations', {
+  id: text('id').primaryKey(),
+  projectId: text('project_id')
+    .notNull()
+    .references(() => projects.id, { onDelete: 'cascade' }),
+  email: text('email').notNull(),
+  invitedBy: text('invited_by')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  createdAt: text('created_at').notNull(),
+});
+
+// ---------------------------------------------------------------------------
+// List Item Comments
+// ---------------------------------------------------------------------------
+export const listItemComments = pgTable('list_item_comments', {
+  id: text('id').primaryKey(),
+  projectId: text('project_id')
+    .notNull()
+    .references(() => projects.id, { onDelete: 'cascade' }),
+  listItemId: text('list_item_id')
+    .notNull()
+    .references(() => projectGeneralLists.id, { onDelete: 'cascade' }),
+  userId: text('user_id')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  text: text('text').notNull(),
+  createdAt: text('created_at').notNull(),
+});
+
+// ---------------------------------------------------------------------------
 // Shooting Days
 // ---------------------------------------------------------------------------
 export const shootingDays = pgTable('shooting_days', {

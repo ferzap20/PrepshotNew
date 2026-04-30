@@ -9,6 +9,19 @@ import { nowISO } from '../lib/utils.js';
 const app = new Hono();
 app.use('/*', authMiddleware);
 
+// Lookup a single user by email — returns minimal info, no password hash
+app.get('/lookup', async (c) => {
+  const email = c.req.query('email')?.toLowerCase();
+  if (!email) return c.json({ error: 'email required' }, 400);
+  const [user] = await db
+    .select({ id: schema.users.id, email: schema.users.email, name: schema.users.name, createdAt: schema.users.createdAt })
+    .from(schema.users)
+    .where(eq(schema.users.email, email))
+    .limit(1);
+  if (!user) return c.json({ error: 'Not found' }, 404);
+  return c.json(user);
+});
+
 // List all users — available to all authenticated users (for project member assignment)
 app.get('/', async (c) => {
   const rows = await db

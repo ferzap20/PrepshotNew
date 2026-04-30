@@ -44,6 +44,7 @@ function ProjectRowCard({
       <Link to={`/projects/${project.id}`} className="flex-1 min-w-0">
         <div className="flex items-center gap-3 flex-wrap">
           <span className="font-medium truncate">{project.name}</span>
+          {project.isMember && <Badge variant="default">Shared</Badge>}
           {project.productionCompany && <Badge variant="info">{project.productionCompany}</Badge>}
         </div>
         <p className="text-xs text-muted-foreground mt-0.5">
@@ -51,46 +52,48 @@ function ProjectRowCard({
         </p>
       </Link>
 
-      <div className="relative flex-shrink-0">
-        <button
-          onClick={(e) => { e.preventDefault(); setMenuOpen((v) => !v); }}
-          className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-          aria-label="Actions"
-        >
-          <MoreVertical size={16} />
-        </button>
+      {!project.isMember && (
+        <div className="relative flex-shrink-0">
+          <button
+            onClick={(e) => { e.preventDefault(); setMenuOpen((v) => !v); }}
+            className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            aria-label="Actions"
+          >
+            <MoreVertical size={16} />
+          </button>
 
-        {menuOpen && (
-          <>
-            <div className="fixed inset-0 z-10" onClick={() => setMenuOpen(false)} />
-            <div className={cn(
-              'absolute right-0 top-8 z-20 min-w-[140px] rounded-lg border border-border bg-surface shadow-lg py-1',
-            )}>
-              <button
-                onClick={() => { setMenuOpen(false); onEdit(project); }}
-                className="flex items-center gap-2 w-full px-3 py-2 text-sm hover:bg-muted transition-colors text-left"
-              >
-                <Pencil size={14} />
-                Project Info
-              </button>
-              <button
-                onClick={() => { setMenuOpen(false); onDuplicate(project); }}
-                className="flex items-center gap-2 w-full px-3 py-2 text-sm hover:bg-muted transition-colors text-left"
-              >
-                <Copy size={14} />
-                Duplicate
-              </button>
-              <button
-                onClick={() => { setMenuOpen(false); onDelete(project); }}
-                className="flex items-center gap-2 w-full px-3 py-2 text-sm hover:bg-muted transition-colors text-left text-destructive"
-              >
-                <Trash2 size={14} />
-                Delete
-              </button>
-            </div>
-          </>
-        )}
-      </div>
+          {menuOpen && (
+            <>
+              <div className="fixed inset-0 z-10" onClick={() => setMenuOpen(false)} />
+              <div className={cn(
+                'absolute right-0 top-8 z-20 min-w-[140px] rounded-lg border border-border bg-surface shadow-lg py-1',
+              )}>
+                <button
+                  onClick={() => { setMenuOpen(false); onEdit(project); }}
+                  className="flex items-center gap-2 w-full px-3 py-2 text-sm hover:bg-muted transition-colors text-left"
+                >
+                  <Pencil size={14} />
+                  Project Info
+                </button>
+                <button
+                  onClick={() => { setMenuOpen(false); onDuplicate(project); }}
+                  className="flex items-center gap-2 w-full px-3 py-2 text-sm hover:bg-muted transition-colors text-left"
+                >
+                  <Copy size={14} />
+                  Duplicate
+                </button>
+                <button
+                  onClick={() => { setMenuOpen(false); onDelete(project); }}
+                  className="flex items-center gap-2 w-full px-3 py-2 text-sm hover:bg-muted transition-colors text-left text-destructive"
+                >
+                  <Trash2 size={14} />
+                  Delete
+                </button>
+              </div>
+            </>
+          )}
+        </div>
+      )}
     </Card>
   );
 }

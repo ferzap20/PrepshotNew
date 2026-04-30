@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router';
-import { ArrowLeft, Trash2, Pencil, ChevronDown, ChevronRight, Search, Plus, Package } from 'lucide-react';
+import { ArrowLeft, Trash2, Pencil, ChevronDown, ChevronRight, Search, Plus, Package, Send, Check } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
 import { EmptyState } from '@/components/ui/EmptyState';
@@ -294,14 +294,23 @@ export function ProjectListPage() {
             </span>
             {listItems.length > 0 && (
               <>
+                <button
+                  onClick={togglePublish}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm border transition-colors ${
+                    isPublished
+                      ? 'border-primary/40 text-primary bg-primary/5 hover:bg-primary/10'
+                      : 'border-border text-muted-foreground hover:text-foreground hover:bg-muted'
+                  }`}
+                >
+                  {isPublished ? <Check size={13} /> : <Send size={13} />}
+                  {isPublished ? 'Published' : 'Publish'}
+                </button>
                 <ExportMenu
                   projectId={projectId ?? ''}
                   project={project}
                   items={listItems}
                   catalogItems={Array.from(catalogMap.values())}
                   onExportCSV={exportCSV}
-                  onTogglePublish={togglePublish}
-                  isPublished={isPublished}
                 />
               </>
             )}

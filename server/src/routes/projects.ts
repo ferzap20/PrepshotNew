@@ -14,11 +14,25 @@ app.use('/*', authMiddleware);
 
 app.get('/', async (c) => {
   const { userId } = c.get('user');
-  const rows = await db
+
+  const owned = await db
     .select()
     .from(schema.projects)
     .where(eq(schema.projects.userId, userId));
-  return c.json(rows);
+
+  const memberships = await db
+    .select({ project: schema.projects })
+    .from(schema.projectMembers)
+    .innerJoin(schema.projects, eq(schema.projectMembers.projectId, schema.projects.id))
+    .where(eq(schema.projectMembers.userId, userId));
+
+  const memberProjects = memberships.map(({ project }) => project);
+  const ownedIds = new Set(owned.map((p) => p.id));
+  const combined = [
+    ...owned.map((p) => ({ ...p, isMember: false })),
+    ...memberProjects.filter((p) => !ownedIds.has(p.id)).map((p) => ({ ...p, isMember: true })),
+  ];
+  return c.json(combined);
 });
 
 app.post('/', async (c) => {
@@ -37,14 +51,28 @@ app.post('/', async (c) => {
 
 app.get('/:id', async (c) => {
   const { userId } = c.get('user');
+  const projectId = c.req.param('id');
+
   const [project] = await db
     .select()
     .from(schema.projects)
-    .where(and(eq(schema.projects.id, c.req.param('id')), eq(schema.projects.userId, userId)))
+    .where(eq(schema.projects.id, projectId))
     .limit(1);
 
   if (!project) return c.json({ error: 'Not found' }, 404);
-  return c.json(project);
+
+  // Allow owner or project member
+  if (project.userId !== userId) {
+    const [membership] = await db
+      .select()
+      .from(schema.projectMembers)
+      .where(and(eq(schema.projectMembers.projectId, projectId), eq(schema.projectMembers.userId, userId)))
+      .limit(1);
+    if (!membership) return c.json({ error: 'Not found' }, 404);
+    return c.json({ ...project, isMember: true });
+  }
+
+  return c.json({ ...project, isMember: false });
 });
 
 app.put('/:id', async (c) => {
@@ -157,6 +185,54 @@ app.delete('/:projectId/members/:memberId', async (c) => {
 });
 
 // ---------------------------------------------------------------------------
+// Project Invitations
+// ---------------------------------------------------------------------------
+
+app.get('/:projectId/invitations', async (c) => {
+  const rows = await db
+    .select()
+    .from(schema.projectInvitations)
+    .where(eq(schema.projectInvitations.projectId, c.req.param('projectId')));
+  return c.json(rows);
+});
+
+app.post('/:projectId/invitations', async (c) => {
+  const { userId } = c.get('user');
+  const { email } = await c.req.json<{ email: string }>();
+  const normalised = email.toLowerCase().trim();
+
+  const existing = await db
+    .select()
+    .from(schema.projectInvitations)
+    .where(
+      and(
+        eq(schema.projectInvitations.projectId, c.req.param('projectId')),
+        eq(schema.projectInvitations.email, normalised),
+      ),
+    )
+    .limit(1);
+  if (existing.length > 0) return c.json(existing[0]);
+
+  const [inv] = await db
+    .insert(schema.projectInvitations)
+    .values({ id: generateId(), projectId: c.req.param('projectId'), email: normalised, invitedBy: userId, createdAt: nowISO() })
+    .returning();
+  return c.json(inv, 201);
+});
+
+app.delete('/:projectId/invitations/:invId', async (c) => {
+  await db
+    .delete(schema.projectInvitations)
+    .where(
+      and(
+        eq(schema.projectInvitations.id, c.req.param('invId')),
+        eq(schema.projectInvitations.projectId, c.req.param('projectId')),
+      ),
+    );
+  return c.json({ ok: true });
+});
+
+// ---------------------------------------------------------------------------
 // Project General List Items
 // ---------------------------------------------------------------------------
 
@@ -205,6 +281,49 @@ app.delete('/:projectId/list-items/:itemId', async (c) => {
         eq(schema.projectGeneralLists.projectId, c.req.param('projectId')),
       ),
     );
+  return c.json({ ok: true });
+});
+
+// ---------------------------------------------------------------------------
+// List Item Comments
+// ---------------------------------------------------------------------------
+
+app.get('/:projectId/list-items/:itemId/comments', async (c) => {
+  const rows = await db
+    .select()
+    .from(schema.listItemComments)
+    .where(eq(schema.listItemComments.listItemId, c.req.param('itemId')));
+  return c.json(rows);
+});
+
+app.post('/:projectId/list-items/:itemId/comments', async (c) => {
+  const { userId } = c.get('user');
+  const { text } = await c.req.json<{ text: string }>();
+  const [comment] = await db
+    .insert(schema.listItemComments)
+    .values({
+      id: generateId(),
+      projectId: c.req.param('projectId'),
+      listItemId: c.req.param('itemId'),
+      userId,
+      text: text.trim(),
+      createdAt: nowISO(),
+    })
+    .returning();
+  return c.json(comment, 201);
+});
+
+app.delete('/:projectId/list-items/:itemId/comments', async (c) => {
+  await db
+    .delete(schema.listItemComments)
+    .where(eq(schema.listItemComments.listItemId, c.req.param('itemId')));
+  return c.json({ ok: true });
+});
+
+app.delete('/:projectId/list-items/:itemId/comments/:commentId', async (c) => {
+  await db
+    .delete(schema.listItemComments)
+    .where(eq(schema.listItemComments.id, c.req.param('commentId')));
   return c.json({ ok: true });
 });
 

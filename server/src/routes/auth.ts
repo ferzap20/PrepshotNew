@@ -90,6 +90,30 @@ app.post('/register', async (c) => {
     updatedAt: now,
   });
 
+  // Auto-claim any pending invitations for this email
+  const pendingInvites = await db
+    .select()
+    .from(schema.projectInvitations)
+    .where(eq(schema.projectInvitations.email, email.toLowerCase()));
+
+  if (pendingInvites.length > 0) {
+    await db.insert(schema.projectMembers).values(
+      pendingInvites.map((inv) => ({
+        id: generateId(),
+        projectId: inv.projectId,
+        userId: id,
+        crewType: '',
+        role: '',
+        isOwner: false,
+        joinedAt: now,
+        updatedAt: now,
+      })),
+    );
+    await db
+      .delete(schema.projectInvitations)
+      .where(eq(schema.projectInvitations.email, email.toLowerCase()));
+  }
+
   const token = await signToken({ userId: id, email: email.toLowerCase(), role: 'user' });
   setCookie(c, 'token', token, cookieOpts);
 

@@ -1,6 +1,8 @@
 export * as usersRepo from './users';
 export * as projectsRepo from './projects';
 export * as projectMembersRepo from './project-members';
+export * as projectInvitationsRepo from './project-invitations';
+export * as listItemCommentsRepo from './list-item-comments';
 export * as shootingDaysRepo from './shooting-days';
 export * as dailyDocumentsRepo from './daily-documents';
 export * as catalogItemsRepo from './catalog-items';

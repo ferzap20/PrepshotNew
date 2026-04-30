@@ -8,6 +8,20 @@
       "when": 1777381679826,
       "tag": "0000_right_red_ghost",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1745866000000,
+      "tag": "0001_project_invitations",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1745867000000,
+      "tag": "0002_list_item_comments",
+      "breakpoints": true
     }
   ]
 }

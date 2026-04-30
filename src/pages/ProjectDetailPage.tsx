@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router';
-import { ArrowLeft, Pencil, Copy, Trash2, Package, Calendar, MoreVertical } from 'lucide-react';
+import { ArrowLeft, Pencil, Copy, Trash2, Package, Calendar, MoreVertical, Send, Check } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
@@ -112,6 +112,8 @@ export function ProjectDetailPage() {
 
   if (!project) return null;
 
+  const isOwner = !project.isMember;
+
   return (
     <div className="space-y-6">
       {/* Back */}
@@ -123,12 +125,12 @@ export function ProjectDetailPage() {
         Projects
       </Link>
 
-      {/* Project header */}
-      <div className="space-y-3">
-        <div className="flex flex-col gap-1">
-          <div className="flex items-center gap-2 relative">
-            <h1>{project.name}</h1>
-            <DebugFileBadge />
+      {/* Project title + menu — full width */}
+      <div className="flex flex-col gap-1">
+        <div className="flex items-center gap-2 relative">
+          <h1>{project.name}</h1>
+          <DebugFileBadge />
+          {isOwner && (
             <div className="relative ml-auto">
               <button
                 onClick={(e) => { e.preventDefault(); setMenuOpen((v) => !v); }}
@@ -167,13 +169,17 @@ export function ProjectDetailPage() {
                 </>
               )}
             </div>
-          </div>
-          {project.productionCompany && (
-            <span className="w-fit">
-              <Badge variant="info">{project.productionCompany}</Badge>
-            </span>
           )}
         </div>
+        {project.productionCompany && (
+          <span className="w-fit">
+            <Badge variant="info">{project.productionCompany}</Badge>
+          </span>
+        )}
+      </div>
+
+      {/* Project info: dates, crew, notes */}
+      <div className="space-y-3">
         <div className="flex flex-col gap-1.5 text-sm text-muted-foreground">
           {(project.crewType || project.role) && (
             <div className="flex items-center gap-2">
@@ -216,50 +222,70 @@ export function ProjectDetailPage() {
         </div>
       </div>
 
-      {/* Team Members */}
-      <Card>
-        <ProjectMembersPanel
-          projectId={project.id}
-          members={members}
-          allUsers={listUsers}
-          currentUserId={session?.userId ?? ''}
-          onChanged={loadMembers}
-        />
-      </Card>
+      {/* Team — owners only */}
+      {isOwner && (
+        <Card>
+          <ProjectMembersPanel
+            projectId={project.id}
+            members={members}
+            allUsers={listUsers}
+            currentUserId={session?.userId ?? ''}
+            onMembersChanged={loadMembers}
+          />
+        </Card>
+      )}
 
       {/* Gear list */}
       <div className="space-y-3">
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <Package size={16} className="text-muted-foreground" />
-            <h2 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">Gear List</h2>
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-2">
+              <Package size={16} className="text-muted-foreground" />
+              <h2 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">Gear List</h2>
+            </div>
+            <div className="flex items-center gap-2 flex-wrap justify-end">
+              {isOwner && (
+                <Button variant="primary" size="sm" onClick={() => navigate(`/projects/${project.id}/list`)}>
+                  Edit Gear List
+                </Button>
+              )}
+              {listItems.length > 0 && (
+                <>
+                  {isOwner && (
+                    <button
+                      onClick={togglePublish}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm border transition-colors ${
+                        isPublished
+                          ? 'border-primary/40 text-primary bg-primary/5 hover:bg-primary/10'
+                          : 'border-border text-muted-foreground hover:text-foreground hover:bg-muted'
+                      }`}
+                    >
+                      {isPublished ? <Check size={13} /> : <Send size={13} />}
+                      {isPublished ? 'Published' : 'Publish'}
+                    </button>
+                  )}
+                  <ExportMenu
+                    projectId={project.id}
+                    project={project}
+                    items={listItems}
+                    catalogItems={catalogItems}
+                    onExportCSV={exportCSV}
+                  />
+                </>
+              )}
+            </div>
           </div>
-          <div className="flex items-center gap-3">
-            <Button variant="primary" size="sm" onClick={() => navigate(`/projects/${project.id}/list`)} disabled={listItems.length === 0}>
-              Edit Gear List
-            </Button>
-            {listItems.length > 0 && (
-              <ExportMenu
-                projectId={project.id}
-                project={project}
-                items={listItems}
-                catalogItems={catalogItems}
-                onExportCSV={exportCSV}
-                onTogglePublish={togglePublish}
-                isPublished={isPublished}
-              />
-            )}
-          </div>
+          <Card>
+            <ProjectGearListPreview
+              projectId={project.id}
+              items={listItems}
+              catalogItems={catalogItems}
+              users={listUsers}
+              members={members}
+              project={project}
+              onCreateList={isOwner ? () => navigate(`/projects/${project.id}/list`) : undefined}
+            />
+          </Card>
         </div>
-        <Card>
-          <ProjectGearListPreview
-            items={listItems}
-            catalogItems={catalogItems}
-            users={listUsers}
-            onCreateList={() => navigate(`/projects/${project.id}/list`)}
-          />
-        </Card>
-      </div>
 
       <EditProjectModal
         isOpen={isEditOpen}

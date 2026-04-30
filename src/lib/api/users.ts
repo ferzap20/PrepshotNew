@@ -13,6 +13,10 @@ export async function getByEmail(_email: string): Promise<User | undefined> {
   return undefined;
 }
 
+export async function lookupByEmail(email: string): Promise<Pick<User, 'id' | 'email' | 'name' | 'createdAt'> | null> {
+  return api.get<Pick<User, 'id' | 'email' | 'name' | 'createdAt'>>(`/users/lookup?email=${encodeURIComponent(email)}`).catch(() => null);
+}
+
 export async function create(_data: Omit<User, 'id' | 'createdAt' | 'updatedAt'>): Promise<User> {
   throw new Error('Use /api/auth/register to create users');
 }

@@ -13,6 +13,7 @@ export interface User {
 export interface Project {
   id: string;
   userId: string;
+  isMember?: boolean;
   name: string;
   crewType: CrewType | string;
   startDate: string | null;
@@ -25,6 +26,23 @@ export interface Project {
   notes: string;
   createdAt: string;
   updatedAt: string;
+}
+
+export interface ListItemComment {
+  id: string;
+  projectId: string;
+  listItemId: string;
+  userId: string;
+  text: string;
+  createdAt: string;
+}
+
+export interface ProjectInvitation {
+  id: string;
+  projectId: string;
+  email: string;
+  invitedBy: string;
+  createdAt: string;
 }
 
 export interface ProjectMember {
