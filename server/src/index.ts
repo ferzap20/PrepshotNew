@@ -19,6 +19,7 @@ import userGearRoutes from './routes/user-gear.js';
 import settingsRoutes from './routes/settings.js';
 import userRoutes from './routes/users.js';
 import flatRoutes from './routes/list-items.js';
+import notificationRoutes from './routes/notifications.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const isProd = process.env.NODE_ENV === 'production';
@@ -55,6 +56,7 @@ app.route('/api/my-gear', userGearRoutes);
 app.route('/api/settings', settingsRoutes);
 app.route('/api/users', userRoutes);
 app.route('/api', flatRoutes); // flat: /api/list-items/:id, /api/day-modifications/:id
+app.route('/api/notifications', notificationRoutes);
 
 // ---------------------------------------------------------------------------
 // Static frontend (production only)

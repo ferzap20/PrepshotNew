@@ -262,6 +262,21 @@ export const userGear = pgTable('user_gear', {
 });
 
 // ---------------------------------------------------------------------------
+// Notifications
+// ---------------------------------------------------------------------------
+export const notifications = pgTable('notifications', {
+  id: text('id').primaryKey(),
+  userId: text('user_id')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  type: text('type').notNull(), // 'added_to_project' | 'removed_from_project' | 'new_comment'
+  projectId: text('project_id').references(() => projects.id, { onDelete: 'cascade' }),
+  message: text('message').notNull(),
+  read: boolean('read').notNull().default(false),
+  createdAt: text('created_at').notNull(),
+});
+
+// ---------------------------------------------------------------------------
 // App Settings (per-user key/value store)
 // ---------------------------------------------------------------------------
 export const appSettings = pgTable(

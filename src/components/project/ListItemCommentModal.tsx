@@ -41,10 +41,13 @@ export function ListItemCommentModal({ projectId, itemId, itemName, allUsers, on
   const handleSend = async () => {
     if (!text.trim() || sending) return;
     setSending(true);
-    await listItemCommentsRepo.create(projectId, itemId, text.trim());
-    setText('');
-    setSending(false);
-    await load();
+    try {
+      const comment = await listItemCommentsRepo.create(projectId, itemId, text.trim());
+      setText('');
+      setComments((prev) => [...prev, comment]);
+    } finally {
+      setSending(false);
+    }
   };
 
   const handleDelete = async (commentId: string) => {

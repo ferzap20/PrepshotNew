@@ -175,6 +175,16 @@ export interface AppSetting {
   updatedAt: string;
 }
 
+export interface Notification {
+  id: string;
+  userId: string;
+  type: 'added_to_project' | 'removed_from_project' | 'new_comment';
+  projectId: string | null;
+  message: string;
+  read: boolean;
+  createdAt: string;
+}
+
 export interface RentalCompany {
   id: string;
   name: string;

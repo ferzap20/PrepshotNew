@@ -5,6 +5,18 @@ import * as schema from '../db/schema.js';
 import { authMiddleware } from '../middleware/auth.js';
 import { generateId, nowISO } from '../lib/utils.js';
 
+async function notify(userId: string, type: string, projectId: string, message: string) {
+  await db.insert(schema.notifications).values({
+    id: generateId(),
+    userId,
+    type,
+    projectId,
+    message,
+    read: false,
+    createdAt: nowISO(),
+  });
+}
+
 const app = new Hono();
 app.use('/*', authMiddleware);
 
@@ -146,12 +158,24 @@ app.get('/:projectId/members', async (c) => {
 });
 
 app.post('/:projectId/members', async (c) => {
+  const { userId: actorId } = c.get('user');
   const body = await c.req.json();
+  const projectId = c.req.param('projectId');
   const now = nowISO();
+
   const [member] = await db
     .insert(schema.projectMembers)
-    .values({ id: generateId(), projectId: c.req.param('projectId'), ...body, joinedAt: now, updatedAt: now })
+    .values({ id: generateId(), projectId, ...body, joinedAt: now, updatedAt: now })
     .returning();
+
+  // Notify the new member
+  const [[project], [actor]] = await Promise.all([
+    db.select({ name: schema.projects.name }).from(schema.projects).where(eq(schema.projects.id, projectId)).limit(1),
+    db.select({ name: schema.users.name, email: schema.users.email }).from(schema.users).where(eq(schema.users.id, actorId)).limit(1),
+  ]);
+  const actorName = actor?.name || actor?.email?.split('@')[0] || 'Someone';
+  await notify(body.userId, 'added_to_project', projectId, `${actorName} added you to "${project?.name ?? 'a project'}"`);
+
   return c.json(member, 201);
 });
 
@@ -173,14 +197,39 @@ app.put('/:projectId/members/:memberId', async (c) => {
 });
 
 app.delete('/:projectId/members/:memberId', async (c) => {
+  const { userId: actorId } = c.get('user');
+  const projectId = c.req.param('projectId');
+
+  // Fetch member before deleting
+  const [memberRow] = await db
+    .select({ userId: schema.projectMembers.userId })
+    .from(schema.projectMembers)
+    .where(
+      and(
+        eq(schema.projectMembers.id, c.req.param('memberId')),
+        eq(schema.projectMembers.projectId, projectId),
+      ),
+    )
+    .limit(1);
+
   await db
     .delete(schema.projectMembers)
     .where(
       and(
         eq(schema.projectMembers.id, c.req.param('memberId')),
-        eq(schema.projectMembers.projectId, c.req.param('projectId')),
+        eq(schema.projectMembers.projectId, projectId),
       ),
     );
+
+  if (memberRow) {
+    const [[project], [actor]] = await Promise.all([
+      db.select({ name: schema.projects.name }).from(schema.projects).where(eq(schema.projects.id, projectId)).limit(1),
+      db.select({ name: schema.users.name, email: schema.users.email }).from(schema.users).where(eq(schema.users.id, actorId)).limit(1),
+    ]);
+    const actorName = actor?.name || actor?.email?.split('@')[0] || 'Someone';
+    await notify(memberRow.userId, 'removed_from_project', projectId, `${actorName} removed you from "${project?.name ?? 'a project'}"`);
+  }
+
   return c.json({ ok: true });
 });
 
@@ -299,17 +348,48 @@ app.get('/:projectId/list-items/:itemId/comments', async (c) => {
 app.post('/:projectId/list-items/:itemId/comments', async (c) => {
   const { userId } = c.get('user');
   const { text } = await c.req.json<{ text: string }>();
+  const projectId = c.req.param('projectId');
+  const itemId = c.req.param('itemId');
+
   const [comment] = await db
     .insert(schema.listItemComments)
     .values({
       id: generateId(),
-      projectId: c.req.param('projectId'),
-      listItemId: c.req.param('itemId'),
+      projectId,
+      listItemId: itemId,
       userId,
       text: text.trim(),
       createdAt: nowISO(),
     })
     .returning();
+
+  // Notify all other project members + owner
+  const [project, actor, listItem] = await Promise.all([
+    db.select({ name: schema.projects.name, ownerId: schema.projects.userId }).from(schema.projects).where(eq(schema.projects.id, projectId)).limit(1).then((r) => r[0]),
+    db.select({ name: schema.users.name, email: schema.users.email }).from(schema.users).where(eq(schema.users.id, userId)).limit(1).then((r) => r[0]),
+    db.select({ catalogItemId: schema.projectGeneralLists.catalogItemId }).from(schema.projectGeneralLists).where(eq(schema.projectGeneralLists.id, itemId)).limit(1).then((r) => r[0]),
+  ]);
+
+  const actorName = actor?.name || actor?.email?.split('@')[0] || 'Someone';
+  const catalogItem = listItem ? await db.select({ name: schema.catalogItems.name }).from(schema.catalogItems).where(eq(schema.catalogItems.id, listItem.catalogItemId)).limit(1).then((r) => r[0]) : null;
+  const itemName = catalogItem?.name ?? 'an item';
+  const message = `${actorName} commented on "${itemName}" in "${project?.name ?? 'a project'}"`;
+
+  const members = await db
+    .select({ userId: schema.projectMembers.userId })
+    .from(schema.projectMembers)
+    .where(eq(schema.projectMembers.projectId, projectId));
+
+  const recipientIds = new Set<string>();
+  if (project?.ownerId && project.ownerId !== userId) recipientIds.add(project.ownerId);
+  for (const m of members) {
+    if (m.userId !== userId) recipientIds.add(m.userId);
+  }
+
+  await Promise.all(
+    [...recipientIds].map((rid) => notify(rid, 'new_comment', projectId, message)),
+  );
+
   return c.json(comment, 201);
 });
 

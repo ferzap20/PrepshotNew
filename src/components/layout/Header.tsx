@@ -4,6 +4,7 @@ import { useSidebar } from '@/hooks/useSidebar';
 import { useOnlineStatus } from '@/hooks/useOnlineStatus';
 import { useTheme } from '@/hooks/useTheme';
 import { useNavigate } from 'react-router';
+import { NotificationBell } from './NotificationBell';
 
 export function Header() {
   const { session, logout } = useAuth();
@@ -53,8 +54,9 @@ export function Header() {
           </button>
 
           {session && (
-            <div className="flex items-center gap-2 ml-2">
-              <span className="text-xs text-muted-foreground hidden sm:inline">
+            <div className="flex items-center gap-1 ml-1">
+              <NotificationBell />
+              <span className="text-xs text-muted-foreground hidden sm:inline px-1">
                 {session.email}
               </span>
               <button

@@ -14,3 +14,4 @@ export * as packageTemplatesRepo from './package-templates';
 export * as templateItemsRepo from './template-items';
 export * as userGearRepo from './user-gear';
 export * as appSettingsRepo from './app-settings';
+export * as notificationsRepo from './notifications';
